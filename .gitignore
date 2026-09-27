@@ -1,0 +1,18 @@
+*:Zone.Identifier
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+.venv/
+
+# Secrets
+.env
+.env.local
+serviceAccountKey.json
+*firebase*adminsdk*.json
+
+
+# Test scripts (temporary)
+test_send_otp.pymobile/

@@ -1,0 +1,11 @@
+-- ════════════════════════════════════════════════════════════
+-- Zaytona — seed data
+-- ────────────────────────────────────────────────────────────
+-- Out of scope for US-01/02/36 (no categories/recipes needed for auth).
+-- Kept as a placeholder so the supabase/ folder matches the structure.
+-- Populate the 16 system categories & sample recipes here later, e.g.:
+--
+-- insert into public.categories (category_id, category_name) values
+--   (gen_random_uuid(), 'Fresh Produce'),
+--   (gen_random_uuid(), 'Meat & Seafood'),
+--   ... ;
