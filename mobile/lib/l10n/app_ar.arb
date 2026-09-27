@@ -1,0 +1,972 @@
+{
+  "@@locale": "ar",
+
+  "appTitle": "زيتونة",
+  "@appTitle": {
+    "description": "App name shown in the task switcher and title bars"
+  },
+
+  "joinGroupTitle": "الانضمام لمجموعة",
+  "@joinGroupTitle": {
+    "description": "Join Group page title"
+  },
+  "inviteCodeLabel": "كود الدعوة",
+  "@inviteCodeLabel": {
+    "description": "Label above the invite code text field"
+  },
+  "inviteCodeHint": "رمز الدعوة",
+  "@inviteCodeHint": {
+    "description": "Placeholder inside the invite code text field"
+  },
+  "inviteCodeRequired": "أدخل كود الدعوة أولاً",
+  "@inviteCodeRequired": {
+    "description": "Snackbar shown when tapping Join with an empty code field"
+  },
+  "joinAction": "انضمام",
+  "@joinAction": {
+    "description": "Join Group submit button"
+  },
+
+  "copyAction": "نسخ",
+  "inviteCodeCopied": "تم نسخ كود الدعوة",
+  "@inviteCodeCopied": {
+    "description": "Snackbar after copying the invite code to the clipboard"
+  },
+  "inviteLinkCopied": "تم نسخ رابط الدعوة",
+  "@inviteLinkCopied": {
+    "description": "Snackbar after copying the invite link to the clipboard (share fallback)"
+  },
+
+  "newListTitle": "قائمة جديدة",
+  "@newListTitle": {
+    "description": "Create List sheet title"
+  },
+  "listNameLabel": "اسم القائمة",
+  "@listNameLabel": {
+    "description": "Label above the list name field"
+  },
+  "listColorLabel": "لون القائمة",
+  "@listColorLabel": {
+    "description": "Label above the list accent-color picker"
+  },
+  "listNameHint": "مثال: تسوق نهاية الأسبوع",
+  "@listNameHint": {
+    "description": "Placeholder inside the list name field"
+  },
+  "createListAction": "إنشاء القائمة",
+  "@createListAction": {
+    "description": "Create List submit button"
+  },
+  "listsTab": "القوائم",
+  "@listsTab": {
+    "description": "Group detail: lists tab label"
+  },
+  "noListsYet": "لا توجد قوائم بعد",
+  "noListsYetBody": "القوائم التي تنشئها لهذه المجموعة ستظهر هنا.",
+  "@noListsYet": {
+    "description": "Group detail: empty state when the group has no lists"
+  },
+  "listCompletedBadge": "مكتملة",
+  "@listCompletedBadge": {
+    "description": "Badge on a completed shopping list card"
+  },
+  "listItemCount": "{count} عنصر",
+  "@listItemCount": {
+    "description": "Item count line on a list card",
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "retryAction": "إعادة المحاولة",
+  "@retryAction": {
+    "description": "Generic retry button under an error message"
+  },
+
+  "signupTitle": "إنشاء حساب",
+  "@signupTitle": {
+    "description": "Signup page title"
+  },
+  "signupSubtitle": "انضم لعائلتك في زيتونة",
+  "@signupSubtitle": {
+    "description": "Signup page subtitle"
+  },
+  "firstNameLabel": "الاسم الأول",
+  "@firstNameLabel": {
+    "description": "Signup: first name field label"
+  },
+  "lastNameLabel": "اسم العائلة",
+  "@lastNameLabel": {
+    "description": "Signup: last name field label"
+  },
+  "phoneLabel": "رقم الجوال",
+  "@phoneLabel": {
+    "description": "Signup: phone field label"
+  },
+  "phoneHint": "05X XXX XXXX",
+  "@phoneHint": {
+    "description": "Signup: phone field placeholder"
+  },
+  "emailLabel": "البريد الإلكتروني (اختياري)",
+  "@emailLabel": {
+    "description": "Signup: optional email field label"
+  },
+  "signupAction": "إنشاء الحساب",
+  "@signupAction": {
+    "description": "Signup submit button"
+  },
+  "alreadyHaveAccountPrompt": "لديك حساب؟",
+  "@alreadyHaveAccountPrompt": {
+    "description": "Signup: prompt before the log-in link"
+  },
+  "loginAction": "تسجيل الدخول",
+  "@loginAction": {
+    "description": "Log in link/button label"
+  },
+  "fieldRequired": "هذا الحقل مطلوب",
+  "@fieldRequired": {
+    "description": "Validation: required field left empty"
+  },
+  "nameTooShort": "حرفان على الأقل",
+  "@nameTooShort": {
+    "description": "Validation: name shorter than 2 characters"
+  },
+  "phoneInvalid": "أدخل رقم جوال صحيح",
+  "@phoneInvalid": {
+    "description": "Validation: malformed phone number"
+  },
+  "emailInvalid": "أدخل بريدًا إلكترونيًا صحيحًا",
+  "@emailInvalid": {
+    "description": "Validation: malformed email"
+  },
+
+  "appTagline": "قائمة العائلة المشتركة",
+  "@appTagline": {
+    "description": "Brand tagline under the wordmark"
+  },
+  "welcomeTagline": "زيتونة تلمكم، وتكمل بعضكم",
+  "noAccountPrompt": "ليس لديك حساب؟ ",
+  "welcomeSignupCta": "سجل الان",
+  "otpTitle": "أدخل الرمز",
+  "@otpTitle": {
+    "description": "OTP page title"
+  },
+  "otpSubtitle": "أرسلنا رمزًا مكونًا من ٤ أرقام إلى {phone}",
+  "@otpSubtitle": {
+    "description": "OTP page subtitle with the target phone number",
+    "placeholders": {
+      "phone": {"type": "String"}
+    }
+  },
+  "otpSubtitleWhatsapp": "أرسلنا رمزًا مكونًا من ٤ أرقام إلى {phone} عبر واتساب",
+  "@otpSubtitleWhatsapp": {
+    "description": "OTP page subtitle when sent via WhatsApp",
+    "placeholders": {
+      "phone": {"type": "String"}
+    }
+  },
+  "otpResendCountdown": "إعادة الإرسال خلال {seconds} ثانية",
+  "@otpResendCountdown": {
+    "description": "Countdown before resend becomes available",
+    "placeholders": {
+      "seconds": {"type": "int"}
+    }
+  },
+  "otpResendAction": "إعادة إرسال الرمز",
+  "@otpResendAction": {
+    "description": "Resend OTP button"
+  },
+  "otpResending": "جارٍ الإرسال...",
+  "@otpResending": {
+    "description": "Resend OTP button while the request is in flight"
+  },
+  "otpResent": "تم إرسال رمز جديد",
+  "@otpResent": {
+    "description": "Snackbar after a new OTP is dispatched"
+  },
+  "otpConfirmAction": "تأكيد",
+  "@otpConfirmAction": {
+    "description": "OTP confirm/verify button"
+  },
+  "otpResendVia": "لم يصلك الرمز؟ أعد الإرسال عبر:",
+  "@otpResendVia": {
+    "description": "Lead-in above the resend channel options"
+  },
+  "otpChannelWhatsapp": "واتساب",
+  "@otpChannelWhatsapp": {
+    "description": "WhatsApp resend channel button"
+  },
+  "otpChannelSms": "رسالة نصية",
+  "@otpChannelSms": {
+    "description": "SMS resend channel button"
+  },
+  "otpChannelEmail": "البريد الإلكتروني",
+  "@otpChannelEmail": {
+    "description": "Email resend channel button (only when an email exists)"
+  },
+  "otpResendLimitReached": "استنفدت محاولات إعادة الإرسال، جرّب لاحقًا",
+  "@otpResendLimitReached": {
+    "description": "Shown when the per-session resend cap is hit"
+  },
+  "editPhoneNumberAction": "تعديل الرقم",
+  "otpEmailFallback": "إرسال عبر البريد ({email}) — قريبًا",
+  "otpNoEmailFallback": "لا يوجد بريد إلكتروني مسجل للإرسال البديل",
+
+  "drawerJoinGroup": "الانضمام لمجموعة",
+  "@drawerJoinGroup": {
+    "description": "Drawer entry: join a group"
+  },
+  "drawerCreateGroup": "إنشاء مجموعة",
+  "@drawerCreateGroup": {
+    "description": "Drawer entry: create a group"
+  },
+  "drawerMyGroups": "مجموعاتي",
+  "@drawerMyGroups": {
+    "description": "Drawer section header above the groups list"
+  },
+  "drawerSettings": "الإعدادات والحساب",
+  "@drawerSettings": {
+    "description": "Drawer entry: settings & account"
+  },
+  "memberCount": "{count} أفراد",
+  "@memberCount": {
+    "description": "Member count under a group name in the drawer",
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+
+  "urgentCount": "{count} عاجل",
+  "@urgentCount": {
+    "description": "Urgent-items badge on the list detail header",
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "allCategories": "الكل",
+  "@allCategories": {
+    "description": "First category filter chip (no filter)"
+  },
+  "noItemsTitle": "لا عناصر بعد",
+  "@noItemsTitle": {
+    "description": "List detail empty state title"
+  },
+  "noItemsBody": "أضف أول عنصر لتبدأ ببناء القائمة مع المجموعة.",
+  "@noItemsBody": {
+    "description": "List detail empty state body"
+  },
+  "nothingInCategory": "لا عناصر في هذه الفئة.",
+  "noResultsTitle": "لا نتائج",
+  "clearFilterAction": "مسح الفلتر",
+  "@nothingInCategory": {
+    "description": "Shown when the category filter matches nothing"
+  },
+  "startTrip": "ابدأ الرحلة",
+  "@startTrip": {
+    "description": "Start buying trip button on list detail"
+  },
+  "addItemAction": "إضافة عنصر",
+  "@addItemAction": {
+    "description": "Add item button / sheet title"
+  },
+  "manualEntryTitle": "إضافة يدوية",
+  "@manualEntryTitle": {
+    "description": "Add item sheet title in manual mode"
+  },
+  "editItemTitle": "تعديل عنصر",
+  "@editItemTitle": {
+    "description": "Add item sheet title when editing"
+  },
+  "howToAddHead": "طريقة الإضافة",
+  "@howToAddHead": {
+    "description": "Section header above the add-method buttons"
+  },
+  "methodManual": "إدخال يدوي",
+  "@methodManual": {
+    "description": "Manual add method"
+  },
+  "methodBarcode": "مسح باركود",
+  "@methodBarcode": {
+    "description": "Barcode add method (coming soon)"
+  },
+  "methodPhoto": "تصوير المنتج",
+  "@methodPhoto": {
+    "description": "Photo add method (coming soon)"
+  },
+  "soonBadge": "قريباً",
+  "@soonBadge": {
+    "description": "Coming-soon pill on unavailable methods"
+  },
+  "itemNameLabel": "الاسم",
+  "@itemNameLabel": {
+    "description": "Item name field label"
+  },
+  "itemNameHint": "ماذا نحتاج؟",
+  "@itemNameHint": {
+    "description": "Item name field placeholder"
+  },
+  "itemBrandLabel": "الماركة (اختياري)",
+  "@itemBrandLabel": {
+    "description": "Item brand field label"
+  },
+  "itemBrandHint": "مثال: المراعي",
+  "@itemBrandHint": {
+    "description": "Item brand field placeholder"
+  },
+  "itemNoteLabel": "ملاحظة (اختياري)",
+  "@itemNoteLabel": {
+    "description": "Item note field label"
+  },
+  "itemNoteHint": "مثال: كامل الدسم",
+  "@itemNoteHint": {
+    "description": "Item note field placeholder"
+  },
+  "categoryLabel": "الفئة",
+  "@categoryLabel": {
+    "description": "Category picker label"
+  },
+  "categorySearchHint": "ابحث عن فئة…",
+  "@categorySearchHint": {
+    "description": "Category picker search input placeholder"
+  },
+  "quantityLabel": "الكمية",
+  "@quantityLabel": {
+    "description": "Quantity stepper label"
+  },
+  "extraDetailsLabel": "تفاصيل إضافية؟",
+  "@extraDetailsLabel": {
+    "description": "Disclosure label for optional brand/notes fields in add-item sheet"
+  },
+  "markUrgent": "تحديد كعاجل",
+  "@markUrgent": {
+    "description": "Urgent toggle row label"
+  },
+  "addToListAction": "أضف للقائمة",
+  "@addToListAction": {
+    "description": "Manual form submit (add mode)"
+  },
+  "saveChangesAction": "حفظ التغييرات",
+  "@saveChangesAction": {
+    "description": "Manual form submit (edit mode)"
+  },
+  "possibleDuplicateTitle": "عنصر مكرّر محتمل",
+  "@possibleDuplicateTitle": {
+    "description": "Non-blocking duplicate warning banner title"
+  },
+  "possibleDuplicateBody": "«{name}» موجود في القائمة بالفعل.",
+  "@possibleDuplicateBody": {
+    "description": "Duplicate warning body with the item name",
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+
+  "notifyAction": "تنبيه",
+  "@notifyAction": {
+    "description": "Notify icon button semantic label"
+  },
+  "historyAction": "السجل",
+  "historyActivityEmptyTitle": "لا يوجد نشاط بعد",
+  "historyActivityEmptyBody": "ستظهر هنا العمليات التي تتم على عناصر هذه القائمة.",
+  "historyNoTripsTitle": "جولات سابقة",
+  "historyNoTripsBody": "ستظهر هنا جولات التسوق لهذه القائمة بعد إنهاء أول رحلة.",
+  "historyTabActivity": "سجل النشاط",
+  "historyTabTrips": "الرحلات",
+  "undoAction": "تراجع",
+  "historyTimeJustNow": "الآن",
+  "historyTimeMinutesAgo": "{minutes, plural, =1{قبل دقيقة} =2{قبل دقيقتين} other{قبل {minutes} دقيقة}}",
+  "historyTimeHoursAgo": "{hours, plural, =1{قبل ساعة} =2{قبل ساعتين} other{قبل {hours} ساعات}}",
+  "historyTimeYesterday": "أمس",
+  "historyTimeDaysAgo": "{days, plural, =2{قبل يومين} other{قبل {days} أيام}}",
+  "@historyAction": {
+    "description": "History icon button semantic label"
+  },
+  "deleteItemConfirmTitle": "إزالة هذا العنصر؟",
+  "@deleteItemConfirmTitle": {
+    "description": "Confirmation dialog title before deleting an item via the qty stepper"
+  },
+  "deleteItemConfirmBody": "سيتم حذف «{name}» من القائمة.",
+  "@deleteItemConfirmBody": {
+    "description": "Confirmation dialog body with the item name",
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "deleteListConfirmTitle": "حذف هذه القائمة؟",
+  "@deleteListConfirmTitle": {
+    "description": "Confirmation dialog title before deleting a whole list"
+  },
+  "deleteListConfirmBody": "سيتم حذف «{name}» نهائيًا.",
+  "@deleteListConfirmBody": {
+    "description": "Confirmation dialog body with the list name",
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "listSettingsTitle": "إعدادات القائمة",
+  "listMenuAction": "قائمة الخيارات",
+  "deleteAllItemsAction": "حذف كل العناصر",
+  "deleteAllAction": "حذف الكل",
+  "deleteAllItemsConfirmTitle": "حذف كل العناصر؟",
+  "deleteAllItemsConfirmBody": "سيتم حذف {count} عنصر من القائمة.",
+  "@deleteAllItemsConfirmBody": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "listDeletedMessage": "تم حذف «{name}»",
+  "@listDeletedMessage": {
+    "description": "Snackbar shown after a list is deleted",
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "listDeleteFailedMessage": "تعذر حذف القائمة",
+  "@listDeleteFailedMessage": {
+    "description": "Snackbar shown when deleting a list fails"
+  },
+  "catalogTitle": "إضافة عنصر",
+  "@catalogTitle": {
+    "description": "Full-screen catalog page title"
+  },
+  "attachPhotoLabel": "إرفاق صورة",
+  "@attachPhotoLabel": {
+    "description": "Attach-photo button in the manual add form"
+  },
+  "cameraSourceLabel": "الكاميرا",
+  "@cameraSourceLabel": {
+    "description": "Camera option in the photo source picker sheet"
+  },
+  "gallerySourceLabel": "معرض الصور",
+  "@gallerySourceLabel": {
+    "description": "Gallery option in the photo source picker sheet"
+  },
+  "removePhotoLabel": "إزالة الصورة",
+  "@removePhotoLabel": {
+    "description": "Semantic label for the remove-photo button after a photo is picked"
+  },
+  "catalogSearchHint": "ابحث عن عنصر",
+  "@catalogSearchHint": {
+    "description": "Catalog page search field placeholder"
+  },
+  "myItemsHead": "عناصري",
+  "@myItemsHead": {
+    "description": "Section header for the user's reusable manually-typed items"
+  },
+  "itemAddedMessage": "تمت إضافة «{name}»",
+  "@itemAddedMessage": {
+    "description": "Snackbar shown after quick-adding an item from the catalog grid",
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "itemQuantityIncreasedMessage": "تمت زيادة كمية «{name}» إلى {qty}",
+  "@itemQuantityIncreasedMessage": {
+    "description": "Snackbar shown when a catalog quick-add merges into an item already on the list instead of creating a new one",
+    "placeholders": {
+      "name": {"type": "String"},
+      "qty": {"type": "int"}
+    }
+  },
+  "quickAddLabel": "إضافة سريعة",
+  "@quickAddLabel": {
+    "description": "Semantic label for the quick-add button on a catalog grid card"
+  },
+  "addAction": "إضافة",
+  "@addAction": {
+    "description": "Catalog card add-to-list button label"
+  },
+  "addedLabel": "أُضيف",
+  "@addedLabel": {
+    "description": "Catalog card add-to-list button label after tapping, shown briefly"
+  },
+  "catalogEmptyTitle": "لا عناصر في كتالوجك بعد",
+  "@catalogEmptyTitle": {
+    "description": "Catalog page empty state title for a first-time user"
+  },
+  "catalogEmptyBody": "أضف أول عنصر لتبدأ ببناء كتالوجك الشخصي.",
+  "@catalogEmptyBody": {
+    "description": "Catalog page empty state body for a first-time user"
+  },
+  "addManuallyAction": "إضافة يدوية",
+  "@addManuallyAction": {
+    "description": "Catalog page FAB label"
+  },
+
+  "newGroupTitle": "مجموعة جديدة",
+  "editGroupTitle": "تعديل المجموعة",
+  "groupNameRequired": "اسم المجموعة مطلوب",
+  "groupUpdateError": "تعذر تعديل المجموعة. حاول مرة أخرى.",
+  "@newGroupTitle": {
+    "description": "Create Group page title"
+  },
+  "groupNameLabel": "اسم المجموعة",
+  "@groupNameLabel": {
+    "description": "Label above the group name field"
+  },
+  "groupNameHint": "مثال: آل العتيبي",
+  "@groupNameHint": {
+    "description": "Placeholder in the group name field — fallback when the user's last name isn't available"
+  },
+  "groupNameHintPersonalized": "مثال: آل {lastName}",
+  "@groupNameHintPersonalized": {
+    "description": "Placeholder in the group name field, personalized with the signed-in user's own last name",
+    "placeholders": {
+      "lastName": {"type": "String"}
+    }
+  },
+  "groupIconLabel": "الأيقونة",
+  "@groupIconLabel": {
+    "description": "Label above the group icon picker"
+  },
+  "createGroupAction": "إنشاء المجموعة",
+  "@createGroupAction": {
+    "description": "Create Group submit button"
+  },
+
+  "settingsTitle": "إعدادات الحساب",
+  "@settingsTitle": {
+    "description": "Settings page title"
+  },
+  "languageLabel": "اللغة",
+  "@languageLabel": {
+    "description": "Language section label in settings"
+  },
+  "arabicLanguage": "العربية",
+  "@arabicLanguage": {
+    "description": "Arabic option in the language toggle"
+  },
+  "englishLanguage": "English",
+  "@englishLanguage": {
+    "description": "English option in the language toggle"
+  },
+  "logoutAction": "تسجيل الخروج",
+  "@logoutAction": {
+    "description": "Logout button in settings"
+  },
+
+  "buyingModeLabel": "وضع التسوّق",
+  "@buyingModeLabel": {
+    "description": "Buying View header subtitle before the x/y counter"
+  },
+  "showAllFilter": "عرض الكل",
+  "@showAllFilter": {
+    "description": "Buying View filter pill: show all items"
+  },
+  "urgentFilter": "العاجل",
+  "@urgentFilter": {
+    "description": "Buying View filter pill: urgent only"
+  },
+  "urgentBadge": "عاجل",
+  "@urgentBadge": {
+    "description": "Urgent badge on an unchecked item row"
+  },
+  "finishTrip": "إنهاء التسوق",
+  "@finishTrip": {
+    "description": "Buying View bottom button"
+  },
+  "completeTripTitle": "إنهاء رحلة التسوّق؟",
+  "@completeTripTitle": {
+    "description": "Complete trip confirmation dialog title"
+  },
+  "completeTripBody": "العناصر المشتراة تُحفظ في سجل الرحلات، والعناصر غير المشتراة تبقى في القائمة للمرة القادمة.",
+  "@completeTripBody": {
+    "description": "Complete trip confirmation dialog body"
+  },
+  "tripSummaryCounts": "تم شراء {bought} · تبقّى {remaining} للمرة القادمة",
+  "@tripSummaryCounts": {
+    "description": "Bought/remaining counts shown inside the finish-trip confirmation dialog",
+    "placeholders": {
+      "bought": {"type": "int"},
+      "remaining": {"type": "int"}
+    }
+  },
+  "tripInProgressByOther": "أحد يتسوق الآن ...",
+  "@tripInProgressByOther": {
+    "description": "Disabled Start Trip button subtext when another member already locked in as buyer"
+  },
+  "noActiveTripError": "تعذر العثور على هذه الرحلة، ربما انتهت بالفعل.",
+  "@noActiveTripError": {
+    "description": "Buying View precondition error when no active trip exists for the list"
+  },
+  "backToGroupAction": "الرجوع إلى المجموعة",
+  "@backToGroupAction": {
+    "description": "Button on the buying-view precondition error, returns to group home"
+  },
+  "confirmAction": "تأكيد",
+  "@confirmAction": {
+    "description": "Generic confirm button in dialogs"
+  },
+  "cancelAction": "إلغاء",
+  "@cancelAction": {
+    "description": "Generic cancel button in dialogs"
+  },
+
+  "privateBadge": "خاصة",
+  "@privateBadge": {
+    "description": "Badge on the private group card"
+  },
+  "adminBadge": "مشرف",
+  "@adminBadge": {
+    "description": "Badge when the caller is the group's admin"
+  },
+  "memberBadge": "عضو",
+  "@memberBadge": {
+    "description": "Badge when the caller is a regular member"
+  },
+  "privateSpaceLine": "مساحتك الخاصة · أنت فقط",
+  "@privateSpaceLine": {
+    "description": "Subtitle line on the private group card"
+  },
+  "groupMembersCount": "{count} أعضاء",
+  "@groupMembersCount": {
+    "description": "Members count next to the avatar strip",
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "boughtOfTotal": "{bought} من {total} تم",
+  "@boughtOfTotal": {
+    "description": "List card progress line: bought of total",
+    "placeholders": {
+      "bought": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "completedListsSection": "المكتملة",
+  "@completedListsSection": {
+    "description": "Collapsed section header for completed lists"
+  },
+
+  "loginTitle": "تسجيل الدخول",
+  "@loginTitle": {
+    "description": "Login page title"
+  },
+  "loginSubtitle": "مرحباً بعودتك",
+  "@loginSubtitle": {
+    "description": "Login page subtitle"
+  },
+  "loginIdentifierHint": "الجوال أو البريد",
+  "@loginIdentifierHint": {
+    "description": "Login identifier field placeholder"
+  },
+  "loginChecking": "جارٍ التحقق…",
+  "@loginChecking": {
+    "description": "Login submit button label while the request is in flight"
+  },
+  "sendCodeAction": "إرسال الرمز",
+  "@sendCodeAction": {
+    "description": "Login submit button: dispatch the OTP"
+  },
+  "noAccountPrompt": "ليس لديك حساب؟",
+  "@noAccountPrompt": {
+    "description": "Login: prompt before the sign-up link"
+  },
+  "createAccountAction": "إنشاء حساب",
+  "@createAccountAction": {
+    "description": "Sign-up link/button label"
+  },
+
+  "inviteMembersTitle": "دعوة أعضاء",
+  "@inviteMembersTitle": {
+    "description": "Invite to group page title"
+  },
+  "backAction": "رجوع",
+  "@backAction": {
+    "description": "Back navigation label"
+  },
+  "shareInviteLink": "مشاركة رابط الدعوة",
+  "@shareInviteLink": {
+    "description": "Share invite link button"
+  },
+  "joinedMembersSection": "الأعضاء ({count})",
+  "@joinedMembersSection": {
+    "description": "Section header above already-joined members",
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "nobodyJoinedYet": "لم ينضم أحد بعد، شارك الكود أو الرابط",
+  "nobodyJoinedYetBody": "لم يفتح الأعضاء المدعوون الرابط بعد.",
+  "@nobodyJoinedYet": {
+    "description": "Invite page empty state"
+  },
+  "doneAction": "تم",
+  "@doneAction": {
+    "description": "Generic done/close button"
+  },
+
+  "groupSettingsTitle": "إعدادات المجموعة",
+  "@groupSettingsTitle": {
+    "description": "Group settings page title"
+  },
+  "groupIdentitySection": "هوية المجموعة",
+  "@groupIdentitySection": {
+    "description": "Group settings: identity section label"
+  },
+  "membersSection": "الأعضاء",
+  "@membersSection": {
+    "description": "Group settings: members section label"
+  },
+  "dangerZoneSection": "منطقة الخطر",
+  "@dangerZoneSection": {
+    "description": "Group settings: danger zone section label"
+  },
+  "youSuffix": "أنت",
+  "@youSuffix": {
+    "description": "Marker after the signed-in user's own name in member lists"
+  },
+  "saveAction": "حفظ",
+  "@saveAction": {
+    "description": "Save button for the group identity edits"
+  },
+  "changesSaved": "تم حفظ التغييرات",
+  "@changesSaved": {
+    "description": "Snackbar after a successful group identity update"
+  },
+  "makeAdminAction": "تعيين كمشرف",
+  "@makeAdminAction": {
+    "description": "Member action: transfer the admin role to this member"
+  },
+  "removeMemberAction": "إزالة من المجموعة",
+  "@removeMemberAction": {
+    "description": "Member action: remove this member from the group"
+  },
+  "memberActionsLabel": "إجراءات العضو",
+  "transferAdminConfirmTitle": "نقل الإشراف؟",
+  "@transferAdminConfirmTitle": {
+    "description": "Transfer admin confirmation dialog title"
+  },
+  "transferAdminConfirmBody": "سيصبح {name} المشرف الوحيد للمجموعة وستفقد صلاحيات الإشراف.",
+  "@transferAdminConfirmBody": {
+    "description": "Transfer admin confirmation dialog body",
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "removeMemberConfirmTitle": "إزالة {name}؟",
+  "@removeMemberConfirmTitle": {
+    "description": "Remove member confirmation dialog title",
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "removeMemberConfirmBody": "سيفقد الوصول لقوائم هذه المجموعة.",
+  "@removeMemberConfirmBody": {
+    "description": "Remove member confirmation dialog body"
+  },
+  "deleteGroupTitle": "حذف المجموعة",
+  "@deleteGroupTitle": {
+    "description": "Danger zone: delete group card title and button"
+  },
+  "deleteGroupBody": "يحذف كل القوائم نهائياً لجميع الأعضاء.",
+  "@deleteGroupBody": {
+    "description": "Danger zone: delete group card body"
+  },
+  "deleteGroupConfirmTitle": "حذف هذه المجموعة؟",
+  "@deleteGroupConfirmTitle": {
+    "description": "Delete group confirmation dialog title"
+  },
+  "deleteGroupConfirmBody": "لا يمكن التراجع عن هذا الإجراء.",
+  "@deleteGroupConfirmBody": {
+    "description": "Delete group confirmation dialog body"
+  },
+  "deleteAction": "حذف",
+  "@deleteAction": {
+    "description": "Generic destructive confirm button"
+  },
+  "leaveGroupTitle": "مغادرة المجموعة",
+  "@leaveGroupTitle": {
+    "description": "Danger zone: leave group card title and button"
+  },
+  "leaveGroupBody": "ستفقد الوصول لقوائم هذه المجموعة.",
+  "@leaveGroupBody": {
+    "description": "Danger zone: leave group card body"
+  },
+  "leaveGroupConfirmTitle": "مغادرة المجموعة؟",
+  "@leaveGroupConfirmTitle": {
+    "description": "Leave group confirmation dialog title"
+  },
+  "leaveGroupConfirmBody": "يمكنك الانضمام مجدداً لاحقاً بكود الدعوة.",
+  "@leaveGroupConfirmBody": {
+    "description": "Leave group confirmation dialog body"
+  },
+  "leaveAction": "مغادرة",
+  "@leaveAction": {
+    "description": "Leave group confirm button"
+  },
+  "privateGroupBannerTitle": "مجموعتك الخاصة",
+  "@privateGroupBannerTitle": {
+    "description": "Banner title on the private group's settings"
+  },
+  "privateGroupBannerBody": "لا يراها أحد غيرك. لا يمكن دعوة أعضاء أو حذفها.",
+  "@privateGroupBannerBody": {
+    "description": "Banner body on the private group's settings"
+  },
+
+  "chooseAvatarTitle": "اختر صورتك",
+  "@chooseAvatarTitle": {
+    "description": "Onboarding avatar step title"
+  },
+  "chooseAvatarBody": "تظهر بجانب العناصر التي تضيفها للمجموعة.",
+  "@chooseAvatarBody": {
+    "description": "Onboarding avatar step body"
+  },
+  "continueAction": "متابعة",
+  "@continueAction": {
+    "description": "Generic continue button"
+  },
+  "firstGroupTitle": "لنبدأ بمجموعة",
+  "@firstGroupTitle": {
+    "description": "Onboarding first-group step title"
+  },
+  "firstGroupBody": "أنشئ مجموعة لعائلتك، أو انضم بكود دعوة. لديك أصلاً مجموعتك الشخصية الخاصة.",
+  "@firstGroupBody": {
+    "description": "Onboarding first-group step body"
+  },
+  "createFamilyGroupAction": "إنشاء مجموعة العائلة",
+  "@createFamilyGroupAction": {
+    "description": "Onboarding: create a family group button"
+  },
+  "joinWithCodeAction": "الانضمام بكود",
+  "@joinWithCodeAction": {
+    "description": "Onboarding: join with an invite code button"
+  },
+  "skipForNowAction": "تخطّي الآن",
+  "@skipForNowAction": {
+    "description": "Onboarding: skip button"
+  },
+  "avatarsLoadError": "تعذر تحميل الصور",
+  "@avatarsLoadError": {
+    "description": "Onboarding: avatar list failed to load"
+  },
+  "avatarSelectError": "تعذر حفظ الصورة",
+  "@avatarSelectError": {
+    "description": "Onboarding: avatar selection failed to save"
+  },
+  "tipsTitle": "٤ أشياء قبل ما تنطلق",
+  "@tipsTitle": {
+    "description": "Onboarding tips screen title"
+  },
+  "tipDrawerTitle": "القائمة الجانبية",
+  "@tipDrawerTitle": {
+    "description": "Onboarding tip: the drawer"
+  },
+  "tipDrawerBody": "كل مجموعاتك ساكنة هناك — اسحب أو اضغط الشعار وطلّع راسك",
+  "@tipDrawerBody": {
+    "description": "Onboarding tip: the drawer"
+  },
+  "tipPersonalGroupTitle": "مجموعتك الخاصة",
+  "@tipPersonalGroupTitle": {
+    "description": "Onboarding tip: personal group"
+  },
+  "tipPersonalGroupBody": "هذي خاصة فيك بس، محد يقدر ينضم لها حتى لو حاول!",
+  "@tipPersonalGroupBody": {
+    "description": "Onboarding tip: personal group"
+  },
+  "tipCreateListTitle": "زر \"إنشاء قائمة\"",
+  "@tipCreateListTitle": {
+    "description": "Onboarding tip: create list button"
+  },
+  "tipCreateListBody": "اضغطيه وابدئي قائمة جديدة قبل ما ينسى أحد شي في البيت",
+  "@tipCreateListBody": {
+    "description": "Onboarding tip: create list button"
+  },
+  "tipGroupSettingsTitle": "إعدادات المجموعة",
+  "@tipGroupSettingsTitle": {
+    "description": "Onboarding tip: group settings"
+  },
+  "tipGroupSettingsBody": "من فيه تغيّرين الاسم، الأيقونة، أو تشوفين مين معك في المجموعة",
+  "@tipGroupSettingsBody": {
+    "description": "Onboarding tip: group settings"
+  },
+  "letsGoAction": "لننطلق!",
+  "@letsGoAction": {
+    "description": "Onboarding tips screen: continue button"
+  },
+
+  "tripAlertsTitle": "تنبيهات الرحلة",
+  "@tripAlertsTitle": {
+    "description": "Notifications page title"
+  },
+  "headingToStoreTitle": "أنا متجهة للمتجر",
+  "@headingToStoreTitle": {
+    "description": "Notifications: heading-to-store card title"
+  },
+  "headingToStoreBody": "نبّه الجميع لإضافة آخر طلباتهم",
+  "@headingToStoreBody": {
+    "description": "Notifications: heading-to-store card body"
+  },
+  "notifyGroupAction": "تنبيه المجموعة",
+  "@notifyGroupAction": {
+    "description": "Notifications: send heading-to-store alert button"
+  },
+  "assignBuyerTitle": "تعيين مشترٍ",
+  "@assignBuyerTitle": {
+    "description": "Notifications: assign buyer card title and sheet title"
+  },
+  "assignBuyerBody": "اختر من سيقوم بالتسوّق",
+  "@assignBuyerBody": {
+    "description": "Notifications: assign buyer card body"
+  },
+  "changeMemberAction": "تغيير",
+  "chooseMemberAction": "اختيار عضو",
+  "@chooseMemberAction": {
+    "description": "Notifications: open the member picker button"
+  },
+  "remindMemberTitle": "ذكّر أحدهم",
+  "@remindMemberTitle": {
+    "description": "Notifications: remind card title"
+  },
+  "remindMemberBody": "ذكّر عضواً بإضافة طلباته",
+  "@remindMemberBody": {
+    "description": "Notifications: remind card body"
+  },
+  "remindMemberSheetTitle": "تذكير عضو",
+  "noMembersToNotifyTitle": "لا يوجد أعضاء بعد",
+  "noMembersToNotifyBody": "ادعُ أحدًا إلى المجموعة قبل أن تتمكن من إشعاره.",
+  "@remindMemberSheetTitle": {
+    "description": "Notifications: remind member picker sheet title"
+  },
+  "notifyAllConfirmTitle": "تنبيه كل الأعضاء؟",
+  "@notifyAllConfirmTitle": {
+    "description": "Heading-to-store confirmation dialog title"
+  },
+  "notifyAllConfirmBody": "سيصل تنبيه للجميع لإضافة آخر طلباتهم.",
+  "@notifyAllConfirmBody": {
+    "description": "Heading-to-store confirmation dialog body"
+  },
+  "alertSent": "تم الإرسال ✓",
+  "@alertSent": {
+    "description": "Banner after a notification action succeeds"
+  },
+  "headingToStoreSent": "تم التنبيه ✓ أنت متجهة للمتجر الآن، بالتوفيق في التسوّق!",
+  "@headingToStoreSent": {
+    "description": "Banner shown to the buyer after they confirm heading to the store"
+  },
+  
+  "settingsTitle": "إعدادات الحساب",
+  "languageLabel": "اللغة",
+  "notificationsLabel": "الإشعارات",
+  "enableAction": "تفعيل",
+  "disableAction": "إيقاف",
+
+  "aboutTitle": "عن التطبيق",
+  "builtWithLoveInRiyadh": "صُنع بحب في الرياض",
+  "appVersion": "الإصدار 1.0.0",
+  "aboutNameStoryTitle": "قصة الاسم",
+  "aboutNameStoryQuote": "«سمّوه زيتونة… مثل دميتي»",
+  "aboutNameStoryBody": "كان التطبيق اسمه «ثلاجة»، والاسم لا يشبهه. الجوهرة تقلّب الأسماء منذ أيام، وأختها الصغيرة الهنوف معها على المكالمة تسمع بصمت.\n\nثم رفعت الهنوف رأسها نحو دميتها الصغيرة على الرف، وقالت ببساطة الأطفال: «سمّوها زيتونة». ضحكت الجوهرة… ثم توقفت. الاسم لم يفارقها.\n\nفي اليوم التالي عرضته على الفريق وهي تحبس أنفاسها — فأحبّوه من أول لحظة. ومن دمية صغيرة في مكالمة عابرة، وُلدت زيتونة وصارت عائلة.",
+  "aboutTeamHeading": "فريق زيتونة",
+  "aboutTeamMember1Name": "ريم اليماني",
+  "aboutTeamMember2Name": "عبدالله المريبض",
+  "aboutTeamMember3Name": "رندا باعشن",
+  "aboutTeamMember4Name": "موسى القرني",
+  "aboutTeamMember5Name": "الهنوف الجندل",
+  "aboutTeamMember6Name": "الجوهرة العمار",
+
+  "editAccountTitle": "تعديل الحساب",
+  "chooseAvatarLabel": "اختر صورتك",
+  "avatarsUnavailable": "تعذر تحميل الصور",
+  "saveChangesError": "تعذر حفظ التغييرات",
+  "completeNameFields": "أكملي الاسم الأول واسم العائلة"
+}

@@ -1,0 +1,29 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Brand palette" subtitle="The six core brand colors from the Zaytona logo" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--bg-app); padding: 16px; }
+  .row { display: flex; gap: 10px; }
+  .sw { flex: 1; height: 92px; border-radius: var(--radius-md); display: flex; flex-direction: column;
+        justify-content: flex-end; padding: 10px; font-family: var(--font-body); }
+  .sw .name { font-weight: 700; font-size: 13px; }
+  .sw .hex { font-size: 11px; opacity: 0.8; font-variant-numeric: tabular-nums; }
+  .ink-light { color: var(--cream); }
+  .ink-dark { color: var(--navy); }
+  .bordered { box-shadow: inset 0 0 0 1.5px var(--border-soft); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="sw ink-light" style="background:var(--red)"><span class="name">Red</span><span class="hex">#FF4924</span></div>
+    <div class="sw ink-dark" style="background:var(--mint)"><span class="name">Mint</span><span class="hex">#00EE8E</span></div>
+    <div class="sw ink-light" style="background:var(--indigo)"><span class="name">Indigo</span><span class="hex">#4444D5</span></div>
+    <div class="sw ink-light" style="background:var(--navy)"><span class="name">Navy</span><span class="hex">#0D0050</span></div>
+    <div class="sw ink-dark" style="background:var(--lilac)"><span class="name">Lilac</span><span class="hex">#F3CDEA</span></div>
+    <div class="sw ink-dark bordered" style="background:var(--cream)"><span class="name">Cream</span><span class="hex">#FFF8ED</span></div>
+  </div>
+</body>
+</html>

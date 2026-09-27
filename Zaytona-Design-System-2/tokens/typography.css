@@ -1,0 +1,40 @@
+/* Zaytona — Typography tokens
+   Display (Latin/English): MADE Tommy Soft — rounded geometric, retro warmth.
+   Body/UI + Arabic:        Vazirmatn — clean bilingual variable sans.
+   Per-glyph cascade: Latin glyphs render in MADE Tommy Soft; Arabic glyphs
+   fall through to Vazirmatn (which also handles all body text, both scripts). */
+:root {
+  --font-display: 'MADE Tommy Soft', 'Vazirmatn', system-ui, sans-serif;
+  --font-body: 'Vazirmatn', system-ui, sans-serif;
+  --font-mono: 'Vazirmatn', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Weights */
+  --fw-light: 300; /* @kind font */
+  --fw-regular: 400; /* @kind font */
+  --fw-medium: 500; /* @kind font */
+  --fw-bold: 700; /* @kind font */
+  --fw-black: 800; /* @kind font */
+
+  /* Type scale (px). Display sizes lean large & rounded. */
+  --fs-display-xl: 64px;   /* hero / splash */
+  --fs-display-lg: 48px;   /* screen titles */
+  --fs-display-md: 36px;
+  --fs-display-sm: 28px;   /* section headers */
+  --fs-title: 22px;        /* card titles */
+  --fs-body-lg: 18px;
+  --fs-body: 16px;         /* default UI text */
+  --fs-body-sm: 14px;
+  --fs-caption: 13px;
+  --fs-micro: 11px;        /* labels, overlines */
+
+  /* Line heights */
+  --lh-tight: 1.05; /* @kind font */
+  --lh-snug: 1.2; /* @kind font */
+  --lh-normal: 1.45; /* @kind font */
+  --lh-relaxed: 1.6; /* @kind font */
+
+  /* Letter spacing */
+  --ls-tight: -0.01em;
+  --ls-normal: 0; /* @kind font */
+  --ls-wide: 0.04em;       /* overlines / small caps */
+}

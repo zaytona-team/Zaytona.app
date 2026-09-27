@@ -1,0 +1,15 @@
+/* Zaytona — Font faces & webfont imports.
+   Vazirmatn (variable) — bilingual body/UI + Arabic display weights.
+   MADE Tommy Soft — rounded geometric Latin display. */
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('../assets/fonts/Vazirmatn.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MADE Tommy Soft';
+  src: url('../assets/fonts/MADETommySoft.otf') format('opentype');
+  font-weight: 400 800;
+  font-display: swap;
+}

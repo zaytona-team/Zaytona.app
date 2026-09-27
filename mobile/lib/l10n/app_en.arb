@@ -1,0 +1,407 @@
+{
+  "@@locale": "en",
+
+  "appTitle": "Zaytona",
+
+  "joinGroupTitle": "Join a group",
+  "inviteCodeLabel": "Invite code",
+  "inviteCodeHint": "Invite code",
+  "inviteCodeRequired": "Enter the invite code first",
+  "joinAction": "Join",
+
+  "copyAction": "Copy",
+  "inviteCodeCopied": "Invite code copied",
+  "inviteLinkCopied": "Invite link copied",
+
+  "newListTitle": "New list",
+  "listNameLabel": "List name",
+  "listColorLabel": "List color",
+  "listNameHint": "e.g. Weekend run",
+  "createListAction": "Create list",
+  "listsTab": "Lists",
+  "noListsYet": "No lists yet",
+  "noListsYetBody": "Lists you create for this group will show up here.",
+  "listCompletedBadge": "Done",
+  "listItemCount": "{count} items",
+  "@listItemCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "retryAction": "Try again",
+
+  "signupTitle": "Create account",
+  "signupSubtitle": "Join your family on Zaytona",
+  "firstNameLabel": "First name",
+  "lastNameLabel": "Last name",
+  "phoneLabel": "Phone number",
+  "phoneHint": "05X XXX XXXX",
+  "emailLabel": "Email (optional)",
+  "signupAction": "Sign up",
+  "alreadyHaveAccountPrompt": "Already have an account?",
+  "loginAction": "Log in",
+  "fieldRequired": "This field is required",
+  "nameTooShort": "At least 2 characters",
+  "phoneInvalid": "Enter a valid phone number",
+  "emailInvalid": "Enter a valid email address",
+
+  "appTagline": "The family's shared list",
+  "welcomeTagline": "Zaytona brings you together",
+  "noAccountPrompt": "Don't have an account? ",
+  "welcomeSignupCta": "Sign up",
+  "otpTitle": "Enter the code",
+  "otpSubtitle": "We sent a 4-digit code to {phone}",
+  "@otpSubtitle": {
+    "placeholders": {
+      "phone": {"type": "String"}
+    }
+  },
+  "otpSubtitleWhatsapp": "We sent a 4-digit code to {phone} via WhatsApp",
+  "@otpSubtitleWhatsapp": {
+    "placeholders": {
+      "phone": {"type": "String"}
+    }
+  },
+  "otpResendCountdown": "Resend in {seconds} seconds",
+  "@otpResendCountdown": {
+    "placeholders": {
+      "seconds": {"type": "int"}
+    }
+  },
+  "otpResendAction": "Resend code",
+  "otpResending": "Sending...",
+  "otpResent": "A new code was sent",
+  "otpConfirmAction": "Confirm",
+  "otpResendVia": "Didn't get the code? Resend via:",
+  "otpChannelWhatsapp": "WhatsApp",
+  "otpChannelSms": "SMS",
+  "otpChannelEmail": "Email",
+  "otpResendLimitReached": "Resend attempts used up — try again later",
+  "editPhoneNumberAction": "Edit number",
+  "otpEmailFallback": "Send via email ({email}) — coming soon",
+  "@otpEmailFallback": {
+    "placeholders": {
+      "email": {"type": "String"}
+    }
+  },
+  "otpNoEmailFallback": "No email registered for fallback sending",
+  "drawerJoinGroup": "Join a group",
+  "drawerCreateGroup": "Create a group",
+  "drawerMyGroups": "My groups",
+  "drawerSettings": "Settings & account",
+  "memberCount": "{count} members",
+  "@memberCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+
+  "urgentCount": "{count} urgent",
+  "@urgentCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "allCategories": "All",
+  "noItemsTitle": "No items yet",
+  "noItemsBody": "Add the first item to start building this list with the group.",
+  "nothingInCategory": "Nothing in this category.",
+  "noResultsTitle": "No results",
+  "clearFilterAction": "Clear filter",
+  "startTrip": "Start trip",
+  "addItemAction": "Add item",
+  "manualEntryTitle": "Manual entry",
+  "editItemTitle": "Edit item",
+  "howToAddHead": "How to add",
+  "methodManual": "Manual",
+  "methodBarcode": "Scan barcode",
+  "methodPhoto": "Photo scan",
+  "soonBadge": "soon",
+  "itemNameLabel": "Name",
+  "itemNameHint": "What do we need?",
+  "itemBrandLabel": "Brand (optional)",
+  "itemBrandHint": "e.g. Almarai",
+  "itemNoteLabel": "Note (optional)",
+  "itemNoteHint": "e.g. Full fat",
+  "categoryLabel": "Category",
+  "categorySearchHint": "Search a category…",
+  "quantityLabel": "Quantity",
+  "extraDetailsLabel": "Extra details?",
+  "markUrgent": "Mark as urgent",
+  "addToListAction": "Add to list",
+  "saveChangesAction": "Save changes",
+  "newGroupTitle": "New group",
+  "editGroupTitle": "Edit group",
+  "groupNameRequired": "Group name is required",
+  "groupUpdateError": "Couldn't update the group. Try again.",
+  "groupNameLabel": "Group name",
+  "groupNameHint": "e.g. The Otaibis",
+  "groupNameHintPersonalized": "e.g. The {lastName} Family",
+  "@groupNameHintPersonalized": {
+    "description": "Placeholder in the group name field, personalized with the signed-in user's own last name",
+    "placeholders": {
+      "lastName": {"type": "String"}
+    }
+  },
+  "groupIconLabel": "Icon",
+  "createGroupAction": "Create group",
+  "settingsTitle": "Account settings",
+  "languageLabel": "Language",
+  "arabicLanguage": "العربية",
+  "englishLanguage": "English",
+  "logoutAction": "Log out",
+  "buyingModeLabel": "Buying mode",
+  "showAllFilter": "Show all",
+  "urgentFilter": "Urgent",
+  "urgentBadge": "Urgent",
+  "finishTrip": "Finish shopping",
+  "completeTripTitle": "Finish this trip?",
+  "completeTripBody": "Bought items move to trip history. Anything left unchecked stays on the list for next time.",
+  "tripSummaryCounts": "{bought} bought · {remaining} left for next time",
+  "@tripSummaryCounts": {
+    "placeholders": {
+      "bought": {"type": "int"},
+      "remaining": {"type": "int"}
+    }
+  },
+  "tripInProgressByOther": "Someone's shopping right now",
+  "noActiveTripError": "This trip couldn't be found. It may have already ended.",
+  "backToGroupAction": "Back to group",
+  "confirmAction": "Confirm",
+  "cancelAction": "Cancel",
+  "privateBadge": "Private",
+  "adminBadge": "Admin",
+  "memberBadge": "Member",
+  "privateSpaceLine": "Your private space · just you",
+  "groupMembersCount": "{count} members",
+  "@groupMembersCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "boughtOfTotal": "{bought} of {total} bought",
+  "@boughtOfTotal": {
+    "placeholders": {
+      "bought": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "completedListsSection": "Completed",
+
+  "possibleDuplicateTitle": "Possible duplicate",
+  "possibleDuplicateBody": "\"{name}\" is already on this list.",
+  "@possibleDuplicateBody": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+
+  "notifyAction": "Notify",
+  "historyAction": "History",
+  "historyActivityEmptyTitle": "No activity yet",
+  "historyActivityEmptyBody": "Actions taken on this list's items will show up here.",
+  "historyNoTripsTitle": "Previous rounds",
+  "historyNoTripsBody": "This list's shopping rounds will show up here after the first trip is finished.",
+  "historyTabActivity": "Activity log",
+  "historyTabTrips": "Trips",
+  "undoAction": "Undo",
+  "historyTimeJustNow": "Just now",
+  "historyTimeMinutesAgo": "{minutes, plural, =1{A minute ago} =2{Two minutes ago} other{{minutes} minutes ago}}",
+  "@historyTimeMinutesAgo": {
+    "placeholders": {
+      "minutes": {"type": "int"}
+    }
+  },
+  "historyTimeHoursAgo": "{hours, plural, =1{An hour ago} =2{Two hours ago} other{{hours} hours ago}}",
+  "@historyTimeHoursAgo": {
+    "placeholders": {
+      "hours": {"type": "int"}
+    }
+  },
+  "historyTimeYesterday": "Yesterday",
+  "historyTimeDaysAgo": "{days, plural, =2{Two days ago} other{{days} days ago}}",
+  "@historyTimeDaysAgo": {
+    "placeholders": {
+      "days": {"type": "int"}
+    }
+  },
+  "deleteItemConfirmTitle": "Remove this item?",
+  "deleteItemConfirmBody": "\"{name}\" will be removed from the list.",
+  "@deleteItemConfirmBody": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "deleteListConfirmTitle": "Delete this list?",
+  "deleteListConfirmBody": "\"{name}\" will be permanently deleted.",
+  "@deleteListConfirmBody": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "listSettingsTitle": "List settings",
+  "listMenuAction": "List menu",
+  "deleteAllItemsAction": "Delete all items",
+  "deleteAllAction": "Delete all",
+  "deleteAllItemsConfirmTitle": "Delete all items?",
+  "deleteAllItemsConfirmBody": "{count} items will be removed from the list.",
+  "@deleteAllItemsConfirmBody": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "listDeletedMessage": "\"{name}\" was deleted",
+  "@listDeletedMessage": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "listDeleteFailedMessage": "Couldn't delete the list",
+  "catalogTitle": "Add item",
+  "catalogSearchHint": "Search for an item",
+  "attachPhotoLabel": "Attach photo",
+  "cameraSourceLabel": "Camera",
+  "gallerySourceLabel": "Gallery",
+  "removePhotoLabel": "Remove photo",
+  "myItemsHead": "My items",
+  "addManuallyAction": "Add manually",
+  "itemAddedMessage": "\"{name}\" added",
+  "@itemAddedMessage": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "itemQuantityIncreasedMessage": "\"{name}\" quantity increased to {qty}",
+  "@itemQuantityIncreasedMessage": {
+    "placeholders": {
+      "name": {"type": "String"},
+      "qty": {"type": "int"}
+    }
+  },
+  "quickAddLabel": "Quick add",
+  "addAction": "Add",
+  "addedLabel": "Added",
+  "catalogEmptyTitle": "Your catalog is empty",
+  "catalogEmptyBody": "Add your first item to start building your personal catalog.",
+
+  "loginTitle": "Sign in",
+  "loginSubtitle": "Welcome back",
+  "loginIdentifierHint": "Phone or email",
+  "loginChecking": "Checking…",
+  "sendCodeAction": "Send code",
+  "noAccountPrompt": "Don't have an account?",
+  "createAccountAction": "Create account",
+
+  "inviteMembersTitle": "Invite members",
+  "backAction": "Back",
+  "shareInviteLink": "Share invite link",
+  "joinedMembersSection": "Members ({count})",
+  "@joinedMembersSection": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "nobodyJoinedYet": "No one joined yet — share the code or link",
+  "nobodyJoinedYetBody": "Invited members haven't opened the link yet.",
+  "doneAction": "Done",
+
+  "groupSettingsTitle": "Group settings",
+  "groupIdentitySection": "Group identity",
+  "membersSection": "Members",
+  "dangerZoneSection": "Danger zone",
+  "youSuffix": "You",
+  "saveAction": "Save",
+  "changesSaved": "Changes saved",
+  "makeAdminAction": "Make admin",
+  "removeMemberAction": "Remove from group",
+  "memberActionsLabel": "Member actions",
+  "transferAdminConfirmTitle": "Transfer admin role?",
+  "transferAdminConfirmBody": "{name} becomes the group's only admin and you lose admin privileges.",
+  "@transferAdminConfirmBody": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "removeMemberConfirmTitle": "Remove {name}?",
+  "@removeMemberConfirmTitle": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "removeMemberConfirmBody": "They lose access to this group's lists.",
+  "deleteGroupTitle": "Delete group",
+  "deleteGroupBody": "Permanently removes all lists for everyone.",
+  "deleteGroupConfirmTitle": "Delete this group?",
+  "deleteGroupConfirmBody": "This can't be undone.",
+  "deleteAction": "Delete",
+  "leaveGroupTitle": "Leave group",
+  "leaveGroupBody": "You'll lose access to this group's lists.",
+  "leaveGroupConfirmTitle": "Leave this group?",
+  "leaveGroupConfirmBody": "You can re-join later with the invite code.",
+  "leaveAction": "Leave",
+  "privateGroupBannerTitle": "Your private group",
+  "privateGroupBannerBody": "Only you can see it. No members to invite, and it can't be deleted.",
+
+  "chooseAvatarTitle": "Choose your avatar",
+  "chooseAvatarBody": "It shows next to the items you add for the group.",
+  "continueAction": "Continue",
+  "firstGroupTitle": "Start with a group",
+  "firstGroupBody": "Create one for your family, or join with an invite code. You already have your own private group.",
+  "createFamilyGroupAction": "Create a family group",
+  "joinWithCodeAction": "Join with a code",
+  "skipForNowAction": "Skip for now",
+  "avatarsLoadError": "Couldn't load avatars",
+  "avatarSelectError": "Couldn't save your avatar",
+
+  "tipsTitle": "4 things before you dive in",
+  "tipDrawerTitle": "The drawer",
+  "tipDrawerBody": "All your groups live in there — swipe or tap the logo and peek in",
+  "tipPersonalGroupTitle": "Your personal group",
+  "tipPersonalGroupBody": "This one's just for you — nobody's crashing this party, no matter how hard they try",
+  "tipCreateListTitle": "The \"create list\" button",
+  "tipCreateListBody": "Tap it and start a fresh list before someone \"forgets\" what they need",
+  "tipGroupSettingsTitle": "Group settings",
+  "tipGroupSettingsBody": "Rename it, re-icon it, or see who's actually in the group with you",
+  "letsGoAction": "Let's go",
+
+  "tripAlertsTitle": "Trip alerts",
+  "headingToStoreTitle": "I'm heading to the store",
+  "headingToStoreBody": "Nudge everyone to add their last items",
+  "notifyGroupAction": "Notify group",
+  "assignBuyerTitle": "Assign a buyer",
+  "assignBuyerBody": "Pick who shops this trip",
+  "chooseMemberAction": "Choose member",
+  "changeMemberAction": "Change",
+  "remindMemberTitle": "Remind someone",
+  "remindMemberBody": "Remind a member to add their items",
+  "remindMemberSheetTitle": "Remind member",
+  "noMembersToNotifyTitle": "No members yet",
+  "noMembersToNotifyBody": "Invite someone to the group before you can notify them.",
+  "notifyAllConfirmTitle": "Notify all members?",
+  "notifyAllConfirmBody": "Everyone gets a push to add their last items.",
+  "alertSent": "Sent ✓",
+  "headingToStoreSent": "Alert sent ✓ You're heading to the store now — happy shopping!",
+  "notificationsLabel": "Notifications",
+  "enableAction": "Enable",
+  "disableAction": "Disable",
+
+  "aboutTitle": "About",
+  "builtWithLoveInRiyadh": "Built with love in Riyadh",
+  "appVersion": "v1.0.0",
+  "aboutNameStoryTitle": "How we got the name",
+  "aboutNameStoryQuote": "“Call it Zaytona — like my doll.”",
+  "aboutNameStoryBody": "The app was called “Zaytona”, and the name never quite fit. Aljawharah had been turning options over for days, her little sister Alhanouf quietly listening on the call.\n\nThen Alhanouf looked up at the small doll on her shelf and said, with a child’s certainty: “Call it Zaytona.” Aljawharah laughed — then stopped. The name wouldn’t leave her.\n\nThe next day she pitched it to the team, holding her breath. They loved it instantly. From one little doll on an ordinary call, Zaytona was born — and became a family.",
+  "aboutTeamHeading": "The Zaytona team",
+  "aboutTeamMember1Name": "Reem Alyamani",
+  "aboutTeamMember2Name": "Abdullah Almouraibd",
+  "aboutTeamMember3Name": "Randa Baeshen",
+  "aboutTeamMember4Name": "Mousa Alqarni",
+  "aboutTeamMember5Name": "Alhanouf Aljandal",
+  "aboutTeamMember6Name": "Aljawharah Alammar",
+
+  "editAccountTitle": "Edit account",
+  "chooseAvatarLabel": "Choose your avatar",
+  "avatarsUnavailable": "Couldn't load avatars",
+  "saveChangesError": "Couldn't save changes",
+  "completeNameFields": "Complete your first and last name"
+}

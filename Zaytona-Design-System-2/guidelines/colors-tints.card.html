@@ -1,0 +1,44 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Tints & ramps" subtitle="Soft fills and pressed shades for each action color" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--bg-app); padding: 16px; font-family: var(--font-body); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .col { }
+  .label { font-size: 11px; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; letter-spacing: .04em; text-transform: uppercase; }
+  .ramp { display: flex; border-radius: var(--radius-sm); overflow: hidden; height: 48px; box-shadow: inset 0 0 0 1.5px var(--border-soft); }
+  .ramp span { flex: 1; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 5px; font-size: 9px; font-weight: 700; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="col">
+      <div class="label">Red</div>
+      <div class="ramp">
+        <span style="background:var(--red-tint);color:var(--red-press)">tint</span>
+        <span style="background:var(--red);color:#fff">base</span>
+        <span style="background:var(--red-press);color:#fff">press</span>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">Mint</div>
+      <div class="ramp">
+        <span style="background:var(--mint-tint);color:var(--success-ink)">tint</span>
+        <span style="background:var(--mint);color:var(--navy)">base</span>
+        <span style="background:var(--mint-press);color:var(--navy)">press</span>
+      </div>
+    </div>
+    <div class="col">
+      <div class="label">Indigo</div>
+      <div class="ramp">
+        <span style="background:var(--indigo-tint);color:var(--indigo-press)">tint</span>
+        <span style="background:var(--indigo);color:#fff">base</span>
+        <span style="background:var(--indigo-press);color:#fff">press</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<svg width="1200" height="260" viewBox="0 0 1200 260" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="g" cx="82%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF4924" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#FF4924" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="c"><rect width="1200" height="260"/></clipPath>
+  </defs>
+  <g clip-path="url(#c)">
+    <rect width="1200" height="260" fill="#0D0050"/>
+    <rect width="1200" height="260" fill="url(#g)"/>
+
+    <!-- Background star, Tomato, very faint -->
+    <g transform="translate(968,132) scale(4.0)" fill="#FF4924" opacity="0.07">
+      <polygon points="0,-50 7.65,-18.47 35.36,-35.36 18.47,-7.65 50,0 18.47,7.65 35.36,35.36 7.65,18.47 0,50 -7.65,18.47 -35.36,35.36 -18.47,7.65 -50,0 -18.47,-7.65 -35.36,-35.36 -7.65,-18.47"/>
+    </g>
+
+    <!-- Medium star, Mint, upper right -->
+    <g transform="translate(1072,52) scale(1.5) rotate(14)" fill="#00EE8E" opacity="0.26">
+      <polygon points="0,-50 7.65,-18.47 35.36,-35.36 18.47,-7.65 50,0 18.47,7.65 35.36,35.36 7.65,18.47 0,50 -7.65,18.47 -35.36,35.36 -18.47,7.65 -50,0 -18.47,-7.65 -35.36,-35.36 -7.65,-18.47"/>
+    </g>
+
+    <!-- Small star, Tomato, lower right -->
+    <g transform="translate(1148,214) scale(0.85) rotate(-9)" fill="#FF4924" opacity="0.38">
+      <polygon points="0,-50 7.65,-18.47 35.36,-35.36 18.47,-7.65 50,0 18.47,7.65 35.36,35.36 7.65,18.47 0,50 -7.65,18.47 -35.36,35.36 -18.47,7.65 -50,0 -18.47,-7.65 -35.36,-35.36 -7.65,-18.47"/>
+    </g>
+
+    <!-- Tiny star, Peri -->
+    <g transform="translate(1162,38) scale(0.5) rotate(22)" fill="#4444D5" opacity="0.52">
+      <polygon points="0,-50 7.65,-18.47 35.36,-35.36 18.47,-7.65 50,0 18.47,7.65 35.36,35.36 7.65,18.47 0,50 -7.65,18.47 -35.36,35.36 -18.47,7.65 -50,0 -18.47,-7.65 -35.36,-35.36 -7.65,-18.47"/>
+    </g>
+
+    <!-- Three Mint dots — ث motif -->
+    <circle cx="836" cy="196" r="6" fill="#00EE8E" opacity="0.78"/>
+    <circle cx="856" cy="196" r="6" fill="#00EE8E" opacity="0.78"/>
+    <circle cx="876" cy="196" r="6" fill="#00EE8E" opacity="0.78"/>
+
+    <!-- Arabic wordmark -->
+    <text x="100" y="144" font-family="'Noto Sans Arabic','Segoe UI',Arial,sans-serif" font-size="106" font-weight="900" fill="#FFF8ED">زيتونة</text>
+
+    <!-- Latin wordmark -->
+    <text x="104" y="192" font-family="'Segoe UI',Arial,Helvetica,sans-serif" font-size="33" font-weight="700" fill="#FF4924" letter-spacing="13">ZAYTONA</text>
+
+    <!-- Tagline -->
+    <text x="106" y="230" font-family="'Segoe UI',Arial,Helvetica,sans-serif" font-size="16" fill="#00EE8E" letter-spacing="0.4">One household. One list. Everyone heard.</text>
+
+    <!-- Bottom Tomato stripe -->
+    <rect x="0" y="257" width="1200" height="3" fill="#FF4924"/>
+  </g>
+</svg>

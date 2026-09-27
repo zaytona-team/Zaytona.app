@@ -1,0 +1,40 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Ink & surfaces" subtitle="Navy-based ink scale and the cream/white surface stack" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--bg-app); padding: 16px; font-family: var(--font-body); }
+  .wrap { display: flex; gap: 24px; }
+  .block { flex: 1; }
+  .label { font-size: 11px; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; letter-spacing: .04em; text-transform: uppercase; }
+  .row { display: flex; gap: 8px; }
+  .chip { flex: 1; height: 60px; border-radius: var(--radius-sm); display: flex; align-items: flex-end; padding: 6px; font-size: 10px; font-weight: 600; }
+  .chip.b { box-shadow: inset 0 0 0 1.5px var(--border-soft); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="block">
+      <div class="label">Ink scale</div>
+      <div class="row">
+        <div class="chip" style="background:var(--ink-900);color:#fff">900</div>
+        <div class="chip" style="background:var(--ink-700);color:#fff">700</div>
+        <div class="chip" style="background:var(--ink-500);color:#fff">500</div>
+        <div class="chip" style="background:var(--ink-300);color:var(--navy)">300</div>
+        <div class="chip" style="background:var(--ink-100);color:var(--navy)">100</div>
+      </div>
+    </div>
+    <div class="block">
+      <div class="label">Surfaces</div>
+      <div class="row">
+        <div class="chip b" style="background:var(--surface-card);color:var(--navy)">card</div>
+        <div class="chip b" style="background:var(--surface-sunken);color:var(--navy)">sunken</div>
+        <div class="chip b" style="background:var(--bg-app);color:var(--navy)">app bg</div>
+        <div class="chip" style="background:var(--surface-inverse);color:var(--cream)">inverse</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

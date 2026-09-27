@@ -1,0 +1,32 @@
+<!-- @dsCard group="Brand" viewport="700x360" name="Category art — 16 seals" subtitle="The permanent 14-point star illustration per grocery category" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--bg-app); padding: 22px; font-family: var(--font-body); color: var(--text-body); }
+  h3 { font-family: var(--font-display); font-weight: 800; color: var(--navy); font-size: 15px; margin: 0 0 4px; }
+  .sub { font-size: 12px; color: var(--text-muted); margin: 0 0 16px; }
+  .grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 14px 8px; }
+  .cell { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .cell img { width: 58px; height: 58px; object-fit: contain; display: block; }
+  .cell .nm { font-size: 10.5px; font-weight: 700; color: var(--navy); text-align: center; }
+</style>
+</head>
+<body>
+  <h3>Category seals</h3>
+  <p class="sub">16 permanent categories, each a bespoke designed star on a transparent ground. Surfaced as the <b>CategoryStar</b> / <b>CatBadge</b> component.</p>
+  <div class="grid" id="grid"></div>
+<script>
+  const CATS = [
+    ['produce','Produce'],['bakery','Bakery'],['meat','Meat'],['dairy','Dairy'],
+    ['frozen','Frozen'],['pantry','Pantry'],['cooking','Cooking'],['breakfast','Breakfast'],
+    ['snacks','Snacks'],['beverages','Beverages'],['ready','Ready'],['baby','Baby'],
+    ['care','Personal Care'],['health','Health'],['household','Household'],['pets','Pets'],
+  ];
+  document.getElementById('grid').innerHTML = CATS.map(([id,nm])=>
+    `<div class="cell"><img src="../ui_kits/zaytona-app/cat-art/${id}.png" alt="${nm}"><div class="nm">${nm}</div></div>`).join('');
+</script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+{
+  "$description": "Zaytona (Zaytona) design tokens — single consolidated source for Figma variable import and the Flutter theme. Token names match the CSS custom-property names in tokens/*.css exactly (the '--' prefix is dropped). Aliases in the form {group.name} mirror the CSS var() references so semantic tokens stay linked to their base. DTCG format; imports via Tokens Studio / 'Variables Import' Figma plugins as one variable collection with the groups below.",
+  "$metadata": {
+    "collection": "Zaytona",
+    "modes": ["Default"],
+    "generatedFrom": ["tokens/colors.css", "tokens/spacing.css", "tokens/radii.css", "tokens/shadows.css", "tokens/typography.css", "tokens/fonts.css"],
+    "namingRule": "Figma variable name == CSS custom property name without '--' (e.g. --red -> color.red -> variable 'red'). Flutter constants in zaytona_theme.dart use the same names camelCased."
+  },
+
+  "color": {
+    "red": { "$type": "color", "$value": "#FC5E4F", "$description": "primary action / CTA — coral (--red)" },
+    "red-press": { "$type": "color", "$value": "#E8463A", "$description": "--red-press" },
+    "red-tint": { "$type": "color", "$value": "#FFE4DF", "$description": "--red-tint" },
+
+    "mint": { "$type": "color", "$value": "#5EEDB4", "$description": "fresh / success / in-stock — takes navy ink (--mint)" },
+    "mint-press": { "$type": "color", "$value": "#36D89A", "$description": "--mint-press" },
+    "mint-tint": { "$type": "color", "$value": "#DCFBEE", "$description": "--mint-tint" },
+
+    "indigo": { "$type": "color", "$value": "#6A65EB", "$description": "secondary brand / links — periwinkle (--indigo)" },
+    "indigo-press": { "$type": "color", "$value": "#5751DB", "$description": "--indigo-press" },
+    "indigo-tint": { "$type": "color", "$value": "#E6E5FC", "$description": "--indigo-tint" },
+
+    "navy": { "$type": "color", "$value": "#0D0050", "$description": "ink, outlines, deep surfaces (--navy)" },
+    "navy-soft": { "$type": "color", "$value": "#2A2173", "$description": "raised navy surface (--navy-soft)" },
+
+    "lilac": { "$type": "color", "$value": "#FDDEED", "$description": "soft pink accent (--lilac)" },
+    "lilac-deep": { "$type": "color", "$value": "#F7B9DC", "$description": "--lilac-deep" },
+    "pink": { "$type": "color", "$value": "{color.lilac}", "$description": "explicit brand-pink alias (--pink -> var(--lilac))" },
+
+    "cream": { "$type": "color", "$value": "#FFF8ED", "$description": "paper / app background — never pure white (--cream)" },
+
+    "ink-900": { "$type": "color", "$value": "{color.navy}", "$description": "--ink-900 -> var(--navy)" },
+    "ink-700": { "$type": "color", "$value": "#2E2566", "$description": "--ink-700" },
+    "ink-500": { "$type": "color", "$value": "#5B5390", "$description": "muted body (--ink-500)" },
+    "ink-300": { "$type": "color", "$value": "#9C97BC", "$description": "hints / placeholders (--ink-300)" },
+    "ink-100": { "$type": "color", "$value": "#E0DCEC", "$description": "hairlines (--ink-100)" },
+
+    "bg-app": { "$type": "color", "$value": "{color.cream}", "$description": "--bg-app -> var(--cream)" },
+    "surface-card": { "$type": "color", "$value": "#FEF1F8", "$description": "lighter-pink cards, no pure white (--surface-card)" },
+    "surface-sunken": { "$type": "color", "$value": "#FBE3F1", "$description": "deeper pink, nested/insets (--surface-sunken)" },
+    "surface-inverse": { "$type": "color", "$value": "{color.navy}", "$description": "--surface-inverse -> var(--navy)" },
+    "surface-brand": { "$type": "color", "$value": "{color.red}", "$description": "--surface-brand -> var(--red)" },
+
+    "text-strong": { "$type": "color", "$value": "{color.navy}", "$description": "--text-strong -> var(--navy)" },
+    "text-body": { "$type": "color", "$value": "#241B5C", "$description": "--text-body" },
+    "text-muted": { "$type": "color", "$value": "{color.ink-500}", "$description": "--text-muted -> var(--ink-500)" },
+    "text-hint": { "$type": "color", "$value": "{color.ink-300}", "$description": "--text-hint -> var(--ink-300)" },
+    "text-on-color": { "$type": "color", "$value": "{color.cream}", "$description": "--text-on-color -> var(--cream)" },
+    "text-on-mint": { "$type": "color", "$value": "{color.navy}", "$description": "--text-on-mint -> var(--navy)" },
+    "link": { "$type": "color", "$value": "{color.indigo}", "$description": "--link -> var(--indigo)" },
+
+    "border-hair": { "$type": "color", "$value": "{color.ink-100}", "$description": "--border-hair -> var(--ink-100)" },
+    "border-soft": { "$type": "color", "$value": "#F6D2E6", "$description": "pink hairline on cards (--border-soft)" },
+    "border-bold": { "$type": "color", "$value": "{color.navy}", "$description": "signature heavy outline (--border-bold -> var(--navy))" },
+
+    "success": { "$type": "color", "$value": "{color.mint}", "$description": "--success -> var(--mint)" },
+    "success-tint": { "$type": "color", "$value": "{color.mint-tint}", "$description": "--success-tint -> var(--mint-tint)" },
+    "danger": { "$type": "color", "$value": "{color.red}", "$description": "--danger -> var(--red)" },
+    "danger-tint": { "$type": "color", "$value": "{color.red-tint}", "$description": "--danger-tint -> var(--red-tint)" },
+    "info": { "$type": "color", "$value": "{color.indigo}", "$description": "--info -> var(--indigo)" },
+    "info-tint": { "$type": "color", "$value": "{color.indigo-tint}", "$description": "--info-tint -> var(--indigo-tint)" },
+
+    "focus-ring": { "$type": "color", "$value": "{color.indigo}", "$description": "--focus-ring -> var(--indigo)" },
+
+    "success-ink": { "$type": "color", "$value": "#0D8A5E", "$description": "⚠ RECONCILED: --success-ink is referenced by ui.jsx (IconButton/Badge/Banner mint variants) but is NOT defined in tokens/colors.css. Value proposed here = darkened mint for navy-on-mint contrast. Confirm with brand, then add to colors.css." }
+  },
+
+  "spacing": {
+    "space-0": { "$type": "dimension", "$value": "0px", "$description": "--space-0" },
+    "space-1": { "$type": "dimension", "$value": "4px", "$description": "--space-1 (4px base grid)" },
+    "space-2": { "$type": "dimension", "$value": "8px", "$description": "--space-2" },
+    "space-3": { "$type": "dimension", "$value": "12px", "$description": "--space-3" },
+    "space-4": { "$type": "dimension", "$value": "16px", "$description": "--space-4" },
+    "space-5": { "$type": "dimension", "$value": "20px", "$description": "--space-5" },
+    "space-6": { "$type": "dimension", "$value": "24px", "$description": "--space-6" },
+    "space-7": { "$type": "dimension", "$value": "32px", "$description": "--space-7" },
+    "space-8": { "$type": "dimension", "$value": "40px", "$description": "--space-8" },
+    "space-9": { "$type": "dimension", "$value": "48px", "$description": "--space-9" },
+    "space-10": { "$type": "dimension", "$value": "64px", "$description": "--space-10" },
+    "space-12": { "$type": "dimension", "$value": "80px", "$description": "--space-12" },
+    "gutter": { "$type": "dimension", "$value": "20px", "$description": "default screen padding, mobile (--gutter)" },
+    "container-max": { "$type": "dimension", "$value": "480px", "$description": "phone canvas width (--container-max)" },
+    "control-h-sm": { "$type": "dimension", "$value": "36px", "$description": "--control-h-sm" },
+    "control-h-md": { "$type": "dimension", "$value": "48px", "$description": "default tap target (--control-h-md)" },
+    "control-h-lg": { "$type": "dimension", "$value": "56px", "$description": "primary CTA (--control-h-lg)" },
+    "tap-min": { "$type": "dimension", "$value": "44px", "$description": "min hit area (--tap-min)" },
+    "icon-sm": { "$type": "dimension", "$value": "18px", "$description": "--icon-sm" },
+    "icon-md": { "$type": "dimension", "$value": "24px", "$description": "--icon-md" },
+    "icon-lg": { "$type": "dimension", "$value": "28px", "$description": "--icon-lg" }
+  },
+
+  "radius": {
+    "radius-xs": { "$type": "dimension", "$value": "8px", "$description": "--radius-xs" },
+    "radius-sm": { "$type": "dimension", "$value": "12px", "$description": "--radius-sm" },
+    "radius-md": { "$type": "dimension", "$value": "16px", "$description": "inputs, small cards (--radius-md)" },
+    "radius-lg": { "$type": "dimension", "$value": "24px", "$description": "cards (--radius-lg)" },
+    "radius-xl": { "$type": "dimension", "$value": "32px", "$description": "sheets, big cards (--radius-xl)" },
+    "radius-2xl": { "$type": "dimension", "$value": "40px", "$description": "app-icon tiles (--radius-2xl)" },
+    "radius-pill": { "$type": "dimension", "$value": "999px", "$description": "buttons, chips, avatars (--radius-pill)" }
+  },
+
+  "shadow": {
+    "shadow-pop-sm": { "$type": "shadow", "$value": { "offsetX": "2px", "offsetY": "3px", "blur": "0px", "spread": "0px", "color": "{color.navy}", "type": "dropShadow" }, "$description": "signature hard-offset pop, small (--shadow-pop-sm)" },
+    "shadow-pop": { "$type": "shadow", "$value": { "offsetX": "4px", "offsetY": "5px", "blur": "0px", "spread": "0px", "color": "{color.navy}", "type": "dropShadow" }, "$description": "signature hard-offset pop (--shadow-pop)" },
+    "shadow-pop-lg": { "$type": "shadow", "$value": { "offsetX": "6px", "offsetY": "7px", "blur": "0px", "spread": "0px", "color": "{color.navy}", "type": "dropShadow" }, "$description": "--shadow-pop-lg" },
+    "shadow-pop-indigo": { "$type": "shadow", "$value": { "offsetX": "4px", "offsetY": "5px", "blur": "0px", "spread": "0px", "color": "{color.indigo}", "type": "dropShadow" }, "$description": "--shadow-pop-indigo" },
+    "shadow-pop-red": { "$type": "shadow", "$value": { "offsetX": "4px", "offsetY": "5px", "blur": "0px", "spread": "0px", "color": "{color.red}", "type": "dropShadow" }, "$description": "--shadow-pop-red" },
+    "shadow-sm": { "$type": "shadow", "$value": { "offsetX": "0px", "offsetY": "2px", "blur": "6px", "spread": "0px", "color": "rgba(13, 0, 80, 0.08)", "type": "dropShadow" }, "$description": "soft — sheets/dropdowns/toasts (--shadow-sm)" },
+    "shadow-md": { "$type": "shadow", "$value": { "offsetX": "0px", "offsetY": "8px", "blur": "20px", "spread": "0px", "color": "rgba(13, 0, 80, 0.12)", "type": "dropShadow" }, "$description": "--shadow-md" },
+    "shadow-lg": { "$type": "shadow", "$value": { "offsetX": "0px", "offsetY": "18px", "blur": "40px", "spread": "0px", "color": "rgba(13, 0, 80, 0.18)", "type": "dropShadow" }, "$description": "--shadow-lg" },
+    "stroke-bold": { "$type": "dimension", "$value": "2.5px", "$description": "bold outline width (--stroke-bold)" },
+    "stroke-heavy": { "$type": "dimension", "$value": "4px", "$description": "heavy outline width (--stroke-heavy)" }
+  },
+
+  "typography": {
+    "font-display": { "$type": "fontFamily", "$value": ["MADE Tommy Soft", "Vazirmatn", "system-ui", "sans-serif"], "$description": "--font-display" },
+    "font-body": { "$type": "fontFamily", "$value": ["Vazirmatn", "system-ui", "sans-serif"], "$description": "--font-body" },
+    "font-mono": { "$type": "fontFamily", "$value": ["Vazirmatn", "ui-monospace", "SF Mono", "Menlo", "monospace"], "$description": "--font-mono" },
+
+    "fw-light": { "$type": "fontWeight", "$value": 300, "$description": "--fw-light" },
+    "fw-regular": { "$type": "fontWeight", "$value": 400, "$description": "--fw-regular" },
+    "fw-medium": { "$type": "fontWeight", "$value": 500, "$description": "--fw-medium" },
+    "fw-bold": { "$type": "fontWeight", "$value": 700, "$description": "--fw-bold" },
+    "fw-black": { "$type": "fontWeight", "$value": 800, "$description": "--fw-black" },
+
+    "fs-display-xl": { "$type": "dimension", "$value": "64px", "$description": "hero / splash (--fs-display-xl)" },
+    "fs-display-lg": { "$type": "dimension", "$value": "48px", "$description": "screen titles (--fs-display-lg)" },
+    "fs-display-md": { "$type": "dimension", "$value": "36px", "$description": "--fs-display-md" },
+    "fs-display-sm": { "$type": "dimension", "$value": "28px", "$description": "section headers (--fs-display-sm)" },
+    "fs-title": { "$type": "dimension", "$value": "22px", "$description": "card titles (--fs-title)" },
+    "fs-body-lg": { "$type": "dimension", "$value": "18px", "$description": "--fs-body-lg" },
+    "fs-body": { "$type": "dimension", "$value": "16px", "$description": "default UI text (--fs-body)" },
+    "fs-body-sm": { "$type": "dimension", "$value": "14px", "$description": "--fs-body-sm" },
+    "fs-caption": { "$type": "dimension", "$value": "13px", "$description": "--fs-caption" },
+    "fs-micro": { "$type": "dimension", "$value": "11px", "$description": "labels, overlines (--fs-micro)" },
+
+    "lh-tight": { "$type": "number", "$value": 1.05, "$description": "--lh-tight" },
+    "lh-snug": { "$type": "number", "$value": 1.2, "$description": "--lh-snug" },
+    "lh-normal": { "$type": "number", "$value": 1.45, "$description": "--lh-normal" },
+    "lh-relaxed": { "$type": "number", "$value": 1.6, "$description": "--lh-relaxed" },
+
+    "ls-tight": { "$type": "dimension", "$value": "-0.01em", "$description": "--ls-tight" },
+    "ls-normal": { "$type": "dimension", "$value": "0em", "$description": "--ls-normal" },
+    "ls-wide": { "$type": "dimension", "$value": "0.04em", "$description": "overlines / small caps (--ls-wide)" }
+  }
+}

@@ -1,0 +1,67 @@
+/* Zaytona — Color tokens
+   Updated brand palette (Sprint 4): warm coral primary, fresh mint, soft
+   periwinkle-purple secondary, and a lighter-pink card surface to lower
+   visual fatigue against the cream paper. Base ramps + semantic aliases. */
+:root {
+  /* ── Brand base ───────────────────────────────── */
+  --red: #FC5E4F;          /* primary action / CTA — coral */
+  --red-press: #E8463A;    /* pressed / darker */
+  --red-tint: #FFE4DF;     /* soft fill, backgrounds */
+
+  --mint: #5EEDB4;         /* fresh, success, "in stock" — takes navy ink */
+  --mint-press: #36D89A;
+  --mint-tint: #DCFBEE;
+
+  --indigo: #6A65EB;       /* secondary brand, links — periwinkle purple */
+  --indigo-press: #5751DB;
+  --indigo-tint: #E6E5FC;
+
+  --navy: #0D0050;         /* ink, outlines, deep surfaces */
+  --navy-soft: #2A2173;    /* raised navy surface */
+
+  --lilac: #FDDEED;        /* soft pink accent, tags, gentle cards */
+  --lilac-deep: #F7B9DC;
+  --pink: var(--lilac);    /* explicit alias — the brand's pink */
+
+  --cream: #FFF8ED;        /* paper / app background — never pure white */
+
+  /* ── Ink scale (navy-based) ───────────────────── */
+  --ink-900: var(--navy);
+  --ink-700: #2E2566;
+  --ink-500: #5B5390;      /* muted body */
+  --ink-300: #9C97BC;      /* hints, placeholders */
+  --ink-100: #E0DCEC;      /* hairlines */
+
+  /* ── Semantic surfaces ────────────────────────── */
+  --bg-app: var(--cream);
+  --surface-card: #FEF1F8;       /* lighter-pink cards (no pure white) */
+  --surface-sunken: #FBE3F1;     /* deeper pink, nested/insets */
+  --surface-inverse: var(--navy);
+  --surface-brand: var(--red);
+
+  /* ── Semantic text ────────────────────────────── */
+  --text-strong: var(--navy);
+  --text-body: #241B5C;
+  --text-muted: var(--ink-500);
+  --text-hint: var(--ink-300);
+  --text-on-color: var(--cream);
+  --text-on-mint: var(--navy);
+  --link: var(--indigo);
+
+  /* ── Borders ──────────────────────────────────── */
+  --border-hair: var(--ink-100);
+  --border-soft: #F6D2E6;        /* pink hairline on cards */
+  --border-bold: var(--navy);    /* signature heavy outline */
+
+  /* ── Semantic states ──────────────────────────── */
+  --success: var(--mint);
+  --success-tint: var(--mint-tint);
+  --success-ink: #0D8A5E;        /* readable green ink for text/icons on mint & mint-tint */
+  --danger: var(--red);
+  --danger-tint: var(--red-tint);
+  --info: var(--indigo);
+  --info-tint: var(--indigo-tint);
+
+  /* ── Focus ────────────────────────────────────── */
+  --focus-ring: var(--indigo);
+}

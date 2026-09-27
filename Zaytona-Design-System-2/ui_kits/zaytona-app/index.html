@@ -1,0 +1,83 @@
+<!-- @dsCard group="Zaytona App" viewport="700x820" name="Zaytona mobile app" subtitle="Bilingual shared-grocery prototype — auth, onboarding, groups, lists, buying mode + every state" -->
+<!-- @startingPoint section="Zaytona App" subtitle="Full interactive grocery prototype — 11 screens, drawer nav, bilingual, all states" viewport="700x820" -->
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zaytona — Shared groceries</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html, body { margin: 0; min-height: 100%; }
+  body { background: var(--cream);
+         display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 22px 16px; box-sizing: border-box; }
+  #root { display: flex; justify-content: center; width: 100%; }
+  button { font-family: inherit; }
+  ::-webkit-scrollbar { width: 0; height: 0; }
+  @keyframes tspin { to { transform: rotate(360deg); } }
+  @keyframes tdrawer { from { opacity: .3; filter: brightness(1.2); } }
+  /* Splash — sticker peel */
+  @keyframes zpeel {
+    0%   { opacity: 0; transform: perspective(720px) rotateX(-64deg) translateY(30px) scale(.7); }
+    55%  { opacity: 1; }
+    72%  { transform: perspective(720px) rotateX(9deg) translateY(-9px) scale(1.06); }
+    100% { opacity: 1; transform: perspective(720px) rotateX(0deg) translateY(0) scale(1); }
+  }
+  @keyframes zpeelShadow {
+    0%   { opacity: 0; transform: scale(.55) translateY(30px); }
+    72%  { opacity: .5; transform: scale(1.05) translateY(6px); }
+    100% { opacity: .34; transform: scale(1) translateY(4px); }
+  }
+  @keyframes zrise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  /* Splash v2 — Zaytona seal pop + cream reveal */
+  @keyframes zseal {
+    0%   { opacity: 0; transform: scale(.62) rotate(-14deg); }
+    60%  { opacity: 1; transform: scale(1.06) rotate(3deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  }
+  @keyframes zspin-slow { to { transform: rotate(360deg); } }
+  @keyframes zdollup { 0% { opacity:0; transform: translateY(64px) rotate(-12deg); } 100% { opacity:1; transform: translateY(0) rotate(-6deg); } }
+  @keyframes zreveal { from { transform: scale(0); } to { transform: scale(9); } }
+  @keyframes zfadeout { to { opacity: 0; transform: translateY(-10px) scale(.97); } }
+  @keyframes zpulse { 0%,100% { transform: scale(1); opacity:.2 } 50% { transform: scale(1.12); opacity:.1 } }
+  @keyframes zdot  { 0%, 100% { opacity: .28; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-4px); } }
+  @keyframes zfloat { from { transform: translateY(0) rotate(var(--r, 0deg)); } to { transform: translateY(-10px) rotate(var(--r, 0deg)); } }
+  /* iOS-style navigation + presentation motion */
+  @keyframes znav { from { transform: translateX(var(--nav-dx, 20px)); } to { transform: none; } }
+  @keyframes zsheetUp { from { transform: translateY(100%); } to { transform: none; } }
+  @keyframes zscrim { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes zpop { from { opacity: 0; transform: scale(.92); } to { opacity: 1; transform: none; } }
+  @keyframes ztab { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @keyframes zdrawerIn { from { transform: translateX(var(--dx, -100%)); } to { transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation-duration: .001ms !important; }
+  }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+  <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="icons.jsx"></script>
+  <script type="text/babel" src="i18n.jsx"></script>
+  <!-- Primitives come straight from the compiled design system (single source of
+       truth). The bundle registers every component on the generated namespace global;
+       the bridge below aliases them to the bare globals the screen scripts use.
+       (ui.jsx, the old hand-maintained duplicate, has been removed.) -->
+  <script src="../../_ds_bundle.js"></script>
+  <script>
+    (function () {
+      var ns = window.ThalajaDesignSystem_ed2185 || {};
+      for (var k in ns) { if (k[0] >= 'A' && k[0] <= 'Z') window[k] = ns[k]; }
+    })();
+  </script>
+  <script type="text/babel" src="art.jsx"></script>
+  <script type="text/babel" src="screens-auth.jsx"></script>
+  <script type="text/babel" src="screens-main.jsx"></script>
+  <script type="text/babel" src="screens-flows.jsx"></script>
+  <script type="text/babel" src="screens-more.jsx"></script>
+  <script type="text/babel" src="screens-recipes.jsx"></script>
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>

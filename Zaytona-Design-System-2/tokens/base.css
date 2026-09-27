@@ -1,0 +1,41 @@
+/* Zaytona — minimal base layer (resets + a few utility primitives).
+   Kept lightweight: tokens do the heavy lifting. */
+:root {
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  color: var(--text-body);
+  background: var(--bg-app);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display helper */
+.zaytona-display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-strong);
+}
+
+/* Overline / label helper */
+.zaytona-overline {
+  font-family: var(--font-body);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-micro);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+::selection { background: var(--mint); color: var(--navy); }
+
+a { color: var(--link); text-underline-offset: 2px; }

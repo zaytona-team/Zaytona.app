@@ -1,0 +1,30 @@
+<!-- @dsCard group="Spacing" viewport="700x150" name="Spacing scale" subtitle="4px base grid, tokens --space-1 → --space-10" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--bg-app); padding: 16px 20px; font-family: var(--font-body); }
+  .row { display: flex; align-items: flex-end; gap: 14px; }
+  .item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .bar { background: var(--indigo); border-radius: 4px; width: 100%; }
+  .item span { font-size: 10px; color: var(--text-muted); font-weight: 700; }
+  .item { width: 40px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="item"><div class="bar" style="height:4px"></div><span>1·4</span></div>
+    <div class="item"><div class="bar" style="height:8px"></div><span>2·8</span></div>
+    <div class="item"><div class="bar" style="height:12px"></div><span>3·12</span></div>
+    <div class="item"><div class="bar" style="height:16px"></div><span>4·16</span></div>
+    <div class="item"><div class="bar" style="height:20px"></div><span>5·20</span></div>
+    <div class="item"><div class="bar" style="height:24px"></div><span>6·24</span></div>
+    <div class="item"><div class="bar" style="height:32px"></div><span>7·32</span></div>
+    <div class="item"><div class="bar" style="height:40px"></div><span>8·40</span></div>
+    <div class="item"><div class="bar" style="height:48px"></div><span>9·48</span></div>
+    <div class="item"><div class="bar" style="height:64px"></div><span>10·64</span></div>
+  </div>
+</body>
+</html>

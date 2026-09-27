@@ -1,0 +1,23 @@
+/* Zaytona — Elevation & shadow tokens.
+   The brand reads flat & bold: thick navy outlines and a signature
+   "hard pop" offset shadow rather than blurry drop shadows.
+   Soft shadows are reserved for floating sheets/menus. */
+:root {
+  /* Signature hard-offset pop (no blur) — uses navy at full ink */
+  --shadow-pop-sm: 2px 3px 0 var(--navy);
+  --shadow-pop: 4px 5px 0 var(--navy);
+  --shadow-pop-lg: 6px 7px 0 var(--navy);
+
+  /* Colored pops for tinted cards */
+  --shadow-pop-indigo: 4px 5px 0 var(--indigo);
+  --shadow-pop-red: 4px 5px 0 var(--red);
+
+  /* Soft shadows — sheets, dropdowns, toasts */
+  --shadow-sm: 0 2px 6px rgba(13, 0, 80, 0.08);
+  --shadow-md: 0 8px 20px rgba(13, 0, 80, 0.12);
+  --shadow-lg: 0 18px 40px rgba(13, 0, 80, 0.18);
+
+  /* Outline widths for the bold-stroke motif */
+  --stroke-bold: 2.5px;
+  --stroke-heavy: 4px;
+}

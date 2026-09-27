@@ -1,0 +1,10 @@
+/* Zaytona — Radii tokens. The brand is emphatically rounded. */
+:root {
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;     /* inputs, small cards */
+  --radius-lg: 24px;     /* cards */
+  --radius-xl: 32px;     /* sheets, big cards */
+  --radius-2xl: 40px;    /* app-icon-style tiles */
+  --radius-pill: 999px;  /* buttons, chips, avatars */
+}

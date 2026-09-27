@@ -1,0 +1,54 @@
+<!-- @dsCard group="Brand" viewport="700x230" name="Avatars — brand mascots" subtitle="Branded character avatars — the letter/initials system has been retired" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--bg-app); padding: 22px; font-family: var(--font-body); color: var(--text-body); }
+  .wrap { display: flex; gap: 34px; align-items: flex-start; flex-wrap: wrap; }
+  h3 { font-family: var(--font-display); font-weight: 800; color: var(--navy); font-size: 15px; margin: 0 0 12px; }
+  .set { display: flex; gap: 12px; align-items: flex-end; }
+  .av { border-radius: var(--radius-pill); border: 2px solid var(--navy); overflow: hidden; background: var(--surface-sunken); display: block; }
+  .cap { font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 6px; }
+  .group { display: flex; align-items: center; }
+  .group .av { border: 2px solid var(--cream); margin-inline-start: -13px; }
+  .group .av:first-child { margin-inline-start: 0; }
+  .more { width: 40px; height: 40px; border-radius: var(--radius-pill); background: var(--navy); color: var(--cream); border: 2px solid var(--cream); margin-inline-start: -13px; display: grid; place-items: center; font-weight: 700; font-size: 14px; }
+  p { max-width: 300px; font-size: 13px; color: var(--text-muted); line-height: 1.5; margin: 10px 0 0; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div>
+      <h3>The five mascots</h3>
+      <div class="set" id="set"></div>
+      <p>Every identity uses a Zaytona brand character — chosen explicitly or picked deterministically from the name. No alphabet-letter fallback.</p>
+    </div>
+    <div>
+      <h3>Sizes</h3>
+      <div class="set">
+        <div><img class="av" src="../assets/avatars/av-1.png" width="28" height="28"><div class="cap">28</div></div>
+        <div><img class="av" src="../assets/avatars/av-2.png" width="36" height="36"><div class="cap">36</div></div>
+        <div><img class="av" src="../assets/avatars/av-3.png" width="44" height="44"><div class="cap">44</div></div>
+        <div><img class="av" src="../assets/avatars/av-4.png" width="60" height="60"><div class="cap">60</div></div>
+      </div>
+      <h3 style="margin-top:20px">Group (overlap + overflow)</h3>
+      <div class="group">
+        <img class="av" src="../assets/avatars/av-1.png" width="40" height="40">
+        <img class="av" src="../assets/avatars/av-2.png" width="40" height="40">
+        <img class="av" src="../assets/avatars/av-3.png" width="40" height="40">
+        <span class="more">+3</span>
+      </div>
+    </div>
+  </div>
+<script>
+  const set = document.getElementById('set');
+  for (let n = 1; n <= 5; n++) {
+    const d = document.createElement('div');
+    d.innerHTML = `<img class="av" src="../assets/avatars/av-${n}.png" width="52" height="52"><div class="cap">character ${n}</div>`;
+    set.appendChild(d);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!-- @dsCard group="Spacing" viewport="700x180" name="Radii & elevation" subtitle="Rounded corners + the signature hard-pop shadow" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; background: var(--bg-app); padding: 18px 20px; font-family: var(--font-body); }
+  .wrap { display: flex; gap: 28px; align-items: flex-start; }
+  .group { }
+  .label { font-size: 11px; font-weight: 700; color: var(--text-muted); margin-bottom: 10px; letter-spacing: .04em; text-transform: uppercase; }
+  .radii { display: flex; gap: 12px; }
+  .r { width: 52px; height: 52px; background: var(--lilac); border: 2px solid var(--navy); display:flex; align-items:flex-end; justify-content:center; font-size:9px; font-weight:700; color:var(--navy); padding-bottom:4px; }
+  .shadows { display: flex; gap: 20px; }
+  .sh { width: 64px; height: 52px; background: var(--white); border-radius: var(--radius-md); display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:700; color:var(--navy); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="group">
+      <div class="label">Radii</div>
+      <div class="radii">
+        <div class="r" style="border-radius:var(--radius-sm)">sm</div>
+        <div class="r" style="border-radius:var(--radius-md)">md</div>
+        <div class="r" style="border-radius:var(--radius-lg)">lg</div>
+        <div class="r" style="border-radius:var(--radius-xl)">xl</div>
+        <div class="r" style="border-radius:var(--radius-pill)">pill</div>
+      </div>
+    </div>
+    <div class="group">
+      <div class="label">Elevation</div>
+      <div class="shadows">
+        <div class="sh" style="box-shadow:var(--shadow-pop)">pop</div>
+        <div class="sh" style="box-shadow:var(--shadow-md)">soft</div>
+        <div class="sh" style="box-shadow:var(--shadow-pop-red)">red pop</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

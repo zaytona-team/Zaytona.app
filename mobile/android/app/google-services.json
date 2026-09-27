@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "122890951071",
+    "project_id": "zaytona-e2f90",
+    "storage_bucket": "zaytona-e2f90.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122890951071:android:73f572c1e753adb585c5aa",
+        "android_client_info": {
+          "package_name": "com.zaytona.mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAeIuf1h75DmeuCYqjPemyX7cp2h0SyTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

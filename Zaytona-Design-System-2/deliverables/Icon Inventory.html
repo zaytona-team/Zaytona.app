@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zaytona — Icon Inventory</title>
+<link rel="stylesheet" href="../styles.css">
+<style>
+  doc-page:not(:defined){visibility:hidden}
+  body{margin:0;background:#EDE7D9;}
+  doc-page{--ink:var(--navy);}
+  h1{font-family:var(--font-display);font-weight:800;color:var(--navy);font-size:34px;letter-spacing:-.02em;margin:0 0 4px;}
+  .lede{font-family:var(--font-body);font-size:14.5px;color:#6A6484;line-height:1.55;margin:0 0 4px;max-width:56ch;}
+  h2{font-family:var(--font-display);font-weight:800;color:var(--navy);font-size:20px;margin:34px 0 4px;}
+  h2 .k{font-family:var(--font-body);font-weight:800;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--indigo);display:block;margin-bottom:3px;}
+  .rule{height:2px;background:var(--navy);opacity:.12;margin:8px 0 16px;border-radius:2px;}
+  table{width:100%;border-collapse:collapse;}
+  th{font-family:var(--font-body);font-weight:800;font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--indigo);text-align:left;padding:0 10px 8px;border-bottom:1.5px solid var(--border-soft);}
+  td{padding:11px 10px;border-bottom:1.5px solid var(--border-hair);vertical-align:middle;font-family:var(--font-body);font-size:13px;color:var(--navy);line-height:1.4;}
+  tr{break-inside:avoid;}
+  .glyphcell{width:58px;}
+  .nm{font-family:var(--font-display);font-weight:800;font-size:14px;}
+  .id{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#6A6484;}
+  .muted{color:#6A6484;}
+  .metarow{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--font-body);font-size:12.5px;color:#6A6484;margin:2px 0 2px;}
+  .metarow b{color:var(--navy);}
+  .legend{display:flex;gap:22px;flex-wrap:wrap;margin:14px 0 2px;}
+  .legend > div{display:flex;align-items:center;gap:10px;}
+  .cap2{font-family:var(--font-body);font-size:12px;color:#6A6484;line-height:1.4;}
+</style>
+</head>
+<body>
+<doc-page size="letter" margin="0.7in">
+
+  <h1>Zaytona — Icon Inventory</h1>
+  <p class="lede">Every glyph the app needs, with its metaphor, container, and size. Two families: <b>Category</b> — the final designed 14-point star art, one per aisle — and <b>System UI</b> — Lucide-style line icons in navy, sized to their control.</p>
+
+  <div class="legend">
+    <div>__STAR_MINT__<span class="cap2"><b style="color:var(--navy);font-family:var(--font-display)">Category</b><br>final designed 14-point star art</span></div>
+    <div>__CHIP_SYS__<span class="cap2"><b style="color:var(--navy);font-family:var(--font-display)">System UI</b><br>bare line icon, inherits control ink color</span></div>
+  </div>
+
+  <div class="metarow" style="margin-top:14px;">
+    <span><b>Category art</b> designed PNG, transparent ground</span>
+    <span><b>System grid</b> 24×24, stroke 2.2–2.4px, round caps</span>
+    <span><b>Sizes</b> sm 18 · md 24 · lg 28 (category star 30–42)</span>
+  </div>
+
+  <h2><span class="k">Family 1 · 16 permanent</span>Category icons</h2>
+  <div class="rule"></div>
+  <table>
+    <thead><tr><th></th><th>Category</th><th>Metaphor</th><th>Brand hue · size</th></tr></thead>
+    <tbody id="cat-rows"></tbody>
+  </table>
+
+  <h2><span class="k">Family 2 · controls &amp; nav</span>System UI icons</h2>
+  <div class="rule"></div>
+  <table>
+    <thead><tr><th></th><th>Name</th><th>Purpose</th><th>Container · size</th></tr></thead>
+    <tbody id="sys-rows"></tbody>
+  </table>
+
+</doc-page>
+
+<script src="doc-page.js"></script>
+<script>
+const N="#0D0050";
+// line-icon inner SVG (24-box), navy stroke
+const L={
+  leaf:'<path d="M4 20c0-9 7-15 16-15 0 9-6 15-15 15"/><path d="M5 19c4-5 8-8 12-9"/>',
+  basket:'<path d="M4.5 9h15l-1.4 9a2 2 0 01-2 1.7H7.9a2 2 0 01-2-1.7z"/><path d="M9 9l3-5 3 5"/><path d="M9.5 13v3M14.5 13v3"/>',
+  flame:'<path d="M12 3c1 4 5 5 5 9a5 5 0 01-10 0c0-2 1-3 2-4 .5 2 1.5 2 1.5 2C9 8 11 6 12 3z"/>',
+  milk:'<path d="M8 8h8v11a2 2 0 01-2 2h-4a2 2 0 01-2-2z"/><path d="M8 8l1.5-4h5L16 8"/><path d="M8 12h8"/>',
+  // system
+  plus:'<path d="M12 5v14"/><path d="M5 12h14"/>', search:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',
+  home:'<path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/>', bell:'<path d="M6 8a6 6 0 0112 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 003.4 0"/>',
+  cart:'<circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h2.2l2.3 12.4a1.6 1.6 0 001.6 1.3h8.9a1.6 1.6 0 001.6-1.3L21 7H5.3"/>', store:'<path d="M4 9l1-5h14l1 5"/><path d="M4 9v11h16V9"/><path d="M4 9a2.4 2.4 0 004 0 2.4 2.4 0 004 0 2.4 2.4 0 004 0 2.4 2.4 0 004 0"/><path d="M9 20v-5h6v5"/>',
+  history:'<path d="M3 12a9 9 0 109-9 9 9 0 00-7 3.5"/><path d="M3 3v3.5H6.5"/><path d="M12 8v4l3 2"/>', trash:'<path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M6 6l1 14h10l1-14"/>',
+  settings:'<circle cx="12" cy="12" r="3.4"/><path d="M12 2.5l1.4 2.2a8 8 0 011.85.77l2.5-.62 1.4 2.42-1.6 2a8 8 0 010 1.86l1.6 2-1.4 2.42-2.5-.62a8 8 0 01-1.85.77L12 21.5l-1.4-2.2a8 8 0 01-1.85-.77l-2.5.62-1.4-2.42 1.6-2a8 8 0 010-1.86l-1.6-2 1.4-2.42 2.5.62a8 8 0 011.85-.77z"/>',
+  book:'<path d="M4 4.5A1.5 1.5 0 015.5 3H19v16H5.5A1.5 1.5 0 004 20.5z"/><path d="M4 20.5A1.5 1.5 0 015.5 19H19"/>', flag:'<path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/>',
+  dots:'<circle cx="5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="19" cy="12" r="1.4"/>', chevronLeft:'<path d="M15 5l-7 7 7 7"/>',
+  check:'<path d="M20 6L9 17l-5-5"/>', share:'<circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.8l7.4-4.3"/><path d="M8.3 13.2l7.4 4.3"/>',
+  camera:'<path d="M3 8.5A1.5 1.5 0 014.5 7H7l1.5-2h7L17 7h2.5A1.5 1.5 0 0121 8.5V18a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 18z"/><circle cx="12" cy="13" r="3.4"/>', barcode:'<path d="M4 6v12M7 6v12M10 6v8M13 6v12M16 6v8M20 6v12"/>',
+  mic:'<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0"/><path d="M12 18v3"/>', userPlus:'<circle cx="9" cy="8" r="3.4"/><path d="M3 20c0-3.3 2.7-5.6 6-5.6s6 2.3 6 5.6"/><path d="M18 8v6M15 11h6"/>',
+};
+function sysIcon(key,size=24,stroke=N){return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${stroke}" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">${L[key]}</svg>`;}
+// Category glyph = the final designed 14-point star art (PNG, transparent ground).
+function catImg(id,size=42){return `<img src="../ui_kits/zaytona-app/cat-art/${id}.png" width="${size}" height="${size}" alt="" style="display:block;width:${size}px;height:${size}px;object-fit:contain"/>`;}
+
+// swap legend placeholders
+document.body.innerHTML = document.body.innerHTML
+  .replace('__STAR_MINT__', catImg('produce',40))
+  .replace('__CHIP_SYS__', `<span style="width:40px;height:40px;border-radius:12px;background:var(--surface-sunken);display:inline-grid;place-items:center;border:1.5px solid var(--border-soft)">${sysIcon('bell',20)}</span>`);
+
+// id = category id (matches cat-art/<id>.png and cat.<id>); en · ar · metaphor · brand hue
+const CATS=[
+  ['produce','Produce','خضار وفواكه','Leaf — fresh fruit & veg','#43C08A'],
+  ['bakery','Bakery','مخبوزات','Bread loaf — fresh baked','#D98A3A'],
+  ['meat','Meat & Fish','لحوم وأسماك','Fish — protein counter','#FC5E4F'],
+  ['dairy','Dairy & Eggs','ألبان وبيض','Carton — milk & eggs','#6A65EB'],
+  ['frozen','Frozen','مجمدات','Cold chain — frozen goods','#3FB0D8'],
+  ['pantry','Pantry','مؤن','Sealed can — shelf staples','#E07CBE'],
+  ['cooking','Cooking','أساسيات الطبخ','Utensils — oils, spices, basics','#E8463A'],
+  ['breakfast','Breakfast','فطور','Egg — morning meal','#5C8DEF'],
+  ['snacks','Snacks','وجبات خفيفة','Cupcake — treats & sweets','#B072D8'],
+  ['beverages','Beverages','مشروبات','Drink — coffee, tea, water','#2FA7C9'],
+  ['ready','Ready-to-Eat','وجبات جاهزة','Pizza slice — heat & eat','#F2795B'],
+  ['baby','Baby','أطفال','Baby bottle — infant care','#EE8FBE'],
+  ['care','Personal Care','عناية شخصية','Toothbrush — grooming','#2FBFA0'],
+  ['health','Health','صحة','Capsule — pharmacy, wellness','#EF5D7A'],
+  ['household','Household','منزلية','Broom — cleaning supplies','#8B86EE'],
+  ['pets','Pets','حيوانات أليفة','Camel — pet supplies','#C99A52'],
+];
+document.getElementById('cat-rows').innerHTML = CATS.map(([id,en,ar,meta,c])=>
+  `<tr><td class="glyphcell">${catImg(id,42)}</td>
+   <td><div class="nm">${en}</div><div class="id">${ar} · <span style="direction:ltr">cat.${id}</span></div></td>
+   <td class="muted">${meta}</td>
+   <td class="muted"><span style="display:inline-block;width:11px;height:11px;border-radius:3px;background:${c};vertical-align:-1px;margin-inline-end:5px"></span>${c}<br><span class="id">designed art · 30 (list) · 42 (row)</span></td></tr>`).join('');
+
+const SYS=[
+  ['home','Home','Bottom nav — group home','Nav tab · 24'],
+  ['book','Recipes','Bottom nav — recipe book','Nav tab · 24'],
+  ['settings','Settings','Bottom nav — preferences','Nav tab · 24'],
+  ['plus','Add','Primary action — add item / list','Button · 20–22'],
+  ['cart','List','Active shopping list token','Blob 48 · 22'],
+  ['store','Start trip','Enter buying mode','Button · 20'],
+  ['search','Search','Filter items & recipes','Input · 18'],
+  ['mic','Voice add','Dictate an item','Input adornment · 18'],
+  ['barcode','Scan','Barcode add','Input adornment · 18'],
+  ['camera','Photo','Attach item image','Sheet · 20'],
+  ['bell','Notify','List notifications','IconButton soft · 19'],
+  ['history','History','Action log / past trips','IconButton soft · 19'],
+  ['trash','Delete','Remove item or list','IconButton red · 19'],
+  ['dots','More','Row overflow menu','IconButton ghost · 18'],
+  ['flame','Urgent','Marks an urgent item','Badge red · 12'],
+  ['flag','Priority','Flag / mark for review','Inline · 16'],
+  ['check','Done','Bought / completed','Checkbox · 20'],
+  ['userPlus','Invite','Add a member','Button · 18'],
+  ['share','Share','Share invite code','IconButton · 18'],
+  ['chevronLeft','Back','Navigate back (RTL-flips)','IconButton soft · 20'],
+];
+document.getElementById('sys-rows').innerHTML = SYS.map(([k,en,purpose,cont])=>
+  `<tr><td class="glyphcell"><span style="width:42px;height:42px;border-radius:12px;background:var(--surface-sunken);display:inline-grid;place-items:center;border:1.5px solid var(--border-soft)">${sysIcon(k,22)}</span></td>
+   <td><div class="nm">${en}</div><div class="id">icon.${k}</div></td>
+   <td class="muted">${purpose}</td>
+   <td class="muted id">${cont}</td></tr>`).join('');
+</script>
+</body>
+</html>

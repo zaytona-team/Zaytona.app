@@ -1,0 +1,52 @@
+<!-- @dsCard group="Components · Core" viewport="820x340" name="Core" subtitle="Button · IconButton · Badge · Avatar · Card" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body { margin: 0; background: var(--bg-app); padding: 22px; }
+  #root { display: flex; flex-direction: column; gap: 18px; }
+  .row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .lbl { font-family: var(--font-body); font-size: 11px; font-weight: 700; letter-spacing: .04em;
+         text-transform: uppercase; color: var(--text-muted); width: 100%; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+  const DS = window.ThalajaDesignSystem_ed2185;
+  const { Button, IconButton, Badge, Avatar, AvatarGroup, Card } = DS;
+  const Plus = () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>;
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    <>
+      <div className="row"><span className="lbl">Button</span>
+        <Button variant="primary">Add to list</Button>
+        <Button variant="secondary">Invite</Button>
+        <Button variant="mint">Bought</Button>
+        <Button variant="outline">Cancel</Button>
+        <Button variant="ghost">Skip</Button>
+        <Button variant="danger">Remove</Button>
+      </div>
+      <div className="row"><span className="lbl">IconButton · Badge · Avatar</span>
+        <IconButton tone="red" variant="solid" ariaLabel="add"><Plus/></IconButton>
+        <IconButton tone="navy" variant="outline" ariaLabel="add"><Plus/></IconButton>
+        <Badge tone="mint" variant="solid">In cart</Badge>
+        <Badge tone="red" dot>3 left</Badge>
+        <Badge tone="indigo" variant="soft">Shared</Badge>
+        <AvatarGroup><Avatar name="Reem A"/><Avatar name="Sara M"/><Avatar name="Noor K"/><Avatar name="Hind Z"/><Avatar name="Lama Q"/></AvatarGroup>
+      </div>
+      <div className="row"><span className="lbl">Card</span>
+        <Card variant="plain" style={{width:150}}><b>Plain</b><div style={{fontSize:13,color:'var(--text-muted)'}}>pink hairline</div></Card>
+        <Card variant="pop" style={{width:150}}><b>Pop</b><div style={{fontSize:13,color:'var(--text-muted)'}}>navy + shadow</div></Card>
+        <Card variant="brand" style={{width:150}}><b>Brand</b><div style={{fontSize:13,opacity:.85}}>coral fill</div></Card>
+      </div>
+    </>
+  );
+</script>
+</body>
+</html>
