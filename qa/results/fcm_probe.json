@@ -1,0 +1,11 @@
+{
+ "register_status": 200,
+ "remind_me_status": 200,
+ "remind_me_ms": 245,
+ "remind_me_body": "{\"message\": \"Notification sent successfully\"}\n",
+ "devices_before": 4,
+ "devices_after": 4,
+ "probe_token_still_present": true,
+ "old_smoke_token_still_present": true,
+ "verdict": "FCM NOT CONFIGURED (no send attempted, invalid tokens never pruned)"
+}

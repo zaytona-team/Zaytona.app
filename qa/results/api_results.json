@@ -1,0 +1,4115 @@
+{
+ "run": "2026-11-03 15:36",
+ "base": "https://zaytona-app.onrender.com/api/v1",
+ "results": [
+  {
+   "id": "S0",
+   "area": "Platform",
+   "role": "anon",
+   "title": "Warm-up: public categories",
+   "actor": "anon",
+   "method": "GET",
+   "path": "/categories/",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 403.2,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:00.065+00:00",
+   "resp": "[{\"category_id\": \"82cad0a0-dd5b-4abb-aa0d-eb47e14aa9e5\", \"name\": \"Fresh Produce\", \"image_url\": null, \"sort_order\": 1}, {\"category_id\": \"07e7968d-a8cd-4e34-a14f-f5c4bf981a6a\", \"name\": \"Meat & Seafood\", \"image_url\": null, \"sort_order\": 2}, {\"category_id\": \"0335162d-66c1-499a-a9b9-86e7ec0cc8a9\", \"name\": \"Dairy & Eggs\", \"image_url\": null, \"sort_order\": 3}, {\"category_id\": \"e36c45a2-a40f-44f4-81af-754c3d61afbc\", \"name\": \"Bakery\", \"image_url\": null, \"sort_order\": 4}, {\"category_id\": \"595dbc15-e8b5-4b94-a6ee-4238b155fea5\", \"name\": \"Pantry\", \"image_url\": null, \"sort_order\": 5}, {\"category_id\": \"988bdd2b-ea53-442b-a3e3-18b9b85ae9f9\", \"name\": \"Cooking Essentials\", \"image_url\": null, \"sort_order\": 6}, "
+  },
+  {
+   "id": "AU01",
+   "area": "Auth",
+   "role": "individual",
+   "title": "Login with local phone shape 05XXXXXXXX",
+   "actor": "A",
+   "method": "POST",
+   "path": "/auth/login",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 411.8,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:00.475+00:00",
+   "resp": "{\"phone\": \"+966555455544\", \"otp_sent\": true, \"otp_method\": \"dev-bypass\", \"message\": \"Enter the OTP sent to your phone to complete login.\"}"
+  },
+  {
+   "id": "AU02",
+   "area": "Auth",
+   "role": "individual",
+   "title": "Verify with wrong OTP is rejected",
+   "actor": "A",
+   "method": "POST",
+   "path": "/auth/otp/verify",
+   "status": 400,
+   "expect": [
+    400
+   ],
+   "ms": 160.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:00.639+00:00",
+   "resp": "{\"message\": \"Invalid or expired OTP\"}"
+  },
+  {
+   "id": "AU03",
+   "area": "Auth",
+   "role": "individual",
+   "title": "Verify whitelisted OTP 4444 -> tokens",
+   "actor": "A",
+   "method": "POST",
+   "path": "/auth/otp/verify",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 172.6,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:00.812+00:00",
+   "resp": "{\"verified\": true, \"access_token\": \"<redacted-jwt>\", \"refresh_token\": \"<redacted-jwt>\", \"token_type\": \"Bearer\", \"user\": {\"user_id\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"first_name\": \"hi\", \"last_name\": \"hhh\", \"email\": null, \"phone\": \"+966555455544\", \"avatar_url\": \"https://zttfiymkqrbzblutbrjr.supabase.co"
+  },
+  {
+   "id": "AU04",
+   "area": "Auth",
+   "role": "member",
+   "title": "Verify B with OTP 4444 (whitelist probe, sends nothing)",
+   "actor": "B",
+   "method": "POST",
+   "path": "/auth/otp/verify",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 378.6,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:01.191+00:00",
+   "resp": "{\"verified\": true, \"access_token\": \"<redacted-jwt>\", \"refresh_token\": \"<redacted-jwt>\", \"token_type\": \"Bearer\", \"user\": {\"user_id\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"first_name\": \"Test\", \"last_name\": \"45\", \"email\": null, \"phone\": \"+966555455545\", \"avatar_url\": null, \"phone_verified\": true, \"reminders"
+  },
+  {
+   "id": "AU05",
+   "area": "Auth",
+   "role": "member",
+   "title": "Login account B (international shape) -> dev-bypass",
+   "actor": "B",
+   "method": "POST",
+   "path": "/auth/login",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 214.4,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:01.405+00:00",
+   "resp": "{\"phone\": \"+966555455545\", \"otp_sent\": true, \"otp_method\": \"dev-bypass\", \"message\": \"Enter the OTP sent to your phone to complete login.\"}"
+  },
+  {
+   "id": "AU06",
+   "area": "Auth",
+   "role": "individual",
+   "title": "GET /auth/me with access token",
+   "actor": "A",
+   "method": "GET",
+   "path": "/auth/me",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 209.8,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:01.614+00:00",
+   "resp": "{\"user_id\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"first_name\": \"hi\", \"last_name\": \"hhh\", \"email\": null, \"phone\": \"+966555455544\", \"avatar_url\": \"https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-6.png?\", \"phone_verified\": true, \"reminders_enabled\": true, \"created_at\": \"2026-08-09T22:22:50.137159+00:00\", \"updated_at\": \"2026-11-03T12:35:00.387426+00:00\"}"
+  },
+  {
+   "id": "AU07",
+   "area": "Auth",
+   "role": "anon",
+   "title": "GET /auth/me without token",
+   "actor": "A",
+   "method": "GET",
+   "path": "/auth/me",
+   "status": 401,
+   "expect": [
+    401
+   ],
+   "ms": 165.5,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:01.781+00:00",
+   "resp": "{\"message\": \"Missing or malformed Authorization header\"}"
+  },
+  {
+   "id": "AU08",
+   "area": "Auth",
+   "role": "individual",
+   "title": "Refresh token cannot be used as access token",
+   "actor": "A",
+   "method": "GET",
+   "path": "/auth/me",
+   "status": 401,
+   "expect": [
+    401
+   ],
+   "ms": 145.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:01.926+00:00",
+   "resp": "{\"message\": \"Invalid token: Refresh tokens cannot be used to access resources\"}"
+  },
+  {
+   "id": "AU09",
+   "area": "Auth",
+   "role": "individual",
+   "title": "Refresh -> new access token",
+   "actor": "A",
+   "method": "POST",
+   "path": "/auth/refresh",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 167.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:02.093+00:00",
+   "resp": "{\"access_token\": \"<redacted-jwt>\", \"token_type\": \"Bearer\"}"
+  },
+  {
+   "id": "AU10",
+   "area": "Auth",
+   "role": "individual",
+   "title": "Access token rejected by /auth/refresh",
+   "actor": "A",
+   "method": "POST",
+   "path": "/auth/refresh",
+   "status": 401,
+   "expect": [
+    401
+   ],
+   "ms": 143.9,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:02.238+00:00",
+   "resp": "{\"message\": \"Not a refresh token\"}"
+  },
+  {
+   "id": "AU11",
+   "area": "Auth",
+   "role": "anon",
+   "title": "Register with an existing phone -> 409",
+   "actor": "anon",
+   "method": "POST",
+   "path": "/auth/register",
+   "status": 409,
+   "expect": [
+    409
+   ],
+   "ms": 422.7,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:02.659+00:00",
+   "resp": "{\"message\": \"Phone already registered\"}"
+  },
+  {
+   "id": "AU12",
+   "area": "Auth",
+   "role": "anon",
+   "title": "Login with unregistered phone -> 404 (no OTP sent)",
+   "actor": "anon",
+   "method": "POST",
+   "path": "/auth/login",
+   "status": 404,
+   "expect": [
+    404
+   ],
+   "ms": 354.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:03.017+00:00",
+   "resp": "{\"message\": \"No account found for that email/phone\"}"
+  },
+  {
+   "id": "AU13",
+   "area": "Auth",
+   "role": "anon",
+   "title": "Login with malformed phone -> 400",
+   "actor": "anon",
+   "method": "POST",
+   "path": "/auth/login",
+   "status": 400,
+   "expect": [
+    400
+   ],
+   "ms": 355.1,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:03.373+00:00",
+   "resp": "{\"message\": \"phone must be a valid Saudi mobile number: 05XXXXXXXX (10 digits) or +9665XXXXXXXX\"}"
+  },
+  {
+   "id": "AU14",
+   "area": "Auth",
+   "role": "individual",
+   "title": "Resend OTP (whitelisted -> dev-bypass)",
+   "actor": "A",
+   "method": "POST",
+   "path": "/auth/otp/resend",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 158.5,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:03.526+00:00",
+   "resp": "{\"otp_sent\": true, \"otp_method\": \"dev-bypass\"}"
+  },
+  {
+   "id": "AU15",
+   "area": "Auth",
+   "role": "individual",
+   "title": "Resend OTP with invalid channel -> 400",
+   "actor": "A",
+   "method": "POST",
+   "path": "/auth/otp/resend",
+   "status": 400,
+   "expect": [
+    400
+   ],
+   "ms": 152.2,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:03.680+00:00",
+   "resp": "{\"errors\": {\"channel\": \"'pigeon' is not one of ['whatsapp', 'sms', 'email']\"}, \"message\": \"Input payload validation failed\"}"
+  },
+  {
+   "id": "AU16",
+   "area": "Profile",
+   "role": "individual",
+   "title": "List preset avatars (Supabase Storage)",
+   "actor": "A",
+   "method": "GET",
+   "path": "/auth/avatars",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 261.7,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:03.947+00:00",
+   "resp": "{\"avatars\": [{\"id\": \"av-1.png\", \"url\": \"https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-1.png\"}, {\"id\": \"av-10.png\", \"url\": \"https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-10.png\"}, {\"id\": \"av-11.png\", \"url\": \"https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-11.png\"}, {\"id\": \"av-12.png\", \"url\": \"https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-12.png\"}, {\"id\": \"av-13.png\", \"url\": \"https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-13.png\"}, {\"id\": \"av-14.png\", \"url\": \"https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-14.png\"},"
+  },
+  {
+   "id": "AU17",
+   "area": "Profile",
+   "role": "individual",
+   "title": "Read profile before avatar test",
+   "actor": "A",
+   "method": "GET",
+   "path": "/auth/me",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 157.4,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:04.105+00:00",
+   "resp": "{\"user_id\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"first_name\": \"hi\", \"last_name\": \"hhh\", \"email\": null, \"phone\": \"+966555455544\", \"avatar_url\": \"https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-6.png?\", \"phone_verified\": true, \"reminders_enabled\": true, \"created_at\": \"2026-08-09T22:22:50.137159+00:00\", \"updated_at\": \"2026-11-03T12:35:00.387426+00:00\"}"
+  },
+  {
+   "id": "AU18",
+   "area": "Profile",
+   "role": "individual",
+   "title": "Select avatar (same as current) -> stored URL shape",
+   "actor": "A",
+   "method": "POST",
+   "path": "/auth/profile/avatar/select",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 242.6,
+   "ok": true,
+   "finding": "F-AVATAR-URL",
+   "at": "2026-11-03T12:37:04.342+00:00",
+   "resp": "{\"message\": \"Avatar selected successfully\", \"user\": {\"user_id\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"first_name\": \"hi\", \"last_name\": \"hhh\", \"email\": null, \"phone\": \"+966555455544\", \"avatar_url\": \"https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-6.png?\", \"phone_verified\": true, \"reminders_enabled\": true, \"created_at\": \"2026-08-09T22:22:50.137159+00:00\", \"updated_at\": \"2026-11-03T12:35:00.387426+00:00\"}}"
+  },
+  {
+   "id": "AU19",
+   "area": "Profile",
+   "role": "individual",
+   "title": "Select unknown avatar -> 404",
+   "actor": "A",
+   "method": "POST",
+   "path": "/auth/profile/avatar/select",
+   "status": 404,
+   "expect": [
+    404
+   ],
+   "ms": 195.4,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:04.542+00:00",
+   "resp": "{\"error\": \"Avatar not found\"}"
+  },
+  {
+   "id": "AU20",
+   "area": "Profile",
+   "role": "individual",
+   "title": "Toggle reminders off",
+   "actor": "A",
+   "method": "PATCH",
+   "path": "/auth/me",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 171.5,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:04.715+00:00",
+   "resp": "{\"user_id\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"first_name\": \"hi\", \"last_name\": \"hhh\", \"email\": null, \"phone\": \"+966555455544\", \"avatar_url\": \"https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-6.png?\", \"phone_verified\": true, \"reminders_enabled\": false, \"created_at\": \"2026-08-09T22:22:50.137159+00:00\", \"updated_at\": \"2026-11-03T12:37:05.171681+00:00\"}"
+  },
+  {
+   "id": "AU21",
+   "area": "Profile",
+   "role": "individual",
+   "title": "Toggle reminders back on",
+   "actor": "A",
+   "method": "PATCH",
+   "path": "/auth/me",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 185.6,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:04.900+00:00",
+   "resp": "{\"user_id\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"first_name\": \"hi\", \"last_name\": \"hhh\", \"email\": null, \"phone\": \"+966555455544\", \"avatar_url\": \"https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-6.png?\", \"phone_verified\": true, \"reminders_enabled\": true, \"created_at\": \"2026-08-09T22:22:50.137159+00:00\", \"updated_at\": \"2026-11-03T12:37:05.358253+00:00\"}"
+  },
+  {
+   "id": "WS01",
+   "area": "Realtime",
+   "role": "anon",
+   "title": "Handshake without token is rejected",
+   "actor": "anon",
+   "method": "WS",
+   "path": "/socket.io",
+   "status": "rejected: One or more namespaces failed to connect",
+   "expect": "rejected",
+   "ms": 15696.4,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:20.598+00:00",
+   "resp": "rejected: One or more namespaces failed to connect"
+  },
+  {
+   "id": "WS02",
+   "area": "Realtime",
+   "role": "anon",
+   "title": "Handshake with refresh token is rejected",
+   "actor": "anon",
+   "method": "WS",
+   "path": "/socket.io",
+   "status": "rejected: One or more namespaces failed to connect",
+   "expect": "rejected",
+   "ms": 15693.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:36.291+00:00",
+   "resp": "rejected: One or more namespaces failed to connect"
+  },
+  {
+   "id": "WS03",
+   "area": "Realtime",
+   "role": "anon",
+   "title": "Handshake with garbage token is rejected",
+   "actor": "anon",
+   "method": "WS",
+   "path": "/socket.io",
+   "status": "rejected: One or more namespaces failed to connect",
+   "expect": "rejected",
+   "ms": 15714.0,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:52.001+00:00",
+   "resp": "rejected: One or more namespaces failed to connect"
+  },
+  {
+   "id": "IN01",
+   "area": "Groups",
+   "role": "individual",
+   "title": "List my groups (A)",
+   "actor": "A",
+   "method": "GET",
+   "path": "/groups",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 181.1,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:52.182+00:00",
+   "resp": "[{\"group_id\": \"4f0e79d9-3ccc-41d6-8446-4ad86033d5ba\", \"created_by\": \"4d48d843-2618-4f58-b7be-7e6a55ff2f79\", \"created_by_name\": \"mousa alqarni\", \"name\": \"new\", \"image_url\": null, \"icon\": \"home\", \"type\": \"household\", \"invite_code\": \"C0O73B\", \"created_at\": \"2026-08-20T17:00:39.349350+00:00\", \"updated_at\": \"2026-08-20T17:00:39.349356+00:00\", \"member_count\": 2, \"role\": \"member\"}, {\"group_id\": \"9b931d47-e63c-4db7-86c8-724c28870bd4\", \"created_by\": \"4d48d843-2618-4f58-b7be-7e6a55ff2f79\", \"created_by_name\": \"mousa alqarni\", \"name\": \"me\", \"image_url\": null, \"icon\": \"home\", \"type\": \"household\", \"invite_code\": \"V2HSGR\", \"created_at\": \"2026-08-20T17:02:21.540173+00:00\", \"updated_at\": \"2026-08-20T17:02:21"
+  },
+  {
+   "id": "IN02",
+   "area": "Lists",
+   "role": "individual",
+   "title": "Personal group lists",
+   "actor": "A",
+   "method": "GET",
+   "path": "/groups/2e430425-9787-4982-a02f-89acfa0b669d/lists",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 174.9,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:52.358+00:00",
+   "resp": "[{\"list_id\": \"3e8ccd45-e2a6-488e-a9d9-a432bab18dd9\", \"group_id\": \"2e430425-9787-4982-a02f-89acfa0b669d\", \"created_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"created_by_name\": \"hi hhh\", \"completed_by\": null, \"name\": \"QA UI List\", \"status\": \"active\", \"created_at\": \"2026-11-02T21:43:37.487442+00:00\", \"updated_at\": \"2026-11-02T21:43:37.487446+00:00\", \"completed_at\": null, \"last_reminded_at\": null, \"color\": null, \"item_count\": 2, \"bought_count\": 2, \"urgent_count\": 0}, {\"list_id\": \"80958f03-dcb2-4c6a-b4b9-930cc9676eb5\", \"group_id\": \"2e430425-9787-4982-a02f-89acfa0b669d\", \"created_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"created_by_name\": \"hi hhh\", \"completed_by\": null, \"name\": \"hi\", \"statu"
+  },
+  {
+   "id": "IN03.3",
+   "area": "Lists",
+   "role": "individual",
+   "title": "Create personal list #4 (cap 5)",
+   "actor": "A",
+   "method": "POST",
+   "path": "/groups/2e430425-9787-4982-a02f-89acfa0b669d/lists",
+   "status": 201,
+   "expect": [
+    201
+   ],
+   "ms": 194.2,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:52.557+00:00",
+   "resp": "{\"list_id\": \"728e6df3-39c6-401a-92b0-555071fad27b\", \"group_id\": \"2e430425-9787-4982-a02f-89acfa0b669d\", \"created_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"created_by_name\": \"hi hhh\", \"completed_by\": null, \"name\": \"QA personal 4\", \"status\": \"active\", \"created_at\": \"2026-11-03T12:37:53.016268+00:00\", \"updated_at\": \"2026-11-03T12:37:53.016273+00:00\", \"completed_at\": null, \"last_reminded_at\": null, \"color\": null}"
+  },
+  {
+   "id": "IN03.4",
+   "area": "Lists",
+   "role": "individual",
+   "title": "Create personal list #5 (cap 5)",
+   "actor": "A",
+   "method": "POST",
+   "path": "/groups/2e430425-9787-4982-a02f-89acfa0b669d/lists",
+   "status": 201,
+   "expect": [
+    201
+   ],
+   "ms": 195.5,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:52.752+00:00",
+   "resp": "{\"list_id\": \"d0fa8bb4-ae73-4f01-a90e-bb5a136b5fab\", \"group_id\": \"2e430425-9787-4982-a02f-89acfa0b669d\", \"created_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"created_by_name\": \"hi hhh\", \"completed_by\": null, \"name\": \"QA personal 5\", \"status\": \"active\", \"created_at\": \"2026-11-03T12:37:53.209896+00:00\", \"updated_at\": \"2026-11-03T12:37:53.209901+00:00\", \"completed_at\": null, \"last_reminded_at\": null, \"color\": null}"
+  },
+  {
+   "id": "IN04",
+   "area": "Lists",
+   "role": "individual",
+   "title": "6th list in personal group is blocked (US-13 cap)",
+   "actor": "A",
+   "method": "POST",
+   "path": "/groups/2e430425-9787-4982-a02f-89acfa0b669d/lists",
+   "status": 409,
+   "expect": [
+    409
+   ],
+   "ms": 163.5,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:52.917+00:00",
+   "resp": "{\"message\": \"Default group is limited to 5 lists. Upgrade to premium for more.\"}"
+  },
+  {
+   "id": "IN05",
+   "area": "Groups",
+   "role": "individual",
+   "title": "Personal group cannot be deleted",
+   "actor": "A",
+   "method": "DELETE",
+   "path": "/groups/2e430425-9787-4982-a02f-89acfa0b669d",
+   "status": 403,
+   "expect": [
+    403
+   ],
+   "ms": 181.7,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:53.091+00:00",
+   "resp": "{\"message\": \"Cannot delete your personal group. It was created automatically with your account.\"}"
+  },
+  {
+   "id": "IN06",
+   "area": "Groups",
+   "role": "outsider",
+   "title": "Outsider cannot read someone's personal group",
+   "actor": "B",
+   "method": "GET",
+   "path": "/groups/2e430425-9787-4982-a02f-89acfa0b669d",
+   "status": 403,
+   "expect": [
+    403
+   ],
+   "ms": 170.1,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:53.267+00:00",
+   "resp": "{\"message\": \"Not a member of this group\"}"
+  },
+  {
+   "id": "IN07",
+   "area": "Recipes",
+   "role": "outsider",
+   "title": "Outsider lists recipes of a group they are not in (expect 403)",
+   "actor": "B",
+   "method": "GET",
+   "path": "/recipes/groups/2e430425-9787-4982-a02f-89acfa0b669d/recipes",
+   "status": 500,
+   "expect": [
+    403
+   ],
+   "ms": 166.3,
+   "ok": false,
+   "finding": "F-RECIPE-500",
+   "at": "2026-11-03T12:37:53.433+00:00",
+   "resp": "{\"message\": \"Internal Server Error\"}"
+  },
+  {
+   "id": "IN08",
+   "area": "Lists",
+   "role": "outsider",
+   "title": "Outsider cannot read a personal list",
+   "actor": "B",
+   "method": "GET",
+   "path": "/lists/728e6df3-39c6-401a-92b0-555071fad27b",
+   "status": 403,
+   "expect": [
+    403
+   ],
+   "ms": 177.7,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:53.613+00:00",
+   "resp": "{\"message\": \"Not a member of this group\"}"
+  },
+  {
+   "id": "IN09.0",
+   "area": "Lists",
+   "role": "individual",
+   "title": "Cleanup: delete QA personal list",
+   "actor": "A",
+   "method": "DELETE",
+   "path": "/lists/728e6df3-39c6-401a-92b0-555071fad27b",
+   "status": 204,
+   "expect": [
+    204
+   ],
+   "ms": 204.9,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:53.811+00:00",
+   "resp": "\"\""
+  },
+  {
+   "id": "IN09.1",
+   "area": "Lists",
+   "role": "individual",
+   "title": "Cleanup: delete QA personal list",
+   "actor": "A",
+   "method": "DELETE",
+   "path": "/lists/d0fa8bb4-ae73-4f01-a90e-bb5a136b5fab",
+   "status": 204,
+   "expect": [
+    204
+   ],
+   "ms": 202.4,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:54.021+00:00",
+   "resp": "\"\""
+  },
+  {
+   "id": "G01",
+   "area": "Groups",
+   "role": "admin",
+   "title": "Create household group (client sends type=individual)",
+   "actor": "A",
+   "method": "POST",
+   "path": "/groups",
+   "status": 201,
+   "expect": [
+    201
+   ],
+   "ms": 198.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:55.407+00:00",
+   "resp": "{\"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"created_by_name\": \"hi hhh\", \"name\": \"QA E2E 2026-11-03 15:36\", \"image_url\": null, \"icon\": \"home\", \"type\": \"household\", \"invite_code\": \"A4FKLR\", \"created_at\": \"2026-11-03T12:37:55.844720+00:00\", \"updated_at\": \"2026-11-03T12:37:55.844723+00:00\"}"
+  },
+  {
+   "id": "G02",
+   "area": "Groups",
+   "role": "admin",
+   "title": "Blank group name rejected",
+   "actor": "A",
+   "method": "POST",
+   "path": "/groups",
+   "status": 400,
+   "expect": [
+    400
+   ],
+   "ms": 165.5,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:56.557+00:00",
+   "resp": "{\"message\": \"name is required\"}"
+  },
+  {
+   "id": "G03",
+   "area": "Groups",
+   "role": "member",
+   "title": "Join with lowercase invite code",
+   "actor": "B",
+   "method": "POST",
+   "path": "/groups/join",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 262.8,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:56.820+00:00",
+   "resp": "{\"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"created_by_name\": \"hi hhh\", \"name\": \"QA E2E 2026-11-03 15:36\", \"image_url\": null, \"icon\": \"home\", \"type\": \"household\", \"invite_code\": \"A4FKLR\", \"created_at\": \"2026-11-03T12:37:55.844720+00:00\", \"updated_at\": \"2026-11-03T12:37:55.844723+00:00\"}"
+  },
+  {
+   "id": "G04",
+   "area": "Groups",
+   "role": "member",
+   "title": "Join again -> 409",
+   "actor": "B",
+   "method": "POST",
+   "path": "/groups/join",
+   "status": 409,
+   "expect": [
+    409
+   ],
+   "ms": 158.7,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:56.980+00:00",
+   "resp": "{\"message\": \"Already a member of this group\"}"
+  },
+  {
+   "id": "G05",
+   "area": "Groups",
+   "role": "member",
+   "title": "Invalid invite code -> 404",
+   "actor": "B",
+   "method": "POST",
+   "path": "/groups/join",
+   "status": 404,
+   "expect": [
+    404
+   ],
+   "ms": 162.5,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:57.147+00:00",
+   "resp": "{\"message\": \"Invalid invite code\"}"
+  },
+  {
+   "id": "G06",
+   "area": "Groups",
+   "role": "member",
+   "title": "Group detail as member",
+   "actor": "B",
+   "method": "GET",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 190.7,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:57.341+00:00",
+   "resp": "{\"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"created_by_name\": \"hi hhh\", \"name\": \"QA E2E 2026-11-03 15:36\", \"image_url\": null, \"icon\": \"home\", \"type\": \"household\", \"invite_code\": \"A4FKLR\", \"created_at\": \"2026-11-03T12:37:55.844720+00:00\", \"updated_at\": \"2026-11-03T12:37:55.844723+00:00\", \"role\": \"member\", \"members\": [{\"member_id\": \"ba2362c8-1231-406b-8ade-d509e88ca983\", \"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"user_id\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"first_name\": \"Test\", \"last_name\": \"45\", \"avatar_url\": null, \"role\": \"member\", \"joined_at\": \"2026-11-03T12:37:57.274377+00:00\"}, {\"member_id\": \"275e36e2-45bf-4f6"
+  },
+  {
+   "id": "G07",
+   "area": "Groups",
+   "role": "member",
+   "title": "Member cannot rename group",
+   "actor": "B",
+   "method": "PATCH",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9",
+   "status": 403,
+   "expect": [
+    403
+   ],
+   "ms": 170.2,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:57.508+00:00",
+   "resp": "{\"message\": \"Admin role required for this action\"}"
+  },
+  {
+   "id": "G08",
+   "area": "Groups",
+   "role": "admin",
+   "title": "Admin renames group + icon (Arabic name)",
+   "actor": "A",
+   "method": "PATCH",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 205.1,
+   "ok": true,
+   "finding": "F-AR-NORMALIZE",
+   "at": "2026-11-03T12:37:57.708+00:00",
+   "resp": "{\"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"created_by_name\": \"hi hhh\", \"name\": \"عائله الاختبار\", \"image_url\": null, \"icon\": \"cart\", \"type\": \"household\", \"invite_code\": \"A4FKLR\", \"created_at\": \"2026-11-03T12:37:55.844720+00:00\", \"updated_at\": \"2026-11-03T12:37:58.172858+00:00\"}"
+  },
+  {
+   "id": "G09",
+   "area": "Groups",
+   "role": "admin",
+   "title": "Invalid icon rejected",
+   "actor": "A",
+   "method": "PATCH",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9",
+   "status": 400,
+   "expect": [
+    400
+   ],
+   "ms": 138.7,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:57.856+00:00",
+   "resp": "{\"errors\": {\"icon\": \"'rocket' is not one of ['home', 'cart', 'coffee', 'moon', 'living', 'restaurant', 'pets', 'store']\"}, \"message\": \"Input payload validation failed\"}"
+  },
+  {
+   "id": "G10",
+   "area": "Groups",
+   "role": "member",
+   "title": "My groups (B) shows member_count + role",
+   "actor": "B",
+   "method": "GET",
+   "path": "/groups",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 171.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:58.027+00:00",
+   "resp": "[{\"group_id\": \"20ff36d4-fe4f-44dd-b580-52ca5d6d8684\", \"created_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"created_by_name\": \"Test 45\", \"name\": \"Test 45\", \"image_url\": null, \"icon\": null, \"type\": \"individual\", \"invite_code\": null, \"created_at\": \"2026-08-23T19:17:24.187966+00:00\", \"updated_at\": \"2026-08-23T19:17:24.187969+00:00\", \"member_count\": 1, \"role\": \"admin\"}, {\"group_id\": \"fd6b2c18-833d-487b-ab0a-f658e2222f26\", \"created_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"created_by_name\": \"Test 45\", \"name\": \"socket\", \"image_url\": null, \"icon\": \"home\", \"type\": \"household\", \"invite_code\": \"6ESO38\", \"created_at\": \"2026-08-23T20:20:27.108284+00:00\", \"updated_at\": \"2026-08-23T20:20:27.108287+00"
+  },
+  {
+   "id": "G11",
+   "area": "Groups",
+   "role": "member",
+   "title": "Malformed group id -> 404",
+   "actor": "B",
+   "method": "GET",
+   "path": "/groups/not-a-uuid",
+   "status": 404,
+   "expect": [
+    404
+   ],
+   "ms": 139.0,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:58.167+00:00",
+   "resp": "{\"message\": \"Group not found\"}"
+  },
+  {
+   "id": "L01",
+   "area": "Lists",
+   "role": "admin",
+   "title": "Admin creates list (Arabic name)",
+   "actor": "A",
+   "method": "POST",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/lists",
+   "status": 201,
+   "expect": [
+    201
+   ],
+   "ms": 187.3,
+   "ok": true,
+   "finding": "F-AR-NORMALIZE",
+   "at": "2026-11-03T12:37:58.354+00:00",
+   "resp": "{\"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"created_by_name\": \"hi hhh\", \"completed_by\": null, \"name\": \"قائمه الشهر\", \"status\": \"active\", \"created_at\": \"2026-11-03T12:37:58.814672+00:00\", \"updated_at\": \"2026-11-03T12:37:58.814675+00:00\", \"completed_at\": null, \"last_reminded_at\": null, \"color\": null}"
+  },
+  {
+   "id": "L02",
+   "area": "Lists",
+   "role": "member",
+   "title": "Member creates list",
+   "actor": "B",
+   "method": "POST",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/lists",
+   "status": 201,
+   "expect": [
+    201
+   ],
+   "ms": 184.6,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:58.540+00:00",
+   "resp": "{\"list_id\": \"ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf\", \"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"created_by_name\": \"Test 45\", \"completed_by\": null, \"name\": \"QA Lock Test\", \"status\": \"active\", \"created_at\": \"2026-11-03T12:37:59.002377+00:00\", \"updated_at\": \"2026-11-03T12:37:59.002380+00:00\", \"completed_at\": null, \"last_reminded_at\": null, \"color\": null}"
+  },
+  {
+   "id": "L03",
+   "area": "Lists",
+   "role": "member",
+   "title": "Member cannot rename list (admin-only)",
+   "actor": "B",
+   "method": "PATCH",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "status": 403,
+   "expect": [
+    403
+   ],
+   "ms": 168.5,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:58.707+00:00",
+   "resp": "{\"message\": \"Admin role required for this action\"}"
+  },
+  {
+   "id": "L04",
+   "area": "Lists",
+   "role": "admin",
+   "title": "Invalid list colour rejected",
+   "actor": "A",
+   "method": "PATCH",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "status": 400,
+   "expect": [
+    400
+   ],
+   "ms": 179.5,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:58.890+00:00",
+   "resp": "{\"errors\": {\"color\": \"'pink' is not one of ['red', 'indigo', 'mint', 'navy', 'lilac']\"}, \"message\": \"Input payload validation failed\"}"
+  },
+  {
+   "id": "L05",
+   "area": "Lists",
+   "role": "admin",
+   "title": "Admin sets list colour",
+   "actor": "A",
+   "method": "PATCH",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 215.0,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:59.106+00:00",
+   "resp": "{\"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"created_by_name\": \"hi hhh\", \"completed_by\": null, \"name\": \"قائمه الشهر\", \"status\": \"active\", \"created_at\": \"2026-11-03T12:37:58.814672+00:00\", \"updated_at\": \"2026-11-03T12:37:59.563652+00:00\", \"completed_at\": null, \"last_reminded_at\": null, \"color\": \"mint\"}"
+  },
+  {
+   "id": "L06",
+   "area": "Lists",
+   "role": "member",
+   "title": "Member reads list",
+   "actor": "B",
+   "method": "GET",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 166.9,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:59.273+00:00",
+   "resp": "{\"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"created_by_name\": \"hi hhh\", \"completed_by\": null, \"name\": \"قائمه الشهر\", \"status\": \"active\", \"created_at\": \"2026-11-03T12:37:58.814672+00:00\", \"updated_at\": \"2026-11-03T12:37:59.563652+00:00\", \"completed_at\": null, \"last_reminded_at\": null, \"color\": \"mint\"}"
+  },
+  {
+   "id": "L07",
+   "area": "Lists",
+   "role": "member",
+   "title": "Bad status filter -> 400",
+   "actor": "B",
+   "method": "GET",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/lists?status=bogus",
+   "status": 400,
+   "expect": [
+    400
+   ],
+   "ms": 158.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:37:59.431+00:00",
+   "resp": "{\"message\": \"status must be 'active' or 'completed'\"}"
+  },
+  {
+   "id": "I01",
+   "area": "Items",
+   "role": "member",
+   "title": "Member adds Milk 2 L (Almarai)",
+   "actor": "B",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items",
+   "status": 201,
+   "expect": [
+    201
+   ],
+   "ms": 294.9,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:00.168+00:00",
+   "resp": "{\"list_item_id\": \"fa50400e-def0-414a-9034-22f9be8cd8ab\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"item_id\": \"cf289727-dd62-48b9-ad28-194ce866688a\", \"category_id\": \"0335162d-66c1-499a-a9b9-86e7ec0cc8a9\", \"name\": \"Milk\", \"brand\": \"Almarai\", \"quantity\": 2.0, \"unit\": \"L\", \"notes\": null, \"is_urgent\": false, \"is_bought\": false, \"added_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"bought_by\": null, \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:00.571852+00:00\", \"updated_at\": \"2026-11-03T12:38:00.571856+00:00\", \"catalog\": {\"item_id\": \"cf289727-dd62-48b9-ad28-194ce866688a\", \"name\": \"Milk\", \"brand\": \"Almarai\", \"image_url\": null, \"barcode\": null, \"default_category_id\": "
+  },
+  {
+   "id": "I02",
+   "area": "Items",
+   "role": "admin",
+   "title": "Same name+unit from another member merges (brand/notes/urgent sent)",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items",
+   "status": 209,
+   "expect": [
+    209
+   ],
+   "ms": 285.9,
+   "ok": true,
+   "finding": "F-MERGE-LOSS",
+   "at": "2026-11-03T12:38:00.458+00:00",
+   "resp": "{\"list_item_id\": \"fa50400e-def0-414a-9034-22f9be8cd8ab\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"item_id\": \"cf289727-dd62-48b9-ad28-194ce866688a\", \"category_id\": \"0335162d-66c1-499a-a9b9-86e7ec0cc8a9\", \"name\": \"Milk\", \"brand\": \"Almarai\", \"quantity\": 3.0, \"unit\": \"L\", \"notes\": null, \"is_urgent\": false, \"is_bought\": false, \"added_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"bought_by\": null, \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:00.571852+00:00\", \"updated_at\": \"2026-11-03T12:38:00.860044+00:00\", \"catalog\": {\"item_id\": \"cf289727-dd62-48b9-ad28-194ce866688a\", \"name\": \"Milk\", \"brand\": \"Almarai\", \"image_url\": null, \"barcode\": null, \"default_category_id\": "
+  },
+  {
+   "id": "I03",
+   "area": "Items",
+   "role": "admin",
+   "title": "Same name, different unit -> new row + warning",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items",
+   "status": 209,
+   "expect": [
+    209
+   ],
+   "ms": 264.7,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:00.723+00:00",
+   "resp": "{\"list_item_id\": \"b0111230-81a0-4112-b787-f16e1b638b82\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"item_id\": \"7577cea7-b965-448d-9f18-334ef581e97f\", \"category_id\": null, \"name\": \"Milk\", \"brand\": null, \"quantity\": 1.0, \"unit\": \"pcs\", \"notes\": null, \"is_urgent\": false, \"is_bought\": false, \"added_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"bought_by\": null, \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:01.142313+00:00\", \"updated_at\": \"2026-11-03T12:38:01.142318+00:00\", \"catalog\": {\"item_id\": \"7577cea7-b965-448d-9f18-334ef581e97f\", \"name\": \"milk\", \"brand\": null, \"image_url\": null, \"barcode\": null, \"default_category_id\": null}, \"is_duplicate_warning\": true}"
+  },
+  {
+   "id": "I04",
+   "area": "Items",
+   "role": "admin",
+   "title": "Invalid unit rejected",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items",
+   "status": 400,
+   "expect": [
+    400
+   ],
+   "ms": 142.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:00.856+00:00",
+   "resp": "{\"errors\": {\"unit\": \"'kgs' is not one of ['pcs', 'kg', 'g', 'L', 'ml', 'pack', 'box', 'bottle']\"}, \"message\": \"Input payload validation failed\"}"
+  },
+  {
+   "id": "I05",
+   "area": "Items",
+   "role": "admin",
+   "title": "Zero quantity rejected",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items",
+   "status": 400,
+   "expect": [
+    400
+   ],
+   "ms": 242.5,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:01.109+00:00",
+   "resp": "{\"message\": \"Quantity must be greater than 0\"}"
+  },
+  {
+   "id": "I06",
+   "area": "Items",
+   "role": "admin",
+   "title": "Malformed catalog item_id (expect 400/404)",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items",
+   "status": 500,
+   "expect": [
+    400,
+    404
+   ],
+   "ms": 191.9,
+   "ok": false,
+   "finding": "F-UUID-500",
+   "at": "2026-11-03T12:38:01.300+00:00",
+   "resp": "{\"message\": \"Internal Server Error\"}"
+  },
+  {
+   "id": "I07",
+   "area": "Items",
+   "role": "admin",
+   "title": "Malformed category_id rejected",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items",
+   "status": 400,
+   "expect": [
+    400
+   ],
+   "ms": 333.4,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:01.633+00:00",
+   "resp": "{\"message\": \"category_id does not match a known category\"}"
+  },
+  {
+   "id": "I08",
+   "area": "Items",
+   "role": "admin",
+   "title": "Arabic item name قهوة",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items",
+   "status": 201,
+   "expect": [
+    201
+   ],
+   "ms": 424.2,
+   "ok": true,
+   "finding": "F-AR-NORMALIZE",
+   "at": "2026-11-03T12:38:02.057+00:00",
+   "resp": "{\"list_item_id\": \"3debbb58-c475-4b65-9393-6f86a83a47d9\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"item_id\": \"f34c163d-d054-44ac-b485-33c4fc6f6884\", \"category_id\": null, \"name\": \"قهوه\", \"brand\": null, \"quantity\": 1.0, \"unit\": \"pack\", \"notes\": null, \"is_urgent\": false, \"is_bought\": false, \"added_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"bought_by\": null, \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:02.461111+00:00\", \"updated_at\": \"2026-11-03T12:38:02.461116+00:00\", \"catalog\": {\"item_id\": \"f34c163d-d054-44ac-b485-33c4fc6f6884\", \"name\": \"قهوه\", \"brand\": null, \"image_url\": null, \"barcode\": null, \"default_category_id\": null}, \"is_duplicate_warning\": false}"
+  },
+  {
+   "id": "I09",
+   "area": "Items",
+   "role": "admin",
+   "title": "Everyday note with a semicolon (expect accepted)",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items",
+   "status": 400,
+   "expect": [
+    201
+   ],
+   "ms": 236.9,
+   "ok": false,
+   "finding": "F-SQLI-FILTER",
+   "at": "2026-11-03T12:38:02.297+00:00",
+   "resp": "{\"message\": \"notes contains disallowed characters\"}"
+  },
+  {
+   "id": "I10",
+   "area": "Items",
+   "role": "admin",
+   "title": "Everyday note 'select ... from ...' (expect accepted)",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items",
+   "status": 400,
+   "expect": [
+    201
+   ],
+   "ms": 205.5,
+   "ok": false,
+   "finding": "F-SQLI-FILTER",
+   "at": "2026-11-03T12:38:02.502+00:00",
+   "resp": "{\"message\": \"notes contains disallowed characters\"}"
+  },
+  {
+   "id": "I11",
+   "area": "Items",
+   "role": "admin",
+   "title": "Urgent item Tomatoes 2 kg",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items",
+   "status": 201,
+   "expect": [
+    201
+   ],
+   "ms": 266.9,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:02.765+00:00",
+   "resp": "{\"list_item_id\": \"fa1f0cb6-66de-49e6-b45a-43985d0616ae\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"item_id\": \"fee1bca0-99ec-4cc3-9949-0a9543fa58f5\", \"category_id\": null, \"name\": \"Tomatoes\", \"brand\": null, \"quantity\": 2.0, \"unit\": \"kg\", \"notes\": null, \"is_urgent\": true, \"is_bought\": false, \"added_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"bought_by\": null, \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:03.187546+00:00\", \"updated_at\": \"2026-11-03T12:38:03.187551+00:00\", \"catalog\": {\"item_id\": \"fee1bca0-99ec-4cc3-9949-0a9543fa58f5\", \"name\": \"Tomatoes\", \"brand\": null, \"image_url\": null, \"barcode\": null, \"default_category_id\": null}, \"is_duplicate_warning\": false"
+  },
+  {
+   "id": "I12",
+   "area": "Items",
+   "role": "member",
+   "title": "List items (urgent first)",
+   "actor": "B",
+   "method": "GET",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 191.9,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:02.961+00:00",
+   "resp": "[{\"list_item_id\": \"fa1f0cb6-66de-49e6-b45a-43985d0616ae\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"item_id\": \"fee1bca0-99ec-4cc3-9949-0a9543fa58f5\", \"category_id\": null, \"name\": \"Tomatoes\", \"brand\": null, \"quantity\": 2.0, \"unit\": \"kg\", \"notes\": null, \"is_urgent\": true, \"is_bought\": false, \"added_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"bought_by\": null, \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:03.187546+00:00\", \"updated_at\": \"2026-11-03T12:38:03.187551+00:00\", \"catalog\": {\"item_id\": \"fee1bca0-99ec-4cc3-9949-0a9543fa58f5\", \"name\": \"Tomatoes\", \"brand\": null, \"image_url\": null, \"barcode\": null, \"default_category_id\": null}}, {\"list_item_id\": \"fa50400e-"
+  },
+  {
+   "id": "I13",
+   "area": "Items",
+   "role": "admin",
+   "title": "Edit quantity 2 -> 3",
+   "actor": "A",
+   "method": "PATCH",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 223.4,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:03.182+00:00",
+   "resp": "{\"list_item_id\": \"fa1f0cb6-66de-49e6-b45a-43985d0616ae\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"item_id\": \"fee1bca0-99ec-4cc3-9949-0a9543fa58f5\", \"category_id\": null, \"name\": \"Tomatoes\", \"brand\": null, \"quantity\": 3.0, \"unit\": \"kg\", \"notes\": null, \"is_urgent\": true, \"is_bought\": false, \"added_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"bought_by\": null, \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:03.187546+00:00\", \"updated_at\": \"2026-11-03T12:38:03.614374+00:00\", \"catalog\": {\"item_id\": \"fee1bca0-99ec-4cc3-9949-0a9543fa58f5\", \"name\": \"Tomatoes\", \"brand\": null, \"image_url\": null, \"barcode\": null, \"default_category_id\": null}}"
+  },
+  {
+   "id": "I14",
+   "area": "Items",
+   "role": "admin",
+   "title": "Edit quantity 0 rejected",
+   "actor": "A",
+   "method": "PATCH",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae",
+   "status": 400,
+   "expect": [
+    400
+   ],
+   "ms": 190.0,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:03.376+00:00",
+   "resp": "{\"message\": \"Quantity must be greater than 0\"}"
+  },
+  {
+   "id": "I15",
+   "area": "Items",
+   "role": "member",
+   "title": "Member checks item (no trip)",
+   "actor": "B",
+   "method": "PATCH",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae/purchase",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 236.2,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:03.607+00:00",
+   "resp": "{\"list_item_id\": \"fa1f0cb6-66de-49e6-b45a-43985d0616ae\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"item_id\": \"fee1bca0-99ec-4cc3-9949-0a9543fa58f5\", \"category_id\": null, \"name\": \"Tomatoes\", \"brand\": null, \"quantity\": 3.0, \"unit\": \"kg\", \"notes\": null, \"is_urgent\": true, \"is_bought\": true, \"added_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"bought_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:03.187546+00:00\", \"updated_at\": \"2026-11-03T12:38:04.041696+00:00\", \"catalog\": {\"item_id\": \"fee1bca0-99ec-4cc3-9949-0a9543fa58f5\", \"name\": \"Tomatoes\", \"brand\": null, \"image_url\": null, \"barcode\": null, \"default_category_id\": nul"
+  },
+  {
+   "id": "I16",
+   "area": "Items",
+   "role": "member",
+   "title": "Check again is idempotent",
+   "actor": "B",
+   "method": "PATCH",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae/purchase",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 184.5,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:03.793+00:00",
+   "resp": "{\"list_item_id\": \"fa1f0cb6-66de-49e6-b45a-43985d0616ae\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"item_id\": \"fee1bca0-99ec-4cc3-9949-0a9543fa58f5\", \"category_id\": null, \"name\": \"Tomatoes\", \"brand\": null, \"quantity\": 3.0, \"unit\": \"kg\", \"notes\": null, \"is_urgent\": true, \"is_bought\": true, \"added_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"bought_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:03.187546+00:00\", \"updated_at\": \"2026-11-03T12:38:04.041696+00:00\", \"catalog\": {\"item_id\": \"fee1bca0-99ec-4cc3-9949-0a9543fa58f5\", \"name\": \"Tomatoes\", \"brand\": null, \"image_url\": null, \"barcode\": null, \"default_category_id\": nul"
+  },
+  {
+   "id": "I17",
+   "area": "Items",
+   "role": "member",
+   "title": "Uncheck item",
+   "actor": "B",
+   "method": "PATCH",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae/purchase",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 243.5,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:04.040+00:00",
+   "resp": "{\"list_item_id\": \"fa1f0cb6-66de-49e6-b45a-43985d0616ae\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"item_id\": \"fee1bca0-99ec-4cc3-9949-0a9543fa58f5\", \"category_id\": null, \"name\": \"Tomatoes\", \"brand\": null, \"quantity\": 3.0, \"unit\": \"kg\", \"notes\": null, \"is_urgent\": true, \"is_bought\": false, \"added_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"bought_by\": null, \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:03.187546+00:00\", \"updated_at\": \"2026-11-03T12:38:04.467949+00:00\", \"catalog\": {\"item_id\": \"fee1bca0-99ec-4cc3-9949-0a9543fa58f5\", \"name\": \"Tomatoes\", \"brand\": null, \"image_url\": null, \"barcode\": null, \"default_category_id\": null}}"
+  },
+  {
+   "id": "I18",
+   "area": "Items",
+   "role": "admin",
+   "title": "Personal quick-add catalog",
+   "actor": "A",
+   "method": "GET",
+   "path": "/users/me/items",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 166.0,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:05.106+00:00",
+   "resp": "[{\"name\": \"Tomatoes\", \"category_id\": null, \"brand\": null, \"image_url\": null, \"last_used_at\": \"2026-11-03T12:38:03.187546+00:00\"}, {\"name\": \"قهوه\", \"category_id\": null, \"brand\": null, \"image_url\": null, \"last_used_at\": \"2026-11-03T12:38:02.461111+00:00\"}, {\"name\": \"Milk\", \"category_id\": null, \"brand\": null, \"image_url\": null, \"last_used_at\": \"2026-11-03T12:38:01.142313+00:00\"}, {\"name\": \"fish\", \"category_id\": \"07e7968d-a8cd-4e34-a14f-f5c4bf981a6a\", \"brand\": null, \"image_url\": null, \"last_used_at\": \"2026-11-02T21:44:39.222409+00:00\"}, {\"name\": \"معجون\", \"category_id\": \"997acbf3-1bd8-43ea-bbb0-617f63ff54bf\", \"brand\": null, \"image_url\": null, \"last_used_at\": \"2026-08-25T13:43:36.101582+00:00\"}, {"
+  },
+  {
+   "id": "I19",
+   "area": "Catalog",
+   "role": "admin",
+   "title": "Catalog search Arabic with taa marbuta (قهوة)",
+   "actor": "A",
+   "method": "GET",
+   "path": "/catalog/search?q=قهوة",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 178.1,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:05.291+00:00",
+   "resp": "{\"results\": [{\"item_id\": \"ee5842ae-4ee1-4fdf-ba27-8bbd1d3da0b1\", \"default_category_id\": \"595dbc15-e8b5-4b94-a6ee-4238b155fea5\", \"name\": \"قهوه\", \"brand\": null, \"barcode\": null, \"image_url\": null, \"created_at\": \"2026-08-06T10:42:24.240341+00:00\", \"updated_at\": \"2026-08-06T10:42:24.240346+00:00\"}, {\"item_id\": \"f34c163d-d054-44ac-b485-33c4fc6f6884\", \"default_category_id\": null, \"name\": \"قهوه\", \"brand\": null, \"barcode\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:02.418254+00:00\", \"updated_at\": \"2026-11-03T12:38:02.418260+00:00\"}], \"count\": 2}"
+  },
+  {
+   "id": "I20",
+   "area": "Catalog",
+   "role": "admin",
+   "title": "Catalog search latin",
+   "actor": "A",
+   "method": "GET",
+   "path": "/catalog/search?q=Milk",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 169.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:05.461+00:00",
+   "resp": "{\"results\": [{\"item_id\": \"224015d5-a333-4c86-8c81-fe0af3e4e78b\", \"default_category_id\": null, \"name\": \"milk\", \"brand\": \"Nadec\", \"barcode\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:00.834705+00:00\", \"updated_at\": \"2026-11-03T12:38:00.834709+00:00\"}, {\"item_id\": \"7577cea7-b965-448d-9f18-334ef581e97f\", \"default_category_id\": null, \"name\": \"milk\", \"brand\": null, \"barcode\": null, \"image_url\": null, \"created_at\": \"2026-07-28T14:13:46.490589+00:00\", \"updated_at\": \"2026-07-28T14:13:46.490597+00:00\"}, {\"item_id\": \"cf289727-dd62-48b9-ad28-194ce866688a\", \"default_category_id\": \"0335162d-66c1-499a-a9b9-86e7ec0cc8a9\", \"name\": \"Milk\", \"brand\": \"Almarai\", \"barcode\": null, \"image_url\": null,"
+  },
+  {
+   "id": "I21",
+   "area": "Items",
+   "role": "admin",
+   "title": "Upload item photo (PNG)",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae/image",
+   "status": 201,
+   "expect": [
+    201
+   ],
+   "ms": 1450.1,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:06.911+00:00",
+   "resp": "{\"list_item_id\": \"fa1f0cb6-66de-49e6-b45a-43985d0616ae\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"item_id\": \"fee1bca0-99ec-4cc3-9949-0a9543fa58f5\", \"category_id\": null, \"name\": \"Tomatoes\", \"brand\": null, \"quantity\": 3.0, \"unit\": \"kg\", \"notes\": null, \"is_urgent\": true, \"is_bought\": false, \"added_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"bought_by\": null, \"trip_id\": null, \"image_url\": \"https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/item-images/fa1f0cb6-66de-49e6-b45a-43985d0616ae/b635d301-59b5-4812-b539-fb7338d04b77.png?\", \"created_at\": \"2026-11-03T12:38:03.187546+00:00\", \"updated_at\": \"2026-11-03T12:38:07.342231+00:00\", \"catalog\": {\"item_id\": \"fee1bca0-99ec-4"
+  },
+  {
+   "id": "I22",
+   "area": "Items",
+   "role": "admin",
+   "title": "Upload non-image rejected",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae/image",
+   "status": 400,
+   "expect": [
+    400
+   ],
+   "ms": 179.7,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:07.091+00:00",
+   "resp": "{\"message\": \"Unsupported image type: text/plain. Allowed: image/jpeg, image/png, image/webp\"}"
+  },
+  {
+   "id": "I23",
+   "area": "Items",
+   "role": "member",
+   "title": "Delete Milk(pcs) row",
+   "actor": "B",
+   "method": "DELETE",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/b0111230-81a0-4112-b787-f16e1b638b82",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 220.2,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:07.307+00:00",
+   "resp": "{\"message\": \"Item deleted\"}"
+  },
+  {
+   "id": "T01",
+   "area": "Trips",
+   "role": "admin",
+   "title": "Assign member B as buyer",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/trip",
+   "status": 201,
+   "expect": [
+    200,
+    201
+   ],
+   "ms": 207.9,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:07.522+00:00",
+   "resp": "{\"trip_id\": \"7edce759-ae8e-4b97-914f-59d277c21b94\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"buyer_id\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"status\": \"active\", \"created_at\": \"2026-11-03T12:38:07.961934+00:00\", \"updated_at\": \"2026-11-03T12:38:07.961938+00:00\", \"completed_at\": null}"
+  },
+  {
+   "id": "T02",
+   "area": "Trips",
+   "role": "admin",
+   "title": "Second active trip -> 409",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/trip",
+   "status": 409,
+   "expect": [
+    409
+   ],
+   "ms": 169.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:07.692+00:00",
+   "resp": "{\"message\": \"This list already has an active trip\"}"
+  },
+  {
+   "id": "T03",
+   "area": "Trips",
+   "role": "admin",
+   "title": "Active trip lookup",
+   "actor": "A",
+   "method": "GET",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/trips/active",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 163.9,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:07.855+00:00",
+   "resp": "{\"trip_id\": \"7edce759-ae8e-4b97-914f-59d277c21b94\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"buyer_id\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"status\": \"active\", \"created_at\": \"2026-11-03T12:38:07.961934+00:00\", \"updated_at\": \"2026-11-03T12:38:07.961938+00:00\", \"completed_at\": null}"
+  },
+  {
+   "id": "T04",
+   "area": "Trips",
+   "role": "admin",
+   "title": "Non-buyer cannot check items during trip",
+   "actor": "A",
+   "method": "PATCH",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae/purchase",
+   "status": 403,
+   "expect": [
+    403
+   ],
+   "ms": 163.0,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:08.019+00:00",
+   "resp": "{\"message\": \"Only the trip's buyer can check off items during an active trip\"}"
+  },
+  {
+   "id": "T05",
+   "area": "Trips",
+   "role": "member",
+   "title": "Buyer checks item",
+   "actor": "B",
+   "method": "PATCH",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa50400e-def0-414a-9034-22f9be8cd8ab/purchase",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 252.2,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:08.272+00:00",
+   "resp": "{\"list_item_id\": \"fa50400e-def0-414a-9034-22f9be8cd8ab\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"item_id\": \"cf289727-dd62-48b9-ad28-194ce866688a\", \"category_id\": \"0335162d-66c1-499a-a9b9-86e7ec0cc8a9\", \"name\": \"Milk\", \"brand\": \"Almarai\", \"quantity\": 3.0, \"unit\": \"L\", \"notes\": null, \"is_urgent\": false, \"is_bought\": true, \"added_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"bought_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:00.571852+00:00\", \"updated_at\": \"2026-11-03T12:38:08.687123+00:00\", \"catalog\": {\"item_id\": \"cf289727-dd62-48b9-ad28-194ce866688a\", \"name\": \"Milk\", \"brand\": \"Almarai\", \"image_url\": null, \"barcod"
+  },
+  {
+   "id": "T06",
+   "area": "Trips",
+   "role": "member",
+   "title": "Buyer checks item",
+   "actor": "B",
+   "method": "PATCH",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae/purchase",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 223.7,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:08.494+00:00",
+   "resp": "{\"list_item_id\": \"fa1f0cb6-66de-49e6-b45a-43985d0616ae\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"item_id\": \"fee1bca0-99ec-4cc3-9949-0a9543fa58f5\", \"category_id\": null, \"name\": \"Tomatoes\", \"brand\": null, \"quantity\": 3.0, \"unit\": \"kg\", \"notes\": null, \"is_urgent\": true, \"is_bought\": true, \"added_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"bought_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"trip_id\": null, \"image_url\": \"https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/item-images/fa1f0cb6-66de-49e6-b45a-43985d0616ae/b635d301-59b5-4812-b539-fb7338d04b77.png?\", \"created_at\": \"2026-11-03T12:38:03.187546+00:00\", \"updated_at\": \"2026-11-03T12:38:08.928762+00:00\", \"catal"
+  },
+  {
+   "id": "T07",
+   "area": "Trips",
+   "role": "admin",
+   "title": "Admin adds item mid-trip (buyer push attempted)",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items",
+   "status": 201,
+   "expect": [
+    201
+   ],
+   "ms": 260.4,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:08.756+00:00",
+   "resp": "{\"list_item_id\": \"b2b7a775-9311-4ce3-acbb-bf38081e6bbd\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"item_id\": \"48b7a0a9-c365-495e-9ebc-b53053c2397d\", \"category_id\": null, \"name\": \"Sugar\", \"brand\": null, \"quantity\": 1.0, \"unit\": \"kg\", \"notes\": null, \"is_urgent\": false, \"is_bought\": false, \"added_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"bought_by\": null, \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:09.176746+00:00\", \"updated_at\": \"2026-11-03T12:38:09.176751+00:00\", \"catalog\": {\"item_id\": \"48b7a0a9-c365-495e-9ebc-b53053c2397d\", \"name\": \"Sugar\", \"brand\": null, \"image_url\": null, \"barcode\": null, \"default_category_id\": null}, \"is_duplicate_warning\": false}"
+  },
+  {
+   "id": "T08",
+   "area": "Trips",
+   "role": "admin",
+   "title": "Non-buyer cannot announce heading-out",
+   "actor": "A",
+   "method": "POST",
+   "path": "/trips/7edce759-ae8e-4b97-914f-59d277c21b94/heading-out",
+   "status": 403,
+   "expect": [
+    403
+   ],
+   "ms": 162.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:08.918+00:00",
+   "resp": "{\"message\": \"Only the buyer can send this\"}"
+  },
+  {
+   "id": "T09",
+   "area": "Trips",
+   "role": "member",
+   "title": "Buyer announces heading-out (push + socket)",
+   "actor": "B",
+   "method": "POST",
+   "path": "/trips/7edce759-ae8e-4b97-914f-59d277c21b94/heading-out",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 197.6,
+   "ok": true,
+   "finding": "F-FCM-ENV",
+   "at": "2026-11-03T12:38:09.106+00:00",
+   "resp": "{\"notified_devices\": 0}"
+  },
+  {
+   "id": "T10",
+   "area": "Trips",
+   "role": "member",
+   "title": "Ask with empty recipients -> 400",
+   "actor": "B",
+   "method": "POST",
+   "path": "/trips/7edce759-ae8e-4b97-914f-59d277c21b94/ask",
+   "status": 400,
+   "expect": [
+    400
+   ],
+   "ms": 164.5,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:09.273+00:00",
+   "resp": "{\"message\": \"Select at least one recipient\"}"
+  },
+  {
+   "id": "T11",
+   "area": "Trips",
+   "role": "member",
+   "title": "Ask with non-member id -> 400",
+   "actor": "B",
+   "method": "POST",
+   "path": "/trips/7edce759-ae8e-4b97-914f-59d277c21b94/ask",
+   "status": 400,
+   "expect": [
+    400
+   ],
+   "ms": 182.8,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:09.459+00:00",
+   "resp": "{\"message\": \"No valid recipients\"}"
+  },
+  {
+   "id": "T12",
+   "area": "Trips",
+   "role": "member",
+   "title": "Buyer privately asks A",
+   "actor": "B",
+   "method": "POST",
+   "path": "/trips/7edce759-ae8e-4b97-914f-59d277c21b94/ask",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 182.7,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:09.650+00:00",
+   "resp": "{\"asked\": [\"43a71112-2544-4b07-aea0-3b0248eda949\"], \"notified_devices\": 0}"
+  },
+  {
+   "id": "T13",
+   "area": "Trips",
+   "role": "admin",
+   "title": "Non-buyer cannot complete trip",
+   "actor": "A",
+   "method": "PATCH",
+   "path": "/trips/7edce759-ae8e-4b97-914f-59d277c21b94/complete",
+   "status": 403,
+   "expect": [
+    403
+   ],
+   "ms": 495.4,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:13.156+00:00",
+   "resp": "{\"message\": \"Only the buyer can complete this trip\"}"
+  },
+  {
+   "id": "T14",
+   "area": "Trips",
+   "role": "member",
+   "title": "Buyer completes trip",
+   "actor": "B",
+   "method": "PATCH",
+   "path": "/trips/7edce759-ae8e-4b97-914f-59d277c21b94/complete",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 263.5,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:13.421+00:00",
+   "resp": "{\"trip\": {\"trip_id\": \"7edce759-ae8e-4b97-914f-59d277c21b94\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"buyer_id\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"status\": \"completed\", \"created_at\": \"2026-11-03T12:38:07.961934+00:00\", \"updated_at\": \"2026-11-03T12:38:13.856171+00:00\", \"completed_at\": \"2026-11-03T12:38:13.855353+00:00\"}, \"list\": {\"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"created_by_name\": \"hi hhh\", \"completed_by\": null, \"name\": \"قائمه الشهر\", \"status\": \"active\", \"created_at\": \"2026-11-03T12:37:58.814672+00:00\", \"updated_at\": \"2026-11-03T12:37:59.563652+00:00\", "
+  },
+  {
+   "id": "T15",
+   "area": "Trips",
+   "role": "member",
+   "title": "Active list hides claimed (bought) items",
+   "actor": "B",
+   "method": "GET",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 215.2,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:14.432+00:00",
+   "resp": "[{\"list_item_id\": \"3debbb58-c475-4b65-9393-6f86a83a47d9\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"item_id\": \"f34c163d-d054-44ac-b485-33c4fc6f6884\", \"category_id\": null, \"name\": \"قهوه\", \"brand\": null, \"quantity\": 1.0, \"unit\": \"pack\", \"notes\": null, \"is_urgent\": false, \"is_bought\": false, \"added_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"bought_by\": null, \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:02.461111+00:00\", \"updated_at\": \"2026-11-03T12:38:02.461116+00:00\", \"catalog\": {\"item_id\": \"f34c163d-d054-44ac-b485-33c4fc6f6884\", \"name\": \"قهوه\", \"brand\": null, \"image_url\": null, \"barcode\": null, \"default_category_id\": null}}, {\"list_item_id\": \"b2b7a775-9311-"
+  },
+  {
+   "id": "T16",
+   "area": "Lists",
+   "role": "admin",
+   "title": "List card counts after trip (expect claimed excluded)",
+   "actor": "A",
+   "method": "GET",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/lists",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 172.2,
+   "ok": false,
+   "finding": "F-COUNTS",
+   "at": "2026-11-03T12:38:14.606+00:00",
+   "resp": "[{\"list_id\": \"ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf\", \"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"created_by_name\": \"Test 45\", \"completed_by\": null, \"name\": \"QA Lock Test\", \"status\": \"active\", \"created_at\": \"2026-11-03T12:37:59.002377+00:00\", \"updated_at\": \"2026-11-03T12:37:59.002380+00:00\", \"completed_at\": null, \"last_reminded_at\": null, \"color\": null, \"item_count\": 0, \"bought_count\": 0, \"urgent_count\": 0}, {\"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"created_by_name\": \"hi hhh\", \"completed_by\": null, \"name\": \"قائمه ال",
+   "note": "card item_count=4 but list shows 2"
+  },
+  {
+   "id": "T17",
+   "area": "History",
+   "role": "member",
+   "title": "Trip history for list",
+   "actor": "B",
+   "method": "GET",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/trips",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 174.4,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:14.783+00:00",
+   "resp": "[{\"trip_id\": \"7edce759-ae8e-4b97-914f-59d277c21b94\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"buyer_id\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"buyer_name\": \"Test 45\", \"completed_at\": \"2026-11-03T12:38:13.855353+00:00\", \"item_count\": 2, \"items\": [{\"item_id\": \"cf289727-dd62-48b9-ad28-194ce866688a\", \"name\": \"Milk\", \"quantity\": 3.0, \"unit\": \"L\", \"category_id\": \"0335162d-66c1-499a-a9b9-86e7ec0cc8a9\"}, {\"item_id\": \"fee1bca0-99ec-4cc3-9949-0a9543fa58f5\", \"name\": \"Tomatoes\", \"quantity\": 3.0, \"unit\": \"kg\", \"category_id\": null}]}]"
+  },
+  {
+   "id": "T18",
+   "area": "History",
+   "role": "member",
+   "title": "Action log for list",
+   "actor": "B",
+   "method": "GET",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/history",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 172.9,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:14.956+00:00",
+   "resp": "[{\"action_id\": \"9b552786-ab95-4e95-8a1b-ad2ce0cf3dba\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"list_item_id\": \"b2b7a775-9311-4ce3-acbb-bf38081e6bbd\", \"user_id\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"action\": \"created\", \"metadata\": {\"name\": \"Sugar\"}, \"undo_available_until\": null, \"is_undone\": false, \"created_at\": \"2026-11-03T12:38:09.197987+00:00\"}, {\"action_id\": \"08cfacec-8dbb-444e-9b64-57ed3ef79fb5\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"list_item_id\": \"fa1f0cb6-66de-49e6-b45a-43985d0616ae\", \"user_id\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"action\": \"consumed\", \"metadata\": {\"name\": \"Tomatoes\"}, \"undo_available_until\": null, \"is_undone\": false, \"created_at\": \"2"
+  },
+  {
+   "id": "T19",
+   "area": "Trips",
+   "role": "member",
+   "title": "Cancel an already-completed trip (expect 409)",
+   "actor": "B",
+   "method": "PATCH",
+   "path": "/trips/7edce759-ae8e-4b97-914f-59d277c21b94/cancel",
+   "status": 200,
+   "expect": [
+    400,
+    409
+   ],
+   "ms": 184.6,
+   "ok": false,
+   "finding": "F-TRIP-STATE",
+   "at": "2026-11-03T12:38:15.142+00:00",
+   "resp": "{\"trip_id\": \"7edce759-ae8e-4b97-914f-59d277c21b94\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"buyer_id\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"status\": \"cancelled\", \"created_at\": \"2026-11-03T12:38:07.961934+00:00\", \"updated_at\": \"2026-11-03T12:38:15.597744+00:00\", \"completed_at\": \"2026-11-03T12:38:15.597383+00:00\"}"
+  },
+  {
+   "id": "T20",
+   "area": "History",
+   "role": "member",
+   "title": "Trip history after cancelling completed trip",
+   "actor": "B",
+   "method": "GET",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/trips",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 160.5,
+   "ok": false,
+   "finding": null,
+   "at": "2026-11-03T12:38:15.304+00:00",
+   "resp": "[]",
+   "note": "completed trip vanished from history after /cancel"
+  },
+  {
+   "id": "T21",
+   "area": "Trips",
+   "role": "member",
+   "title": "Member adds Rice to lock-test list",
+   "actor": "B",
+   "method": "POST",
+   "path": "/lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items",
+   "status": 201,
+   "expect": [
+    201
+   ],
+   "ms": 242.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:15.546+00:00",
+   "resp": "{\"list_item_id\": \"bc663688-ffa9-4444-8e6a-ae7e96d51414\", \"list_id\": \"ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf\", \"item_id\": \"9f5efa31-266c-41b9-b9fd-37d3ff04f81f\", \"category_id\": null, \"name\": \"Rice\", \"brand\": null, \"quantity\": 5.0, \"unit\": \"kg\", \"notes\": null, \"is_urgent\": false, \"is_bought\": false, \"added_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"bought_by\": null, \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:15.972293+00:00\", \"updated_at\": \"2026-11-03T12:38:15.972298+00:00\", \"catalog\": {\"item_id\": \"9f5efa31-266c-41b9-b9fd-37d3ff04f81f\", \"name\": \"rice\", \"brand\": null, \"image_url\": null, \"barcode\": null, \"default_category_id\": \"595dbc15-e8b5-4b94-a6ee-4238b155fea5\"}, \"i"
+  },
+  {
+   "id": "T22",
+   "area": "Trips",
+   "role": "admin",
+   "title": "Assign B as buyer on lock-test list",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/trip",
+   "status": 201,
+   "expect": [
+    200,
+    201
+   ],
+   "ms": 206.1,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:15.745+00:00",
+   "resp": "{\"trip_id\": \"6ee13c58-7dbb-450d-a187-3f3a652aec39\", \"list_id\": \"ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf\", \"buyer_id\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"status\": \"active\", \"created_at\": \"2026-11-03T12:38:16.201348+00:00\", \"updated_at\": \"2026-11-03T12:38:16.201352+00:00\", \"completed_at\": null}"
+  },
+  {
+   "id": "T23",
+   "area": "Trips",
+   "role": "admin",
+   "title": "Non-buyer closes list via /lists/{id}/complete (expect 403)",
+   "actor": "A",
+   "method": "PATCH",
+   "path": "/lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/complete",
+   "status": 200,
+   "expect": [
+    403
+   ],
+   "ms": 196.8,
+   "ok": false,
+   "finding": "F-TRIP-BYPASS",
+   "at": "2026-11-03T12:38:15.950+00:00",
+   "resp": "{\"list_id\": \"ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf\", \"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"created_by_name\": \"Test 45\", \"completed_by\": null, \"name\": \"QA Lock Test\", \"status\": \"active\", \"created_at\": \"2026-11-03T12:37:59.002377+00:00\", \"updated_at\": \"2026-11-03T12:37:59.002380+00:00\", \"completed_at\": null, \"last_reminded_at\": null, \"color\": null, \"new_list\": null}"
+  },
+  {
+   "id": "T24",
+   "area": "Trips",
+   "role": "admin",
+   "title": "Admin self-assigns as buyer on L1",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/trip",
+   "status": 201,
+   "expect": [
+    200,
+    201
+   ],
+   "ms": 190.9,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:16.950+00:00",
+   "resp": "{\"trip_id\": \"fd22698a-8bfa-4cdb-9c22-7dcbdc91eda1\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"buyer_id\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"status\": \"active\", \"created_at\": \"2026-11-03T12:38:17.402082+00:00\", \"updated_at\": \"2026-11-03T12:38:17.402086+00:00\", \"completed_at\": null}"
+  },
+  {
+   "id": "T25",
+   "area": "Trips",
+   "role": "admin",
+   "title": "Buyer checks Sugar",
+   "actor": "A",
+   "method": "PATCH",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/b2b7a775-9311-4ce3-acbb-bf38081e6bbd/purchase",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 221.1,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:17.171+00:00",
+   "resp": "{\"list_item_id\": \"b2b7a775-9311-4ce3-acbb-bf38081e6bbd\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"item_id\": \"48b7a0a9-c365-495e-9ebc-b53053c2397d\", \"category_id\": null, \"name\": \"Sugar\", \"brand\": null, \"quantity\": 1.0, \"unit\": \"kg\", \"notes\": null, \"is_urgent\": false, \"is_bought\": true, \"added_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"bought_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:09.176746+00:00\", \"updated_at\": \"2026-11-03T12:38:17.596041+00:00\", \"catalog\": {\"item_id\": \"48b7a0a9-c365-495e-9ebc-b53053c2397d\", \"name\": \"Sugar\", \"brand\": null, \"image_url\": null, \"barcode\": null, \"default_category_id\": null}}"
+  },
+  {
+   "id": "T26",
+   "area": "Trips",
+   "role": "admin",
+   "title": "Buyer completes trip 3",
+   "actor": "A",
+   "method": "PATCH",
+   "path": "/trips/fd22698a-8bfa-4cdb-9c22-7dcbdc91eda1/complete",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 222.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:17.391+00:00",
+   "resp": "{\"trip\": {\"trip_id\": \"fd22698a-8bfa-4cdb-9c22-7dcbdc91eda1\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"buyer_id\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"status\": \"completed\", \"created_at\": \"2026-11-03T12:38:17.402082+00:00\", \"updated_at\": \"2026-11-03T12:38:17.850548+00:00\", \"completed_at\": \"2026-11-03T12:38:17.850168+00:00\"}, \"list\": {\"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"created_by_name\": \"hi hhh\", \"completed_by\": null, \"name\": \"قائمه الشهر\", \"status\": \"active\", \"created_at\": \"2026-11-03T12:37:58.814672+00:00\", \"updated_at\": \"2026-11-03T12:37:59.563652+00:00\", "
+  },
+  {
+   "id": "T27",
+   "area": "History",
+   "role": "admin",
+   "title": "Trip 3 in history",
+   "actor": "A",
+   "method": "GET",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/trips",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 184.0,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:17.572+00:00",
+   "resp": "[{\"trip_id\": \"fd22698a-8bfa-4cdb-9c22-7dcbdc91eda1\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"buyer_id\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"buyer_name\": \"hi hhh\", \"completed_at\": \"2026-11-03T12:38:17.850168+00:00\", \"item_count\": 1, \"items\": [{\"item_id\": \"48b7a0a9-c365-495e-9ebc-b53053c2397d\", \"name\": \"Sugar\", \"quantity\": 1.0, \"unit\": \"kg\", \"category_id\": null}]}]"
+  },
+  {
+   "id": "T28",
+   "area": "Items",
+   "role": "admin",
+   "title": "Bulk delete (clear list)",
+   "actor": "A",
+   "method": "DELETE",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 208.7,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:17.786+00:00",
+   "resp": "{\"message\": \"Deleted 4 items\"}"
+  },
+  {
+   "id": "T29",
+   "area": "History",
+   "role": "admin",
+   "title": "Trip history must survive clearing the list",
+   "actor": "A",
+   "method": "GET",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/trips",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 172.6,
+   "ok": false,
+   "finding": "F-BULK-HISTORY",
+   "at": "2026-11-03T12:38:17.956+00:00",
+   "resp": "[{\"trip_id\": \"fd22698a-8bfa-4cdb-9c22-7dcbdc91eda1\", \"list_id\": \"e47b8bf2-2abf-496d-8b60-99c2285e1b84\", \"buyer_id\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"buyer_name\": \"hi hhh\", \"completed_at\": \"2026-11-03T12:38:17.850168+00:00\", \"item_count\": 0, \"items\": []}]",
+   "note": "trip item_count 1 -> 0 after bulk delete"
+  },
+  {
+   "id": "H01",
+   "area": "History",
+   "role": "member",
+   "title": "Add Yogurt (history: created)",
+   "actor": "B",
+   "method": "POST",
+   "path": "/lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items",
+   "status": 201,
+   "expect": [
+    201,
+    209
+   ],
+   "ms": 228.8,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:18.189+00:00",
+   "resp": "{\"list_item_id\": \"8083c380-cf86-4fe1-a222-dc909c1374be\", \"list_id\": \"ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf\", \"item_id\": \"63350fdb-651a-4a01-8301-77e22048b0a0\", \"category_id\": null, \"name\": \"Yogurt\", \"brand\": null, \"quantity\": 4.0, \"unit\": \"pcs\", \"notes\": null, \"is_urgent\": false, \"is_bought\": false, \"added_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"bought_by\": null, \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:18.613413+00:00\", \"updated_at\": \"2026-11-03T12:38:18.613417+00:00\", \"catalog\": {\"item_id\": \"63350fdb-651a-4a01-8301-77e22048b0a0\", \"name\": \"yogurt\", \"brand\": null, \"image_url\": null, \"barcode\": null, \"default_category_id\": \"0335162d-66c1-499a-a9b9-86e7ec0cc8a9\""
+  },
+  {
+   "id": "H02",
+   "area": "History",
+   "role": "member",
+   "title": "Edit Yogurt qty (history: updated)",
+   "actor": "B",
+   "method": "PATCH",
+   "path": "/lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items/8083c380-cf86-4fe1-a222-dc909c1374be",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 228.6,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:18.411+00:00",
+   "resp": "{\"list_item_id\": \"8083c380-cf86-4fe1-a222-dc909c1374be\", \"list_id\": \"ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf\", \"item_id\": \"63350fdb-651a-4a01-8301-77e22048b0a0\", \"category_id\": null, \"name\": \"Yogurt\", \"brand\": null, \"quantity\": 6.0, \"unit\": \"pcs\", \"notes\": null, \"is_urgent\": false, \"is_bought\": false, \"added_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"bought_by\": null, \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:18.613413+00:00\", \"updated_at\": \"2026-11-03T12:38:18.847556+00:00\", \"catalog\": {\"item_id\": \"63350fdb-651a-4a01-8301-77e22048b0a0\", \"name\": \"yogurt\", \"brand\": null, \"image_url\": null, \"barcode\": null, \"default_category_id\": \"0335162d-66c1-499a-a9b9-86e7ec0cc8a9\""
+  },
+  {
+   "id": "H03",
+   "area": "History",
+   "role": "member",
+   "title": "Delete Yogurt (history: deleted)",
+   "actor": "B",
+   "method": "DELETE",
+   "path": "/lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items/8083c380-cf86-4fe1-a222-dc909c1374be",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 213.9,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:18.633+00:00",
+   "resp": "{\"message\": \"Item deleted\"}"
+  },
+  {
+   "id": "C01",
+   "area": "Trips",
+   "role": "admin",
+   "title": "Assign B as buyer again on L2",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/trip",
+   "status": 201,
+   "expect": [
+    200,
+    201,
+    409
+   ],
+   "ms": 205.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:19.656+00:00",
+   "resp": "{\"trip_id\": \"322218e7-32ab-4f27-88eb-698ebe5cbfc3\", \"list_id\": \"ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf\", \"buyer_id\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"status\": \"active\", \"created_at\": \"2026-11-03T12:38:20.102649+00:00\", \"updated_at\": \"2026-11-03T12:38:20.102653+00:00\", \"completed_at\": null}"
+  },
+  {
+   "id": "C02",
+   "area": "Trips",
+   "role": "member",
+   "title": "Buyer cancels trip",
+   "actor": "B",
+   "method": "PATCH",
+   "path": "/trips/322218e7-32ab-4f27-88eb-698ebe5cbfc3/cancel",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 177.8,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:19.838+00:00",
+   "resp": "{\"trip_id\": \"322218e7-32ab-4f27-88eb-698ebe5cbfc3\", \"list_id\": \"ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf\", \"buyer_id\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"status\": \"cancelled\", \"created_at\": \"2026-11-03T12:38:20.102649+00:00\", \"updated_at\": \"2026-11-03T12:38:20.293737+00:00\", \"completed_at\": \"2026-11-03T12:38:20.293390+00:00\"}"
+  },
+  {
+   "id": "C03",
+   "area": "Trips",
+   "role": "member",
+   "title": "Cancel twice (expect 409)",
+   "actor": "B",
+   "method": "PATCH",
+   "path": "/trips/322218e7-32ab-4f27-88eb-698ebe5cbfc3/cancel",
+   "status": 200,
+   "expect": [
+    400,
+    409
+   ],
+   "ms": 171.7,
+   "ok": false,
+   "finding": "F-TRIP-STATE",
+   "at": "2026-11-03T12:38:20.010+00:00",
+   "resp": "{\"trip_id\": \"322218e7-32ab-4f27-88eb-698ebe5cbfc3\", \"list_id\": \"ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf\", \"buyer_id\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"status\": \"cancelled\", \"created_at\": \"2026-11-03T12:38:20.102649+00:00\", \"updated_at\": \"2026-11-03T12:38:20.467848+00:00\", \"completed_at\": \"2026-11-03T12:38:20.467298+00:00\"}"
+  },
+  {
+   "id": "C04",
+   "area": "Trips",
+   "role": "member",
+   "title": "Heading-out on a cancelled trip (expect 409)",
+   "actor": "B",
+   "method": "POST",
+   "path": "/trips/322218e7-32ab-4f27-88eb-698ebe5cbfc3/heading-out",
+   "status": 200,
+   "expect": [
+    400,
+    409
+   ],
+   "ms": 191.2,
+   "ok": false,
+   "finding": "F-TRIP-STATE",
+   "at": "2026-11-03T12:38:20.202+00:00",
+   "resp": "{\"notified_devices\": 0}"
+  },
+  {
+   "id": "D01",
+   "area": "Push",
+   "role": "member",
+   "title": "Register a probe FCM token for B",
+   "actor": "B",
+   "method": "POST",
+   "path": "/devices",
+   "status": 200,
+   "expect": [
+    200,
+    201
+   ],
+   "ms": 178.4,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:20.380+00:00",
+   "resp": "{\"device_id\": \"a1cd09aa-04a3-4e7c-aa38-b0e1f534d00e\", \"user_id\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"fcm_token\": \"qa-probe-1793709500\", \"platform\": \"android\", \"updated_at\": \"2026-11-03T12:38:20.835660+00:00\"}"
+  },
+  {
+   "id": "D02",
+   "area": "Push",
+   "role": "admin",
+   "title": "A cannot delete B's token (IDOR guard)",
+   "actor": "A",
+   "method": "DELETE",
+   "path": "/devices/qa-probe-1793709500",
+   "status": 404,
+   "expect": [
+    404
+   ],
+   "ms": 158.0,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:20.539+00:00",
+   "resp": "{\"message\": \"Device not found\"}"
+  },
+  {
+   "id": "N01",
+   "area": "Push",
+   "role": "admin",
+   "title": "Remind member B (push to B's devices)",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/notifications/remind-member",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 182.0,
+   "ok": true,
+   "finding": "F-FCM-ENV",
+   "at": "2026-11-03T12:38:20.722+00:00",
+   "resp": "{\"message\": \"Notification sent successfully\"}"
+  },
+  {
+   "id": "N02",
+   "area": "Push",
+   "role": "admin",
+   "title": "Remind me",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/notifications/remind-me",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 180.9,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:21.730+00:00",
+   "resp": "{\"message\": \"Notification sent successfully\"}"
+  },
+  {
+   "id": "N03",
+   "area": "Push",
+   "role": "admin",
+   "title": "Remind non-member -> 400",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/notifications/remind-member",
+   "status": 400,
+   "expect": [
+    400
+   ],
+   "ms": 204.8,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:21.933+00:00",
+   "resp": "{\"message\": \"That user is not a member of this group\"}"
+  },
+  {
+   "id": "D03",
+   "area": "Push",
+   "role": "member",
+   "title": "Cleanup: B deletes probe token",
+   "actor": "B",
+   "method": "DELETE",
+   "path": "/devices/qa-probe-1793709500",
+   "status": 200,
+   "expect": [
+    200,
+    404
+   ],
+   "ms": 174.1,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:22.106+00:00",
+   "resp": "{\"message\": \"Device unregistered\"}"
+  },
+  {
+   "id": "R00",
+   "area": "Recipes",
+   "role": "admin",
+   "title": "Seed Chicken on L2 (for duplicate-import check)",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items",
+   "status": 201,
+   "expect": [
+    201,
+    209
+   ],
+   "ms": 297.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:22.406+00:00",
+   "resp": "{\"list_item_id\": \"10f7cb3d-650c-4265-8566-7b0b83177d80\", \"list_id\": \"ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf\", \"item_id\": \"13d28091-cb9c-4863-9f70-6a9660612114\", \"category_id\": null, \"name\": \"Chicken\", \"brand\": null, \"quantity\": 1.0, \"unit\": \"kg\", \"notes\": null, \"is_urgent\": false, \"is_bought\": false, \"added_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"bought_by\": null, \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:22.777324+00:00\", \"updated_at\": \"2026-11-03T12:38:22.777329+00:00\", \"catalog\": {\"item_id\": \"13d28091-cb9c-4863-9f70-6a9660612114\", \"name\": \"chicken\", \"brand\": null, \"image_url\": null, \"barcode\": null, \"default_category_id\": \"07e7968d-a8cd-4e34-a14f-f5c4bf981a6a"
+  },
+  {
+   "id": "R01",
+   "area": "Recipes",
+   "role": "member",
+   "title": "Member creates recipe with ingredients",
+   "actor": "B",
+   "method": "POST",
+   "path": "/recipes/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/recipes",
+   "status": 201,
+   "expect": [
+    201
+   ],
+   "ms": 349.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:22.756+00:00",
+   "resp": "{\"recipe_id\": \"0da7c75d-7bf6-4e75-9f8f-190fff62a385\", \"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"source_recipe_id\": null, \"name\": \"كبسه\", \"image_url\": null, \"instructions\": \"Cook\", \"created_at\": \"2026-11-03T12:38:23.052286+00:00\", \"ingredients\": [{\"ingredient_id\": \"eca8b922-457d-4051-a9e6-b923932d81c1\", \"recipe_id\": \"0da7c75d-7bf6-4e75-9f8f-190fff62a385\", \"item_id\": \"13d28091-cb9c-4863-9f70-6a9660612114\", \"name\": \"Chicken\", \"quantity\": 1.0, \"unit\": \"kg\"}, {\"ingredient_id\": \"89beaa79-be11-4bd1-86a6-0c2945e5d0c2\", \"recipe_id\": \"0da7c75d-7bf6-4e75-9f8f-190fff62a385\", \"item_id\": \"04965cb1-b7a8-42f9-9810-81915161c184\", \"name\": \"ارز\","
+  },
+  {
+   "id": "R02",
+   "area": "Recipes",
+   "role": "admin",
+   "title": "List group recipes",
+   "actor": "A",
+   "method": "GET",
+   "path": "/recipes/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/recipes",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 200.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:22.959+00:00",
+   "resp": "[{\"recipe_id\": \"0da7c75d-7bf6-4e75-9f8f-190fff62a385\", \"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"source_recipe_id\": null, \"name\": \"كبسه\", \"image_url\": null, \"instructions\": \"Cook\", \"created_at\": \"2026-11-03T12:38:23.052286+00:00\"}]"
+  },
+  {
+   "id": "R03",
+   "area": "Recipes",
+   "role": "admin",
+   "title": "Recipe detail",
+   "actor": "A",
+   "method": "GET",
+   "path": "/recipes/0da7c75d-7bf6-4e75-9f8f-190fff62a385",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 174.4,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:23.134+00:00",
+   "resp": "{\"recipe_id\": \"0da7c75d-7bf6-4e75-9f8f-190fff62a385\", \"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"source_recipe_id\": null, \"name\": \"كبسه\", \"image_url\": null, \"instructions\": \"Cook\", \"created_at\": \"2026-11-03T12:38:23.052286+00:00\", \"ingredients\": [{\"ingredient_id\": \"eca8b922-457d-4051-a9e6-b923932d81c1\", \"recipe_id\": \"0da7c75d-7bf6-4e75-9f8f-190fff62a385\", \"item_id\": \"13d28091-cb9c-4863-9f70-6a9660612114\", \"name\": \"Chicken\", \"quantity\": 1.0, \"unit\": \"kg\"}, {\"ingredient_id\": \"89beaa79-be11-4bd1-86a6-0c2945e5d0c2\", \"recipe_id\": \"0da7c75d-7bf6-4e75-9f8f-190fff62a385\", \"item_id\": \"04965cb1-b7a8-42f9-9810-81915161c184\", \"name\": \"ارز\","
+  },
+  {
+   "id": "R04",
+   "area": "Recipes",
+   "role": "admin",
+   "title": "Malformed recipe id (expect 404)",
+   "actor": "A",
+   "method": "GET",
+   "path": "/recipes/not-a-uuid",
+   "status": 500,
+   "expect": [
+    404
+   ],
+   "ms": 166.2,
+   "ok": false,
+   "finding": "F-UUID-500",
+   "at": "2026-11-03T12:38:23.300+00:00",
+   "resp": "{\"message\": \"Internal Server Error\"}"
+  },
+  {
+   "id": "R05",
+   "area": "Recipes",
+   "role": "admin",
+   "title": "Admin (not owner) renames recipe",
+   "actor": "A",
+   "method": "PATCH",
+   "path": "/recipes/0da7c75d-7bf6-4e75-9f8f-190fff62a385",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 204.7,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:23.505+00:00",
+   "resp": "{\"recipe_id\": \"0da7c75d-7bf6-4e75-9f8f-190fff62a385\", \"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"source_recipe_id\": null, \"name\": \"Kabsa\", \"image_url\": null, \"instructions\": \"Cook\", \"created_at\": \"2026-11-03T12:38:23.052286+00:00\"}"
+  },
+  {
+   "id": "R06",
+   "area": "Recipes",
+   "role": "admin",
+   "title": "Import recipe into list",
+   "actor": "A",
+   "method": "POST",
+   "path": "/recipes/lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items/from-recipe/0da7c75d-7bf6-4e75-9f8f-190fff62a385",
+   "status": 201,
+   "expect": [
+    201
+   ],
+   "ms": 302.6,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:23.808+00:00",
+   "resp": "{\"message\": \"Successfully imported 2 items to the list\"}"
+  },
+  {
+   "id": "R07",
+   "area": "Recipes",
+   "role": "admin",
+   "title": "Imported duplicates are merged like manual adds",
+   "actor": "A",
+   "method": "GET",
+   "path": "/lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 197.9,
+   "ok": false,
+   "finding": "F-IMPORT-DUP",
+   "at": "2026-11-03T12:38:24.007+00:00",
+   "resp": "[{\"list_item_id\": \"bc663688-ffa9-4444-8e6a-ae7e96d51414\", \"list_id\": \"ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf\", \"item_id\": \"9f5efa31-266c-41b9-b9fd-37d3ff04f81f\", \"category_id\": null, \"name\": \"Rice\", \"brand\": null, \"quantity\": 5.0, \"unit\": \"kg\", \"notes\": null, \"is_urgent\": false, \"is_bought\": false, \"added_by\": \"a2155266-4d31-463d-a4ae-c52d1f2c1d96\", \"bought_by\": null, \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:15.972293+00:00\", \"updated_at\": \"2026-11-03T12:38:15.972298+00:00\", \"catalog\": {\"item_id\": \"9f5efa31-266c-41b9-b9fd-37d3ff04f81f\", \"name\": \"rice\", \"brand\": null, \"image_url\": null, \"barcode\": null, \"default_category_id\": \"595dbc15-e8b5-4b94-a6ee-4238b155fea5\"}}, ",
+   "note": "2 separate Chicken rows (manual add would have merged)"
+  },
+  {
+   "id": "R08",
+   "area": "Recipes",
+   "role": "admin",
+   "title": "Admin removes recipe via US-12 route",
+   "actor": "A",
+   "method": "DELETE",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/recipes/0da7c75d-7bf6-4e75-9f8f-190fff62a385",
+   "status": 500,
+   "expect": [
+    204
+   ],
+   "ms": 216.5,
+   "ok": false,
+   "finding": "F-RECIPE-FK",
+   "at": "2026-11-03T12:38:24.222+00:00",
+   "resp": "{\"message\": \"Internal Server Error\"}"
+  },
+  {
+   "id": "R09",
+   "area": "Recipes",
+   "role": "member",
+   "title": "Owner deletes recipe (fallback route)",
+   "actor": "B",
+   "method": "DELETE",
+   "path": "/recipes/0da7c75d-7bf6-4e75-9f8f-190fff62a385",
+   "status": 200,
+   "expect": [
+    200,
+    404
+   ],
+   "ms": 184.4,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:24.408+00:00",
+   "resp": "{\"message\": \"Recipe deleted\"}"
+  },
+  {
+   "id": "A01",
+   "area": "Groups",
+   "role": "admin",
+   "title": "Transfer admin to B",
+   "actor": "A",
+   "method": "POST",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/transfer-admin",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 192.2,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:44.930+00:00",
+   "resp": "{\"message\": \"Admin role transferred\"}"
+  },
+  {
+   "id": "A02",
+   "area": "Groups",
+   "role": "member",
+   "title": "Former admin can no longer rename",
+   "actor": "A",
+   "method": "PATCH",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9",
+   "status": 403,
+   "expect": [
+    403
+   ],
+   "ms": 167.2,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:45.100+00:00",
+   "resp": "{\"message\": \"Admin role required for this action\"}"
+  },
+  {
+   "id": "A03",
+   "area": "Groups",
+   "role": "admin",
+   "title": "New admin transfers back",
+   "actor": "B",
+   "method": "POST",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/transfer-admin",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 187.4,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:45.288+00:00",
+   "resp": "{\"message\": \"Admin role transferred\"}"
+  },
+  {
+   "id": "A04",
+   "area": "Groups",
+   "role": "admin",
+   "title": "Admin cannot remove self",
+   "actor": "A",
+   "method": "DELETE",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/members/43a71112-2544-4b07-aea0-3b0248eda949",
+   "status": 400,
+   "expect": [
+    400
+   ],
+   "ms": 179.4,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:45.467+00:00",
+   "resp": "{\"message\": \"Admin cannot remove themselves — transfer admin first\"}"
+  },
+  {
+   "id": "A05",
+   "area": "Groups",
+   "role": "admin",
+   "title": "Admin removes member B",
+   "actor": "A",
+   "method": "DELETE",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/members/a2155266-4d31-463d-a4ae-c52d1f2c1d96",
+   "status": 204,
+   "expect": [
+    204
+   ],
+   "ms": 187.1,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:45.655+00:00",
+   "resp": "\"\""
+  },
+  {
+   "id": "A06",
+   "area": "Groups",
+   "role": "outsider",
+   "title": "Removed member loses access",
+   "actor": "B",
+   "method": "GET",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9",
+   "status": 403,
+   "expect": [
+    403
+   ],
+   "ms": 168.7,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:45.821+00:00",
+   "resp": "{\"message\": \"Not a member of this group\"}"
+  },
+  {
+   "id": "A07",
+   "area": "Realtime",
+   "role": "admin",
+   "title": "Item added after removal",
+   "actor": "A",
+   "method": "POST",
+   "path": "/lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items",
+   "status": 201,
+   "expect": [
+    201
+   ],
+   "ms": 254.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:46.079+00:00",
+   "resp": "{\"list_item_id\": \"9eb92ffb-232c-4d9a-9ab6-6244f7a83d84\", \"list_id\": \"ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf\", \"item_id\": \"eb81e588-78ce-4d8d-a840-3b01f8a638fe\", \"category_id\": null, \"name\": \"Salt\", \"brand\": null, \"quantity\": 1.0, \"unit\": \"pcs\", \"notes\": null, \"is_urgent\": false, \"is_bought\": false, \"added_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"bought_by\": null, \"trip_id\": null, \"image_url\": null, \"created_at\": \"2026-11-03T12:38:46.507240+00:00\", \"updated_at\": \"2026-11-03T12:38:46.507244+00:00\", \"catalog\": {\"item_id\": \"eb81e588-78ce-4d8d-a840-3b01f8a638fe\", \"name\": \"Salt\", \"brand\": null, \"image_url\": null, \"barcode\": null, \"default_category_id\": null}, \"is_duplicate_warning\": false}"
+  },
+  {
+   "id": "A08",
+   "area": "Groups",
+   "role": "member",
+   "title": "B re-joins",
+   "actor": "B",
+   "method": "POST",
+   "path": "/groups/join",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 252.3,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:49.357+00:00",
+   "resp": "{\"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"created_by_name\": \"hi hhh\", \"name\": \"عائله الاختبار\", \"image_url\": null, \"icon\": \"cart\", \"type\": \"household\", \"invite_code\": \"A4FKLR\", \"created_at\": \"2026-11-03T12:37:55.844720+00:00\", \"updated_at\": \"2026-11-03T12:37:58.172858+00:00\"}"
+  },
+  {
+   "id": "A09",
+   "area": "Groups",
+   "role": "admin",
+   "title": "Admin cannot leave while others remain",
+   "actor": "A",
+   "method": "POST",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/leave",
+   "status": 400,
+   "expect": [
+    400
+   ],
+   "ms": 168.9,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:49.526+00:00",
+   "resp": "{\"message\": \"Transfer the admin role to another member before leaving\"}"
+  },
+  {
+   "id": "A10",
+   "area": "Groups",
+   "role": "member",
+   "title": "Member leaves",
+   "actor": "B",
+   "method": "POST",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/leave",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 198.4,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:49.724+00:00",
+   "resp": "{\"group_deleted\": false}"
+  },
+  {
+   "id": "A11",
+   "area": "Groups",
+   "role": "member",
+   "title": "B re-joins for delete broadcast",
+   "actor": "B",
+   "method": "POST",
+   "path": "/groups/join",
+   "status": 200,
+   "expect": [
+    200
+   ],
+   "ms": 206.4,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:49.932+00:00",
+   "resp": "{\"group_id\": \"e3f3c06e-a082-4f53-b413-f4b1c01bc9c9\", \"created_by\": \"43a71112-2544-4b07-aea0-3b0248eda949\", \"created_by_name\": \"hi hhh\", \"name\": \"عائله الاختبار\", \"image_url\": null, \"icon\": \"cart\", \"type\": \"household\", \"invite_code\": \"A4FKLR\", \"created_at\": \"2026-11-03T12:37:55.844720+00:00\", \"updated_at\": \"2026-11-03T12:37:58.172858+00:00\"}"
+  },
+  {
+   "id": "X01",
+   "area": "Lists",
+   "role": "admin",
+   "title": "Delete list that has completed trips",
+   "actor": "A",
+   "method": "DELETE",
+   "path": "/lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "status": 204,
+   "expect": [
+    204
+   ],
+   "ms": 199.6,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:50.132+00:00",
+   "resp": "\"\""
+  },
+  {
+   "id": "X02",
+   "area": "Groups",
+   "role": "admin",
+   "title": "Admin deletes group",
+   "actor": "A",
+   "method": "DELETE",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9",
+   "status": 204,
+   "expect": [
+    204
+   ],
+   "ms": 201.9,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:50.334+00:00",
+   "resp": "\"\""
+  },
+  {
+   "id": "X03",
+   "area": "Groups",
+   "role": "member",
+   "title": "Deleted group is gone",
+   "actor": "B",
+   "method": "GET",
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9",
+   "status": 404,
+   "expect": [
+    404
+   ],
+   "ms": 153.2,
+   "ok": true,
+   "finding": null,
+   "at": "2026-11-03T12:38:51.310+00:00",
+   "resp": "{\"message\": \"Group not found\"}"
+  }
+ ],
+ "socket": [
+  {
+   "id": "G03a",
+   "event": "group.member_joined",
+   "to": "A",
+   "from": "B",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 259.3,
+   "ms_after_resp": -3.4,
+   "bytes": 405
+  },
+  {
+   "id": "G03b",
+   "event": "group.membership_changed",
+   "to": "B",
+   "from": "B",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 263.4,
+   "ms_after_resp": 0.6,
+   "bytes": 434
+  },
+  {
+   "id": "G08a",
+   "event": "group.updated",
+   "to": "B",
+   "from": "A",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 201.5,
+   "ms_after_resp": -3.6,
+   "bytes": 527
+  },
+  {
+   "id": "L01a",
+   "event": "list.created",
+   "to": "B",
+   "from": "A",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 188.0,
+   "ms_after_resp": 0.7,
+   "bytes": 583
+  },
+  {
+   "id": "L02a",
+   "event": "list.created",
+   "to": "A",
+   "from": "B",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 183.0,
+   "ms_after_resp": -1.6,
+   "bytes": 535
+  },
+  {
+   "id": "L05a",
+   "event": "list.updated",
+   "to": "B",
+   "from": "A",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 213.9,
+   "ms_after_resp": -1.1,
+   "bytes": 585
+  },
+  {
+   "id": "I01a",
+   "event": "item.added",
+   "to": "A",
+   "from": "B",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 293.8,
+   "ms_after_resp": -1.2,
+   "bytes": 941
+  },
+  {
+   "id": "I02a",
+   "event": "item.updated",
+   "to": "B",
+   "from": "A",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 280.4,
+   "ms_after_resp": -5.5,
+   "bytes": 940
+  },
+  {
+   "id": "I13a",
+   "event": "item.updated",
+   "to": "B",
+   "from": "A",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 220.1,
+   "ms_after_resp": -3.3,
+   "bytes": 840
+  },
+  {
+   "id": "I15a",
+   "event": "item.purchased",
+   "to": "A",
+   "from": "B",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 230.3,
+   "ms_after_resp": -5.9,
+   "bytes": 873
+  },
+  {
+   "id": "I17a",
+   "event": "item.unpurchased",
+   "to": "A",
+   "from": "B",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 234.9,
+   "ms_after_resp": -8.6,
+   "bytes": 840
+  },
+  {
+   "id": "I21a",
+   "event": "item.updated",
+   "to": "B",
+   "from": "A",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 1452.4,
+   "ms_after_resp": 2.3,
+   "bytes": 994
+  },
+  {
+   "id": "I23a",
+   "event": "item.deleted",
+   "to": "A",
+   "from": "B",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 210.6,
+   "ms_after_resp": -9.6,
+   "bytes": 216
+  },
+  {
+   "id": "T01a",
+   "event": "trip.assigned",
+   "to": "B",
+   "from": "A",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 196.5,
+   "ms_after_resp": -11.4,
+   "bytes": 466
+  },
+  {
+   "id": "T01b",
+   "event": "trip.assigned",
+   "to": "A",
+   "from": "A",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 194.0,
+   "ms_after_resp": -14.0,
+   "bytes": 466
+  },
+  {
+   "id": "T07a",
+   "event": "item.added",
+   "to": "B",
+   "from": "A",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 261.8,
+   "ms_after_resp": 1.3,
+   "bytes": 866
+  },
+  {
+   "id": "T09a",
+   "event": "trip.heading_out",
+   "to": "A",
+   "from": "B",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 191.9,
+   "ms_after_resp": -5.7,
+   "bytes": 397
+  },
+  {
+   "id": "T12a",
+   "event": "trip.asked",
+   "to": "A",
+   "from": "B",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 180.7,
+   "ms_after_resp": -2.0,
+   "bytes": 335
+  },
+  {
+   "id": "T12b",
+   "event": "trip.asked",
+   "to": "B",
+   "from": "B",
+   "should_arrive": false,
+   "arrived": false,
+   "ok": true,
+   "ms_from_send": null,
+   "ms_after_resp": null,
+   "bytes": null
+  },
+  {
+   "id": "T14a",
+   "event": "trip.completed",
+   "to": "A",
+   "from": "B",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 260.9,
+   "ms_after_resp": -2.6,
+   "bytes": 993
+  },
+  {
+   "id": "T14b",
+   "event": "list.completed",
+   "to": "A",
+   "from": "B",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 256.0,
+   "ms_after_resp": -7.5,
+   "bytes": 603
+  },
+  {
+   "id": "T28a",
+   "event": "item.bulk_deleted",
+   "to": "B",
+   "from": "A",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 207.0,
+   "ms_after_resp": -1.7,
+   "bytes": 180
+  },
+  {
+   "id": "C02a",
+   "event": "trip.cancelled",
+   "to": "A",
+   "from": "B",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 172.0,
+   "ms_after_resp": -5.8,
+   "bytes": 499
+  },
+  {
+   "id": "R01a",
+   "event": "recipe.created",
+   "to": "A",
+   "from": "B",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 350.8,
+   "ms_after_resp": 1.5,
+   "bytes": 889
+  },
+  {
+   "id": "R06a",
+   "event": "list.items_imported",
+   "to": "B",
+   "from": "A",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 301.0,
+   "ms_after_resp": -1.7,
+   "bytes": 234
+  },
+  {
+   "id": "A01a",
+   "event": "group.admin_transferred",
+   "to": "B",
+   "from": "A",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 194.5,
+   "ms_after_resp": 2.4,
+   "bytes": 170
+  },
+  {
+   "id": "A05a",
+   "event": "group.member_removed",
+   "to": "A",
+   "from": "A",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 177.3,
+   "ms_after_resp": -9.8,
+   "bytes": 167
+  },
+  {
+   "id": "A05b",
+   "event": "group.membership_changed",
+   "to": "B",
+   "from": "A",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 178.7,
+   "ms_after_resp": -8.3,
+   "bytes": 73
+  },
+  {
+   "id": "A07a",
+   "event": "item.added",
+   "to": "B",
+   "from": "A",
+   "should_arrive": false,
+   "arrived": false,
+   "ok": true,
+   "ms_from_send": null,
+   "ms_after_resp": null,
+   "bytes": null
+  },
+  {
+   "id": "A10a",
+   "event": "group.member_left",
+   "to": "A",
+   "from": "B",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 193.0,
+   "ms_after_resp": -5.4,
+   "bytes": 109
+  },
+  {
+   "id": "X02a",
+   "event": "group.deleted",
+   "to": "B",
+   "from": "A",
+   "should_arrive": true,
+   "arrived": true,
+   "ok": true,
+   "ms_from_send": 203.9,
+   "ms_after_resp": 2.0,
+   "bytes": 109
+  }
+ ],
+ "events": [
+  {
+   "user": "A",
+   "event": "group.member_joined",
+   "t": 1006127.6692071,
+   "at": "2026-11-03T12:37:56.814+00:00",
+   "bytes": 405,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "group.member_joined",
+   "t": 1006127.6713507,
+   "at": "2026-11-03T12:37:56.820+00:00",
+   "bytes": 405,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "group.membership_changed",
+   "t": 1006127.6732402,
+   "at": "2026-11-03T12:37:56.820+00:00",
+   "bytes": 434,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "group.updated",
+   "t": 1006128.5595887,
+   "at": "2026-11-03T12:37:57.708+00:00",
+   "bytes": 527,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "group.updated",
+   "t": 1006128.5649416,
+   "at": "2026-11-03T12:37:57.708+00:00",
+   "bytes": 527,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "list.created",
+   "t": 1006129.2033347,
+   "at": "2026-11-03T12:37:58.351+00:00",
+   "bytes": 583,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "list.created",
+   "t": 1006129.2066903,
+   "at": "2026-11-03T12:37:58.355+00:00",
+   "bytes": 583,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "list.created",
+   "t": 1006129.3904576,
+   "at": "2026-11-03T12:37:58.539+00:00",
+   "bytes": 535,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "list.created",
+   "t": 1006129.39321,
+   "at": "2026-11-03T12:37:58.540+00:00",
+   "bytes": 535,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "list.updated",
+   "t": 1006129.9538517,
+   "at": "2026-11-03T12:37:59.098+00:00",
+   "bytes": 585,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "list.updated",
+   "t": 1006129.9561273,
+   "at": "2026-11-03T12:37:59.098+00:00",
+   "bytes": 585,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.added",
+   "t": 1006131.0210471,
+   "at": "2026-11-03T12:38:00.168+00:00",
+   "bytes": 941,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.added",
+   "t": 1006131.0215738,
+   "at": "2026-11-03T12:38:00.168+00:00",
+   "bytes": 941,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.updated",
+   "t": 1006131.2997335,
+   "at": "2026-11-03T12:38:00.440+00:00",
+   "bytes": 940,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.updated",
+   "t": 1006131.3036336,
+   "at": "2026-11-03T12:38:00.440+00:00",
+   "bytes": 940,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.added",
+   "t": 1006131.5639113,
+   "at": "2026-11-03T12:38:00.712+00:00",
+   "bytes": 864,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.added",
+   "t": 1006131.5748506,
+   "at": "2026-11-03T12:38:00.723+00:00",
+   "bytes": 864,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.added",
+   "t": 1006132.904334,
+   "at": "2026-11-03T12:38:02.052+00:00",
+   "bytes": 906,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.added",
+   "t": 1006132.9068162,
+   "at": "2026-11-03T12:38:02.052+00:00",
+   "bytes": 906,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.added",
+   "t": 1006133.6105024,
+   "at": "2026-11-03T12:38:02.758+00:00",
+   "bytes": 871,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.added",
+   "t": 1006133.6161521,
+   "at": "2026-11-03T12:38:02.764+00:00",
+   "bytes": 871,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.updated",
+   "t": 1006134.030507,
+   "at": "2026-11-03T12:38:03.179+00:00",
+   "bytes": 840,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.updated",
+   "t": 1006134.0341148,
+   "at": "2026-11-03T12:38:03.182+00:00",
+   "bytes": 840,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.purchased",
+   "t": 1006134.4584466,
+   "at": "2026-11-03T12:38:03.607+00:00",
+   "bytes": 873,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.purchased",
+   "t": 1006134.4621881,
+   "at": "2026-11-03T12:38:03.607+00:00",
+   "bytes": 873,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.unpurchased",
+   "t": 1006134.8844619,
+   "at": "2026-11-03T12:38:04.029+00:00",
+   "bytes": 840,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.unpurchased",
+   "t": 1006134.8873786,
+   "at": "2026-11-03T12:38:04.029+00:00",
+   "bytes": 840,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.updated",
+   "t": 1006137.7608137,
+   "at": "2026-11-03T12:38:06.908+00:00",
+   "bytes": 994,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.updated",
+   "t": 1006137.7652272,
+   "at": "2026-11-03T12:38:06.913+00:00",
+   "bytes": 994,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.deleted",
+   "t": 1006138.1562173,
+   "at": "2026-11-03T12:38:07.304+00:00",
+   "bytes": 216,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.deleted",
+   "t": 1006138.1626662,
+   "at": "2026-11-03T12:38:07.307+00:00",
+   "bytes": 216,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "trip.assigned",
+   "t": 1006138.3600401,
+   "at": "2026-11-03T12:38:07.506+00:00",
+   "bytes": 466,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "trip.assigned",
+   "t": 1006138.3625752,
+   "at": "2026-11-03T12:38:07.506+00:00",
+   "bytes": 466,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.purchased",
+   "t": 1006139.1187414,
+   "at": "2026-11-03T12:38:08.267+00:00",
+   "bytes": 943,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.purchased",
+   "t": 1006139.1210946,
+   "at": "2026-11-03T12:38:08.269+00:00",
+   "bytes": 943,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.purchased",
+   "t": 1006139.3442286,
+   "at": "2026-11-03T12:38:08.492+00:00",
+   "bytes": 1027,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.purchased",
+   "t": 1006139.3481,
+   "at": "2026-11-03T12:38:08.494+00:00",
+   "bytes": 1027,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.added",
+   "t": 1006139.6056399,
+   "at": "2026-11-03T12:38:08.745+00:00",
+   "bytes": 866,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.added",
+   "t": 1006139.6101489,
+   "at": "2026-11-03T12:38:08.756+00:00",
+   "bytes": 866,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "trip.heading_out",
+   "t": 1006139.9650292,
+   "at": "2026-11-03T12:38:09.106+00:00",
+   "bytes": 397,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "trip.heading_out",
+   "t": 1006139.9689985,
+   "at": "2026-11-03T12:38:09.106+00:00",
+   "bytes": 397,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "trip.asked",
+   "t": 1006140.4995872,
+   "at": "2026-11-03T12:38:09.648+00:00",
+   "bytes": 335,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "list.completed",
+   "t": 1006144.2659474,
+   "at": "2026-11-03T12:38:13.414+00:00",
+   "bytes": 603,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "trip.completed",
+   "t": 1006144.270884,
+   "at": "2026-11-03T12:38:13.419+00:00",
+   "bytes": 993,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "list.completed",
+   "t": 1006144.271282,
+   "at": "2026-11-03T12:38:13.419+00:00",
+   "bytes": 603,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "trip.completed",
+   "t": 1006144.276948,
+   "at": "2026-11-03T12:38:13.424+00:00",
+   "bytes": 993,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "trip.cancelled",
+   "t": 1006145.9915352,
+   "at": "2026-11-03T12:38:15.140+00:00",
+   "bytes": 499,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "trip.cancelled",
+   "t": 1006145.9952184,
+   "at": "2026-11-03T12:38:15.143+00:00",
+   "bytes": 499,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.added",
+   "t": 1006146.3965485,
+   "at": "2026-11-03T12:38:15.545+00:00",
+   "bytes": 898,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.added",
+   "t": 1006146.3996517,
+   "at": "2026-11-03T12:38:15.548+00:00",
+   "bytes": 898,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "trip.assigned",
+   "t": 1006146.5941561,
+   "at": "2026-11-03T12:38:15.742+00:00",
+   "bytes": 466,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "trip.assigned",
+   "t": 1006146.5986823,
+   "at": "2026-11-03T12:38:15.745+00:00",
+   "bytes": 466,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "list.completed",
+   "t": 1006146.7977206,
+   "at": "2026-11-03T12:38:15.939+00:00",
+   "bytes": 553,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "list.completed",
+   "t": 1006146.8023979,
+   "at": "2026-11-03T12:38:15.951+00:00",
+   "bytes": 553,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "trip.assigned",
+   "t": 1006147.7941443,
+   "at": "2026-11-03T12:38:16.942+00:00",
+   "bytes": 466,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "trip.assigned",
+   "t": 1006147.7962781,
+   "at": "2026-11-03T12:38:16.944+00:00",
+   "bytes": 466,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.purchased",
+   "t": 1006148.016581,
+   "at": "2026-11-03T12:38:17.165+00:00",
+   "bytes": 868,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.purchased",
+   "t": 1006148.01928,
+   "at": "2026-11-03T12:38:17.168+00:00",
+   "bytes": 868,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "list.completed",
+   "t": 1006148.2370233,
+   "at": "2026-11-03T12:38:17.383+00:00",
+   "bytes": 603,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "list.completed",
+   "t": 1006148.2435246,
+   "at": "2026-11-03T12:38:17.391+00:00",
+   "bytes": 603,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "trip.completed",
+   "t": 1006148.2474087,
+   "at": "2026-11-03T12:38:17.391+00:00",
+   "bytes": 993,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "trip.completed",
+   "t": 1006148.2478638,
+   "at": "2026-11-03T12:38:17.391+00:00",
+   "bytes": 993,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.bulk_deleted",
+   "t": 1006148.6333542,
+   "at": "2026-11-03T12:38:17.781+00:00",
+   "bytes": 180,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.bulk_deleted",
+   "t": 1006148.6372282,
+   "at": "2026-11-03T12:38:17.786+00:00",
+   "bytes": 180,
+   "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.added",
+   "t": 1006149.0337359,
+   "at": "2026-11-03T12:38:18.182+00:00",
+   "bytes": 903,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.added",
+   "t": 1006149.0375265,
+   "at": "2026-11-03T12:38:18.186+00:00",
+   "bytes": 903,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.updated",
+   "t": 1006149.266546,
+   "at": "2026-11-03T12:38:18.411+00:00",
+   "bytes": 872,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.updated",
+   "t": 1006149.269777,
+   "at": "2026-11-03T12:38:18.411+00:00",
+   "bytes": 872,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.deleted",
+   "t": 1006149.4793518,
+   "at": "2026-11-03T12:38:18.628+00:00",
+   "bytes": 216,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.deleted",
+   "t": 1006149.4848712,
+   "at": "2026-11-03T12:38:18.633+00:00",
+   "bytes": 216,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "trip.assigned",
+   "t": 1006150.5059869,
+   "at": "2026-11-03T12:38:19.654+00:00",
+   "bytes": 466,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "trip.assigned",
+   "t": 1006150.5105021,
+   "at": "2026-11-03T12:38:19.656+00:00",
+   "bytes": 466,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "trip.cancelled",
+   "t": 1006150.6845208,
+   "at": "2026-11-03T12:38:19.830+00:00",
+   "bytes": 499,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "trip.cancelled",
+   "t": 1006150.6927722,
+   "at": "2026-11-03T12:38:19.841+00:00",
+   "bytes": 499,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "trip.cancelled",
+   "t": 1006150.8580182,
+   "at": "2026-11-03T12:38:20.007+00:00",
+   "bytes": 499,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "trip.cancelled",
+   "t": 1006150.8620793,
+   "at": "2026-11-03T12:38:20.010+00:00",
+   "bytes": 499,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "trip.heading_out",
+   "t": 1006151.0459012,
+   "at": "2026-11-03T12:38:20.189+00:00",
+   "bytes": 348,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "trip.heading_out",
+   "t": 1006151.046459,
+   "at": "2026-11-03T12:38:20.189+00:00",
+   "bytes": 348,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.added",
+   "t": 1006153.2578463,
+   "at": "2026-11-03T12:38:22.406+00:00",
+   "bytes": 904,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "item.added",
+   "t": 1006153.25883,
+   "at": "2026-11-03T12:38:22.407+00:00",
+   "bytes": 904,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "recipe.created",
+   "t": 1006153.610176,
+   "at": "2026-11-03T12:38:22.756+00:00",
+   "bytes": 889,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "recipe.created",
+   "t": 1006153.6128099,
+   "at": "2026-11-03T12:38:22.756+00:00",
+   "bytes": 889,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "recipe.updated",
+   "t": 1006154.3462349,
+   "at": "2026-11-03T12:38:23.494+00:00",
+   "bytes": 416,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "recipe.updated",
+   "t": 1006154.3525974,
+   "at": "2026-11-03T12:38:23.501+00:00",
+   "bytes": 416,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "list.items_imported",
+   "t": 1006154.6565653,
+   "at": "2026-11-03T12:38:23.804+00:00",
+   "bytes": 234,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "list.items_imported",
+   "t": 1006154.6582691,
+   "at": "2026-11-03T12:38:23.807+00:00",
+   "bytes": 234,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "recipe.deleted",
+   "t": 1006155.2600907,
+   "at": "2026-11-03T12:38:24.408+00:00",
+   "bytes": 162,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "recipe.deleted",
+   "t": 1006155.2630457,
+   "at": "2026-11-03T12:38:24.412+00:00",
+   "bytes": 162,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "group.admin_transferred",
+   "t": 1006175.7842585,
+   "at": "2026-11-03T12:38:44.932+00:00",
+   "bytes": 170,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "group.admin_transferred",
+   "t": 1006175.7886382,
+   "at": "2026-11-03T12:38:44.937+00:00",
+   "bytes": 170,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "group.admin_transferred",
+   "t": 1006176.1353916,
+   "at": "2026-11-03T12:38:45.280+00:00",
+   "bytes": 170,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "group.admin_transferred",
+   "t": 1006176.1431182,
+   "at": "2026-11-03T12:38:45.291+00:00",
+   "bytes": 170,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "group.member_removed",
+   "t": 1006176.4973633,
+   "at": "2026-11-03T12:38:45.642+00:00",
+   "bytes": 167,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "group.member_removed",
+   "t": 1006176.4978586,
+   "at": "2026-11-03T12:38:45.642+00:00",
+   "bytes": 167,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "group.membership_changed",
+   "t": 1006176.4988228,
+   "at": "2026-11-03T12:38:45.647+00:00",
+   "bytes": 73,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "item.added",
+   "t": 1006176.9246856,
+   "at": "2026-11-03T12:38:46.073+00:00",
+   "bytes": 865,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "group.member_joined",
+   "t": 1006180.2028409,
+   "at": "2026-11-03T12:38:49.349+00:00",
+   "bytes": 405,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "group.member_joined",
+   "t": 1006180.2069069,
+   "at": "2026-11-03T12:38:49.355+00:00",
+   "bytes": 405,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "group.membership_changed",
+   "t": 1006180.2088077,
+   "at": "2026-11-03T12:38:49.357+00:00",
+   "bytes": 490,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "group.member_left",
+   "t": 1006180.571249,
+   "at": "2026-11-03T12:38:49.718+00:00",
+   "bytes": 109,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "group.member_left",
+   "t": 1006180.5731018,
+   "at": "2026-11-03T12:38:49.721+00:00",
+   "bytes": 109,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "group.membership_changed",
+   "t": 1006180.5744744,
+   "at": "2026-11-03T12:38:49.721+00:00",
+   "bytes": 70,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "group.member_joined",
+   "t": 1006180.771768,
+   "at": "2026-11-03T12:38:49.920+00:00",
+   "bytes": 405,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "group.member_joined",
+   "t": 1006180.7753279,
+   "at": "2026-11-03T12:38:49.923+00:00",
+   "bytes": 405,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "group.membership_changed",
+   "t": 1006180.7779118,
+   "at": "2026-11-03T12:38:49.926+00:00",
+   "bytes": 490,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "list.deleted",
+   "t": 1006180.984009,
+   "at": "2026-11-03T12:38:50.132+00:00",
+   "bytes": 160,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "list.deleted",
+   "t": 1006180.9874297,
+   "at": "2026-11-03T12:38:50.136+00:00",
+   "bytes": 160,
+   "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf",
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "A",
+   "event": "group.deleted",
+   "t": 1006181.1870616,
+   "at": "2026-11-03T12:38:50.335+00:00",
+   "bytes": 109,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  },
+  {
+   "user": "B",
+   "event": "group.deleted",
+   "t": 1006181.1885577,
+   "at": "2026-11-03T12:38:50.336+00:00",
+   "bytes": 109,
+   "list_id": null,
+   "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9"
+  }
+ ],
+ "db": [
+  {
+   "id": "DB01",
+   "title": "Group row + admin membership written",
+   "expect": "1 row: household/admin",
+   "actual": "[('household', 'admin')]",
+   "ok": true
+  },
+  {
+   "id": "DB02",
+   "title": "Idempotent purchase wrote exactly 1 'consumed' + 1 'restocked'",
+   "expect": "consumed=1, restocked=1",
+   "actual": "[('consumed', 1), ('restocked', 1)]",
+   "ok": true
+  },
+  {
+   "id": "DB03",
+   "title": "Trip closed and only bought items claimed",
+   "expect": "status=completed, 2 claimed items",
+   "actual": "[('completed', 2, 2)]",
+   "ok": true
+  },
+  {
+   "id": "DB04",
+   "title": "Buyer's trip must still be active after non-buyer /complete",
+   "expect": "status=active",
+   "actual": "[('completed',)]",
+   "ok": false
+  },
+  {
+   "id": "DB05",
+   "title": "Yogurt's created/updated history survives item deletion",
+   "expect": ">=2 rows (model says ON DELETE SET NULL)",
+   "actual": "[(0,)]",
+   "ok": false
+  },
+  {
+   "id": "DB06",
+   "title": "FCM probe: invalid token pruned only if Firebase is configured",
+   "expect": "0 rows (FCM rejected the fake token and it was pruned)",
+   "actual": "[(1,)]",
+   "ok": false
+  },
+  {
+   "id": "DB07",
+   "title": "No orphan rows left for deleted group",
+   "expect": "0 rows",
+   "actual": "[(0,)]",
+   "ok": true
+  }
+ ],
+ "perf": {
+  "socket_handshake_A": {
+   "ms": 588.8
+  },
+  "socket_handshake_B": {
+   "ms": 600.2
+  },
+  "GET /auth/me": {
+   "path": "/auth/me",
+   "n": 10,
+   "p50": 169.1,
+   "p95": 233.9,
+   "min": 149.8,
+   "max": 233.9
+  },
+  "GET /groups": {
+   "path": "/groups",
+   "n": 10,
+   "p50": 170.4,
+   "p95": 177.2,
+   "min": 158.9,
+   "max": 177.2
+  },
+  "GET /groups/{id}": {
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9",
+   "n": 10,
+   "p50": 185.9,
+   "p95": 319.1,
+   "min": 165.1,
+   "max": 319.1
+  },
+  "GET /groups/{id}/lists": {
+   "path": "/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/lists",
+   "n": 10,
+   "p50": 182.6,
+   "p95": 207.4,
+   "min": 171.9,
+   "max": 207.4
+  },
+  "GET /lists/{id}/items": {
+   "path": "/lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items",
+   "n": 10,
+   "p50": 196.0,
+   "p95": 274.6,
+   "min": 188.5,
+   "max": 274.6
+  },
+  "GET /lists/{id}/history": {
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/history",
+   "n": 10,
+   "p50": 170.6,
+   "p95": 193.1,
+   "min": 164.9,
+   "max": 193.1
+  },
+  "GET /lists/{id}/trips": {
+   "path": "/lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/trips",
+   "n": 10,
+   "p50": 191.9,
+   "p95": 228.5,
+   "min": 177.6,
+   "max": 228.5
+  },
+  "GET /users/me/items": {
+   "path": "/users/me/items",
+   "n": 10,
+   "p50": 167.6,
+   "p95": 188.4,
+   "min": 161.0,
+   "max": 188.4
+  },
+  "GET /categories": {
+   "path": "/categories/",
+   "n": 10,
+   "p50": 153.4,
+   "p95": 166.2,
+   "min": 147.7,
+   "max": 166.2
+  },
+  "GET /auth/avatars": {
+   "path": "/auth/avatars",
+   "n": 10,
+   "p50": 202.6,
+   "p95": 337.4,
+   "min": 179.2,
+   "max": 337.4
+  },
+  "burst10 /groups": {
+   "path": "/groups",
+   "n": 10,
+   "wall_ms": 911.5,
+   "p50": 809.1,
+   "max": 908.2,
+   "statuses": [
+    200
+   ]
+  },
+  "burst10 /lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items": {
+   "path": "/lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items",
+   "n": 10,
+   "wall_ms": 920.2,
+   "p50": 848.0,
+   "max": 900.4,
+   "statuses": [
+    200
+   ]
+  }
+ },
+ "ids": {
+  "A": "43a71112-2544-4b07-aea0-3b0248eda949",
+  "B": "a2155266-4d31-463d-a4ae-c52d1f2c1d96",
+  "group": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9",
+  "L1": "e47b8bf2-2abf-496d-8b60-99c2285e1b84",
+  "L2": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf"
+ }
+}

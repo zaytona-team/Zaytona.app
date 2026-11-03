@@ -1,0 +1,962 @@
+[
+ {
+  "device_log": "flutter_A.log",
+  "at": "00:29:48",
+  "method": "GET",
+  "endpoint": "/categories",
+  "status": 200,
+  "ms": 1157
+ },
+ {
+  "device_log": "flutter_A.log",
+  "at": "00:32:48",
+  "method": "POST",
+  "endpoint": "/auth/login",
+  "status": 200,
+  "ms": 452
+ },
+ {
+  "device_log": "flutter_A.log",
+  "at": "00:34:29",
+  "method": "POST",
+  "endpoint": "/auth/otp/verify",
+  "status": 200,
+  "ms": 491
+ },
+ {
+  "device_log": "flutter_A.log",
+  "at": "00:36:35",
+  "method": "GET",
+  "endpoint": "/categories",
+  "status": 200,
+  "ms": 1157
+ },
+ {
+  "device_log": "flutter_A.log",
+  "at": "00:36:36",
+  "method": "GET",
+  "endpoint": "/groups",
+  "status": 200,
+  "ms": 658
+ },
+ {
+  "device_log": "flutter_A.log",
+  "at": "00:36:36",
+  "method": "POST",
+  "endpoint": "/devices",
+  "status": 200,
+  "ms": 724
+ },
+ {
+  "device_log": "flutter_A.log",
+  "at": "00:36:38",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 230
+ },
+ {
+  "device_log": "flutter_A.log",
+  "at": "00:36:39",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 243
+ },
+ {
+  "device_log": "flutter_A.log",
+  "at": "00:37:13",
+  "method": "GET",
+  "endpoint": "/lists/{id}/items",
+  "status": 200,
+  "ms": 1297
+ },
+ {
+  "device_log": "flutter_A.log",
+  "at": "00:37:15",
+  "method": "GET",
+  "endpoint": "/lists/{id}/trips/active",
+  "status": 200,
+  "ms": 208
+ },
+ {
+  "device_log": "flutter_A.log",
+  "at": "00:37:35",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 1469
+ },
+ {
+  "device_log": "flutter_A.log",
+  "at": "00:37:35",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 1511
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:42:51",
+  "method": "GET",
+  "endpoint": "/categories",
+  "status": 200,
+  "ms": 3399
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:42:54",
+  "method": "GET",
+  "endpoint": "/groups",
+  "status": 200,
+  "ms": 1066
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:42:54",
+  "method": "POST",
+  "endpoint": "/devices",
+  "status": 200,
+  "ms": 1284
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:42:55",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 202
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:42:56",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 202
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:43:36",
+  "method": "POST",
+  "endpoint": "/groups/{id}/lists",
+  "status": 201,
+  "ms": 957
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:43:37",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 471
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:43:38",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 931
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:44:04",
+  "method": "GET",
+  "endpoint": "/lists/{id}/items",
+  "status": 200,
+  "ms": 972
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:44:06",
+  "method": "GET",
+  "endpoint": "/lists/{id}/trips/active",
+  "status": 200,
+  "ms": 319
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:44:12",
+  "method": "GET",
+  "endpoint": "/lists/{id}/items",
+  "status": 200,
+  "ms": 836
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:44:12",
+  "method": "GET",
+  "endpoint": "/users/me/items",
+  "status": 200,
+  "ms": 1053
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:44:34",
+  "method": "POST",
+  "endpoint": "/lists/{id}/items",
+  "status": 201,
+  "ms": 677
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:44:39",
+  "method": "POST",
+  "endpoint": "/lists/{id}/items",
+  "status": 201,
+  "ms": 744
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:44:53",
+  "method": "PATCH",
+  "endpoint": "/lists/{id}/items/{id}",
+  "status": 200,
+  "ms": 621
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:44:57",
+  "method": "GET",
+  "endpoint": "/lists/{id}/items",
+  "status": 200,
+  "ms": 589
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:45:30",
+  "method": "POST",
+  "endpoint": "/lists/{id}/trip",
+  "status": 201,
+  "ms": 805
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:45:31",
+  "method": "GET",
+  "endpoint": "/lists/{id}/trips/active",
+  "status": 200,
+  "ms": 326
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:45:32",
+  "method": "GET",
+  "endpoint": "/lists/{id}/trips/active",
+  "status": 200,
+  "ms": 298
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:45:32",
+  "method": "GET",
+  "endpoint": "/lists/{id}/items",
+  "status": 200,
+  "ms": 625
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:45:51",
+  "method": "PATCH",
+  "endpoint": "/lists/{id}/items/{id}/purchase",
+  "status": 200,
+  "ms": 740
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:45:54",
+  "method": "PATCH",
+  "endpoint": "/lists/{id}/items/{id}/purchase",
+  "status": 200,
+  "ms": 323
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:46:21",
+  "method": "PATCH",
+  "endpoint": "/trips/{id}/complete",
+  "status": 200,
+  "ms": 709
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:46:22",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 269
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:46:22",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 1088
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:46:22",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 1100
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:46:38",
+  "method": "GET",
+  "endpoint": "/lists/{id}/items",
+  "status": 200,
+  "ms": 869
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:46:39",
+  "method": "GET",
+  "endpoint": "/lists/{id}/trips/active",
+  "status": 200,
+  "ms": 293
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:47:06",
+  "method": "GET",
+  "endpoint": "/groups/{id}/members",
+  "status": 200,
+  "ms": 1714
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:47:07",
+  "method": "GET",
+  "endpoint": "/lists/{id}/history",
+  "status": 200,
+  "ms": 209
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:47:08",
+  "method": "GET",
+  "endpoint": "/lists/{id}/trips",
+  "status": 200,
+  "ms": 317
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:47:57",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 1600
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:47:57",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 1663
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:48:00",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 188
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:48:17",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 968
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:48:17",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 980
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:48:38",
+  "method": "GET",
+  "endpoint": "/auth/me",
+  "status": 200,
+  "ms": 1299
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:48:58",
+  "method": "DELETE",
+  "endpoint": "/devices/{token}",
+  "status": 200,
+  "ms": 1293
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:49:19",
+  "method": "POST",
+  "endpoint": "/auth/login",
+  "status": 200,
+  "ms": 1085
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:49:31",
+  "method": "POST",
+  "endpoint": "/auth/otp/verify",
+  "status": 200,
+  "ms": 879
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:49:32",
+  "method": "GET",
+  "endpoint": "/groups",
+  "status": 200,
+  "ms": 418
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:49:32",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 244
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:49:33",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 274
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:50:21",
+  "method": "POST",
+  "endpoint": "/groups",
+  "status": 201,
+  "ms": 1074
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:50:22",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 215
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:50:23",
+  "method": "GET",
+  "endpoint": "/groups/{id}/members",
+  "status": 200,
+  "ms": 251
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:50:22",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 814
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:50:23",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 468
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:50:44",
+  "method": "POST",
+  "endpoint": "/groups",
+  "status": 201,
+  "ms": 1388
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:50:46",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 319
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:50:46",
+  "method": "GET",
+  "endpoint": "/groups/{id}/members",
+  "status": 200,
+  "ms": 209
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:50:46",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 625
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:50:46",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 236
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:52:14",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 1500
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:52:15",
+  "method": "GET",
+  "endpoint": "/groups/{id}/members",
+  "status": 200,
+  "ms": 203
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:52:16",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 202
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:52:30",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 1372
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:52:31",
+  "method": "GET",
+  "endpoint": "/groups/{id}/members",
+  "status": 200,
+  "ms": 265
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:52:52",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 489
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:52:52",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 585
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:52:53",
+  "method": "GET",
+  "endpoint": "/groups/{id}/members",
+  "status": 200,
+  "ms": 201
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:53:00",
+  "method": "GET",
+  "endpoint": "/auth/me",
+  "status": 200,
+  "ms": 1180
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:53:10",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 1039
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:53:10",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 1071
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:53:11",
+  "method": "GET",
+  "endpoint": "/groups/{id}/members",
+  "status": 200,
+  "ms": 190
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:53:32",
+  "method": "GET",
+  "endpoint": "/auth/me",
+  "status": 200,
+  "ms": 1140
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:53:40",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 894
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:53:40",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 935
+ },
+ {
+  "device_log": "flutter_A2.log",
+  "at": "00:53:41",
+  "method": "GET",
+  "endpoint": "/groups/{id}/members",
+  "status": 200,
+  "ms": 174
+ },
+ {
+  "device_log": "flutter_A3.log",
+  "at": "15:45:46",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 7069
+ },
+ {
+  "device_log": "flutter_A3.log",
+  "at": "15:45:53",
+  "method": "GET",
+  "endpoint": "/groups/{id}/members",
+  "status": 200,
+  "ms": 197
+ },
+ {
+  "device_log": "flutter_A3.log",
+  "at": "15:45:53",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 289
+ },
+ {
+  "device_log": "flutter_A3.log",
+  "at": "15:48:31",
+  "method": "GET",
+  "endpoint": "/categories",
+  "status": 200,
+  "ms": 2288
+ },
+ {
+  "device_log": "flutter_A3.log",
+  "at": "15:48:32",
+  "method": "POST",
+  "endpoint": "/devices",
+  "status": 200,
+  "ms": 1552
+ },
+ {
+  "device_log": "flutter_A3.log",
+  "at": "15:48:32",
+  "method": "GET",
+  "endpoint": "/groups",
+  "status": 200,
+  "ms": 1595
+ },
+ {
+  "device_log": "flutter_A3.log",
+  "at": "15:48:34",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 283
+ },
+ {
+  "device_log": "flutter_A3.log",
+  "at": "15:48:35",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 237
+ },
+ {
+  "device_log": "flutter_A3.log",
+  "at": "15:45:53",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 185378
+ },
+ {
+  "device_log": "flutter_A3.log",
+  "at": "15:48:58",
+  "method": "GET",
+  "endpoint": "/groups/{id}/members",
+  "status": 200,
+  "ms": 226
+ },
+ {
+  "device_log": "flutter_A3.log",
+  "at": "15:48:58",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 247
+ },
+ {
+  "device_log": "flutter_A3.log",
+  "at": "15:49:08",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 1241
+ },
+ {
+  "device_log": "flutter_A3.log",
+  "at": "15:49:51",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 1201
+ },
+ {
+  "device_log": "flutter_A3.log",
+  "at": "15:51:17",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 1331
+ },
+ {
+  "device_log": "flutter_A3.log",
+  "at": "15:51:18",
+  "method": "GET",
+  "endpoint": "/groups/{id}/members",
+  "status": 200,
+  "ms": 219
+ },
+ {
+  "device_log": "flutter_A3.log",
+  "at": "15:51:19",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 286
+ },
+ {
+  "device_log": "flutter_A3.log",
+  "at": "15:51:22",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 204
+ },
+ {
+  "device_log": "flutter_B2.log",
+  "at": "00:57:16",
+  "method": "GET",
+  "endpoint": "/categories",
+  "status": 200,
+  "ms": 2067
+ },
+ {
+  "device_log": "flutter_B2.log",
+  "at": "15:43:42",
+  "method": "POST",
+  "endpoint": "/auth/login",
+  "status": 200,
+  "ms": 2515
+ },
+ {
+  "device_log": "flutter_B2.log",
+  "at": "15:44:45",
+  "method": "POST",
+  "endpoint": "/auth/otp/verify",
+  "status": 200,
+  "ms": 1889
+ },
+ {
+  "device_log": "flutter_B2.log",
+  "at": "15:44:52",
+  "method": "GET",
+  "endpoint": "/groups",
+  "status": 200,
+  "ms": 3282
+ },
+ {
+  "device_log": "flutter_B2.log",
+  "at": "15:44:57",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 1134
+ },
+ {
+  "device_log": "flutter_B2.log",
+  "at": "15:45:00",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 504
+ },
+ {
+  "device_log": "flutter_B3.log",
+  "at": "15:50:46",
+  "method": "GET",
+  "endpoint": "/categories",
+  "status": 200,
+  "ms": 4812
+ },
+ {
+  "device_log": "flutter_B3.log",
+  "at": "15:50:50",
+  "method": "GET",
+  "endpoint": "/groups",
+  "status": 200,
+  "ms": 1211
+ },
+ {
+  "device_log": "flutter_B3.log",
+  "at": "15:50:50",
+  "method": "POST",
+  "endpoint": "/devices",
+  "status": 200,
+  "ms": 1212
+ },
+ {
+  "device_log": "flutter_B3.log",
+  "at": "15:50:52",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 240
+ },
+ {
+  "device_log": "flutter_B3.log",
+  "at": "15:50:53",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 198
+ },
+ {
+  "device_log": "flutter_B3.log",
+  "at": "15:52:12",
+  "method": "POST",
+  "endpoint": "/groups/join",
+  "status": 200,
+  "ms": 1546
+ },
+ {
+  "device_log": "flutter_B3.log",
+  "at": "15:52:14",
+  "method": "GET",
+  "endpoint": "/groups",
+  "status": 200,
+  "ms": 300
+ },
+ {
+  "device_log": "flutter_B3.log",
+  "at": "15:52:14",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 235
+ },
+ {
+  "device_log": "flutter_B3.log",
+  "at": "15:52:14",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 812
+ },
+ {
+  "device_log": "flutter_B3.log",
+  "at": "15:52:14",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 303
+ },
+ {
+  "device_log": "flutter_B3.log",
+  "at": "15:52:14",
+  "method": "GET",
+  "endpoint": "/groups/{id}/members",
+  "status": 200,
+  "ms": 282
+ },
+ {
+  "device_log": "flutter_B3.log",
+  "at": "15:55:21",
+  "method": "GET",
+  "endpoint": "/categories",
+  "status": 200,
+  "ms": 2005
+ },
+ {
+  "device_log": "flutter_B3.log",
+  "at": "15:55:23",
+  "method": "GET",
+  "endpoint": "/groups",
+  "status": 200,
+  "ms": 1054
+ },
+ {
+  "device_log": "flutter_B3.log",
+  "at": "15:55:23",
+  "method": "POST",
+  "endpoint": "/devices",
+  "status": 200,
+  "ms": 1014
+ },
+ {
+  "device_log": "flutter_B3.log",
+  "at": "15:55:25",
+  "method": "GET",
+  "endpoint": "/groups/{id}",
+  "status": 200,
+  "ms": 186
+ },
+ {
+  "device_log": "flutter_B3.log",
+  "at": "15:55:26",
+  "method": "GET",
+  "endpoint": "/groups/{id}/lists",
+  "status": 200,
+  "ms": 193
+ }
+]

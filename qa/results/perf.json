@@ -1,0 +1,1177 @@
+{
+ "rest": {
+  "GET /auth/me": {
+   "n": 15,
+   "p50": 162.4,
+   "p95": 170.8,
+   "min": 143.6,
+   "max": 287.0,
+   "bytes": 385
+  },
+  "GET /groups": {
+   "n": 15,
+   "p50": 172.4,
+   "p95": 198.6,
+   "min": 155.0,
+   "max": 203.2,
+   "bytes": 5292
+  },
+  "GET /groups/{id}": {
+   "n": 15,
+   "p50": 173.5,
+   "p95": 185.6,
+   "min": 157.8,
+   "max": 274.4,
+   "bytes": 725
+  },
+  "GET /groups/{id}/lists": {
+   "n": 15,
+   "p50": 174.6,
+   "p95": 215.6,
+   "min": 164.8,
+   "max": 345.1,
+   "bytes": 1396
+  },
+  "GET /lists/{id}": {
+   "n": 15,
+   "p50": 170.4,
+   "p95": 190.2,
+   "min": 156.1,
+   "max": 219.6,
+   "bytes": 414
+  },
+  "GET /lists/{id}/items": {
+   "n": 15,
+   "p50": 172.6,
+   "p95": 187.8,
+   "min": 164.4,
+   "max": 212.7,
+   "bytes": 3
+  },
+  "GET /lists/{id}/history": {
+   "n": 15,
+   "p50": 175.7,
+   "p95": 189.2,
+   "min": 160.7,
+   "max": 220.3,
+   "bytes": 1875
+  },
+  "GET /lists/{id}/trips": {
+   "n": 15,
+   "p50": 182.0,
+   "p95": 197.4,
+   "min": 170.7,
+   "max": 249.8,
+   "bytes": 539
+  },
+  "GET /lists/{id}/trips/active": {
+   "n": 15,
+   "p50": 170.7,
+   "p95": 187.8,
+   "min": 161.1,
+   "max": 199.0,
+   "bytes": 5
+  },
+  "GET /users/me/items": {
+   "n": 15,
+   "p50": 150.4,
+   "p95": 158.0,
+   "min": 140.9,
+   "max": 177.0,
+   "bytes": 1232
+  },
+  "GET /catalog/search?q=milk": {
+   "n": 15,
+   "p50": 152.6,
+   "p95": 162.7,
+   "min": 142.2,
+   "max": 171.8,
+   "bytes": 275
+  },
+  "GET /categories": {
+   "n": 15,
+   "p50": 154.9,
+   "p95": 168.9,
+   "min": 148.6,
+   "max": 241.1,
+   "bytes": 1835
+  },
+  "GET /auth/avatars": {
+   "n": 15,
+   "p50": 183.0,
+   "p95": 243.3,
+   "min": 161.0,
+   "max": 421.7,
+   "bytes": 3446
+  }
+ },
+ "bursts": {
+  "5": {
+   "wall_ms": 624,
+   "p50": 525,
+   "max": 623,
+   "statuses": [
+    200
+   ]
+  },
+  "10": {
+   "wall_ms": 983,
+   "p50": 782,
+   "max": 965,
+   "statuses": [
+    200
+   ]
+  },
+  "20": {
+   "wall_ms": 1514,
+   "p50": 1345,
+   "max": 1509,
+   "statuses": [
+    200
+   ]
+  }
+ },
+ "handshake_ms": [
+  537.1,
+  515.7
+ ],
+ "fanout_by_event": {
+  "item.added": {
+   "delivered": "20/20",
+   "p50_from_send": 245.1,
+   "p95_from_send": 307.1,
+   "http_p50": 262.4,
+   "bytes": 879
+  },
+  "item.updated": {
+   "delivered": "20/20",
+   "p50_from_send": 213.2,
+   "p95_from_send": 253.3,
+   "http_p50": 220.4,
+   "bytes": 848
+  },
+  "item.purchased": {
+   "delivered": "20/20",
+   "p50_from_send": 218.1,
+   "p95_from_send": 239.6,
+   "http_p50": 231.6,
+   "bytes": 881
+  },
+  "item.unpurchased": {
+   "delivered": "20/20",
+   "p50_from_send": 226.2,
+   "p95_from_send": 235.6,
+   "http_p50": 229.0,
+   "bytes": 848
+  },
+  "item.deleted": {
+   "delivered": "20/20",
+   "p50_from_send": 202.1,
+   "p95_from_send": 239.3,
+   "http_p50": 209.4,
+   "bytes": 216
+  }
+ },
+ "fanout_raw": [
+  {
+   "round": 0,
+   "event": "item.added",
+   "socket": "S1",
+   "http_status": 201,
+   "http_ms": 281.3,
+   "event_ms_from_send": 270.7,
+   "event_ms_after_response": -10.6,
+   "bytes": 879
+  },
+  {
+   "round": 0,
+   "event": "item.added",
+   "socket": "S2",
+   "http_status": 201,
+   "http_ms": 281.3,
+   "event_ms_from_send": 269.8,
+   "event_ms_after_response": -11.6,
+   "bytes": 879
+  },
+  {
+   "round": 0,
+   "event": "item.updated",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 251.7,
+   "event_ms_from_send": 243.0,
+   "event_ms_after_response": -8.7,
+   "bytes": 848
+  },
+  {
+   "round": 0,
+   "event": "item.updated",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 251.7,
+   "event_ms_from_send": 243.3,
+   "event_ms_after_response": -8.4,
+   "bytes": 848
+  },
+  {
+   "round": 0,
+   "event": "item.purchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 234.0,
+   "event_ms_from_send": 223.1,
+   "event_ms_after_response": -10.9,
+   "bytes": 881
+  },
+  {
+   "round": 0,
+   "event": "item.purchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 234.0,
+   "event_ms_from_send": 223.6,
+   "event_ms_after_response": -10.4,
+   "bytes": 881
+  },
+  {
+   "round": 0,
+   "event": "item.unpurchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 223.3,
+   "event_ms_from_send": 223.8,
+   "event_ms_after_response": 0.5,
+   "bytes": 848
+  },
+  {
+   "round": 0,
+   "event": "item.unpurchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 223.3,
+   "event_ms_from_send": 219.5,
+   "event_ms_after_response": -3.8,
+   "bytes": 848
+  },
+  {
+   "round": 0,
+   "event": "item.deleted",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 218.3,
+   "event_ms_from_send": 212.7,
+   "event_ms_after_response": -5.7,
+   "bytes": 216
+  },
+  {
+   "round": 0,
+   "event": "item.deleted",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 218.3,
+   "event_ms_from_send": 205.9,
+   "event_ms_after_response": -12.4,
+   "bytes": 216
+  },
+  {
+   "round": 1,
+   "event": "item.added",
+   "socket": "S1",
+   "http_status": 201,
+   "http_ms": 244.5,
+   "event_ms_from_send": 234.4,
+   "event_ms_after_response": -10.1,
+   "bytes": 879
+  },
+  {
+   "round": 1,
+   "event": "item.added",
+   "socket": "S2",
+   "http_status": 201,
+   "http_ms": 244.5,
+   "event_ms_from_send": 233.9,
+   "event_ms_after_response": -10.6,
+   "bytes": 879
+  },
+  {
+   "round": 1,
+   "event": "item.updated",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 215.3,
+   "event_ms_from_send": 206.3,
+   "event_ms_after_response": -9.0,
+   "bytes": 848
+  },
+  {
+   "round": 1,
+   "event": "item.updated",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 215.3,
+   "event_ms_from_send": 209.7,
+   "event_ms_after_response": -5.6,
+   "bytes": 848
+  },
+  {
+   "round": 1,
+   "event": "item.purchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 222.0,
+   "event_ms_from_send": 217.5,
+   "event_ms_after_response": -4.5,
+   "bytes": 881
+  },
+  {
+   "round": 1,
+   "event": "item.purchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 222.0,
+   "event_ms_from_send": 217.2,
+   "event_ms_after_response": -4.9,
+   "bytes": 881
+  },
+  {
+   "round": 1,
+   "event": "item.unpurchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 233.3,
+   "event_ms_from_send": 226.4,
+   "event_ms_after_response": -6.9,
+   "bytes": 848
+  },
+  {
+   "round": 1,
+   "event": "item.unpurchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 233.3,
+   "event_ms_from_send": 226.7,
+   "event_ms_after_response": -6.5,
+   "bytes": 848
+  },
+  {
+   "round": 1,
+   "event": "item.deleted",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 204.1,
+   "event_ms_from_send": 198.0,
+   "event_ms_after_response": -6.2,
+   "bytes": 216
+  },
+  {
+   "round": 1,
+   "event": "item.deleted",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 204.1,
+   "event_ms_from_send": 198.2,
+   "event_ms_after_response": -5.9,
+   "bytes": 216
+  },
+  {
+   "round": 2,
+   "event": "item.added",
+   "socket": "S1",
+   "http_status": 201,
+   "http_ms": 249.3,
+   "event_ms_from_send": 245.2,
+   "event_ms_after_response": -4.1,
+   "bytes": 879
+  },
+  {
+   "round": 2,
+   "event": "item.added",
+   "socket": "S2",
+   "http_status": 201,
+   "http_ms": 249.3,
+   "event_ms_from_send": 233.1,
+   "event_ms_after_response": -16.2,
+   "bytes": 879
+  },
+  {
+   "round": 2,
+   "event": "item.updated",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 242.9,
+   "event_ms_from_send": 233.3,
+   "event_ms_after_response": -9.6,
+   "bytes": 848
+  },
+  {
+   "round": 2,
+   "event": "item.updated",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 242.9,
+   "event_ms_from_send": 233.6,
+   "event_ms_after_response": -9.3,
+   "bytes": 848
+  },
+  {
+   "round": 2,
+   "event": "item.purchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 214.2,
+   "event_ms_from_send": 209.1,
+   "event_ms_after_response": -5.1,
+   "bytes": 881
+  },
+  {
+   "round": 2,
+   "event": "item.purchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 214.2,
+   "event_ms_from_send": 210.1,
+   "event_ms_after_response": -4.1,
+   "bytes": 881
+  },
+  {
+   "round": 2,
+   "event": "item.unpurchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 228.6,
+   "event_ms_from_send": 220.3,
+   "event_ms_after_response": -8.3,
+   "bytes": 848
+  },
+  {
+   "round": 2,
+   "event": "item.unpurchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 228.6,
+   "event_ms_from_send": 226.0,
+   "event_ms_after_response": -2.6,
+   "bytes": 848
+  },
+  {
+   "round": 2,
+   "event": "item.deleted",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 204.4,
+   "event_ms_from_send": 198.6,
+   "event_ms_after_response": -5.8,
+   "bytes": 216
+  },
+  {
+   "round": 2,
+   "event": "item.deleted",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 204.4,
+   "event_ms_from_send": 198.7,
+   "event_ms_after_response": -5.6,
+   "bytes": 216
+  },
+  {
+   "round": 3,
+   "event": "item.added",
+   "socket": "S1",
+   "http_status": 201,
+   "http_ms": 264.8,
+   "event_ms_from_send": 244.7,
+   "event_ms_after_response": -20.1,
+   "bytes": 879
+  },
+  {
+   "round": 3,
+   "event": "item.added",
+   "socket": "S2",
+   "http_status": 201,
+   "http_ms": 264.8,
+   "event_ms_from_send": 244.9,
+   "event_ms_after_response": -19.8,
+   "bytes": 879
+  },
+  {
+   "round": 3,
+   "event": "item.updated",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 206.0,
+   "event_ms_from_send": 200.9,
+   "event_ms_after_response": -5.1,
+   "bytes": 848
+  },
+  {
+   "round": 3,
+   "event": "item.updated",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 206.0,
+   "event_ms_from_send": 200.6,
+   "event_ms_after_response": -5.3,
+   "bytes": 848
+  },
+  {
+   "round": 3,
+   "event": "item.purchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 238.2,
+   "event_ms_from_send": 225.5,
+   "event_ms_after_response": -12.6,
+   "bytes": 881
+  },
+  {
+   "round": 3,
+   "event": "item.purchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 238.2,
+   "event_ms_from_send": 225.2,
+   "event_ms_after_response": -13.0,
+   "bytes": 881
+  },
+  {
+   "round": 3,
+   "event": "item.unpurchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 246.1,
+   "event_ms_from_send": 235.6,
+   "event_ms_after_response": -10.5,
+   "bytes": 848
+  },
+  {
+   "round": 3,
+   "event": "item.unpurchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 246.1,
+   "event_ms_from_send": 235.1,
+   "event_ms_after_response": -10.9,
+   "bytes": 848
+  },
+  {
+   "round": 3,
+   "event": "item.deleted",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 239.5,
+   "event_ms_from_send": 239.6,
+   "event_ms_after_response": 0.1,
+   "bytes": 216
+  },
+  {
+   "round": 3,
+   "event": "item.deleted",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 239.5,
+   "event_ms_from_send": 239.3,
+   "event_ms_after_response": -0.2,
+   "bytes": 216
+  },
+  {
+   "round": 4,
+   "event": "item.added",
+   "socket": "S1",
+   "http_status": 201,
+   "http_ms": 250.2,
+   "event_ms_from_send": 226.5,
+   "event_ms_after_response": -23.7,
+   "bytes": 879
+  },
+  {
+   "round": 4,
+   "event": "item.added",
+   "socket": "S2",
+   "http_status": 201,
+   "http_ms": 250.2,
+   "event_ms_from_send": 231.6,
+   "event_ms_after_response": -18.5,
+   "bytes": 879
+  },
+  {
+   "round": 4,
+   "event": "item.updated",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 215.8,
+   "event_ms_from_send": 205.1,
+   "event_ms_after_response": -10.7,
+   "bytes": 848
+  },
+  {
+   "round": 4,
+   "event": "item.updated",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 215.8,
+   "event_ms_from_send": 209.7,
+   "event_ms_after_response": -6.1,
+   "bytes": 848
+  },
+  {
+   "round": 4,
+   "event": "item.purchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 250.9,
+   "event_ms_from_send": 216.4,
+   "event_ms_after_response": -34.5,
+   "bytes": 881
+  },
+  {
+   "round": 4,
+   "event": "item.purchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 250.9,
+   "event_ms_from_send": 217.1,
+   "event_ms_after_response": -33.8,
+   "bytes": 881
+  },
+  {
+   "round": 4,
+   "event": "item.unpurchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 252.4,
+   "event_ms_from_send": 235.4,
+   "event_ms_after_response": -17.1,
+   "bytes": 848
+  },
+  {
+   "round": 4,
+   "event": "item.unpurchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 252.4,
+   "event_ms_from_send": 246.9,
+   "event_ms_after_response": -5.5,
+   "bytes": 848
+  },
+  {
+   "round": 4,
+   "event": "item.deleted",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 236.5,
+   "event_ms_from_send": 230.5,
+   "event_ms_after_response": -6.0,
+   "bytes": 216
+  },
+  {
+   "round": 4,
+   "event": "item.deleted",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 236.5,
+   "event_ms_from_send": 225.5,
+   "event_ms_after_response": -11.0,
+   "bytes": 216
+  },
+  {
+   "round": 5,
+   "event": "item.added",
+   "socket": "S1",
+   "http_status": 201,
+   "http_ms": 305.5,
+   "event_ms_from_send": 307.6,
+   "event_ms_after_response": 2.1,
+   "bytes": 879
+  },
+  {
+   "round": 5,
+   "event": "item.added",
+   "socket": "S2",
+   "http_status": 201,
+   "http_ms": 305.5,
+   "event_ms_from_send": 307.1,
+   "event_ms_after_response": 1.6,
+   "bytes": 879
+  },
+  {
+   "round": 5,
+   "event": "item.updated",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 268.9,
+   "event_ms_from_send": 256.0,
+   "event_ms_after_response": -12.9,
+   "bytes": 848
+  },
+  {
+   "round": 5,
+   "event": "item.updated",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 268.9,
+   "event_ms_from_send": 251.0,
+   "event_ms_after_response": -17.9,
+   "bytes": 848
+  },
+  {
+   "round": 5,
+   "event": "item.purchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 244.0,
+   "event_ms_from_send": 237.8,
+   "event_ms_after_response": -6.2,
+   "bytes": 881
+  },
+  {
+   "round": 5,
+   "event": "item.purchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 244.0,
+   "event_ms_from_send": 238.4,
+   "event_ms_after_response": -5.6,
+   "bytes": 881
+  },
+  {
+   "round": 5,
+   "event": "item.unpurchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 242.0,
+   "event_ms_from_send": 231.3,
+   "event_ms_after_response": -10.7,
+   "bytes": 848
+  },
+  {
+   "round": 5,
+   "event": "item.unpurchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 242.0,
+   "event_ms_from_send": 231.9,
+   "event_ms_after_response": -10.1,
+   "bytes": 848
+  },
+  {
+   "round": 5,
+   "event": "item.deleted",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 197.4,
+   "event_ms_from_send": 186.5,
+   "event_ms_after_response": -10.9,
+   "bytes": 216
+  },
+  {
+   "round": 5,
+   "event": "item.deleted",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 197.4,
+   "event_ms_from_send": 186.8,
+   "event_ms_after_response": -10.6,
+   "bytes": 216
+  },
+  {
+   "round": 6,
+   "event": "item.added",
+   "socket": "S1",
+   "http_status": 201,
+   "http_ms": 260.0,
+   "event_ms_from_send": 242.4,
+   "event_ms_after_response": -17.6,
+   "bytes": 879
+  },
+  {
+   "round": 6,
+   "event": "item.added",
+   "socket": "S2",
+   "http_status": 201,
+   "http_ms": 260.0,
+   "event_ms_from_send": 254.5,
+   "event_ms_after_response": -5.5,
+   "bytes": 879
+  },
+  {
+   "round": 6,
+   "event": "item.updated",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 225.1,
+   "event_ms_from_send": 219.6,
+   "event_ms_after_response": -5.5,
+   "bytes": 848
+  },
+  {
+   "round": 6,
+   "event": "item.updated",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 225.1,
+   "event_ms_from_send": 214.8,
+   "event_ms_after_response": -10.2,
+   "bytes": 848
+  },
+  {
+   "round": 6,
+   "event": "item.purchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 225.0,
+   "event_ms_from_send": 213.7,
+   "event_ms_after_response": -11.3,
+   "bytes": 881
+  },
+  {
+   "round": 6,
+   "event": "item.purchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 225.0,
+   "event_ms_from_send": 213.9,
+   "event_ms_after_response": -11.0,
+   "bytes": 881
+  },
+  {
+   "round": 6,
+   "event": "item.unpurchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 220.3,
+   "event_ms_from_send": 214.6,
+   "event_ms_after_response": -5.7,
+   "bytes": 848
+  },
+  {
+   "round": 6,
+   "event": "item.unpurchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 220.3,
+   "event_ms_from_send": 214.2,
+   "event_ms_after_response": -6.0,
+   "bytes": 848
+  },
+  {
+   "round": 6,
+   "event": "item.deleted",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 213.2,
+   "event_ms_from_send": 205.7,
+   "event_ms_after_response": -7.5,
+   "bytes": 216
+  },
+  {
+   "round": 6,
+   "event": "item.deleted",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 213.2,
+   "event_ms_from_send": 205.2,
+   "event_ms_after_response": -8.0,
+   "bytes": 216
+  },
+  {
+   "round": 7,
+   "event": "item.added",
+   "socket": "S1",
+   "http_status": 201,
+   "http_ms": 284.3,
+   "event_ms_from_send": 271.7,
+   "event_ms_after_response": -12.6,
+   "bytes": 879
+  },
+  {
+   "round": 7,
+   "event": "item.added",
+   "socket": "S2",
+   "http_status": 201,
+   "http_ms": 284.3,
+   "event_ms_from_send": 272.0,
+   "event_ms_after_response": -12.4,
+   "bytes": 879
+  },
+  {
+   "round": 7,
+   "event": "item.updated",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 215.3,
+   "event_ms_from_send": 211.0,
+   "event_ms_after_response": -4.3,
+   "bytes": 848
+  },
+  {
+   "round": 7,
+   "event": "item.updated",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 215.3,
+   "event_ms_from_send": 211.5,
+   "event_ms_after_response": -3.8,
+   "bytes": 848
+  },
+  {
+   "round": 7,
+   "event": "item.purchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 252.6,
+   "event_ms_from_send": 239.6,
+   "event_ms_after_response": -13.1,
+   "bytes": 881
+  },
+  {
+   "round": 7,
+   "event": "item.purchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 252.6,
+   "event_ms_from_send": 239.9,
+   "event_ms_after_response": -12.7,
+   "bytes": 881
+  },
+  {
+   "round": 7,
+   "event": "item.unpurchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 227.4,
+   "event_ms_from_send": 221.5,
+   "event_ms_after_response": -5.9,
+   "bytes": 848
+  },
+  {
+   "round": 7,
+   "event": "item.unpurchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 227.4,
+   "event_ms_from_send": 221.8,
+   "event_ms_after_response": -5.6,
+   "bytes": 848
+  },
+  {
+   "round": 7,
+   "event": "item.deleted",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 205.6,
+   "event_ms_from_send": 195.8,
+   "event_ms_after_response": -9.8,
+   "bytes": 216
+  },
+  {
+   "round": 7,
+   "event": "item.deleted",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 205.6,
+   "event_ms_from_send": 196.3,
+   "event_ms_after_response": -9.4,
+   "bytes": 216
+  },
+  {
+   "round": 8,
+   "event": "item.added",
+   "socket": "S1",
+   "http_status": 201,
+   "http_ms": 246.0,
+   "event_ms_from_send": 240.8,
+   "event_ms_after_response": -5.2,
+   "bytes": 879
+  },
+  {
+   "round": 8,
+   "event": "item.added",
+   "socket": "S2",
+   "http_status": 201,
+   "http_ms": 246.0,
+   "event_ms_from_send": 241.1,
+   "event_ms_after_response": -4.8,
+   "bytes": 879
+  },
+  {
+   "round": 8,
+   "event": "item.updated",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 214.7,
+   "event_ms_from_send": 205.3,
+   "event_ms_after_response": -9.4,
+   "bytes": 848
+  },
+  {
+   "round": 8,
+   "event": "item.updated",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 214.7,
+   "event_ms_from_send": 204.8,
+   "event_ms_after_response": -9.9,
+   "bytes": 848
+  },
+  {
+   "round": 8,
+   "event": "item.purchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 229.1,
+   "event_ms_from_send": 219.0,
+   "event_ms_after_response": -10.1,
+   "bytes": 881
+  },
+  {
+   "round": 8,
+   "event": "item.purchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 229.1,
+   "event_ms_from_send": 218.6,
+   "event_ms_after_response": -10.5,
+   "bytes": 881
+  },
+  {
+   "round": 8,
+   "event": "item.unpurchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 229.4,
+   "event_ms_from_send": 230.1,
+   "event_ms_after_response": 0.7,
+   "bytes": 848
+  },
+  {
+   "round": 8,
+   "event": "item.unpurchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 229.4,
+   "event_ms_from_send": 229.6,
+   "event_ms_after_response": 0.2,
+   "bytes": 848
+  },
+  {
+   "round": 8,
+   "event": "item.deleted",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 204.8,
+   "event_ms_from_send": 199.1,
+   "event_ms_after_response": -5.7,
+   "bytes": 216
+  },
+  {
+   "round": 8,
+   "event": "item.deleted",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 204.8,
+   "event_ms_from_send": 193.7,
+   "event_ms_after_response": -11.1,
+   "bytes": 216
+  },
+  {
+   "round": 9,
+   "event": "item.added",
+   "socket": "S1",
+   "http_status": 201,
+   "http_ms": 278.5,
+   "event_ms_from_send": 271.7,
+   "event_ms_after_response": -6.8,
+   "bytes": 879
+  },
+  {
+   "round": 9,
+   "event": "item.added",
+   "socket": "S2",
+   "http_status": 201,
+   "http_ms": 278.5,
+   "event_ms_from_send": 267.1,
+   "event_ms_after_response": -11.4,
+   "bytes": 879
+  },
+  {
+   "round": 9,
+   "event": "item.updated",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 253.0,
+   "event_ms_from_send": 253.3,
+   "event_ms_after_response": 0.2,
+   "bytes": 848
+  },
+  {
+   "round": 9,
+   "event": "item.updated",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 253.0,
+   "event_ms_from_send": 245.8,
+   "event_ms_after_response": -7.2,
+   "bytes": 848
+  },
+  {
+   "round": 9,
+   "event": "item.purchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 217.9,
+   "event_ms_from_send": 210.4,
+   "event_ms_after_response": -7.5,
+   "bytes": 881
+  },
+  {
+   "round": 9,
+   "event": "item.purchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 217.9,
+   "event_ms_from_send": 210.7,
+   "event_ms_after_response": -7.2,
+   "bytes": 881
+  },
+  {
+   "round": 9,
+   "event": "item.unpurchased",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 222.4,
+   "event_ms_from_send": 212.7,
+   "event_ms_after_response": -9.7,
+   "bytes": 848
+  },
+  {
+   "round": 9,
+   "event": "item.unpurchased",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 222.4,
+   "event_ms_from_send": 212.3,
+   "event_ms_after_response": -10.0,
+   "bytes": 848
+  },
+  {
+   "round": 9,
+   "event": "item.deleted",
+   "socket": "S1",
+   "http_status": 200,
+   "http_ms": 218.4,
+   "event_ms_from_send": 210.8,
+   "event_ms_after_response": -7.6,
+   "bytes": 216
+  },
+  {
+   "round": 9,
+   "event": "item.deleted",
+   "socket": "S2",
+   "http_status": 200,
+   "http_ms": 218.4,
+   "event_ms_from_send": 211.2,
+   "event_ms_after_response": -7.2,
+   "bytes": 216
+  }
+ ]
+}

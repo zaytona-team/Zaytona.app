@@ -1,0 +1,9 @@
+{
+ "token_iat": 1793654824,
+ "token_exp": 1793655724,
+ "tested_at": 1793655729.0165327,
+ "rest_status": 401,
+ "rest_body": "{\"message\": \"Token expired\"}\n",
+ "socket": "rejected: One or more namespaces failed to connect",
+ "socket_ms": 15672.8
+}

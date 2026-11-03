@@ -1,0 +1,438 @@
+=== Zaytona E2E QA run 2026-11-03 15:36 against https://zaytona-app.onrender.com/api/v1 ===
+[PASS] S0     GET    /categories/                                               -> 200 (403.2 ms) expect=[200]  Warm-up: public categories
+         res: [{"category_id": "82cad0a0-dd5b-4abb-aa0d-eb47e14aa9e5", "name": "Fresh Produce", "image_url": null, "sort_order": 1}, {"category_id": "07e7968d-a8cd-4e34-a14f-f5c4bf981a6a", "name": "Meat & Seafood", "image_url": null, "sort_order": 2}, {"category_id": "0335162d-66c1-499a-a9b9-86e7ec0cc8a9", "name": "Dairy & Eggs", "image_url": null, "sort_order": 3}, {"category_id": "e36c45a2-a40f-44f4-81af-754c
+[PASS] AU01   POST   /auth/login                                                -> 200 (411.8 ms) expect=[200]  Login with local phone shape 05XXXXXXXX
+         req: {"identifier": "0555455544"}
+         res: {"phone": "+966555455544", "otp_sent": true, "otp_method": "dev-bypass", "message": "Enter the OTP sent to your phone to complete login."}
+  login normalized phone=+966555455544 otp_method=dev-bypass
+[PASS] AU02   POST   /auth/otp/verify                                           -> 400 (160.3 ms) expect=[400]  Verify with wrong OTP is rejected
+         req: {"phone": "+966555455544", "token": "0000"}
+         res: {"message": "Invalid or expired OTP"}
+[PASS] AU03   POST   /auth/otp/verify                                           -> 200 (172.6 ms) expect=[200]  Verify whitelisted OTP 4444 -> tokens
+         req: {"phone": "+966555455544", "token": "4444"}
+         res: {"verified": true, "access_token": "<redacted-jwt>", "refresh_token": "<redacted-jwt>
+[PASS] AU04   POST   /auth/otp/verify                                           -> 200 (378.6 ms) expect=[200]  Verify B with OTP 4444 (whitelist probe, sends nothing)
+         req: {"phone": "+966555455545", "token": "4444"}
+         res: {"verified": true, "access_token": "<redacted-jwt>", "refresh_token": "<redacted-jwt>
+[PASS] AU05   POST   /auth/login                                                -> 200 (214.4 ms) expect=[200]  Login account B (international shape) -> dev-bypass
+         req: {"identifier": "+966555455545"}
+         res: {"phone": "+966555455545", "otp_sent": true, "otp_method": "dev-bypass", "message": "Enter the OTP sent to your phone to complete login."}
+  B otp_method=dev-bypass
+[PASS] AU06   GET    /auth/me                                                   -> 200 (209.8 ms) expect=[200]  GET /auth/me with access token
+         res: {"user_id": "43a71112-2544-4b07-aea0-3b0248eda949", "first_name": "hi", "last_name": "hhh", "email": null, "phone": "+966555455544", "avatar_url": "https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-6.png?", "phone_verified": true, "reminders_enabled": true, "created_at": "2026-08-09T22:22:50.137159+00:00", "updated_at": "2026-11-03T12:35:00.387426+00:00"}
+[PASS] AU07   GET    /auth/me                                                   -> 401 (165.5 ms) expect=[401]  GET /auth/me without token
+         res: {"message": "Missing or malformed Authorization header"}
+[PASS] AU08   GET    /auth/me                                                   -> 401 (145.3 ms) expect=[401]  Refresh token cannot be used as access token
+         res: {"message": "Invalid token: Refresh tokens cannot be used to access resources"}
+[PASS] AU09   POST   /auth/refresh                                              -> 200 (167.3 ms) expect=[200]  Refresh -> new access token
+         req: {"refresh_token": "<redacted-jwt>"}
+         res: {"access_token": "<redacted-jwt>", "token_type": "Bearer"}
+[PASS] AU10   POST   /auth/refresh                                              -> 401 (143.9 ms) expect=[401]  Access token rejected by /auth/refresh
+         req: {"refresh_token": "<redacted-jwt>"}
+         res: {"message": "Not a refresh token"}
+[PASS] AU11   POST   /auth/register                                             -> 409 (422.7 ms) expect=[409]  Register with an existing phone -> 409
+         req: {"first_name": "QA", "last_name": "Dup", "phone": "+966555455544"}
+         res: {"message": "Phone already registered"}
+[PASS] AU12   POST   /auth/login                                                -> 404 (354.3 ms) expect=[404]  Login with unregistered phone -> 404 (no OTP sent)
+         req: {"identifier": "+966500000009"}
+         res: {"message": "No account found for that email/phone"}
+[PASS] AU13   POST   /auth/login                                                -> 400 (355.1 ms) expect=[400]  Login with malformed phone -> 400
+         req: {"identifier": "12345"}
+         res: {"message": "phone must be a valid Saudi mobile number: 05XXXXXXXX (10 digits) or +9665XXXXXXXX"}
+[PASS] AU14   POST   /auth/otp/resend                                           -> 200 (158.5 ms) expect=[200]  Resend OTP (whitelisted -> dev-bypass)
+         req: {"phone": "+966555455544"}
+         res: {"otp_sent": true, "otp_method": "dev-bypass"}
+[PASS] AU15   POST   /auth/otp/resend                                           -> 400 (152.2 ms) expect=[400]  Resend OTP with invalid channel -> 400
+         req: {"phone": "+966555455544", "channel": "pigeon"}
+         res: {"errors": {"channel": "'pigeon' is not one of ['whatsapp', 'sms', 'email']"}, "message": "Input payload validation failed"}
+[PASS] AU16   GET    /auth/avatars                                              -> 200 (261.7 ms) expect=[200]  List preset avatars (Supabase Storage)
+         res: {"avatars": [{"id": "av-1.png", "url": "https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-1.png"}, {"id": "av-10.png", "url": "https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-10.png"}, {"id": "av-11.png", "url": "https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-11.png"}, {"id": "av-12.png", "url": "https://zttfiymk
+  avatars: 30 -> ['av-1.png', 'av-10.png', 'av-11.png', 'av-12.png', 'av-13.png', 'av-14.png', 'av-15.png', 'av-16.png', 'av-17.png', 'av-18.png', 'av-19.png', 'av-2.png']
+[PASS] AU17   GET    /auth/me                                                   -> 200 (157.4 ms) expect=[200]  Read profile before avatar test
+         res: {"user_id": "43a71112-2544-4b07-aea0-3b0248eda949", "first_name": "hi", "last_name": "hhh", "email": null, "phone": "+966555455544", "avatar_url": "https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-6.png?", "phone_verified": true, "reminders_enabled": true, "created_at": "2026-08-09T22:22:50.137159+00:00", "updated_at": "2026-11-03T12:35:00.387426+00:00"}
+[PASS] AU18   POST   /auth/profile/avatar/select                                -> 200 (242.6 ms) expect=[200]  Select avatar (same as current) -> stored URL shape
+         req: {"avatar_id": "av-6.png"}
+         res: {"message": "Avatar selected successfully", "user": {"user_id": "43a71112-2544-4b07-aea0-3b0248eda949", "first_name": "hi", "last_name": "hhh", "email": null, "phone": "+966555455544", "avatar_url": "https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-6.png?", "phone_verified": true, "reminders_enabled": true, "created_at": "2026-08-09T22:22:50.137159+00:00", "updated_at":
+  avatar URL from /avatars = 'https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-6.png'
+  avatar URL stored by /select = 'https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-6.png?'  (equal=False)
+[PASS] AU19   POST   /auth/profile/avatar/select                                -> 404 (195.4 ms) expect=[404]  Select unknown avatar -> 404
+         req: {"avatar_id": "nope.png"}
+         res: {"error": "Avatar not found"}
+[PASS] AU20   PATCH  /auth/me                                                   -> 200 (171.5 ms) expect=[200]  Toggle reminders off
+         req: {"reminders_enabled": false}
+         res: {"user_id": "43a71112-2544-4b07-aea0-3b0248eda949", "first_name": "hi", "last_name": "hhh", "email": null, "phone": "+966555455544", "avatar_url": "https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-6.png?", "phone_verified": true, "reminders_enabled": false, "created_at": "2026-08-09T22:22:50.137159+00:00", "updated_at": "2026-11-03T12:37:05.171681+00:00"}
+[PASS] AU21   PATCH  /auth/me                                                   -> 200 (185.6 ms) expect=[200]  Toggle reminders back on
+         req: {"reminders_enabled": true}
+         res: {"user_id": "43a71112-2544-4b07-aea0-3b0248eda949", "first_name": "hi", "last_name": "hhh", "email": null, "phone": "+966555455544", "avatar_url": "https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-6.png?", "phone_verified": true, "reminders_enabled": true, "created_at": "2026-08-09T22:22:50.137159+00:00", "updated_at": "2026-11-03T12:37:05.358253+00:00"}
+[PASS] WS01 WS handshake -> rejected: One or more namespaces failed to connect (15696.4 ms) Handshake without token is rejected
+[PASS] WS02 WS handshake -> rejected: One or more namespaces failed to connect (15693.3 ms) Handshake with refresh token is rejected
+[PASS] WS03 WS handshake -> rejected: One or more namespaces failed to connect (15714.0 ms) Handshake with garbage token is rejected
+[PASS] IN01   GET    /groups                                                    -> 200 (181.1 ms) expect=[200]  List my groups (A)
+         res: [{"group_id": "4f0e79d9-3ccc-41d6-8446-4ad86033d5ba", "created_by": "4d48d843-2618-4f58-b7be-7e6a55ff2f79", "created_by_name": "mousa alqarni", "name": "new", "image_url": null, "icon": "home", "type": "household", "invite_code": "C0O73B", "created_at": "2026-08-20T17:00:39.349350+00:00", "updated_at": "2026-08-20T17:00:39.349356+00:00", "member_count": 2, "role": "member"}, {"group_id": "9b931d47
+  A personal group: 2e430425-9787-4982-a02f-89acfa0b669d role=admin members=1
+[PASS] IN02   GET    /groups/2e430425-9787-4982-a02f-89acfa0b669d/lists         -> 200 (174.9 ms) expect=[200]  Personal group lists
+         res: [{"list_id": "3e8ccd45-e2a6-488e-a9d9-a432bab18dd9", "group_id": "2e430425-9787-4982-a02f-89acfa0b669d", "created_by": "43a71112-2544-4b07-aea0-3b0248eda949", "created_by_name": "hi hhh", "completed_by": null, "name": "QA UI List", "status": "active", "created_at": "2026-11-02T21:43:37.487442+00:00", "updated_at": "2026-11-02T21:43:37.487446+00:00", "completed_at": null, "last_reminded_at": null, 
+[PASS] IN03.3 POST   /groups/2e430425-9787-4982-a02f-89acfa0b669d/lists         -> 201 (194.2 ms) expect=[201]  Create personal list #4 (cap 5)
+         req: {"name": "QA personal 4"}
+         res: {"list_id": "728e6df3-39c6-401a-92b0-555071fad27b", "group_id": "2e430425-9787-4982-a02f-89acfa0b669d", "created_by": "43a71112-2544-4b07-aea0-3b0248eda949", "created_by_name": "hi hhh", "completed_by": null, "name": "QA personal 4", "status": "active", "created_at": "2026-11-03T12:37:53.016268+00:00", "updated_at": "2026-11-03T12:37:53.016273+00:00", "completed_at": null, "last_reminded_at": null
+[PASS] IN03.4 POST   /groups/2e430425-9787-4982-a02f-89acfa0b669d/lists         -> 201 (195.5 ms) expect=[201]  Create personal list #5 (cap 5)
+         req: {"name": "QA personal 5"}
+         res: {"list_id": "d0fa8bb4-ae73-4f01-a90e-bb5a136b5fab", "group_id": "2e430425-9787-4982-a02f-89acfa0b669d", "created_by": "43a71112-2544-4b07-aea0-3b0248eda949", "created_by_name": "hi hhh", "completed_by": null, "name": "QA personal 5", "status": "active", "created_at": "2026-11-03T12:37:53.209896+00:00", "updated_at": "2026-11-03T12:37:53.209901+00:00", "completed_at": null, "last_reminded_at": null
+[PASS] IN04   POST   /groups/2e430425-9787-4982-a02f-89acfa0b669d/lists         -> 409 (163.5 ms) expect=[409]  6th list in personal group is blocked (US-13 cap)
+         req: {"name": "QA over cap"}
+         res: {"message": "Default group is limited to 5 lists. Upgrade to premium for more."}
+[PASS] IN05   DELETE /groups/2e430425-9787-4982-a02f-89acfa0b669d               -> 403 (181.7 ms) expect=[403]  Personal group cannot be deleted
+         res: {"message": "Cannot delete your personal group. It was created automatically with your account."}
+[PASS] IN06   GET    /groups/2e430425-9787-4982-a02f-89acfa0b669d               -> 403 (170.1 ms) expect=[403]  Outsider cannot read someone's personal group
+         res: {"message": "Not a member of this group"}
+[FAIL] IN07   GET    /recipes/groups/2e430425-9787-4982-a02f-89acfa0b669d/recipes -> 500 (166.3 ms) expect=[403]  Outsider lists recipes of a group they are not in (expect 403)
+         res: {"message": "Internal Server Error"}
+[PASS] IN08   GET    /lists/728e6df3-39c6-401a-92b0-555071fad27b                -> 403 (177.7 ms) expect=[403]  Outsider cannot read a personal list
+         res: {"message": "Not a member of this group"}
+[PASS] IN09.0 DELETE /lists/728e6df3-39c6-401a-92b0-555071fad27b                -> 204 (204.9 ms) expect=[204]  Cleanup: delete QA personal list
+         res: ""
+[PASS] IN09.1 DELETE /lists/d0fa8bb4-ae73-4f01-a90e-bb5a136b5fab                -> 204 (202.4 ms) expect=[204]  Cleanup: delete QA personal list
+         res: ""
+  socket handshake: A=588.8 ms, B=600.2 ms
+[PASS] G01    POST   /groups                                                    -> 201 (198.3 ms) expect=[201]  Create household group (client sends type=individual)
+         req: {"name": "QA E2E 2026-11-03 15:36", "icon": "home", "type": "individual"}
+         res: {"group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9", "created_by": "43a71112-2544-4b07-aea0-3b0248eda949", "created_by_name": "hi hhh", "name": "QA E2E 2026-11-03 15:36", "image_url": null, "icon": "home", "type": "household", "invite_code": "A4FKLR", "created_at": "2026-11-03T12:37:55.844720+00:00", "updated_at": "2026-11-03T12:37:55.844723+00:00"}
+  group e3f3c06e-a082-4f53-b413-f4b1c01bc9c9 type=household invite=A4FKLR
+  [DB PASS] DB01 Group row + admin membership written -> [('household', 'admin')]
+[PASS] G02    POST   /groups                                                    -> 400 (165.5 ms) expect=[400]  Blank group name rejected
+         req: {"name": "   "}
+         res: {"message": "name is required"}
+[PASS] G03    POST   /groups/join                                               -> 200 (262.8 ms) expect=[200]  Join with lowercase invite code
+         req: {"invite_code": "a4fklr"}
+         res: {"group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9", "created_by": "43a71112-2544-4b07-aea0-3b0248eda949", "created_by_name": "hi hhh", "name": "QA E2E 2026-11-03 15:36", "image_url": null, "icon": "home", "type": "household", "invite_code": "A4FKLR", "created_at": "2026-11-03T12:37:55.844720+00:00", "updated_at": "2026-11-03T12:37:55.844723+00:00"}
+  [WS PASS] G03a group.member_joined -> A: arrived +259.3 ms from send (-3.4 ms after HTTP response), 405 B
+  [WS PASS] G03b group.membership_changed -> B: arrived +263.4 ms from send (0.6 ms after HTTP response), 434 B
+[PASS] G04    POST   /groups/join                                               -> 409 (158.7 ms) expect=[409]  Join again -> 409
+         req: {"invite_code": "A4FKLR"}
+         res: {"message": "Already a member of this group"}
+[PASS] G05    POST   /groups/join                                               -> 404 (162.5 ms) expect=[404]  Invalid invite code -> 404
+         req: {"invite_code": "ZZZZZZ"}
+         res: {"message": "Invalid invite code"}
+[PASS] G06    GET    /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9               -> 200 (190.7 ms) expect=[200]  Group detail as member
+         res: {"group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9", "created_by": "43a71112-2544-4b07-aea0-3b0248eda949", "created_by_name": "hi hhh", "name": "QA E2E 2026-11-03 15:36", "image_url": null, "icon": "home", "type": "household", "invite_code": "A4FKLR", "created_at": "2026-11-03T12:37:55.844720+00:00", "updated_at": "2026-11-03T12:37:55.844723+00:00", "role": "member", "members": [{"member_id": "ba2
+  B role=member members=2
+[PASS] G07    PATCH  /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9               -> 403 (170.2 ms) expect=[403]  Member cannot rename group
+         req: {"name": "hacked"}
+         res: {"message": "Admin role required for this action"}
+[PASS] G08    PATCH  /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9               -> 200 (205.1 ms) expect=[200]  Admin renames group + icon (Arabic name)
+         req: {"name": "عائلة الاختبار", "icon": "cart"}
+         res: {"group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9", "created_by": "43a71112-2544-4b07-aea0-3b0248eda949", "created_by_name": "hi hhh", "name": "عائله الاختبار", "image_url": null, "icon": "cart", "type": "household", "invite_code": "A4FKLR", "created_at": "2026-11-03T12:37:55.844720+00:00", "updated_at": "2026-11-03T12:37:58.172858+00:00"}
+  stored group name: 'عائله الاختبار' (sent 'عائلة الاختبار')
+  [WS PASS] G08a group.updated -> B: arrived +201.5 ms from send (-3.6 ms after HTTP response), 527 B
+[PASS] G09    PATCH  /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9               -> 400 (138.7 ms) expect=[400]  Invalid icon rejected
+         req: {"icon": "rocket"}
+         res: {"errors": {"icon": "'rocket' is not one of ['home', 'cart', 'coffee', 'moon', 'living', 'restaurant', 'pets', 'store']"}, "message": "Input payload validation failed"}
+[PASS] G10    GET    /groups                                                    -> 200 (171.3 ms) expect=[200]  My groups (B) shows member_count + role
+         res: [{"group_id": "20ff36d4-fe4f-44dd-b580-52ca5d6d8684", "created_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "created_by_name": "Test 45", "name": "Test 45", "image_url": null, "icon": null, "type": "individual", "invite_code": null, "created_at": "2026-08-23T19:17:24.187966+00:00", "updated_at": "2026-08-23T19:17:24.187969+00:00", "member_count": 1, "role": "admin"}, {"group_id": "fd6b2c18-833d-48
+  B sees member_count=2 role=member
+[PASS] G11    GET    /groups/not-a-uuid                                         -> 404 (139.0 ms) expect=[404]  Malformed group id -> 404
+         res: {"message": "Group not found"}
+[PASS] L01    POST   /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/lists         -> 201 (187.3 ms) expect=[201]  Admin creates list (Arabic name)
+         req: {"name": "قائمة الشهر"}
+         res: {"list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9", "created_by": "43a71112-2544-4b07-aea0-3b0248eda949", "created_by_name": "hi hhh", "completed_by": null, "name": "قائمه الشهر", "status": "active", "created_at": "2026-11-03T12:37:58.814672+00:00", "updated_at": "2026-11-03T12:37:58.814675+00:00", "completed_at": null, "last_reminded_at": null, 
+  stored list name: 'قائمه الشهر' (sent 'قائمة الشهر')
+  [WS PASS] L01a list.created -> B: arrived +188.0 ms from send (0.7 ms after HTTP response), 583 B
+[PASS] L02    POST   /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/lists         -> 201 (184.6 ms) expect=[201]  Member creates list
+         req: {"name": "QA Lock Test"}
+         res: {"list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf", "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9", "created_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "created_by_name": "Test 45", "completed_by": null, "name": "QA Lock Test", "status": "active", "created_at": "2026-11-03T12:37:59.002377+00:00", "updated_at": "2026-11-03T12:37:59.002380+00:00", "completed_at": null, "last_reminded_at": null
+  [WS PASS] L02a list.created -> A: arrived +183.0 ms from send (-1.6 ms after HTTP response), 535 B
+[PASS] L03    PATCH  /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84                -> 403 (168.5 ms) expect=[403]  Member cannot rename list (admin-only)
+         req: {"name": "x"}
+         res: {"message": "Admin role required for this action"}
+[PASS] L04    PATCH  /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84                -> 400 (179.5 ms) expect=[400]  Invalid list colour rejected
+         req: {"color": "pink"}
+         res: {"errors": {"color": "'pink' is not one of ['red', 'indigo', 'mint', 'navy', 'lilac']"}, "message": "Input payload validation failed"}
+[PASS] L05    PATCH  /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84                -> 200 (215.0 ms) expect=[200]  Admin sets list colour
+         req: {"color": "mint"}
+         res: {"list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9", "created_by": "43a71112-2544-4b07-aea0-3b0248eda949", "created_by_name": "hi hhh", "completed_by": null, "name": "قائمه الشهر", "status": "active", "created_at": "2026-11-03T12:37:58.814672+00:00", "updated_at": "2026-11-03T12:37:59.563652+00:00", "completed_at": null, "last_reminded_at": null, 
+  [WS PASS] L05a list.updated -> B: arrived +213.9 ms from send (-1.1 ms after HTTP response), 585 B
+[PASS] L06    GET    /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84                -> 200 (166.9 ms) expect=[200]  Member reads list
+         res: {"list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9", "created_by": "43a71112-2544-4b07-aea0-3b0248eda949", "created_by_name": "hi hhh", "completed_by": null, "name": "قائمه الشهر", "status": "active", "created_at": "2026-11-03T12:37:58.814672+00:00", "updated_at": "2026-11-03T12:37:59.563652+00:00", "completed_at": null, "last_reminded_at": null, 
+[PASS] L07    GET    /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/lists?status=bogus -> 400 (158.3 ms) expect=[400]  Bad status filter -> 400
+         res: {"message": "status must be 'active' or 'completed'"}
+[PASS] I01    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items          -> 201 (294.9 ms) expect=[201]  Member adds Milk 2 L (Almarai)
+         req: {"name": "Milk", "quantity": 2, "unit": "L", "brand": "Almarai", "category_id": "0335162d-66c1-499a-a9b9-86e7ec0cc8a9"}
+         res: {"list_item_id": "fa50400e-def0-414a-9034-22f9be8cd8ab", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "item_id": "cf289727-dd62-48b9-ad28-194ce866688a", "category_id": "0335162d-66c1-499a-a9b9-86e7ec0cc8a9", "name": "Milk", "brand": "Almarai", "quantity": 2.0, "unit": "L", "notes": null, "is_urgent": false, "is_bought": false, "added_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "bought_by": 
+  [WS PASS] I01a item.added -> A: arrived +293.8 ms from send (-1.2 ms after HTTP response), 941 B
+[PASS] I02    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items          -> 209 (285.9 ms) expect=[209]  Same name+unit from another member merges (brand/notes/urgent sent)
+         req: {"name": "milk", "quantity": 1, "unit": "L", "brand": "Nadec", "notes": "low fat", "is_urgent": true}
+         res: {"list_item_id": "fa50400e-def0-414a-9034-22f9be8cd8ab", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "item_id": "cf289727-dd62-48b9-ad28-194ce866688a", "category_id": "0335162d-66c1-499a-a9b9-86e7ec0cc8a9", "name": "Milk", "brand": "Almarai", "quantity": 3.0, "unit": "L", "notes": null, "is_urgent": false, "is_bought": false, "added_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "bought_by": 
+  merged row: qty=3.0 brand='Almarai' notes=None urgent=False same_id=True
+  [WS PASS] I02a item.updated -> B: arrived +280.4 ms from send (-5.5 ms after HTTP response), 940 B
+[PASS] I03    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items          -> 209 (264.7 ms) expect=[209]  Same name, different unit -> new row + warning
+         req: {"name": "Milk", "quantity": 1, "unit": "pcs"}
+         res: {"list_item_id": "b0111230-81a0-4112-b787-f16e1b638b82", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "item_id": "7577cea7-b965-448d-9f18-334ef581e97f", "category_id": null, "name": "Milk", "brand": null, "quantity": 1.0, "unit": "pcs", "notes": null, "is_urgent": false, "is_bought": false, "added_by": "43a71112-2544-4b07-aea0-3b0248eda949", "bought_by": null, "trip_id": null, "image_url": n
+[PASS] I04    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items          -> 400 (142.3 ms) expect=[400]  Invalid unit rejected
+         req: {"name": "Bread", "unit": "kgs"}
+         res: {"errors": {"unit": "'kgs' is not one of ['pcs', 'kg', 'g', 'L', 'ml', 'pack', 'box', 'bottle']"}, "message": "Input payload validation failed"}
+[PASS] I05    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items          -> 400 (242.5 ms) expect=[400]  Zero quantity rejected
+         req: {"name": "Bread", "quantity": 0}
+         res: {"message": "Quantity must be greater than 0"}
+[FAIL] I06    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items          -> 500 (191.9 ms) expect=[400, 404]  Malformed catalog item_id (expect 400/404)
+         req: {"name": "Bread", "item_id": "not-a-uuid"}
+         res: {"message": "Internal Server Error"}
+[PASS] I07    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items          -> 400 (333.4 ms) expect=[400]  Malformed category_id rejected
+         req: {"name": "Bread", "category_id": "nope"}
+         res: {"message": "category_id does not match a known category"}
+[PASS] I08    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items          -> 201 (424.2 ms) expect=[201]  Arabic item name قهوة
+         req: {"name": "قهوة", "quantity": 1, "unit": "pack"}
+         res: {"list_item_id": "3debbb58-c475-4b65-9393-6f86a83a47d9", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "item_id": "f34c163d-d054-44ac-b485-33c4fc6f6884", "category_id": null, "name": "قهوه", "brand": null, "quantity": 1.0, "unit": "pack", "notes": null, "is_urgent": false, "is_bought": false, "added_by": "43a71112-2544-4b07-aea0-3b0248eda949", "bought_by": null, "trip_id": null, "image_url": 
+  stored item name: 'قهوه' (sent 'قهوة')
+[FAIL] I09    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items          -> 400 (236.9 ms) expect=[201]  Everyday note with a semicolon (expect accepted)
+         req: {"name": "Eggs", "notes": "2 trays; large"}
+         res: {"message": "notes contains disallowed characters"}
+[FAIL] I10    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items          -> 400 (205.5 ms) expect=[201]  Everyday note 'select ... from ...' (expect accepted)
+         req: {"name": "Bread", "notes": "select the fresh ones from the bakery"}
+         res: {"message": "notes contains disallowed characters"}
+[PASS] I11    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items          -> 201 (266.9 ms) expect=[201]  Urgent item Tomatoes 2 kg
+         req: {"name": "Tomatoes", "quantity": 2, "unit": "kg", "is_urgent": true}
+         res: {"list_item_id": "fa1f0cb6-66de-49e6-b45a-43985d0616ae", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "item_id": "fee1bca0-99ec-4cc3-9949-0a9543fa58f5", "category_id": null, "name": "Tomatoes", "brand": null, "quantity": 2.0, "unit": "kg", "notes": null, "is_urgent": true, "is_bought": false, "added_by": "43a71112-2544-4b07-aea0-3b0248eda949", "bought_by": null, "trip_id": null, "image_url":
+[PASS] I12    GET    /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items          -> 200 (191.9 ms) expect=[200]  List items (urgent first)
+         res: [{"list_item_id": "fa1f0cb6-66de-49e6-b45a-43985d0616ae", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "item_id": "fee1bca0-99ec-4cc3-9949-0a9543fa58f5", "category_id": null, "name": "Tomatoes", "brand": null, "quantity": 2.0, "unit": "kg", "notes": null, "is_urgent": true, "is_bought": false, "added_by": "43a71112-2544-4b07-aea0-3b0248eda949", "bought_by": null, "trip_id": null, "image_url"
+  order: [('Tomatoes', True), ('Milk', False), ('Milk', False), ('قهوه', False)]
+[PASS] I13    PATCH  /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae -> 200 (223.4 ms) expect=[200]  Edit quantity 2 -> 3
+         req: {"quantity": 3}
+         res: {"list_item_id": "fa1f0cb6-66de-49e6-b45a-43985d0616ae", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "item_id": "fee1bca0-99ec-4cc3-9949-0a9543fa58f5", "category_id": null, "name": "Tomatoes", "brand": null, "quantity": 3.0, "unit": "kg", "notes": null, "is_urgent": true, "is_bought": false, "added_by": "43a71112-2544-4b07-aea0-3b0248eda949", "bought_by": null, "trip_id": null, "image_url":
+  [WS PASS] I13a item.updated -> B: arrived +220.1 ms from send (-3.3 ms after HTTP response), 840 B
+[PASS] I14    PATCH  /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae -> 400 (190.0 ms) expect=[400]  Edit quantity 0 rejected
+         req: {"quantity": 0}
+         res: {"message": "Quantity must be greater than 0"}
+[PASS] I15    PATCH  /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae/purchase -> 200 (236.2 ms) expect=[200]  Member checks item (no trip)
+         req: {"is_bought": true}
+         res: {"list_item_id": "fa1f0cb6-66de-49e6-b45a-43985d0616ae", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "item_id": "fee1bca0-99ec-4cc3-9949-0a9543fa58f5", "category_id": null, "name": "Tomatoes", "brand": null, "quantity": 3.0, "unit": "kg", "notes": null, "is_urgent": true, "is_bought": true, "added_by": "43a71112-2544-4b07-aea0-3b0248eda949", "bought_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d9
+  [WS PASS] I15a item.purchased -> A: arrived +230.3 ms from send (-5.9 ms after HTTP response), 873 B
+[PASS] I16    PATCH  /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae/purchase -> 200 (184.5 ms) expect=[200]  Check again is idempotent
+         req: {"is_bought": true}
+         res: {"list_item_id": "fa1f0cb6-66de-49e6-b45a-43985d0616ae", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "item_id": "fee1bca0-99ec-4cc3-9949-0a9543fa58f5", "category_id": null, "name": "Tomatoes", "brand": null, "quantity": 3.0, "unit": "kg", "notes": null, "is_urgent": true, "is_bought": true, "added_by": "43a71112-2544-4b07-aea0-3b0248eda949", "bought_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d9
+[PASS] I17    PATCH  /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae/purchase -> 200 (243.5 ms) expect=[200]  Uncheck item
+         req: {"is_bought": false}
+         res: {"list_item_id": "fa1f0cb6-66de-49e6-b45a-43985d0616ae", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "item_id": "fee1bca0-99ec-4cc3-9949-0a9543fa58f5", "category_id": null, "name": "Tomatoes", "brand": null, "quantity": 3.0, "unit": "kg", "notes": null, "is_urgent": true, "is_bought": false, "added_by": "43a71112-2544-4b07-aea0-3b0248eda949", "bought_by": null, "trip_id": null, "image_url":
+  [WS PASS] I17a item.unpurchased -> A: arrived +234.9 ms from send (-8.6 ms after HTTP response), 840 B
+  [DB PASS] DB02 Idempotent purchase wrote exactly 1 'consumed' + 1 'restocked' -> [('consumed', 1), ('restocked', 1)]
+[PASS] I18    GET    /users/me/items                                            -> 200 (166.0 ms) expect=[200]  Personal quick-add catalog
+         res: [{"name": "Tomatoes", "category_id": null, "brand": null, "image_url": null, "last_used_at": "2026-11-03T12:38:03.187546+00:00"}, {"name": "قهوه", "category_id": null, "brand": null, "image_url": null, "last_used_at": "2026-11-03T12:38:02.461111+00:00"}, {"name": "Milk", "category_id": null, "brand": null, "image_url": null, "last_used_at": "2026-11-03T12:38:01.142313+00:00"}, {"name": "fish", "ca
+[PASS] I19    GET    /catalog/search?q=قهوة                                     -> 200 (178.1 ms) expect=[200]  Catalog search Arabic with taa marbuta (قهوة)
+         res: {"results": [{"item_id": "ee5842ae-4ee1-4fdf-ba27-8bbd1d3da0b1", "default_category_id": "595dbc15-e8b5-4b94-a6ee-4238b155fea5", "name": "قهوه", "brand": null, "barcode": null, "image_url": null, "created_at": "2026-08-06T10:42:24.240341+00:00", "updated_at": "2026-08-06T10:42:24.240346+00:00"}, {"item_id": "f34c163d-d054-44ac-b485-33c4fc6f6884", "default_category_id": null, "name": "قهوه", "brand"
+  search 'قهوة' -> {'results': [{'item_id': 'ee5842ae-4ee1-4fdf-ba27-8bbd1d3da0b1', 'default_category_id': '595dbc15-e8b5-4b94-a6ee-4238b155fea5', 'name': 'قهوه', 'brand': None, 'barcode': None, 'image_url': None, 'created_at': '2026-08-06T10:42:24.240341+00:00', 'updated_at': '2026-08-06T10:42:24.240346+00:00'}, {'item_id': 'f34c163d-d054-44ac-b485-33c4fc6f6884', 'default_category_id': None, 'name': 'قهوه', 'brand': None, 'barcode': None, 'image_url': None, 'created_at': '2026-11-03T12:38:02.418254+00:00', 'updated_at': '2026-11-03T12:38:02.418260+00:00'}], 'count': 2}
+[PASS] I20    GET    /catalog/search?q=Milk                                     -> 200 (169.3 ms) expect=[200]  Catalog search latin
+         res: {"results": [{"item_id": "224015d5-a333-4c86-8c81-fe0af3e4e78b", "default_category_id": null, "name": "milk", "brand": "Nadec", "barcode": null, "image_url": null, "created_at": "2026-11-03T12:38:00.834705+00:00", "updated_at": "2026-11-03T12:38:00.834709+00:00"}, {"item_id": "7577cea7-b965-448d-9f18-334ef581e97f", "default_category_id": null, "name": "milk", "brand": null, "barcode": null, "image
+[PASS] I21    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae/image -> 201 (1450.1 ms) expect=[201]  Upload item photo (PNG)
+         res: {"list_item_id": "fa1f0cb6-66de-49e6-b45a-43985d0616ae", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "item_id": "fee1bca0-99ec-4cc3-9949-0a9543fa58f5", "category_id": null, "name": "Tomatoes", "brand": null, "quantity": 3.0, "unit": "kg", "notes": null, "is_urgent": true, "is_bought": false, "added_by": "43a71112-2544-4b07-aea0-3b0248eda949", "bought_by": null, "trip_id": null, "image_url":
+  [WS PASS] I21a item.updated -> B: arrived +1452.4 ms from send (2.3 ms after HTTP response), 994 B
+[PASS] I22    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae/image -> 400 (179.7 ms) expect=[400]  Upload non-image rejected
+         res: {"message": "Unsupported image type: text/plain. Allowed: image/jpeg, image/png, image/webp"}
+[PASS] I23    DELETE /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/b0111230-81a0-4112-b787-f16e1b638b82 -> 200 (220.2 ms) expect=[200]  Delete Milk(pcs) row
+         res: {"message": "Item deleted"}
+  [WS PASS] I23a item.deleted -> A: arrived +210.6 ms from send (-9.6 ms after HTTP response), 216 B
+[PASS] T01    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/trip           -> 201 (207.9 ms) expect=[200, 201]  Assign member B as buyer
+         req: {"buyer_id": "a2155266-4d31-463d-a4ae-c52d1f2c1d96"}
+         res: {"trip_id": "7edce759-ae8e-4b97-914f-59d277c21b94", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "buyer_id": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "status": "active", "created_at": "2026-11-03T12:38:07.961934+00:00", "updated_at": "2026-11-03T12:38:07.961938+00:00", "completed_at": null}
+  [WS PASS] T01a trip.assigned -> B: arrived +196.5 ms from send (-11.4 ms after HTTP response), 466 B
+  [WS PASS] T01b trip.assigned -> A: arrived +194.0 ms from send (-14.0 ms after HTTP response), 466 B
+[PASS] T02    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/trip           -> 409 (169.3 ms) expect=[409]  Second active trip -> 409
+         req: {"buyer_id": "43a71112-2544-4b07-aea0-3b0248eda949"}
+         res: {"message": "This list already has an active trip"}
+[PASS] T03    GET    /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/trips/active   -> 200 (163.9 ms) expect=[200]  Active trip lookup
+         res: {"trip_id": "7edce759-ae8e-4b97-914f-59d277c21b94", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "buyer_id": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "status": "active", "created_at": "2026-11-03T12:38:07.961934+00:00", "updated_at": "2026-11-03T12:38:07.961938+00:00", "completed_at": null}
+[PASS] T04    PATCH  /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae/purchase -> 403 (163.0 ms) expect=[403]  Non-buyer cannot check items during trip
+         req: {"is_bought": true}
+         res: {"message": "Only the trip's buyer can check off items during an active trip"}
+[PASS] T05    PATCH  /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa50400e-def0-414a-9034-22f9be8cd8ab/purchase -> 200 (252.2 ms) expect=[200]  Buyer checks item
+         req: {"is_bought": true}
+         res: {"list_item_id": "fa50400e-def0-414a-9034-22f9be8cd8ab", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "item_id": "cf289727-dd62-48b9-ad28-194ce866688a", "category_id": "0335162d-66c1-499a-a9b9-86e7ec0cc8a9", "name": "Milk", "brand": "Almarai", "quantity": 3.0, "unit": "L", "notes": null, "is_urgent": false, "is_bought": true, "added_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "bought_by": "
+[PASS] T06    PATCH  /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/fa1f0cb6-66de-49e6-b45a-43985d0616ae/purchase -> 200 (223.7 ms) expect=[200]  Buyer checks item
+         req: {"is_bought": true}
+         res: {"list_item_id": "fa1f0cb6-66de-49e6-b45a-43985d0616ae", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "item_id": "fee1bca0-99ec-4cc3-9949-0a9543fa58f5", "category_id": null, "name": "Tomatoes", "brand": null, "quantity": 3.0, "unit": "kg", "notes": null, "is_urgent": true, "is_bought": true, "added_by": "43a71112-2544-4b07-aea0-3b0248eda949", "bought_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d9
+[PASS] T07    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items          -> 201 (260.4 ms) expect=[201]  Admin adds item mid-trip (buyer push attempted)
+         req: {"name": "Sugar", "quantity": 1, "unit": "kg"}
+         res: {"list_item_id": "b2b7a775-9311-4ce3-acbb-bf38081e6bbd", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "item_id": "48b7a0a9-c365-495e-9ebc-b53053c2397d", "category_id": null, "name": "Sugar", "brand": null, "quantity": 1.0, "unit": "kg", "notes": null, "is_urgent": false, "is_bought": false, "added_by": "43a71112-2544-4b07-aea0-3b0248eda949", "bought_by": null, "trip_id": null, "image_url": n
+  [WS PASS] T07a item.added -> B: arrived +261.8 ms from send (1.3 ms after HTTP response), 866 B
+[PASS] T08    POST   /trips/7edce759-ae8e-4b97-914f-59d277c21b94/heading-out    -> 403 (162.3 ms) expect=[403]  Non-buyer cannot announce heading-out
+         res: {"message": "Only the buyer can send this"}
+[PASS] T09    POST   /trips/7edce759-ae8e-4b97-914f-59d277c21b94/heading-out    -> 200 (197.6 ms) expect=[200]  Buyer announces heading-out (push + socket)
+         res: {"notified_devices": 0}
+  heading-out notified_devices=0
+  [WS PASS] T09a trip.heading_out -> A: arrived +191.9 ms from send (-5.7 ms after HTTP response), 397 B
+[PASS] T10    POST   /trips/7edce759-ae8e-4b97-914f-59d277c21b94/ask            -> 400 (164.5 ms) expect=[400]  Ask with empty recipients -> 400
+         req: {"recipient_ids": []}
+         res: {"message": "Select at least one recipient"}
+[PASS] T11    POST   /trips/7edce759-ae8e-4b97-914f-59d277c21b94/ask            -> 400 (182.8 ms) expect=[400]  Ask with non-member id -> 400
+         req: {"recipient_ids": ["766a37c7-f384-4bb5-ac55-017835e20e41"]}
+         res: {"message": "No valid recipients"}
+[PASS] T12    POST   /trips/7edce759-ae8e-4b97-914f-59d277c21b94/ask            -> 200 (182.7 ms) expect=[200]  Buyer privately asks A
+         req: {"recipient_ids": ["43a71112-2544-4b07-aea0-3b0248eda949"]}
+         res: {"asked": ["43a71112-2544-4b07-aea0-3b0248eda949"], "notified_devices": 0}
+  [WS PASS] T12a trip.asked -> A: arrived +180.7 ms from send (-2.0 ms after HTTP response), 335 B
+  [WS PASS] T12b trip.asked -> B: not received  (must NOT arrive)
+[PASS] T13    PATCH  /trips/7edce759-ae8e-4b97-914f-59d277c21b94/complete       -> 403 (495.4 ms) expect=[403]  Non-buyer cannot complete trip
+         res: {"message": "Only the buyer can complete this trip"}
+[PASS] T14    PATCH  /trips/7edce759-ae8e-4b97-914f-59d277c21b94/complete       -> 200 (263.5 ms) expect=[200]  Buyer completes trip
+         res: {"trip": {"trip_id": "7edce759-ae8e-4b97-914f-59d277c21b94", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "buyer_id": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "status": "completed", "created_at": "2026-11-03T12:38:07.961934+00:00", "updated_at": "2026-11-03T12:38:13.856171+00:00", "completed_at": "2026-11-03T12:38:13.855353+00:00"}, "list": {"list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", 
+  [WS PASS] T14a trip.completed -> A: arrived +260.9 ms from send (-2.6 ms after HTTP response), 993 B
+  [WS PASS] T14b list.completed -> A: arrived +256.0 ms from send (-7.5 ms after HTTP response), 603 B
+  [DB PASS] DB03 Trip closed and only bought items claimed -> [('completed', 2, 2)]
+[PASS] T15    GET    /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items          -> 200 (215.2 ms) expect=[200]  Active list hides claimed (bought) items
+         res: [{"list_item_id": "3debbb58-c475-4b65-9393-6f86a83a47d9", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "item_id": "f34c163d-d054-44ac-b485-33c4fc6f6884", "category_id": null, "name": "قهوه", "brand": null, "quantity": 1.0, "unit": "pack", "notes": null, "is_urgent": false, "is_bought": false, "added_by": "43a71112-2544-4b07-aea0-3b0248eda949", "bought_by": null, "trip_id": null, "image_url":
+  active items now: ['قهوه', 'Sugar']
+[PASS] T16    GET    /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/lists         -> 200 (172.2 ms) expect=[200]  List card counts after trip (expect claimed excluded)
+         res: [{"list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf", "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9", "created_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "created_by_name": "Test 45", "completed_by": null, "name": "QA Lock Test", "status": "active", "created_at": "2026-11-03T12:37:59.002377+00:00", "updated_at": "2026-11-03T12:37:59.002380+00:00", "completed_at": null, "last_reminded_at": nul
+  L1 card: item_count=4 bought_count=2 (active rows visible=2)
+[PASS] T17    GET    /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/trips          -> 200 (174.4 ms) expect=[200]  Trip history for list
+         res: [{"trip_id": "7edce759-ae8e-4b97-914f-59d277c21b94", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "buyer_id": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "buyer_name": "Test 45", "completed_at": "2026-11-03T12:38:13.855353+00:00", "item_count": 2, "items": [{"item_id": "cf289727-dd62-48b9-ad28-194ce866688a", "name": "Milk", "quantity": 3.0, "unit": "L", "category_id": "0335162d-66c1-499a-a9b9-86
+  trips: [('Test 45', 2)]
+[PASS] T18    GET    /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/history        -> 200 (172.9 ms) expect=[200]  Action log for list
+         res: [{"action_id": "9b552786-ab95-4e95-8a1b-ad2ce0cf3dba", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "list_item_id": "b2b7a775-9311-4ce3-acbb-bf38081e6bbd", "user_id": "43a71112-2544-4b07-aea0-3b0248eda949", "action": "created", "metadata": {"name": "Sugar"}, "undo_available_until": null, "is_undone": false, "created_at": "2026-11-03T12:38:09.197987+00:00"}, {"action_id": "08cfacec-8dbb-444e-
+  history entries: 12 actions=['consumed', 'created', 'deleted', 'restocked', 'updated']
+[FAIL] T19    PATCH  /trips/7edce759-ae8e-4b97-914f-59d277c21b94/cancel         -> 200 (184.6 ms) expect=[400, 409]  Cancel an already-completed trip (expect 409)
+         res: {"trip_id": "7edce759-ae8e-4b97-914f-59d277c21b94", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "buyer_id": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "status": "cancelled", "created_at": "2026-11-03T12:38:07.961934+00:00", "updated_at": "2026-11-03T12:38:15.597744+00:00", "completed_at": "2026-11-03T12:38:15.597383+00:00"}
+[PASS] T20    GET    /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/trips          -> 200 (160.5 ms) expect=[200]  Trip history after cancelling completed trip
+         res: []
+  trips after cancel-of-completed: 0 (was 1)
+[PASS] T21    POST   /lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items          -> 201 (242.3 ms) expect=[201]  Member adds Rice to lock-test list
+         req: {"name": "Rice", "quantity": 5, "unit": "kg"}
+         res: {"list_item_id": "bc663688-ffa9-4444-8e6a-ae7e96d51414", "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf", "item_id": "9f5efa31-266c-41b9-b9fd-37d3ff04f81f", "category_id": null, "name": "Rice", "brand": null, "quantity": 5.0, "unit": "kg", "notes": null, "is_urgent": false, "is_bought": false, "added_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "bought_by": null, "trip_id": null, "image_url": nu
+[PASS] T22    POST   /lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/trip           -> 201 (206.1 ms) expect=[200, 201]  Assign B as buyer on lock-test list
+         req: {"buyer_id": "a2155266-4d31-463d-a4ae-c52d1f2c1d96"}
+         res: {"trip_id": "6ee13c58-7dbb-450d-a187-3f3a652aec39", "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf", "buyer_id": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "status": "active", "created_at": "2026-11-03T12:38:16.201348+00:00", "updated_at": "2026-11-03T12:38:16.201352+00:00", "completed_at": null}
+[FAIL] T23    PATCH  /lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/complete       -> 200 (196.8 ms) expect=[403]  Non-buyer closes list via /lists/{id}/complete (expect 403)
+         res: {"list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf", "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9", "created_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "created_by_name": "Test 45", "completed_by": null, "name": "QA Lock Test", "status": "active", "created_at": "2026-11-03T12:37:59.002377+00:00", "updated_at": "2026-11-03T12:37:59.002380+00:00", "completed_at": null, "last_reminded_at": null
+  [DB FAIL] DB04 Buyer's trip must still be active after non-buyer /complete -> [('completed',)]
+[PASS] T24    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/trip           -> 201 (190.9 ms) expect=[200, 201]  Admin self-assigns as buyer on L1
+         req: {"buyer_id": "43a71112-2544-4b07-aea0-3b0248eda949"}
+         res: {"trip_id": "fd22698a-8bfa-4cdb-9c22-7dcbdc91eda1", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "buyer_id": "43a71112-2544-4b07-aea0-3b0248eda949", "status": "active", "created_at": "2026-11-03T12:38:17.402082+00:00", "updated_at": "2026-11-03T12:38:17.402086+00:00", "completed_at": null}
+[PASS] T25    PATCH  /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items/b2b7a775-9311-4ce3-acbb-bf38081e6bbd/purchase -> 200 (221.1 ms) expect=[200]  Buyer checks Sugar
+         req: {"is_bought": true}
+         res: {"list_item_id": "b2b7a775-9311-4ce3-acbb-bf38081e6bbd", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "item_id": "48b7a0a9-c365-495e-9ebc-b53053c2397d", "category_id": null, "name": "Sugar", "brand": null, "quantity": 1.0, "unit": "kg", "notes": null, "is_urgent": false, "is_bought": true, "added_by": "43a71112-2544-4b07-aea0-3b0248eda949", "bought_by": "43a71112-2544-4b07-aea0-3b0248eda949"
+[PASS] T26    PATCH  /trips/fd22698a-8bfa-4cdb-9c22-7dcbdc91eda1/complete       -> 200 (222.3 ms) expect=[200]  Buyer completes trip 3
+         res: {"trip": {"trip_id": "fd22698a-8bfa-4cdb-9c22-7dcbdc91eda1", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "buyer_id": "43a71112-2544-4b07-aea0-3b0248eda949", "status": "completed", "created_at": "2026-11-03T12:38:17.402082+00:00", "updated_at": "2026-11-03T12:38:17.850548+00:00", "completed_at": "2026-11-03T12:38:17.850168+00:00"}, "list": {"list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", 
+[PASS] T27    GET    /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/trips          -> 200 (184.0 ms) expect=[200]  Trip 3 in history
+         res: [{"trip_id": "fd22698a-8bfa-4cdb-9c22-7dcbdc91eda1", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "buyer_id": "43a71112-2544-4b07-aea0-3b0248eda949", "buyer_name": "hi hhh", "completed_at": "2026-11-03T12:38:17.850168+00:00", "item_count": 1, "items": [{"item_id": "48b7a0a9-c365-495e-9ebc-b53053c2397d", "name": "Sugar", "quantity": 1.0, "unit": "kg", "category_id": null}]}]
+[PASS] T28    DELETE /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/items          -> 200 (208.7 ms) expect=[200]  Bulk delete (clear list)
+         res: {"message": "Deleted 4 items"}
+  [WS PASS] T28a item.bulk_deleted -> B: arrived +207.0 ms from send (-1.7 ms after HTTP response), 180 B
+  bulk delete says: {'message': 'Deleted 4 items'}
+[PASS] T29    GET    /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/trips          -> 200 (172.6 ms) expect=[200]  Trip history must survive clearing the list
+         res: [{"trip_id": "fd22698a-8bfa-4cdb-9c22-7dcbdc91eda1", "list_id": "e47b8bf2-2abf-496d-8b60-99c2285e1b84", "buyer_id": "43a71112-2544-4b07-aea0-3b0248eda949", "buyer_name": "hi hhh", "completed_at": "2026-11-03T12:38:17.850168+00:00", "item_count": 0, "items": []}]
+  trip3 item_count before clear=1 after clear=0
+[PASS] H01    POST   /lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items          -> 201 (228.8 ms) expect=[201, 209]  Add Yogurt (history: created)
+         req: {"name": "Yogurt", "quantity": 4, "unit": "pcs"}
+         res: {"list_item_id": "8083c380-cf86-4fe1-a222-dc909c1374be", "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf", "item_id": "63350fdb-651a-4a01-8301-77e22048b0a0", "category_id": null, "name": "Yogurt", "brand": null, "quantity": 4.0, "unit": "pcs", "notes": null, "is_urgent": false, "is_bought": false, "added_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "bought_by": null, "trip_id": null, "image_url":
+[PASS] H02    PATCH  /lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items/8083c380-cf86-4fe1-a222-dc909c1374be -> 200 (228.6 ms) expect=[200]  Edit Yogurt qty (history: updated)
+         req: {"quantity": 6}
+         res: {"list_item_id": "8083c380-cf86-4fe1-a222-dc909c1374be", "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf", "item_id": "63350fdb-651a-4a01-8301-77e22048b0a0", "category_id": null, "name": "Yogurt", "brand": null, "quantity": 6.0, "unit": "pcs", "notes": null, "is_urgent": false, "is_bought": false, "added_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "bought_by": null, "trip_id": null, "image_url":
+[PASS] H03    DELETE /lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items/8083c380-cf86-4fe1-a222-dc909c1374be -> 200 (213.9 ms) expect=[200]  Delete Yogurt (history: deleted)
+         res: {"message": "Item deleted"}
+  [DB FAIL] DB05 Yogurt's created/updated history survives item deletion -> [(0,)]
+[PASS] C01    POST   /lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/trip           -> 201 (205.3 ms) expect=[200, 201, 409]  Assign B as buyer again on L2
+         req: {"buyer_id": "a2155266-4d31-463d-a4ae-c52d1f2c1d96"}
+         res: {"trip_id": "322218e7-32ab-4f27-88eb-698ebe5cbfc3", "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf", "buyer_id": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "status": "active", "created_at": "2026-11-03T12:38:20.102649+00:00", "updated_at": "2026-11-03T12:38:20.102653+00:00", "completed_at": null}
+[PASS] C02    PATCH  /trips/322218e7-32ab-4f27-88eb-698ebe5cbfc3/cancel         -> 200 (177.8 ms) expect=[200]  Buyer cancels trip
+         res: {"trip_id": "322218e7-32ab-4f27-88eb-698ebe5cbfc3", "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf", "buyer_id": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "status": "cancelled", "created_at": "2026-11-03T12:38:20.102649+00:00", "updated_at": "2026-11-03T12:38:20.293737+00:00", "completed_at": "2026-11-03T12:38:20.293390+00:00"}
+  [WS PASS] C02a trip.cancelled -> A: arrived +172.0 ms from send (-5.8 ms after HTTP response), 499 B
+[FAIL] C03    PATCH  /trips/322218e7-32ab-4f27-88eb-698ebe5cbfc3/cancel         -> 200 (171.7 ms) expect=[400, 409]  Cancel twice (expect 409)
+         res: {"trip_id": "322218e7-32ab-4f27-88eb-698ebe5cbfc3", "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf", "buyer_id": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "status": "cancelled", "created_at": "2026-11-03T12:38:20.102649+00:00", "updated_at": "2026-11-03T12:38:20.467848+00:00", "completed_at": "2026-11-03T12:38:20.467298+00:00"}
+[FAIL] C04    POST   /trips/322218e7-32ab-4f27-88eb-698ebe5cbfc3/heading-out    -> 200 (191.2 ms) expect=[400, 409]  Heading-out on a cancelled trip (expect 409)
+         res: {"notified_devices": 0}
+[PASS] D01    POST   /devices                                                   -> 200 (178.4 ms) expect=[200, 201]  Register a probe FCM token for B
+         req: {"fcm_token": "qa-probe-1793709500", "platform": "android"}
+         res: {"device_id": "a1cd09aa-04a3-4e7c-aa38-b0e1f534d00e", "user_id": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "fcm_token": "qa-probe-1793709500", "platform": "android", "updated_at": "2026-11-03T12:38:20.835660+00:00"}
+[PASS] D02    DELETE /devices/qa-probe-1793709500                               -> 404 (158.0 ms) expect=[404]  A cannot delete B's token (IDOR guard)
+         res: {"message": "Device not found"}
+[PASS] N01    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/notifications/remind-member -> 200 (182.0 ms) expect=[200]  Remind member B (push to B's devices)
+         req: {"user_id": "a2155266-4d31-463d-a4ae-c52d1f2c1d96"}
+         res: {"message": "Notification sent successfully"}
+  [DB FAIL] DB06 FCM probe: invalid token pruned only if Firebase is configured -> [(1,)]
+[PASS] N02    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/notifications/remind-me -> 200 (180.9 ms) expect=[200]  Remind me
+         res: {"message": "Notification sent successfully"}
+[PASS] N03    POST   /lists/e47b8bf2-2abf-496d-8b60-99c2285e1b84/notifications/remind-member -> 400 (204.8 ms) expect=[400]  Remind non-member -> 400
+         req: {"user_id": "e85bee68-0220-4755-8ef7-14b178c49e7f"}
+         res: {"message": "That user is not a member of this group"}
+[PASS] D03    DELETE /devices/qa-probe-1793709500                               -> 200 (174.1 ms) expect=[200, 404]  Cleanup: B deletes probe token
+         res: {"message": "Device unregistered"}
+[PASS] R00    POST   /lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items          -> 201 (297.3 ms) expect=[201, 209]  Seed Chicken on L2 (for duplicate-import check)
+         req: {"name": "Chicken", "quantity": 1, "unit": "kg"}
+         res: {"list_item_id": "10f7cb3d-650c-4265-8566-7b0b83177d80", "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf", "item_id": "13d28091-cb9c-4863-9f70-6a9660612114", "category_id": null, "name": "Chicken", "brand": null, "quantity": 1.0, "unit": "kg", "notes": null, "is_urgent": false, "is_bought": false, "added_by": "43a71112-2544-4b07-aea0-3b0248eda949", "bought_by": null, "trip_id": null, "image_url":
+[PASS] R01    POST   /recipes/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/recipes -> 201 (349.3 ms) expect=[201]  Member creates recipe with ingredients
+         req: {"name": "كبسة", "instructions": "Cook", "ingredients": [{"name": "Chicken", "quantity": 1, "unit": "kg"}, {"name": "أرز", "quantity": 2, "unit": "kg"}]}
+         res: {"recipe_id": "0da7c75d-7bf6-4e75-9f8f-190fff62a385", "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9", "created_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "source_recipe_id": null, "name": "كبسه", "image_url": null, "instructions": "Cook", "created_at": "2026-11-03T12:38:23.052286+00:00", "ingredients": [{"ingredient_id": "eca8b922-457d-4051-a9e6-b923932d81c1", "recipe_id": "0da7c75d-7bf6-4e7
+  [WS PASS] R01a recipe.created -> A: arrived +350.8 ms from send (1.5 ms after HTTP response), 889 B
+[PASS] R02    GET    /recipes/groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/recipes -> 200 (200.3 ms) expect=[200]  List group recipes
+         res: [{"recipe_id": "0da7c75d-7bf6-4e75-9f8f-190fff62a385", "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9", "created_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "source_recipe_id": null, "name": "كبسه", "image_url": null, "instructions": "Cook", "created_at": "2026-11-03T12:38:23.052286+00:00"}]
+[PASS] R03    GET    /recipes/0da7c75d-7bf6-4e75-9f8f-190fff62a385              -> 200 (174.4 ms) expect=[200]  Recipe detail
+         res: {"recipe_id": "0da7c75d-7bf6-4e75-9f8f-190fff62a385", "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9", "created_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "source_recipe_id": null, "name": "كبسه", "image_url": null, "instructions": "Cook", "created_at": "2026-11-03T12:38:23.052286+00:00", "ingredients": [{"ingredient_id": "eca8b922-457d-4051-a9e6-b923932d81c1", "recipe_id": "0da7c75d-7bf6-4e7
+[FAIL] R04    GET    /recipes/not-a-uuid                                        -> 500 (166.2 ms) expect=[404]  Malformed recipe id (expect 404)
+         res: {"message": "Internal Server Error"}
+[PASS] R05    PATCH  /recipes/0da7c75d-7bf6-4e75-9f8f-190fff62a385              -> 200 (204.7 ms) expect=[200]  Admin (not owner) renames recipe
+         req: {"name": "Kabsa"}
+         res: {"recipe_id": "0da7c75d-7bf6-4e75-9f8f-190fff62a385", "group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9", "created_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "source_recipe_id": null, "name": "Kabsa", "image_url": null, "instructions": "Cook", "created_at": "2026-11-03T12:38:23.052286+00:00"}
+[PASS] R06    POST   /recipes/lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items/from-recipe/0da7c75d-7bf6-4e75-9f8f-190fff62a385 -> 201 (302.6 ms) expect=[201]  Import recipe into list
+         res: {"message": "Successfully imported 2 items to the list"}
+  [WS PASS] R06a list.items_imported -> B: arrived +301.0 ms from send (-1.7 ms after HTTP response), 234 B
+[PASS] R07    GET    /lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items          -> 200 (197.9 ms) expect=[200]  Imported duplicates are merged like manual adds
+         res: [{"list_item_id": "bc663688-ffa9-4444-8e6a-ae7e96d51414", "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf", "item_id": "9f5efa31-266c-41b9-b9fd-37d3ff04f81f", "category_id": null, "name": "Rice", "brand": null, "quantity": 5.0, "unit": "kg", "notes": null, "is_urgent": false, "is_bought": false, "added_by": "a2155266-4d31-463d-a4ae-c52d1f2c1d96", "bought_by": null, "trip_id": null, "image_url": n
+  Chicken rows after import: 2
+[FAIL] R08    DELETE /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/recipes/0da7c75d-7bf6-4e75-9f8f-190fff62a385 -> 500 (216.5 ms) expect=[204]  Admin removes recipe via US-12 route
+         res: {"message": "Internal Server Error"}
+[PASS] R09    DELETE /recipes/0da7c75d-7bf6-4e75-9f8f-190fff62a385              -> 200 (184.4 ms) expect=[200, 404]  Owner deletes recipe (fallback route)
+         res: {"message": "Recipe deleted"}
+--- performance sampling ---
+  PERF GET /auth/me                 p50=169.1 ms p95=233.9 ms max=233.9 ms
+  PERF GET /groups                  p50=170.4 ms p95=177.2 ms max=177.2 ms
+  PERF GET /groups/{id}             p50=185.9 ms p95=319.1 ms max=319.1 ms
+  PERF GET /groups/{id}/lists       p50=182.6 ms p95=207.4 ms max=207.4 ms
+  PERF GET /lists/{id}/items        p50=196.0 ms p95=274.6 ms max=274.6 ms
+  PERF GET /lists/{id}/history      p50=170.6 ms p95=193.1 ms max=193.1 ms
+  PERF GET /lists/{id}/trips        p50=191.9 ms p95=228.5 ms max=228.5 ms
+  PERF GET /users/me/items          p50=167.6 ms p95=188.4 ms max=188.4 ms
+  PERF GET /categories              p50=153.4 ms p95=166.2 ms max=166.2 ms
+  PERF GET /auth/avatars            p50=202.6 ms p95=337.4 ms max=337.4 ms
+  BURST 10x /groups: wall=912 ms p50=809 ms max=908 ms statuses=[200]
+  BURST 10x /lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items: wall=920 ms p50=848 ms max=900 ms statuses=[200]
+[PASS] A01    POST   /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/transfer-admin -> 200 (192.2 ms) expect=[200]  Transfer admin to B
+         req: {"new_admin_user_id": "a2155266-4d31-463d-a4ae-c52d1f2c1d96"}
+         res: {"message": "Admin role transferred"}
+  [WS PASS] A01a group.admin_transferred -> B: arrived +194.5 ms from send (2.4 ms after HTTP response), 170 B
+[PASS] A02    PATCH  /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9               -> 403 (167.2 ms) expect=[403]  Former admin can no longer rename
+         req: {"name": "x"}
+         res: {"message": "Admin role required for this action"}
+[PASS] A03    POST   /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/transfer-admin -> 200 (187.4 ms) expect=[200]  New admin transfers back
+         req: {"new_admin_user_id": "43a71112-2544-4b07-aea0-3b0248eda949"}
+         res: {"message": "Admin role transferred"}
+[PASS] A04    DELETE /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/members/43a71112-2544-4b07-aea0-3b0248eda949 -> 400 (179.4 ms) expect=[400]  Admin cannot remove self
+         res: {"message": "Admin cannot remove themselves — transfer admin first"}
+[PASS] A05    DELETE /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/members/a2155266-4d31-463d-a4ae-c52d1f2c1d96 -> 204 (187.1 ms) expect=[204]  Admin removes member B
+         res: ""
+  [WS PASS] A05a group.member_removed -> A: arrived +177.3 ms from send (-9.8 ms after HTTP response), 167 B
+  [WS PASS] A05b group.membership_changed -> B: arrived +178.7 ms from send (-8.3 ms after HTTP response), 73 B
+[PASS] A06    GET    /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9               -> 403 (168.7 ms) expect=[403]  Removed member loses access
+         res: {"message": "Not a member of this group"}
+[PASS] A07    POST   /lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf/items          -> 201 (254.3 ms) expect=[201]  Item added after removal
+         req: {"name": "Salt", "quantity": 1, "unit": "pcs"}
+         res: {"list_item_id": "9eb92ffb-232c-4d9a-9ab6-6244f7a83d84", "list_id": "ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf", "item_id": "eb81e588-78ce-4d8d-a840-3b01f8a638fe", "category_id": null, "name": "Salt", "brand": null, "quantity": 1.0, "unit": "pcs", "notes": null, "is_urgent": false, "is_bought": false, "added_by": "43a71112-2544-4b07-aea0-3b0248eda949", "bought_by": null, "trip_id": null, "image_url": n
+  [WS PASS] A07a item.added -> B: not received  (must NOT arrive)
+[PASS] A08    POST   /groups/join                                               -> 200 (252.3 ms) expect=[200]  B re-joins
+         req: {"invite_code": "A4FKLR"}
+         res: {"group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9", "created_by": "43a71112-2544-4b07-aea0-3b0248eda949", "created_by_name": "hi hhh", "name": "عائله الاختبار", "image_url": null, "icon": "cart", "type": "household", "invite_code": "A4FKLR", "created_at": "2026-11-03T12:37:55.844720+00:00", "updated_at": "2026-11-03T12:37:58.172858+00:00"}
+[PASS] A09    POST   /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/leave         -> 400 (168.9 ms) expect=[400]  Admin cannot leave while others remain
+         res: {"message": "Transfer the admin role to another member before leaving"}
+[PASS] A10    POST   /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9/leave         -> 200 (198.4 ms) expect=[200]  Member leaves
+         res: {"group_deleted": false}
+  [WS PASS] A10a group.member_left -> A: arrived +193.0 ms from send (-5.4 ms after HTTP response), 109 B
+[PASS] A11    POST   /groups/join                                               -> 200 (206.4 ms) expect=[200]  B re-joins for delete broadcast
+         req: {"invite_code": "A4FKLR"}
+         res: {"group_id": "e3f3c06e-a082-4f53-b413-f4b1c01bc9c9", "created_by": "43a71112-2544-4b07-aea0-3b0248eda949", "created_by_name": "hi hhh", "name": "عائله الاختبار", "image_url": null, "icon": "cart", "type": "household", "invite_code": "A4FKLR", "created_at": "2026-11-03T12:37:55.844720+00:00", "updated_at": "2026-11-03T12:37:58.172858+00:00"}
+[PASS] X01    DELETE /lists/ad26de7e-ca0c-4c44-81d1-6c2d3cc2b0cf                -> 204 (199.6 ms) expect=[204]  Delete list that has completed trips
+         res: ""
+[PASS] X02    DELETE /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9               -> 204 (201.9 ms) expect=[204]  Admin deletes group
+         res: ""
+  [WS PASS] X02a group.deleted -> B: arrived +203.9 ms from send (2.0 ms after HTTP response), 109 B
+  [DB PASS] DB07 No orphan rows left for deleted group -> [(0,)]
+[PASS] X03    GET    /groups/e3f3c06e-a082-4f53-b413-f4b1c01bc9c9               -> 404 (153.2 ms) expect=[404]  Deleted group is gone
+         res: {"message": "Group not found"}
+  first access token age: 1.8 min
+=== DONE: API 129/143 pass, WS 31/31 pass, DB 4/7 pass ===

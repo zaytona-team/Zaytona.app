@@ -1,0 +1,940 @@
+--------- beginning of main
+11-03 00:57:08.715 I/flutter ( 4557): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+11-03 00:57:08.901 I/flutter ( 4557): The Dart VM service is listening on http://127.0.0.1:36189/DYusU8jK7BE=/
+11-03 00:57:14.143 I/flutter ( 4557): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+11-03 00:57:16.890 I/flutter ( 4557): *** Request ***
+11-03 00:57:16.917 I/flutter ( 4557): uri: https://zaytona-app.onrender.com/api/v1/categories
+11-03 00:57:16.918 I/flutter ( 4557): method: GET
+11-03 00:57:16.919 I/flutter ( 4557): responseType: ResponseType.json
+11-03 00:57:16.919 I/flutter ( 4557): followRedirects: true
+11-03 00:57:16.919 I/flutter ( 4557): persistentConnection: true
+11-03 00:57:16.924 I/flutter ( 4557): connectTimeout: 0:00:30.000000
+11-03 00:57:16.926 I/flutter ( 4557): sendTimeout: null
+11-03 00:57:16.926 I/flutter ( 4557): receiveTimeout: 0:00:30.000000
+11-03 00:57:16.926 I/flutter ( 4557): transformTimeout: null
+11-03 00:57:16.926 I/flutter ( 4557): receiveDataWhenStatusError: true
+11-03 00:57:16.932 I/flutter ( 4557): extra: {}
+11-03 00:57:16.933 I/flutter ( 4557): headers:
+11-03 00:57:16.934 I/flutter ( 4557): data:
+11-03 00:57:16.937 I/flutter ( 4557): null
+11-03 00:57:16.938 I/flutter ( 4557): 
+11-03 00:57:18.957 I/flutter ( 4557): *** Response ***
+11-03 00:57:18.960 I/flutter ( 4557): uri: https://zaytona-app.onrender.com/api/v1/categories
+11-03 00:57:18.962 I/flutter ( 4557): statusCode: 200
+11-03 00:57:18.963 I/flutter ( 4557): statusMessage: OK
+11-03 00:57:18.963 I/flutter ( 4557): headers:
+11-03 00:57:18.968 I/flutter ( 4557):  connection: keep-alive
+11-03 00:57:18.968 I/flutter ( 4557):  x-render-origin-server: gunicorn
+11-03 00:57:18.969 I/flutter ( 4557):  access-control-allow-origin: *
+11-03 00:57:18.969 I/flutter ( 4557):  transfer-encoding: chunked
+11-03 00:57:18.969 I/flutter ( 4557):  date: Mon, 02 Nov 2026 21:57:17 GMT
+11-03 00:57:18.972 I/flutter ( 4557):  vary: Accept-Encoding
+11-03 00:57:18.974 I/flutter ( 4557):  content-encoding: gzip
+11-03 00:57:18.975 I/flutter ( 4557):  cf-cache-status: DYNAMIC
+11-03 00:57:18.975 I/flutter ( 4557):  content-type: application/json
+11-03 00:57:18.975 I/flutter ( 4557):  rndr-id: bc0bfc15-175e-4a46
+11-03 00:57:18.977 I/flutter ( 4557):  server: cloudflare
+11-03 00:57:18.978 I/flutter ( 4557):  alt-svc: h3=":443"; ma=86400
+11-03 00:57:18.978 I/flutter ( 4557):  cf-ray: a54664e17dbc83be-MXP
+11-03 00:57:18.980 I/flutter ( 4557): Response Text:
+11-03 00:57:18.993 I/flutter ( 4557): [{category_id: 82cad0a0-dd5b-4abb-aa0d-eb47e14aa9e5, name: Fresh Produce, image_url: null, sort_order: 1}, {category_id: 07e7968d-a8cd-4e34-a14f-f5c4bf981a6a, name: Meat & Seafood, image_url: null, sort_order: 2}, {category_id: 0335162d-66c1-499a-a9b9-86e7ec0cc8a9, name: Dairy & Eggs, image_url: null, sort_order: 3}, {category_id: e36c45a2-a40f-44f4-81af-754c3d61afbc, name: Bakery, image_url: null, sort_order: 4}, {category_id: 595dbc15-e8b5-4b94-a6ee-4238b155fea5, name: Pantry, image_url: null, sort_order: 5}, {category_id: 988bdd2b-ea53-442b-a3e3-18b9b85ae9f9, name: Cooking Essentials, image_url: null, sort_order: 6}, {category_id: 8e514448-27d0-4c20-b424-2d6b745144ff, name: Breakfast, image_url: null, sort_order: 7}, {category_id: 80029737-bebc-491a-b987-fa7e483caefc, name: Snacks, image_url: null, sort_order: 8}, {category_id: 5566b910-8444-4d76-bcba-4eb8be67693b, name: Beverages, image_url: null, sort_order: 9}, {category_id: 3cf61147-a968-495e-b40e-2a58c26c1328, name: Frozen, image_url: null, sort_orde
+11-03 00:57:18.995 I/flutter ( 4557): 
+
+--------- beginning of main
+11-03 00:57:08.715 I/flutter ( 4557): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+11-03 00:57:08.901 I/flutter ( 4557): The Dart VM service is listening on http://127.0.0.1:36189/DYusU8jK7BE=/
+11-03 00:57:14.143 I/flutter ( 4557): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+11-03 00:57:16.890 I/flutter ( 4557): *** Request ***
+11-03 00:57:16.917 I/flutter ( 4557): uri: https://zaytona-app.onrender.com/api/v1/categories
+11-03 00:57:16.918 I/flutter ( 4557): method: GET
+11-03 00:57:16.919 I/flutter ( 4557): responseType: ResponseType.json
+11-03 00:57:16.919 I/flutter ( 4557): followRedirects: true
+11-03 00:57:16.919 I/flutter ( 4557): persistentConnection: true
+11-03 00:57:16.924 I/flutter ( 4557): connectTimeout: 0:00:30.000000
+11-03 00:57:16.926 I/flutter ( 4557): sendTimeout: null
+11-03 00:57:16.926 I/flutter ( 4557): receiveTimeout: 0:00:30.000000
+11-03 00:57:16.926 I/flutter ( 4557): transformTimeout: null
+11-03 00:57:16.926 I/flutter ( 4557): receiveDataWhenStatusError: true
+11-03 00:57:16.932 I/flutter ( 4557): extra: {}
+11-03 00:57:16.933 I/flutter ( 4557): headers:
+11-03 00:57:16.934 I/flutter ( 4557): data:
+11-03 00:57:16.937 I/flutter ( 4557): null
+11-03 00:57:16.938 I/flutter ( 4557): 
+11-03 00:57:18.957 I/flutter ( 4557): *** Response ***
+11-03 00:57:18.960 I/flutter ( 4557): uri: https://zaytona-app.onrender.com/api/v1/categories
+11-03 00:57:18.962 I/flutter ( 4557): statusCode: 200
+11-03 00:57:18.963 I/flutter ( 4557): statusMessage: OK
+11-03 00:57:18.963 I/flutter ( 4557): headers:
+11-03 00:57:18.968 I/flutter ( 4557):  connection: keep-alive
+11-03 00:57:18.968 I/flutter ( 4557):  x-render-origin-server: gunicorn
+11-03 00:57:18.969 I/flutter ( 4557):  access-control-allow-origin: *
+11-03 00:57:18.969 I/flutter ( 4557):  transfer-encoding: chunked
+11-03 00:57:18.969 I/flutter ( 4557):  date: Mon, 02 Nov 2026 21:57:17 GMT
+11-03 00:57:18.972 I/flutter ( 4557):  vary: Accept-Encoding
+11-03 00:57:18.974 I/flutter ( 4557):  content-encoding: gzip
+11-03 00:57:18.975 I/flutter ( 4557):  cf-cache-status: DYNAMIC
+11-03 00:57:18.975 I/flutter ( 4557):  content-type: application/json
+11-03 00:57:18.975 I/flutter ( 4557):  rndr-id: bc0bfc15-175e-4a46
+11-03 00:57:18.977 I/flutter ( 4557):  server: cloudflare
+11-03 00:57:18.978 I/flutter ( 4557):  alt-svc: h3=":443"; ma=86400
+11-03 00:57:18.978 I/flutter ( 4557):  cf-ray: a54664e17dbc83be-MXP
+11-03 00:57:18.980 I/flutter ( 4557): Response Text:
+11-03 00:57:18.993 I/flutter ( 4557): [{category_id: 82cad0a0-dd5b-4abb-aa0d-eb47e14aa9e5, name: Fresh Produce, image_url: null, sort_order: 1}, {category_id: 07e7968d-a8cd-4e34-a14f-f5c4bf981a6a, name: Meat & Seafood, image_url: null, sort_order: 2}, {category_id: 0335162d-66c1-499a-a9b9-86e7ec0cc8a9, name: Dairy & Eggs, image_url: null, sort_order: 3}, {category_id: e36c45a2-a40f-44f4-81af-754c3d61afbc, name: Bakery, image_url: null, sort_order: 4}, {category_id: 595dbc15-e8b5-4b94-a6ee-4238b155fea5, name: Pantry, image_url: null, sort_order: 5}, {category_id: 988bdd2b-ea53-442b-a3e3-18b9b85ae9f9, name: Cooking Essentials, image_url: null, sort_order: 6}, {category_id: 8e514448-27d0-4c20-b424-2d6b745144ff, name: Breakfast, image_url: null, sort_order: 7}, {category_id: 80029737-bebc-491a-b987-fa7e483caefc, name: Snacks, image_url: null, sort_order: 8}, {category_id: 5566b910-8444-4d76-bcba-4eb8be67693b, name: Beverages, image_url: null, sort_order: 9}, {category_id: 3cf61147-a968-495e-b40e-2a58c26c1328, name: Frozen, image_url: null, sort_orde
+11-03 00:57:18.995 I/flutter ( 4557): 
+11-03 15:43:42.345 I/flutter ( 4557): *** Request ***
+11-03 15:43:42.347 I/flutter ( 4557): uri: https://zaytona-app.onrender.com/api/v1/auth/login
+11-03 15:43:42.348 I/flutter ( 4557): method: POST
+11-03 15:43:42.352 I/flutter ( 4557): responseType: ResponseType.json
+11-03 15:43:42.355 I/flutter ( 4557): followRedirects: true
+11-03 15:43:42.356 I/flutter ( 4557): persistentConnection: true
+11-03 15:43:42.356 I/flutter ( 4557): connectTimeout: 0:00:30.000000
+11-03 15:43:42.363 I/flutter ( 4557): sendTimeout: null
+11-03 15:43:42.365 I/flutter ( 4557): receiveTimeout: 0:00:30.000000
+11-03 15:43:42.365 I/flutter ( 4557): transformTimeout: null
+11-03 15:43:42.365 I/flutter ( 4557): receiveDataWhenStatusError: true
+11-03 15:43:42.366 I/flutter ( 4557): extra: {}
+11-03 15:43:42.366 I/flutter ( 4557): headers:
+11-03 15:43:42.380 I/flutter ( 4557):  content-type: application/json
+11-03 15:43:42.380 I/flutter ( 4557): data:
+11-03 15:43:42.384 I/flutter ( 4557): {identifier: +966555455545}
+11-03 15:43:42.384 I/flutter ( 4557): 
+11-03 15:43:44.860 I/flutter ( 4557): *** Response ***
+11-03 15:43:44.861 I/flutter ( 4557): uri: https://zaytona-app.onrender.com/api/v1/auth/login
+11-03 15:43:44.867 I/flutter ( 4557): statusCode: 200
+11-03 15:43:44.868 I/flutter ( 4557): statusMessage: OK
+11-03 15:43:44.868 I/flutter ( 4557): headers:
+11-03 15:43:44.868 I/flutter ( 4557):  connection: keep-alive
+11-03 15:43:44.868 I/flutter ( 4557):  x-render-origin-server: gunicorn
+11-03 15:43:44.868 I/flutter ( 4557):  access-control-allow-origin: *
+11-03 15:43:44.868 I/flutter ( 4557):  transfer-encoding: chunked
+11-03 15:43:44.868 I/flutter ( 4557):  date: Tue, 03 Nov 2026 12:43:45 GMT
+11-03 15:43:44.868 I/flutter ( 4557):  vary: Accept-Encoding
+11-03 15:43:44.868 I/flutter ( 4557):  content-encoding: gzip
+11-03 15:43:44.884 I/flutter ( 4557):  cf-cache-status: DYNAMIC
+11-03 15:43:44.899 I/flutter ( 4557):  content-type: application/json
+11-03 15:43:44.899 I/flutter ( 4557):  rndr-id: abd5bb75-2d74-49b3
+11-03 15:43:44.900 I/flutter ( 4557):  server: cloudflare
+11-03 15:43:44.902 I/flutter ( 4557):  alt-svc: h3=":443"; ma=86400
+11-03 15:43:44.911 I/flutter ( 4557):  cf-ray: a54b77699b2c5e3f-MRS
+11-03 15:43:44.911 I/flutter ( 4557): Response Text:
+11-03 15:43:44.911 I/flutter ( 4557): {"phone":"+966555455545","otp_sent":true,"otp_method":"dev-bypass","message":"Enter the OTP sent to your phone to complete login."}
+11-03 15:43:44.916 I/flutter ( 4557): 
+11-03 15:44:45.071 I/flutter ( 4557): *** Request ***
+11-03 15:44:45.072 I/flutter ( 4557): uri: https://zaytona-app.onrender.com/api/v1/auth/otp/verify
+11-03 15:44:45.072 I/flutter ( 4557): method: POST
+11-03 15:44:45.072 I/flutter ( 4557): responseType: ResponseType.json
+11-03 15:44:45.072 I/flutter ( 4557): followRedirects: true
+11-03 15:44:45.073 I/flutter ( 4557): persistentConnection: true
+11-03 15:44:45.073 I/flutter ( 4557): connectTimeout: 0:00:30.000000
+11-03 15:44:45.073 I/flutter ( 4557): sendTimeout: null
+11-03 15:44:45.078 I/flutter ( 4557): receiveTimeout: 0:00:30.000000
+11-03 15:44:45.078 I/flutter ( 4557): transformTimeout: null
+11-03 15:44:45.078 I/flutter ( 4557): receiveDataWhenStatusError: true
+11-03 15:44:45.079 I/flutter ( 4557): extra: {}
+11-03 15:44:45.079 I/flutter ( 4557): headers:
+11-03 15:44:45.080 I/flutter ( 4557):  content-type: application/json
+11-03 15:44:45.080 I/flutter ( 4557): data:
+11-03 15:44:45.080 I/flutter ( 4557): {phone: +966555455545, token: 4444}
+11-03 15:44:45.080 I/flutter ( 4557): 
+11-03 15:44:46.960 I/flutter ( 4557): *** Response ***
+11-03 15:44:46.960 I/flutter ( 4557): uri: https://zaytona-app.onrender.com/api/v1/auth/otp/verify
+11-03 15:44:46.961 I/flutter ( 4557): statusCode: 200
+11-03 15:44:46.961 I/flutter ( 4557): statusMessage: OK
+11-03 15:44:46.963 I/flutter ( 4557): headers:
+11-03 15:44:46.964 I/flutter ( 4557):  connection: keep-alive
+11-03 15:44:46.964 I/flutter ( 4557):  x-render-origin-server: gunicorn
+11-03 15:44:46.965 I/flutter ( 4557):  access-control-allow-origin: *
+11-03 15:44:46.965 I/flutter ( 4557):  transfer-encoding: chunked
+11-03 15:44:46.965 I/flutter ( 4557):  date: Tue, 03 Nov 2026 12:44:48 GMT
+11-03 15:44:46.965 I/flutter ( 4557):  vary: Accept-Encoding
+11-03 15:44:46.968 I/flutter ( 4557):  content-encoding: gzip
+11-03 15:44:46.968 I/flutter ( 4557):  cf-cache-status: DYNAMIC
+11-03 15:44:46.969 I/flutter ( 4557):  content-type: application/json
+11-03 15:44:46.970 I/flutter ( 4557):  rndr-id: f828177f-920a-4ad7
+11-03 15:44:46.970 I/flutter ( 4557):  server: cloudflare
+11-03 15:44:46.970 I/flutter ( 4557):  alt-svc: h3=":443"; ma=86400
+11-03 15:44:46.970 I/flutter ( 4557):  cf-ray: a54b78efceb4b24a-MRS
+11-03 15:44:46.970 I/flutter ( 4557): Response Text:
+11-03 15:44:46.970 I/flutter ( 4557): {"verified":true,"access_token":"<redacted-jwt>","refresh_token":"<redacted-jwt>","token_type":"Bearer","user":{"user_id":"a2155266-4d31-463d-a4ae-c52d1f2c1d96","first_name":"Test","last_name":"45","email":null,"phone":"+966555455545","avatar_url":null,"phone_verified":true,"reminders_enabled":true,"created_at":"2026-08-23T19:17:23.635344+00:00","updated_at":"2026-08-23T19:17:25.920835+00:00"}}
+11-03 15:44:46.970 I/flutter ( 4557): 
+11-03 15:44:52.248 I/flutter ( 4557): *** Request ***
+11-03 15:44:52.271 I/flutter ( 4557): uri: https://zaytona-app.onrender.com/api/v1/groups
+11-03 15:44:52.271 I/flutter ( 4557): method: GET
+11-03 15:44:52.272 I/flutter ( 4557): responseType: ResponseType.json
+11-03 15:44:52.278 I/flutter ( 4557): followRedirects: true
+11-03 15:44:52.278 I/flutter ( 4557): persistentConnection: true
+11-03 15:44:52.278 I/flutter ( 4557): connectTimeout: 0:00:30.000000
+11-03 15:44:52.278 I/flutter ( 4557): sendTimeout: null
+11-03 15:44:52.287 I/flutter ( 4557): receiveTimeout: 0:00:30.000000
+11-03 15:44:52.291 I/flutter ( 4557): transformTimeout: null
+11-03 15:44:52.291 I/flutter ( 4557): receiveDataWhenStatusError: true
+11-03 15:44:52.340 I/flutter ( 4557): extra: {}
+11-03 15:44:52.341 I/flutter ( 4557): headers:
+11-03 15:44:52.341 I/flutter ( 4557):  Authorization: Bearer <redacted-jwt>
+11-03 15:44:52.341 I/flutter ( 4557): data:
+11-03 15:44:52.342 I/flutter ( 4557): null
+11-03 15:44:52.342 I/flutter ( 4557): 
+11-03 15:44:55.530 I/flutter ( 4557): *** Response ***
+11-03 15:44:55.531 I/flutter ( 4557): uri: https://zaytona-app.onrender.com/api/v1/groups
+11-03 15:44:55.535 I/flutter ( 4557): statusCode: 200
+11-03 15:44:55.535 I/flutter ( 4557): statusMessage: OK
+11-03 15:44:55.535 I/flutter ( 4557): headers:
+11-03 15:44:55.535 I/flutter ( 4557):  connection: keep-alive
+11-03 15:44:55.543 I/flutter ( 4557):  x-render-origin-server: gunicorn
+11-03 15:44:55.550 I/flutter ( 4557):  access-control-allow-origin: *
+11-03 15:44:55.550 I/flutter ( 4557):  transfer-encoding: chunked
+11-03 15:44:55.550 I/flutter ( 4557):  date: Tue, 03 Nov 2026 12:44:56 GMT
+11-03 15:44:55.551 I/flutter ( 4557):  vary: Accept-Encoding
+11-03 15:44:55.551 I/flutter ( 4557):  content-encoding: gzip
+11-03 15:44:55.551 I/flutter ( 4557):  cf-cache-status: DYNAMIC
+11-03 15:44:55.551 I/flutter ( 4557):  content-type: application/json
+11-03 15:44:55.551 I/flutter ( 4557):  rndr-id: 8af5a1b4-4e72-49b4
+11-03 15:44:55.551 I/flutter ( 4557):  server: cloudflare
+11-03 15:44:55.551 I/flutter ( 4557):  alt-svc: h3=":443"; ma=86400
+11-03 15:44:55.576 I/flutter ( 4557):  cf-ray: a54b7924488de1ba-MRS
+11-03 15:44:55.578 I/flutter ( 4557): Response Text:
+11-03 15:44:55.579 I/flutter ( 4557): [{group_id: 20ff36d4-fe4f-44dd-b580-52ca5d6d8684, created_by: a2155266-4d31-463d-a4ae-c52d1f2c1d96, created_by_name: Test 45, name: Test 45, image_url: null, icon: null, type: individual, invite_code: null, created_at: 2026-08-23T19:17:24.187966+00:00, updated_at: 2026-08-23T19:17:24.187969+00:00, member_count: 1, role: admin}, {group_id: fd6b2c18-833d-487b-ab0a-f658e2222f26, created_by: a2155266-4d31-463d-a4ae-c52d1f2c1d96, created_by_name: Test 45, name: socket, image_url: null, icon: home, type: household, invite_code: 6ESO38, created_at: 2026-08-23T20:20:27.108284+00:00, updated_at: 2026-08-23T20:20:27.108287+00:00, member_count: 1, role: admin}, {group_id: 5b946a99-86c5-4149-923e-ad42f17329b4, created_by: a2155266-4d31-463d-a4ae-c52d1f2c1d96, created_by_name: Test 45, name: s1, image_url: null, icon: home, type: household, invite_code: HUTD47, created_at: 2026-08-23T20:20:41.215692+00:00, updated_at: 2026-08-23T20:20:41.215698+00:00, member_count: 1, role: admin}, {group_id: 0a82f1c1-1b38-4194-a34d-15f5
+11-03 15:44:55.579 I/flutter ( 4557): 
+11-03 15:44:57.277 I/flutter ( 4557): *** Request ***
+11-03 15:44:57.279 I/flutter ( 4557): uri: https://zaytona-app.onrender.com/api/v1/groups/20ff36d4-fe4f-44dd-b580-52ca5d6d8684
+11-03 15:44:57.284 I/flutter ( 4557): method: GET
+11-03 15:44:57.320 I/flutter ( 4557): responseType: ResponseType.json
+11-03 15:44:57.321 I/flutter ( 4557): followRedirects: true
+11-03 15:44:57.321 I/flutter ( 4557): persistentConnection: true
+11-03 15:44:57.321 I/flutter ( 4557): connectTimeout: 0:00:30.000000
+11-03 15:44:57.321 I/flutter ( 4557): sendTimeout: null
+11-03 15:44:57.321 I/flutter ( 4557): receiveTimeout: 0:00:30.000000
+11-03 15:44:57.321 I/flutter ( 4557): transformTimeout: null
+11-03 15:44:57.321 I/flutter ( 4557): receiveDataWhenStatusError: true
+11-03 15:44:57.321 I/flutter ( 4557): extra: {}
+11-03 15:44:57.321 I/flutter ( 4557): headers:
+11-03 15:44:57.321 I/flutter ( 4557):  Authorization: Bearer <redacted-jwt>
+11-03 15:44:57.322 I/flutter ( 4557): data:
+11-03 15:44:57.322 I/flutter ( 4557): null
+11-03 15:44:57.322 I/flutter ( 4557): 
+11-03 15:44:58.411 I/flutter ( 4557): *** Response ***
+11-03 15:44:58.421 I/flutter ( 4557): uri: https://zaytona-app.onrender.com/api/v1/groups/20ff36d4-fe4f-44dd-b580-52ca5d6d8684
+11-03 15:44:58.422 I/flutter ( 4557): statusCode: 200
+11-03 15:44:58.430 I/flutter ( 4557): statusMessage: OK
+11-03 15:44:58.430 I/flutter ( 4557): headers:
+11-03 15:44:58.430 I/flutter ( 4557):  connection: keep-alive
+11-03 15:44:58.430 I/flutter ( 4557):  x-render-origin-server: gunicorn
+11-03 15:44:58.436 I/flutter ( 4557):  access-control-allow-origin: *
+11-03 15:44:58.436 I/flutter ( 4557):  transfer-encoding: chunked
+11-03 15:44:58.437 I/flutter ( 4557):  date: Tue, 03 Nov 2026 12:44:59 GMT
+11-03 15:44:58.437 I/flutter ( 4557):  vary: Accept-Encoding
+11-03 15:44:58.438 I/flutter ( 4557):  content-encoding: gzip
+11-03 15:44:58.438 I/flutter ( 4557):  cf-cache-status: DYNAMIC
+11-03 15:44:58.438 I/flutter ( 4557):  content-type: application/json
+11-03 15:44:58.439 I/flutter ( 4557):  rndr-id: 0f6de333-6e46-4271
+11-03 15:44:58.446 I/flutter ( 4557):  server: cloudflare
+11-03 15:44:58.446 I/flutter ( 4557):  alt-svc: h3=":443"; ma=86400
+11-03 15:44:58.446 I/flutter ( 4557):  cf-ray: a54b79340814e1ba-MRS
+11-03 15:44:58.447 I/flutter ( 4557): Response Text:
+11-03 15:44:58.448 I/flutter ( 4557): {"group_id":"20ff36d4-fe4f-44dd-b580-52ca5d6d8684","created_by":"a2155266-4d31-463d-a4ae-c52d1f2c1d96","created_by_name":"Test 45","name":"Test 45","image_url":null,"icon":null,"type":"individual","invite_code":null,"created_at":"2026-08-23T19:17:24.187966+00:00","updated_at":"2026-08-23T19:17:24.187969+00:00","role":"admin","members":[{"member_id":"2f7ec4c0-e0a3-498b-80c7-d7cf581cf719","group_id":"20ff36d4-fe4f-44dd-b580-52ca5d6d8684","user_id":"a2155266-4d31-463d-a4ae-c52d1f2c1d96","first_name":"Test","last_name":"45","avatar_url":null,"role":"admin","joined_at":"2026-08-23T19:17:24.472070+00:00"}]}
+11-03 15:44:58.448 I/flutter ( 4557): 
+11-03 15:45:00.411 I/flutter ( 4557): *** Request ***
+11-03 15:45:00.411 I/flutter ( 4557): uri: https://zaytona-app.onrender.com/api/v1/groups/20ff36d4-fe4f-44dd-b580-52ca5d6d8684/lists
+11-03 15:45:00.411 I/flutter ( 4557): method: GET
+11-03 15:45:00.411 I/flutter ( 4557): responseType: ResponseType.json
+11-03 15:45:00.411 I/flutter ( 4557): followRedirects: true
+11-03 15:45:00.412 I/flutter ( 4557): persistentConnection: true
+11-03 15:45:00.412 I/flutter ( 4557): connectTimeout: 0:00:30.000000
+11-03 15:45:00.430 I/flutter ( 4557): sendTimeout: null
+11-03 15:45:00.430 I/flutter ( 4557): receiveTimeout: 0:00:30.000000
+11-03 15:45:00.430 I/flutter ( 4557): transformTimeout: null
+11-03 15:45:00.430 I/flutter ( 4557): receiveDataWhenStatusError: true
+11-03 15:45:00.430 I/flutter ( 4557): extra: {}
+11-03 15:45:00.430 I/flutter ( 4557): headers:
+11-03 15:45:00.430 I/flutter ( 4557):  Authorization: Bearer <redacted-jwt>
+11-03 15:45:00.430 I/flutter ( 4557): data:
+11-03 15:45:00.431 I/flutter ( 4557): null
+11-03 15:45:00.431 I/flutter ( 4557): 
+11-03 15:45:00.915 I/flutter ( 4557): *** Response ***
+11-03 15:45:00.916 I/flutter ( 4557): uri: https://zaytona-app.onrender.com/api/v1/groups/20ff36d4-fe4f-44dd-b580-52ca5d6d8684/lists
+11-03 15:45:00.918 I/flutter ( 4557): statusCode: 200
+11-03 15:45:00.918 I/flutter ( 4557): statusMessage: OK
+11-03 15:45:00.918 I/flutter ( 4557): headers:
+11-03 15:45:00.919 I/flutter ( 4557):  connection: keep-alive
+11-03 15:45:00.920 I/flutter ( 4557):  alt-svc: h3=":443"; ma=86400
+11-03 15:45:00.920 I/flutter ( 4557):  x-render-origin-server: gunicorn
+11-03 15:45:00.921 I/flutter ( 4557):  date: Tue, 03 Nov 2026 12:45:02 GMT
+11-03 15:45:00.921 I/flutter ( 4557):  transfer-encoding: chunked
+11-03 15:45:00.922 I/flutter ( 4557):  access-control-allow-origin: *
+11-03 15:45:00.922 I/flutter ( 4557):  vary: Accept-Encoding
+11-03 15:45:00.926 I/flutter ( 4557):  cf-ray: a54b79476a88e1ba-MRS
+11-03 15:45:00.927 I/flutter ( 4557):  cf-cache-status: DYNAMIC
+11-03 15:45:00.927 I/flutter ( 4557):  content-type: application/json
+11-03 15:45:00.927 I/flutter ( 4557):  rndr-id: 351af738-3934-4894
+11-03 15:45:00.927 I/flutter ( 4557):  server: cloudflare
+11-03 15:45:00.927 I/flutter ( 4557): Response Text:
+11-03 15:45:00.927 I/flutter ( 4557): []
+11-03 15:45:00.927 I/flutter ( 4557): 
+
+--------- beginning of main
+11-03 15:50:35.502 I/flutter ( 3219): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+11-03 15:50:36.044 I/flutter ( 3219): The Dart VM service is listening on http://127.0.0.1:41859/IWUyLCE8HPo=/
+11-03 15:50:44.589 I/flutter ( 3219): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+11-03 15:50:46.414 I/flutter ( 3219): *** Request ***
+11-03 15:50:46.438 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/categories
+11-03 15:50:46.439 I/flutter ( 3219): method: GET
+11-03 15:50:46.439 I/flutter ( 3219): responseType: ResponseType.json
+11-03 15:50:46.439 I/flutter ( 3219): followRedirects: true
+11-03 15:50:46.440 I/flutter ( 3219): persistentConnection: true
+11-03 15:50:46.450 I/flutter ( 3219): connectTimeout: 0:00:30.000000
+11-03 15:50:46.451 I/flutter ( 3219): sendTimeout: null
+11-03 15:50:46.451 I/flutter ( 3219): receiveTimeout: 0:00:30.000000
+11-03 15:50:46.451 I/flutter ( 3219): transformTimeout: null
+11-03 15:50:46.451 I/flutter ( 3219): receiveDataWhenStatusError: true
+11-03 15:50:46.461 I/flutter ( 3219): extra: {}
+11-03 15:50:46.462 I/flutter ( 3219): headers:
+11-03 15:50:46.465 I/flutter ( 3219):  Authorization: Bearer <redacted-jwt>
+11-03 15:50:46.467 I/flutter ( 3219): data:
+11-03 15:50:46.468 I/flutter ( 3219): null
+11-03 15:50:46.469 I/flutter ( 3219): 
+11-03 15:50:50.257 I/flutter ( 3219): *** Request ***
+11-03 15:50:50.257 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups
+11-03 15:50:50.257 I/flutter ( 3219): method: GET
+11-03 15:50:50.258 I/flutter ( 3219): responseType: ResponseType.json
+11-03 15:50:50.258 I/flutter ( 3219): followRedirects: true
+11-03 15:50:50.258 I/flutter ( 3219): persistentConnection: true
+11-03 15:50:50.258 I/flutter ( 3219): connectTimeout: 0:00:30.000000
+11-03 15:50:50.258 I/flutter ( 3219): sendTimeout: null
+11-03 15:50:50.258 I/flutter ( 3219): receiveTimeout: 0:00:30.000000
+11-03 15:50:50.258 I/flutter ( 3219): transformTimeout: null
+11-03 15:50:50.258 I/flutter ( 3219): receiveDataWhenStatusError: true
+11-03 15:50:50.258 I/flutter ( 3219): extra: {}
+11-03 15:50:50.258 I/flutter ( 3219): headers:
+11-03 15:50:50.258 I/flutter ( 3219):  Authorization: Bearer <redacted-jwt>
+11-03 15:50:50.258 I/flutter ( 3219): data:
+11-03 15:50:50.258 I/flutter ( 3219): null
+11-03 15:50:50.258 I/flutter ( 3219): 
+11-03 15:50:50.259 I/flutter ( 3219): *** Request ***
+11-03 15:50:50.259 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/devices
+11-03 15:50:50.259 I/flutter ( 3219): method: POST
+11-03 15:50:50.259 I/flutter ( 3219): responseType: ResponseType.json
+11-03 15:50:50.259 I/flutter ( 3219): followRedirects: true
+11-03 15:50:50.259 I/flutter ( 3219): persistentConnection: true
+11-03 15:50:50.259 I/flutter ( 3219): connectTimeout: 0:00:30.000000
+11-03 15:50:50.259 I/flutter ( 3219): sendTimeout: null
+11-03 15:50:50.259 I/flutter ( 3219): receiveTimeout: 0:00:30.000000
+11-03 15:50:50.259 I/flutter ( 3219): transformTimeout: null
+11-03 15:50:50.259 I/flutter ( 3219): receiveDataWhenStatusError: true
+11-03 15:50:50.259 I/flutter ( 3219): extra: {}
+11-03 15:50:50.259 I/flutter ( 3219): headers:
+11-03 15:50:50.259 I/flutter ( 3219):  content-type: application/json
+11-03 15:50:50.259 I/flutter ( 3219):  Authorization: Bearer <redacted-jwt>
+11-03 15:50:50.259 I/flutter ( 3219): data:
+11-03 15:50:50.259 I/flutter ( 3219): {fcm_token: <redacted-fcm-token>, platform: android}
+11-03 15:50:50.259 I/flutter ( 3219): 
+11-03 15:50:51.226 I/flutter ( 3219): *** Response ***
+11-03 15:50:51.231 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/categories
+11-03 15:50:51.231 I/flutter ( 3219): statusCode: 200
+11-03 15:50:51.231 I/flutter ( 3219): statusMessage: OK
+11-03 15:50:51.232 I/flutter ( 3219): headers:
+11-03 15:50:51.233 I/flutter ( 3219):  connection: keep-alive
+11-03 15:50:51.234 I/flutter ( 3219):  x-render-origin-server: gunicorn
+11-03 15:50:51.234 I/flutter ( 3219):  access-control-allow-origin: *
+11-03 15:50:51.234 I/flutter ( 3219):  transfer-encoding: chunked
+11-03 15:50:51.234 I/flutter ( 3219):  date: Tue, 03 Nov 2026 12:50:51 GMT
+11-03 15:50:51.234 I/flutter ( 3219):  vary: Accept-Encoding
+11-03 15:50:51.234 I/flutter ( 3219):  content-encoding: gzip
+11-03 15:50:51.234 I/flutter ( 3219):  cf-cache-status: DYNAMIC
+11-03 15:50:51.235 I/flutter ( 3219):  content-type: application/json
+11-03 15:50:51.235 I/flutter ( 3219):  rndr-id: 0cd6d6ec-e1e3-48ce
+11-03 15:50:51.235 I/flutter ( 3219):  server: cloudflare
+11-03 15:50:51.235 I/flutter ( 3219):  alt-svc: h3=":443"; ma=86400
+11-03 15:50:51.236 I/flutter ( 3219):  cf-ray: a54b81d14ec2e23a-MRS
+11-03 15:50:51.236 I/flutter ( 3219): Response Text:
+11-03 15:50:51.244 I/flutter ( 3219): [{category_id: 82cad0a0-dd5b-4abb-aa0d-eb47e14aa9e5, name: Fresh Produce, image_url: null, sort_order: 1}, {category_id: 07e7968d-a8cd-4e34-a14f-f5c4bf981a6a, name: Meat & Seafood, image_url: null, sort_order: 2}, {category_id: 0335162d-66c1-499a-a9b9-86e7ec0cc8a9, name: Dairy & Eggs, image_url: null, sort_order: 3}, {category_id: e36c45a2-a40f-44f4-81af-754c3d61afbc, name: Bakery, image_url: null, sort_order: 4}, {category_id: 595dbc15-e8b5-4b94-a6ee-4238b155fea5, name: Pantry, image_url: null, sort_order: 5}, {category_id: 988bdd2b-ea53-442b-a3e3-18b9b85ae9f9, name: Cooking Essentials, image_url: null, sort_order: 6}, {category_id: 8e514448-27d0-4c20-b424-2d6b745144ff, name: Breakfast, image_url: null, sort_order: 7}, {category_id: 80029737-bebc-491a-b987-fa7e483caefc, name: Snacks, image_url: null, sort_order: 8}, {category_id: 5566b910-8444-4d76-bcba-4eb8be67693b, name: Beverages, image_url: null, sort_order: 9}, {category_id: 3cf61147-a968-495e-b40e-2a58c26c1328, name: Frozen, image_url: null, sort_orde
+11-03 15:50:51.246 I/flutter ( 3219): 
+11-03 15:50:51.468 I/flutter ( 3219): *** Response ***
+11-03 15:50:51.468 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups
+11-03 15:50:51.468 I/flutter ( 3219): statusCode: 200
+11-03 15:50:51.468 I/flutter ( 3219): statusMessage: OK
+11-03 15:50:51.468 I/flutter ( 3219): headers:
+11-03 15:50:51.468 I/flutter ( 3219):  connection: keep-alive
+11-03 15:50:51.468 I/flutter ( 3219):  x-render-origin-server: gunicorn
+11-03 15:50:51.468 I/flutter ( 3219):  access-control-allow-origin: *
+11-03 15:50:51.468 I/flutter ( 3219):  transfer-encoding: chunked
+11-03 15:50:51.468 I/flutter ( 3219):  date: Tue, 03 Nov 2026 12:50:52 GMT
+11-03 15:50:51.468 I/flutter ( 3219):  vary: Accept-Encoding
+11-03 15:50:51.468 I/flutter ( 3219):  content-encoding: gzip
+11-03 15:50:51.468 I/flutter ( 3219):  cf-cache-status: DYNAMIC
+11-03 15:50:51.468 I/flutter ( 3219):  content-type: application/json
+11-03 15:50:51.469 I/flutter ( 3219):  rndr-id: 06c74718-93a7-4aac
+11-03 15:50:51.469 I/flutter ( 3219):  server: cloudflare
+11-03 15:50:51.469 I/flutter ( 3219):  alt-svc: h3=":443"; ma=86400
+11-03 15:50:51.469 I/flutter ( 3219):  cf-ray: a54b81d45efd658b-MRS
+11-03 15:50:51.469 I/flutter ( 3219): Response Text:
+11-03 15:50:51.469 I/flutter ( 3219): [{group_id: 20ff36d4-fe4f-44dd-b580-52ca5d6d8684, created_by: a2155266-4d31-463d-a4ae-c52d1f2c1d96, created_by_name: Test 45, name: Test 45, image_url: null, icon: null, type: individual, invite_code: null, created_at: 2026-08-23T19:17:24.187966+00:00, updated_at: 2026-08-23T19:17:24.187969+00:00, member_count: 1, role: admin}, {group_id: fd6b2c18-833d-487b-ab0a-f658e2222f26, created_by: a2155266-4d31-463d-a4ae-c52d1f2c1d96, created_by_name: Test 45, name: socket, image_url: null, icon: home, type: household, invite_code: 6ESO38, created_at: 2026-08-23T20:20:27.108284+00:00, updated_at: 2026-08-23T20:20:27.108287+00:00, member_count: 1, role: admin}, {group_id: 5b946a99-86c5-4149-923e-ad42f17329b4, created_by: a2155266-4d31-463d-a4ae-c52d1f2c1d96, created_by_name: Test 45, name: s1, image_url: null, icon: home, type: household, invite_code: HUTD47, created_at: 2026-08-23T20:20:41.215692+00:00, updated_at: 2026-08-23T20:20:41.215698+00:00, member_count: 1, role: admin}, {group_id: 0a82f1c1-1b38-4194-a34d-15f5
+11-03 15:50:51.469 I/flutter ( 3219): 
+11-03 15:50:51.471 I/flutter ( 3219): *** Response ***
+11-03 15:50:51.471 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/devices
+11-03 15:50:51.471 I/flutter ( 3219): statusCode: 200
+11-03 15:50:51.471 I/flutter ( 3219): statusMessage: OK
+11-03 15:50:51.471 I/flutter ( 3219): headers:
+11-03 15:50:51.471 I/flutter ( 3219):  connection: keep-alive
+11-03 15:50:51.472 I/flutter ( 3219):  x-render-origin-server: gunicorn
+11-03 15:50:51.472 I/flutter ( 3219):  access-control-allow-origin: *
+11-03 15:50:51.473 I/flutter ( 3219):  transfer-encoding: chunked
+11-03 15:50:51.473 I/flutter ( 3219):  date: Tue, 03 Nov 2026 12:50:52 GMT
+11-03 15:50:51.473 I/flutter ( 3219):  vary: Accept-Encoding
+11-03 15:50:51.473 I/flutter ( 3219):  content-encoding: gzip
+11-03 15:50:51.473 I/flutter ( 3219):  cf-cache-status: DYNAMIC
+11-03 15:50:51.473 I/flutter ( 3219):  content-type: application/json
+11-03 15:50:51.473 I/flutter ( 3219):  rndr-id: fcbdcc51-d2eb-40b9
+11-03 15:50:51.473 I/flutter ( 3219):  server: cloudflare
+11-03 15:50:51.473 I/flutter ( 3219):  alt-svc: h3=":443"; ma=86400
+11-03 15:50:51.473 I/flutter ( 3219):  cf-ray: a54b81d45f1a636c-MRS
+11-03 15:50:51.473 I/flutter ( 3219): Response Text:
+11-03 15:50:51.473 I/flutter ( 3219): {"device_id":"26c11d08-9b6f-43f6-ad4c-b71a1fe14ae4","user_id":"a2155266-4d31-463d-a4ae-c52d1f2c1d96","fcm_token":"<redacted-fcm-token>","platform":"android","updated_at":"2026-11-03T12:50:52.287326+00:00"}
+11-03 15:50:51.473 I/flutter ( 3219): 
+11-03 15:50:52.933 I/flutter ( 3219): *** Request ***
+11-03 15:50:52.933 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/20ff36d4-fe4f-44dd-b580-52ca5d6d8684
+11-03 15:50:52.933 I/flutter ( 3219): method: GET
+11-03 15:50:52.933 I/flutter ( 3219): responseType: ResponseType.json
+11-03 15:50:52.933 I/flutter ( 3219): followRedirects: true
+11-03 15:50:52.933 I/flutter ( 3219): persistentConnection: true
+11-03 15:50:52.934 I/flutter ( 3219): connectTimeout: 0:00:30.000000
+11-03 15:50:52.934 I/flutter ( 3219): sendTimeout: null
+11-03 15:50:52.934 I/flutter ( 3219): receiveTimeout: 0:00:30.000000
+11-03 15:50:52.934 I/flutter ( 3219): transformTimeout: null
+11-03 15:50:52.934 I/flutter ( 3219): receiveDataWhenStatusError: true
+11-03 15:50:52.934 I/flutter ( 3219): extra: {}
+11-03 15:50:52.934 I/flutter ( 3219): headers:
+11-03 15:50:52.934 I/flutter ( 3219):  Authorization: Bearer <redacted-jwt>
+11-03 15:50:52.934 I/flutter ( 3219): data:
+11-03 15:50:52.934 I/flutter ( 3219): null
+11-03 15:50:52.934 I/flutter ( 3219): 
+11-03 15:50:53.173 I/flutter ( 3219): *** Response ***
+11-03 15:50:53.173 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/20ff36d4-fe4f-44dd-b580-52ca5d6d8684
+11-03 15:50:53.173 I/flutter ( 3219): statusCode: 200
+11-03 15:50:53.173 I/flutter ( 3219): statusMessage: OK
+11-03 15:50:53.173 I/flutter ( 3219): headers:
+11-03 15:50:53.173 I/flutter ( 3219):  connection: keep-alive
+11-03 15:50:53.173 I/flutter ( 3219):  x-render-origin-server: gunicorn
+11-03 15:50:53.173 I/flutter ( 3219):  access-control-allow-origin: *
+11-03 15:50:53.173 I/flutter ( 3219):  transfer-encoding: chunked
+11-03 15:50:53.173 I/flutter ( 3219):  date: Tue, 03 Nov 2026 12:50:54 GMT
+11-03 15:50:53.174 I/flutter ( 3219):  vary: Accept-Encoding
+11-03 15:50:53.174 I/flutter ( 3219):  content-encoding: gzip
+11-03 15:50:53.174 I/flutter ( 3219):  cf-cache-status: DYNAMIC
+11-03 15:50:53.174 I/flutter ( 3219):  content-type: application/json
+11-03 15:50:53.174 I/flutter ( 3219):  rndr-id: a291f4d9-4971-44c5
+11-03 15:50:53.174 I/flutter ( 3219):  server: cloudflare
+11-03 15:50:53.174 I/flutter ( 3219):  alt-svc: h3=":443"; ma=86400
+11-03 15:50:53.174 I/flutter ( 3219):  cf-ray: a54b81e05909636c-MRS
+11-03 15:50:53.174 I/flutter ( 3219): Response Text:
+11-03 15:50:53.174 I/flutter ( 3219): {"group_id":"20ff36d4-fe4f-44dd-b580-52ca5d6d8684","created_by":"a2155266-4d31-463d-a4ae-c52d1f2c1d96","created_by_name":"Test 45","name":"Test 45","image_url":null,"icon":null,"type":"individual","invite_code":null,"created_at":"2026-08-23T19:17:24.187966+00:00","updated_at":"2026-08-23T19:17:24.187969+00:00","role":"admin","members":[{"member_id":"2f7ec4c0-e0a3-498b-80c7-d7cf581cf719","group_id":"20ff36d4-fe4f-44dd-b580-52ca5d6d8684","user_id":"a2155266-4d31-463d-a4ae-c52d1f2c1d96","first_name":"Test","last_name":"45","avatar_url":null,"role":"admin","joined_at":"2026-08-23T19:17:24.472070+00:00"}]}
+11-03 15:50:53.174 I/flutter ( 3219): 
+11-03 15:50:53.783 I/flutter ( 3219): *** Request ***
+11-03 15:50:53.784 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/20ff36d4-fe4f-44dd-b580-52ca5d6d8684/lists
+11-03 15:50:53.784 I/flutter ( 3219): method: GET
+11-03 15:50:53.784 I/flutter ( 3219): responseType: ResponseType.json
+11-03 15:50:53.784 I/flutter ( 3219): followRedirects: true
+11-03 15:50:53.784 I/flutter ( 3219): persistentConnection: true
+11-03 15:50:53.784 I/flutter ( 3219): connectTimeout: 0:00:30.000000
+11-03 15:50:53.784 I/flutter ( 3219): sendTimeout: null
+11-03 15:50:53.784 I/flutter ( 3219): receiveTimeout: 0:00:30.000000
+11-03 15:50:53.784 I/flutter ( 3219): transformTimeout: null
+11-03 15:50:53.784 I/flutter ( 3219): receiveDataWhenStatusError: true
+11-03 15:50:53.784 I/flutter ( 3219): extra: {}
+11-03 15:50:53.784 I/flutter ( 3219): headers:
+11-03 15:50:53.784 I/flutter ( 3219):  Authorization: Bearer <redacted-jwt>
+11-03 15:50:53.784 I/flutter ( 3219): data:
+11-03 15:50:53.784 I/flutter ( 3219): null
+11-03 15:50:53.784 I/flutter ( 3219): 
+11-03 15:50:53.981 I/flutter ( 3219): *** Response ***
+11-03 15:50:53.982 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/20ff36d4-fe4f-44dd-b580-52ca5d6d8684/lists
+11-03 15:50:53.982 I/flutter ( 3219): statusCode: 200
+11-03 15:50:53.982 I/flutter ( 3219): statusMessage: OK
+11-03 15:50:53.982 I/flutter ( 3219): headers:
+11-03 15:50:53.982 I/flutter ( 3219):  connection: keep-alive
+11-03 15:50:53.982 I/flutter ( 3219):  alt-svc: h3=":443"; ma=86400
+11-03 15:50:53.982 I/flutter ( 3219):  x-render-origin-server: gunicorn
+11-03 15:50:53.982 I/flutter ( 3219):  date: Tue, 03 Nov 2026 12:50:55 GMT
+11-03 15:50:53.982 I/flutter ( 3219):  transfer-encoding: chunked
+11-03 15:50:53.982 I/flutter ( 3219):  access-control-allow-origin: *
+11-03 15:50:53.982 I/flutter ( 3219):  vary: Accept-Encoding
+11-03 15:50:53.982 I/flutter ( 3219):  cf-ray: a54b81e5afdf636c-MRS
+11-03 15:50:53.982 I/flutter ( 3219):  cf-cache-status: DYNAMIC
+11-03 15:50:53.982 I/flutter ( 3219):  content-type: application/json
+11-03 15:50:53.983 I/flutter ( 3219):  rndr-id: bd297fa8-e0ee-4220
+11-03 15:50:53.983 I/flutter ( 3219):  server: cloudflare
+11-03 15:50:53.983 I/flutter ( 3219): Response Text:
+11-03 15:50:53.983 I/flutter ( 3219): []
+11-03 15:50:53.983 I/flutter ( 3219): 
+11-03 15:52:12.441 I/flutter ( 3219): *** Request ***
+11-03 15:52:12.441 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/join
+11-03 15:52:12.441 I/flutter ( 3219): method: POST
+11-03 15:52:12.441 I/flutter ( 3219): responseType: ResponseType.json
+11-03 15:52:12.441 I/flutter ( 3219): followRedirects: true
+11-03 15:52:12.441 I/flutter ( 3219): persistentConnection: true
+11-03 15:52:12.441 I/flutter ( 3219): connectTimeout: 0:00:30.000000
+11-03 15:52:12.441 I/flutter ( 3219): sendTimeout: null
+11-03 15:52:12.441 I/flutter ( 3219): receiveTimeout: 0:00:30.000000
+11-03 15:52:12.441 I/flutter ( 3219): transformTimeout: null
+11-03 15:52:12.441 I/flutter ( 3219): receiveDataWhenStatusError: true
+11-03 15:52:12.441 I/flutter ( 3219): extra: {}
+11-03 15:52:12.441 I/flutter ( 3219): headers:
+11-03 15:52:12.441 I/flutter ( 3219):  content-type: application/json
+11-03 15:52:12.441 I/flutter ( 3219):  Authorization: Bearer <redacted-jwt>
+11-03 15:52:12.441 I/flutter ( 3219): data:
+11-03 15:52:12.441 I/flutter ( 3219): {invite_code: m1pzjv}
+11-03 15:52:12.441 I/flutter ( 3219): 
+11-03 15:52:13.987 I/flutter ( 3219): *** Response ***
+11-03 15:52:13.987 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/join
+11-03 15:52:13.987 I/flutter ( 3219): statusCode: 200
+11-03 15:52:13.987 I/flutter ( 3219): statusMessage: OK
+11-03 15:52:13.987 I/flutter ( 3219): headers:
+11-03 15:52:13.987 I/flutter ( 3219):  connection: keep-alive
+11-03 15:52:13.987 I/flutter ( 3219):  x-render-origin-server: gunicorn
+11-03 15:52:13.987 I/flutter ( 3219):  access-control-allow-origin: *
+11-03 15:52:13.987 I/flutter ( 3219):  transfer-encoding: chunked
+11-03 15:52:13.987 I/flutter ( 3219):  date: Tue, 03 Nov 2026 12:52:14 GMT
+11-03 15:52:13.987 I/flutter ( 3219):  vary: Accept-Encoding
+11-03 15:52:13.987 I/flutter ( 3219):  content-encoding: gzip
+11-03 15:52:13.987 I/flutter ( 3219):  cf-cache-status: DYNAMIC
+11-03 15:52:13.987 I/flutter ( 3219):  content-type: application/json
+11-03 15:52:13.987 I/flutter ( 3219):  rndr-id: 9dd0e58f-d553-4bac
+11-03 15:52:13.987 I/flutter ( 3219):  server: cloudflare
+11-03 15:52:13.987 I/flutter ( 3219):  alt-svc: h3=":443"; ma=86400
+11-03 15:52:13.987 I/flutter ( 3219):  cf-ray: a54b83d89cd7e1d0-MRS
+11-03 15:52:13.987 I/flutter ( 3219): Response Text:
+11-03 15:52:13.987 I/flutter ( 3219): {"group_id":"1e0d3385-7906-4e46-aa41-acb9d44362c4","created_by":"43a71112-2544-4b07-aea0-3b0248eda949","created_by_name":"hi hhh","name":"QA UI Family","image_url":null,"icon":"cart","type":"household","invite_code":"M1PZJV","created_at":"2026-11-02T21:50:22.432633+00:00","updated_at":"2026-11-02T21:50:22.432639+00:00"}
+11-03 15:52:13.987 I/flutter ( 3219): 
+11-03 15:52:14.002 I/flutter ( 3219): *** Request ***
+11-03 15:52:14.003 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups
+11-03 15:52:14.003 I/flutter ( 3219): method: GET
+11-03 15:52:14.003 I/flutter ( 3219): responseType: ResponseType.json
+11-03 15:52:14.003 I/flutter ( 3219): followRedirects: true
+11-03 15:52:14.003 I/flutter ( 3219): persistentConnection: true
+11-03 15:52:14.003 I/flutter ( 3219): connectTimeout: 0:00:30.000000
+11-03 15:52:14.003 I/flutter ( 3219): sendTimeout: null
+11-03 15:52:14.003 I/flutter ( 3219): receiveTimeout: 0:00:30.000000
+11-03 15:52:14.003 I/flutter ( 3219): transformTimeout: null
+11-03 15:52:14.003 I/flutter ( 3219): receiveDataWhenStatusError: true
+11-03 15:52:14.003 I/flutter ( 3219): extra: {}
+11-03 15:52:14.003 I/flutter ( 3219): headers:
+11-03 15:52:14.003 I/flutter ( 3219):  Authorization: Bearer <redacted-jwt>
+11-03 15:52:14.003 I/flutter ( 3219): data:
+11-03 15:52:14.003 I/flutter ( 3219): null
+11-03 15:52:14.003 I/flutter ( 3219): 
+11-03 15:52:14.134 I/flutter ( 3219): *** Request ***
+11-03 15:52:14.135 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/1e0d3385-7906-4e46-aa41-acb9d44362c4
+11-03 15:52:14.135 I/flutter ( 3219): method: GET
+11-03 15:52:14.135 I/flutter ( 3219): responseType: ResponseType.json
+11-03 15:52:14.135 I/flutter ( 3219): followRedirects: true
+11-03 15:52:14.135 I/flutter ( 3219): persistentConnection: true
+11-03 15:52:14.135 I/flutter ( 3219): connectTimeout: 0:00:30.000000
+11-03 15:52:14.135 I/flutter ( 3219): sendTimeout: null
+11-03 15:52:14.135 I/flutter ( 3219): receiveTimeout: 0:00:30.000000
+11-03 15:52:14.135 I/flutter ( 3219): transformTimeout: null
+11-03 15:52:14.135 I/flutter ( 3219): receiveDataWhenStatusError: true
+11-03 15:52:14.135 I/flutter ( 3219): extra: {}
+11-03 15:52:14.135 I/flutter ( 3219): headers:
+11-03 15:52:14.135 I/flutter ( 3219):  Authorization: Bearer <redacted-jwt>
+11-03 15:52:14.135 I/flutter ( 3219): data:
+11-03 15:52:14.135 I/flutter ( 3219): null
+11-03 15:52:14.135 I/flutter ( 3219): 
+11-03 15:52:14.302 I/flutter ( 3219): *** Response ***
+11-03 15:52:14.303 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups
+11-03 15:52:14.303 I/flutter ( 3219): statusCode: 200
+11-03 15:52:14.303 I/flutter ( 3219): statusMessage: OK
+11-03 15:52:14.303 I/flutter ( 3219): headers:
+11-03 15:52:14.303 I/flutter ( 3219):  connection: keep-alive
+11-03 15:52:14.303 I/flutter ( 3219):  x-render-origin-server: gunicorn
+11-03 15:52:14.303 I/flutter ( 3219):  access-control-allow-origin: *
+11-03 15:52:14.303 I/flutter ( 3219):  transfer-encoding: chunked
+11-03 15:52:14.303 I/flutter ( 3219):  date: Tue, 03 Nov 2026 12:52:15 GMT
+11-03 15:52:14.303 I/flutter ( 3219):  vary: Accept-Encoding
+11-03 15:52:14.303 I/flutter ( 3219):  content-encoding: gzip
+11-03 15:52:14.303 I/flutter ( 3219):  cf-cache-status: DYNAMIC
+11-03 15:52:14.303 I/flutter ( 3219):  content-type: application/json
+11-03 15:52:14.303 I/flutter ( 3219):  rndr-id: 5db6e2a3-6533-47a4
+11-03 15:52:14.303 I/flutter ( 3219):  server: cloudflare
+11-03 15:52:14.303 I/flutter ( 3219):  alt-svc: h3=":443"; ma=86400
+11-03 15:52:14.303 I/flutter ( 3219):  cf-ray: a54b83db7d04e1d0-MRS
+11-03 15:52:14.303 I/flutter ( 3219): Response Text:
+11-03 15:52:14.303 I/flutter ( 3219): [{group_id: 20ff36d4-fe4f-44dd-b580-52ca5d6d8684, created_by: a2155266-4d31-463d-a4ae-c52d1f2c1d96, created_by_name: Test 45, name: Test 45, image_url: null, icon: null, type: individual, invite_code: null, created_at: 2026-08-23T19:17:24.187966+00:00, updated_at: 2026-08-23T19:17:24.187969+00:00, member_count: 1, role: admin}, {group_id: fd6b2c18-833d-487b-ab0a-f658e2222f26, created_by: a2155266-4d31-463d-a4ae-c52d1f2c1d96, created_by_name: Test 45, name: socket, image_url: null, icon: home, type: household, invite_code: 6ESO38, created_at: 2026-08-23T20:20:27.108284+00:00, updated_at: 2026-08-23T20:20:27.108287+00:00, member_count: 1, role: admin}, {group_id: 5b946a99-86c5-4149-923e-ad42f17329b4, created_by: a2155266-4d31-463d-a4ae-c52d1f2c1d96, created_by_name: Test 45, name: s1, image_url: null, icon: home, type: household, invite_code: HUTD47, created_at: 2026-08-23T20:20:41.215692+00:00, updated_at: 2026-08-23T20:20:41.215698+00:00, member_count: 1, role: admin}, {group_id: 0a82f1c1-1b38-4194-a34d-15f5
+11-03 15:52:14.303 I/flutter ( 3219): 
+11-03 15:52:14.468 I/flutter ( 3219): *** Request ***
+11-03 15:52:14.468 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/20ff36d4-fe4f-44dd-b580-52ca5d6d8684
+11-03 15:52:14.468 I/flutter ( 3219): method: GET
+11-03 15:52:14.468 I/flutter ( 3219): responseType: ResponseType.json
+11-03 15:52:14.468 I/flutter ( 3219): followRedirects: true
+11-03 15:52:14.468 I/flutter ( 3219): persistentConnection: true
+11-03 15:52:14.468 I/flutter ( 3219): connectTimeout: 0:00:30.000000
+11-03 15:52:14.468 I/flutter ( 3219): sendTimeout: null
+11-03 15:52:14.468 I/flutter ( 3219): receiveTimeout: 0:00:30.000000
+11-03 15:52:14.468 I/flutter ( 3219): transformTimeout: null
+11-03 15:52:14.468 I/flutter ( 3219): receiveDataWhenStatusError: true
+11-03 15:52:14.468 I/flutter ( 3219): extra: {}
+11-03 15:52:14.468 I/flutter ( 3219): headers:
+11-03 15:52:14.469 I/flutter ( 3219):  Authorization: Bearer <redacted-jwt>
+11-03 15:52:14.469 I/flutter ( 3219): data:
+11-03 15:52:14.469 I/flutter ( 3219): null
+11-03 15:52:14.469 I/flutter ( 3219): 
+11-03 15:52:14.703 I/flutter ( 3219): *** Response ***
+11-03 15:52:14.704 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/20ff36d4-fe4f-44dd-b580-52ca5d6d8684
+11-03 15:52:14.704 I/flutter ( 3219): statusCode: 200
+11-03 15:52:14.704 I/flutter ( 3219): statusMessage: OK
+11-03 15:52:14.704 I/flutter ( 3219): headers:
+11-03 15:52:14.704 I/flutter ( 3219):  connection: keep-alive
+11-03 15:52:14.704 I/flutter ( 3219):  x-render-origin-server: gunicorn
+11-03 15:52:14.704 I/flutter ( 3219):  access-control-allow-origin: *
+11-03 15:52:14.704 I/flutter ( 3219):  transfer-encoding: chunked
+11-03 15:52:14.704 I/flutter ( 3219):  date: Tue, 03 Nov 2026 12:52:15 GMT
+11-03 15:52:14.704 I/flutter ( 3219):  vary: Accept-Encoding
+11-03 15:52:14.704 I/flutter ( 3219):  content-encoding: gzip
+11-03 15:52:14.704 I/flutter ( 3219):  cf-cache-status: DYNAMIC
+11-03 15:52:14.704 I/flutter ( 3219):  content-type: application/json
+11-03 15:52:14.704 I/flutter ( 3219):  rndr-id: 3b472b01-24af-45a4
+11-03 15:52:14.704 I/flutter ( 3219):  server: cloudflare
+11-03 15:52:14.704 I/flutter ( 3219):  alt-svc: h3=":443"; ma=86400
+11-03 15:52:14.704 I/flutter ( 3219):  cf-ray: a54b83ddfc12e1d0-MRS
+11-03 15:52:14.704 I/flutter ( 3219): Response Text:
+11-03 15:52:14.704 I/flutter ( 3219): {"group_id":"20ff36d4-fe4f-44dd-b580-52ca5d6d8684","created_by":"a2155266-4d31-463d-a4ae-c52d1f2c1d96","created_by_name":"Test 45","name":"Test 45","image_url":null,"icon":null,"type":"individual","invite_code":null,"created_at":"2026-08-23T19:17:24.187966+00:00","updated_at":"2026-08-23T19:17:24.187969+00:00","role":"admin","members":[{"member_id":"2f7ec4c0-e0a3-498b-80c7-d7cf581cf719","group_id":"20ff36d4-fe4f-44dd-b580-52ca5d6d8684","user_id":"a2155266-4d31-463d-a4ae-c52d1f2c1d96","first_name":"Test","last_name":"45","avatar_url":null,"role":"admin","joined_at":"2026-08-23T19:17:24.472070+00:00"}]}
+11-03 15:52:14.704 I/flutter ( 3219): 
+11-03 15:52:14.786 I/flutter ( 3219): *** Request ***
+11-03 15:52:14.786 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/20ff36d4-fe4f-44dd-b580-52ca5d6d8684/lists
+11-03 15:52:14.786 I/flutter ( 3219): method: GET
+11-03 15:52:14.786 I/flutter ( 3219): responseType: ResponseType.json
+11-03 15:52:14.786 I/flutter ( 3219): followRedirects: true
+11-03 15:52:14.786 I/flutter ( 3219): persistentConnection: true
+11-03 15:52:14.786 I/flutter ( 3219): connectTimeout: 0:00:30.000000
+11-03 15:52:14.786 I/flutter ( 3219): sendTimeout: null
+11-03 15:52:14.786 I/flutter ( 3219): receiveTimeout: 0:00:30.000000
+11-03 15:52:14.786 I/flutter ( 3219): transformTimeout: null
+11-03 15:52:14.786 I/flutter ( 3219): receiveDataWhenStatusError: true
+11-03 15:52:14.786 I/flutter ( 3219): extra: {}
+11-03 15:52:14.786 I/flutter ( 3219): headers:
+11-03 15:52:14.786 I/flutter ( 3219):  Authorization: Bearer <redacted-jwt>
+11-03 15:52:14.786 I/flutter ( 3219): data:
+11-03 15:52:14.786 I/flutter ( 3219): null
+11-03 15:52:14.786 I/flutter ( 3219): 
+11-03 15:52:14.946 I/flutter ( 3219): *** Response ***
+11-03 15:52:14.946 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/1e0d3385-7906-4e46-aa41-acb9d44362c4
+11-03 15:52:14.946 I/flutter ( 3219): statusCode: 200
+11-03 15:52:14.946 I/flutter ( 3219): statusMessage: OK
+11-03 15:52:14.946 I/flutter ( 3219): headers:
+11-03 15:52:14.946 I/flutter ( 3219):  connection: keep-alive
+11-03 15:52:14.947 I/flutter ( 3219):  x-render-origin-server: gunicorn
+11-03 15:52:14.947 I/flutter ( 3219):  access-control-allow-origin: *
+11-03 15:52:14.947 I/flutter ( 3219):  transfer-encoding: chunked
+11-03 15:52:14.947 I/flutter ( 3219):  date: Tue, 03 Nov 2026 12:52:15 GMT
+11-03 15:52:14.947 I/flutter ( 3219):  vary: Accept-Encoding
+11-03 15:52:14.947 I/flutter ( 3219):  content-encoding: gzip
+11-03 15:52:14.947 I/flutter ( 3219):  cf-cache-status: DYNAMIC
+11-03 15:52:14.947 I/flutter ( 3219):  content-type: application/json
+11-03 15:52:14.947 I/flutter ( 3219):  rndr-id: a8185b56-6559-4bbd
+11-03 15:52:14.947 I/flutter ( 3219):  server: cloudflare
+11-03 15:52:14.947 I/flutter ( 3219):  alt-svc: h3=":443"; ma=86400
+11-03 15:52:14.947 I/flutter ( 3219):  cf-ray: a54b83df4c0a99b3-MRS
+11-03 15:52:14.947 I/flutter ( 3219): Response Text:
+11-03 15:52:14.947 I/flutter ( 3219): {"group_id":"1e0d3385-7906-4e46-aa41-acb9d44362c4","created_by":"43a71112-2544-4b07-aea0-3b0248eda949","created_by_name":"hi hhh","name":"QA UI Family","image_url":null,"icon":"cart","type":"household","invite_code":"M1PZJV","created_at":"2026-11-02T21:50:22.432633+00:00","updated_at":"2026-11-02T21:50:22.432639+00:00","role":"member","members":[{"member_id":"83ae0433-2def-471d-bc6b-c80696076a3e","group_id":"1e0d3385-7906-4e46-aa41-acb9d44362c4","user_id":"a2155266-4d31-463d-a4ae-c52d1f2c1d96","first_name":"Test","last_name":"45","avatar_url":null,"role":"member","joined_at":"2026-11-03T12:52:14.932042+00:00"},{"member_id":"2d058731-8d10-466c-ab12-4b3e0e6a11b3","group_id":"1e0d3385-7906-4e46-aa41-acb9d44362c4","user_id":"43a71112-2544-4b07-aea0-3b0248eda949","first_name":"hi","last_name":"hhh","avatar_url":"https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-6.png?","role":"admin","joined_at":"2026-11-02T21:50:22.464304+00:00"}]}
+11-03 15:52:14.947 I/flutter ( 3219): 
+11-03 15:52:14.990 I/flutter ( 3219): *** Request ***
+11-03 15:52:14.990 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/1e0d3385-7906-4e46-aa41-acb9d44362c4/members
+11-03 15:52:14.990 I/flutter ( 3219): method: GET
+11-03 15:52:14.990 I/flutter ( 3219): responseType: ResponseType.json
+11-03 15:52:14.990 I/flutter ( 3219): followRedirects: true
+11-03 15:52:14.990 I/flutter ( 3219): persistentConnection: true
+11-03 15:52:14.990 I/flutter ( 3219): connectTimeout: 0:00:30.000000
+11-03 15:52:14.990 I/flutter ( 3219): sendTimeout: null
+11-03 15:52:14.990 I/flutter ( 3219): receiveTimeout: 0:00:30.000000
+11-03 15:52:14.990 I/flutter ( 3219): transformTimeout: null
+11-03 15:52:14.990 I/flutter ( 3219): receiveDataWhenStatusError: true
+11-03 15:52:14.990 I/flutter ( 3219): extra: {}
+11-03 15:52:14.990 I/flutter ( 3219): headers:
+11-03 15:52:14.990 I/flutter ( 3219):  Authorization: Bearer <redacted-jwt>
+11-03 15:52:14.990 I/flutter ( 3219): data:
+11-03 15:52:14.990 I/flutter ( 3219): null
+11-03 15:52:14.990 I/flutter ( 3219): 
+11-03 15:52:15.089 I/flutter ( 3219): *** Response ***
+11-03 15:52:15.089 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/20ff36d4-fe4f-44dd-b580-52ca5d6d8684/lists
+11-03 15:52:15.089 I/flutter ( 3219): statusCode: 200
+11-03 15:52:15.089 I/flutter ( 3219): statusMessage: OK
+11-03 15:52:15.089 I/flutter ( 3219): headers:
+11-03 15:52:15.090 I/flutter ( 3219):  connection: keep-alive
+11-03 15:52:15.090 I/flutter ( 3219):  alt-svc: h3=":443"; ma=86400
+11-03 15:52:15.090 I/flutter ( 3219):  x-render-origin-server: gunicorn
+11-03 15:52:15.090 I/flutter ( 3219):  date: Tue, 03 Nov 2026 12:52:16 GMT
+11-03 15:52:15.090 I/flutter ( 3219):  transfer-encoding: chunked
+11-03 15:52:15.090 I/flutter ( 3219):  access-control-allow-origin: *
+11-03 15:52:15.090 I/flutter ( 3219):  vary: Accept-Encoding
+11-03 15:52:15.090 I/flutter ( 3219):  cf-ray: a54b83dff9f9e1d0-MRS
+11-03 15:52:15.090 I/flutter ( 3219):  cf-cache-status: DYNAMIC
+11-03 15:52:15.090 I/flutter ( 3219):  content-type: application/json
+11-03 15:52:15.090 I/flutter ( 3219):  rndr-id: dc033f7f-31f3-4b62
+11-03 15:52:15.090 I/flutter ( 3219):  server: cloudflare
+11-03 15:52:15.090 I/flutter ( 3219): Response Text:
+11-03 15:52:15.090 I/flutter ( 3219): []
+11-03 15:52:15.090 I/flutter ( 3219): 
+11-03 15:52:15.272 I/flutter ( 3219): *** Response ***
+11-03 15:52:15.272 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/1e0d3385-7906-4e46-aa41-acb9d44362c4/members
+11-03 15:52:15.272 I/flutter ( 3219): statusCode: 200
+11-03 15:52:15.272 I/flutter ( 3219): statusMessage: OK
+11-03 15:52:15.272 I/flutter ( 3219): headers:
+11-03 15:52:15.272 I/flutter ( 3219):  connection: keep-alive
+11-03 15:52:15.272 I/flutter ( 3219):  x-render-origin-server: gunicorn
+11-03 15:52:15.272 I/flutter ( 3219):  access-control-allow-origin: *
+11-03 15:52:15.272 I/flutter ( 3219):  transfer-encoding: chunked
+11-03 15:52:15.272 I/flutter ( 3219):  date: Tue, 03 Nov 2026 12:52:16 GMT
+11-03 15:52:15.272 I/flutter ( 3219):  vary: Accept-Encoding
+11-03 15:52:15.272 I/flutter ( 3219):  content-encoding: gzip
+11-03 15:52:15.273 I/flutter ( 3219):  cf-cache-status: DYNAMIC
+11-03 15:52:15.273 I/flutter ( 3219):  content-type: application/json
+11-03 15:52:15.273 I/flutter ( 3219):  rndr-id: 388847e8-a523-42bf
+11-03 15:52:15.273 I/flutter ( 3219):  server: cloudflare
+11-03 15:52:15.273 I/flutter ( 3219):  alt-svc: h3=":443"; ma=86400
+11-03 15:52:15.273 I/flutter ( 3219):  cf-ray: a54b83e14a3999b3-MRS
+11-03 15:52:15.273 I/flutter ( 3219): Response Text:
+11-03 15:52:15.273 I/flutter ( 3219): [{member_id: 83ae0433-2def-471d-bc6b-c80696076a3e, group_id: 1e0d3385-7906-4e46-aa41-acb9d44362c4, user_id: a2155266-4d31-463d-a4ae-c52d1f2c1d96, first_name: Test, last_name: 45, avatar_url: null, role: member, joined_at: 2026-11-03T12:52:14.932042+00:00}, {member_id: 2d058731-8d10-466c-ab12-4b3e0e6a11b3, group_id: 1e0d3385-7906-4e46-aa41-acb9d44362c4, user_id: 43a71112-2544-4b07-aea0-3b0248eda949, first_name: hi, last_name: hhh, avatar_url: https://zttfiymkqrbzblutbrjr.supabase.co/storage/v1/object/public/avatars/av-6.png?, role: admin, joined_at: 2026-11-02T21:50:22.464304+00:00}]
+11-03 15:52:15.273 I/flutter ( 3219): 
+11-03 15:52:15.280 E/flutter ( 3219): [ERROR:flutter/runtime/dart_vm_initializer.cc(40)] Unhandled Exception: Bad state: Cannot emit new states after calling close
+11-03 15:52:15.280 E/flutter ( 3219): #0      BlocBase.emit (package:bloc/src/bloc_base.dart:100:9)
+11-03 15:52:15.280 E/flutter ( 3219): #1      GetGroupCubit.load.<anonymous closure>.<anonymous closure> (package:zaytona/features/groups/presentation/cubit/groups/get_group_cubit.dart:29:24)
+11-03 15:52:15.280 E/flutter ( 3219): #2      Result.fold (package:zaytona/core/error/result.dart:16:48)
+11-03 15:52:15.280 E/flutter ( 3219): #3      GetGroupCubit.load.<anonymous closure> (package:zaytona/features/groups/presentation/cubit/groups/get_group_cubit.dart:27:23)
+11-03 15:52:15.280 E/flutter ( 3219): <asynchronous suspension>
+11-03 15:52:15.280 E/flutter ( 3219): #4      GetGroupCubit.load (package:zaytona/features/groups/presentation/cubit/groups/get_group_cubit.dart:18:5)
+11-03 15:52:15.280 E/flutter ( 3219): <asynchronous suspension>
+11-03 15:52:15.280 E/flutter ( 3219): 
+11-03 15:52:46.663 I/flutter ( 3219): *** Request ***
+11-03 15:52:46.663 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/join
+11-03 15:52:46.663 I/flutter ( 3219): method: POST
+11-03 15:52:46.663 I/flutter ( 3219): responseType: ResponseType.json
+11-03 15:52:46.663 I/flutter ( 3219): followRedirects: true
+11-03 15:52:46.663 I/flutter ( 3219): persistentConnection: true
+11-03 15:52:46.664 I/flutter ( 3219): connectTimeout: 0:00:30.000000
+11-03 15:52:46.664 I/flutter ( 3219): sendTimeout: null
+11-03 15:52:46.664 I/flutter ( 3219): receiveTimeout: 0:00:30.000000
+11-03 15:52:46.664 I/flutter ( 3219): transformTimeout: null
+11-03 15:52:46.664 I/flutter ( 3219): receiveDataWhenStatusError: true
+11-03 15:52:46.664 I/flutter ( 3219): extra: {}
+11-03 15:52:46.664 I/flutter ( 3219): headers:
+11-03 15:52:46.664 I/flutter ( 3219):  content-type: application/json
+11-03 15:52:46.664 I/flutter ( 3219):  Authorization: Bearer <redacted-jwt>
+11-03 15:52:46.664 I/flutter ( 3219): data:
+11-03 15:52:46.664 I/flutter ( 3219): {invite_code: m1pzjv}
+11-03 15:52:46.664 I/flutter ( 3219): 
+11-03 15:52:48.344 I/flutter ( 3219): *** DioException ***:
+11-03 15:52:48.344 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/join
+11-03 15:52:48.345 I/flutter ( 3219): DioException [bad response]: This exception was thrown because the response has a status code of 409 and RequestOptions.validateStatus was configured to throw for this status code.
+11-03 15:52:48.345 I/flutter ( 3219): The status code of 409 has the following meaning: "Client error - the request contains bad syntax or cannot be fulfilled"
+11-03 15:52:48.345 I/flutter ( 3219): Read more about status codes at https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+11-03 15:52:48.345 I/flutter ( 3219): In order to resolve this exception you typically have either to verify and fix your request code or you have to fix the server code.
+11-03 15:52:48.345 I/flutter ( 3219): *** Response ***
+11-03 15:52:48.345 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/join
+11-03 15:52:48.345 I/flutter ( 3219): statusCode: 409
+11-03 15:52:48.345 I/flutter ( 3219): statusMessage: Conflict
+11-03 15:52:48.345 I/flutter ( 3219): headers:
+11-03 15:52:48.345 I/flutter ( 3219):  connection: keep-alive
+11-03 15:52:48.345 I/flutter ( 3219):  alt-svc: h3=":443"; ma=86400
+11-03 15:52:48.345 I/flutter ( 3219):  x-render-origin-server: gunicorn
+11-03 15:52:48.345 I/flutter ( 3219):  date: Tue, 03 Nov 2026 12:52:49 GMT
+11-03 15:52:48.345 I/flutter ( 3219):  transfer-encoding: chunked
+11-03 15:52:48.345 I/flutter ( 3219):  access-control-allow-origin: *
+11-03 15:52:48.345 I/flutter ( 3219):  vary: Accept-Encoding
+11-03 15:52:48.345 I/flutter ( 3219):  cf-ray: a54b84b07845cc66-MRS
+11-03 15:52:48.345 I/flutter ( 3219):  cf-cache-status: DYNAMIC
+11-03 15:52:48.345 I/flutter ( 3219):  content-type: application/json
+11-03 15:52:48.345 I/flutter ( 3219):  rndr-id: 857face6-b114-40d5
+11-03 15:52:48.345 I/flutter ( 3219):  server: cloudflare
+11-03 15:52:48.345 I/flutter ( 3219): Response Text:
+11-03 15:52:48.345 I/flutter ( 3219): {"message":"Already a member of this group"}
+11-03 15:52:48.345 I/flutter ( 3219): 
+11-03 15:52:48.346 I/flutter ( 3219): 
+11-03 15:55:19.593 I/flutter ( 3219): [IMPORTANT:flutter/shell/platform/android/android_context_gl_impeller.cc(104)] Using the Impeller rendering backend (OpenGLES).
+11-03 15:55:21.530 I/flutter ( 3219): *** Request ***
+11-03 15:55:21.537 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/categories
+11-03 15:55:21.538 I/flutter ( 3219): method: GET
+11-03 15:55:21.538 I/flutter ( 3219): responseType: ResponseType.json
+11-03 15:55:21.538 I/flutter ( 3219): followRedirects: true
+11-03 15:55:21.538 I/flutter ( 3219): persistentConnection: true
+11-03 15:55:21.539 I/flutter ( 3219): connectTimeout: 0:00:30.000000
+11-03 15:55:21.539 I/flutter ( 3219): sendTimeout: null
+11-03 15:55:21.539 I/flutter ( 3219): receiveTimeout: 0:00:30.000000
+11-03 15:55:21.539 I/flutter ( 3219): transformTimeout: null
+11-03 15:55:21.539 I/flutter ( 3219): receiveDataWhenStatusError: true
+11-03 15:55:21.542 I/flutter ( 3219): extra: {}
+11-03 15:55:21.542 I/flutter ( 3219): headers:
+11-03 15:55:21.543 I/flutter ( 3219):  Authorization: Bearer <redacted-jwt>
+11-03 15:55:21.543 I/flutter ( 3219): data:
+11-03 15:55:21.543 I/flutter ( 3219): null
+11-03 15:55:21.543 I/flutter ( 3219): 
+11-03 15:55:23.068 I/flutter ( 3219): *** Request ***
+11-03 15:55:23.068 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups
+11-03 15:55:23.068 I/flutter ( 3219): method: GET
+11-03 15:55:23.068 I/flutter ( 3219): responseType: ResponseType.json
+11-03 15:55:23.068 I/flutter ( 3219): followRedirects: true
+11-03 15:55:23.068 I/flutter ( 3219): persistentConnection: true
+11-03 15:55:23.068 I/flutter ( 3219): connectTimeout: 0:00:30.000000
+11-03 15:55:23.068 I/flutter ( 3219): sendTimeout: null
+11-03 15:55:23.068 I/flutter ( 3219): receiveTimeout: 0:00:30.000000
+11-03 15:55:23.068 I/flutter ( 3219): transformTimeout: null
+11-03 15:55:23.068 I/flutter ( 3219): receiveDataWhenStatusError: true
+11-03 15:55:23.068 I/flutter ( 3219): extra: {}
+11-03 15:55:23.068 I/flutter ( 3219): headers:
+11-03 15:55:23.068 I/flutter ( 3219):  Authorization: Bearer <redacted-jwt>
+11-03 15:55:23.068 I/flutter ( 3219): data:
+11-03 15:55:23.068 I/flutter ( 3219): null
+11-03 15:55:23.068 I/flutter ( 3219): 
+11-03 15:55:23.341 I/flutter ( 3219): *** Request ***
+11-03 15:55:23.341 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/devices
+11-03 15:55:23.341 I/flutter ( 3219): method: POST
+11-03 15:55:23.341 I/flutter ( 3219): responseType: ResponseType.json
+11-03 15:55:23.341 I/flutter ( 3219): followRedirects: true
+11-03 15:55:23.341 I/flutter ( 3219): persistentConnection: true
+11-03 15:55:23.341 I/flutter ( 3219): connectTimeout: 0:00:30.000000
+11-03 15:55:23.341 I/flutter ( 3219): sendTimeout: null
+11-03 15:55:23.341 I/flutter ( 3219): receiveTimeout: 0:00:30.000000
+11-03 15:55:23.341 I/flutter ( 3219): transformTimeout: null
+11-03 15:55:23.341 I/flutter ( 3219): receiveDataWhenStatusError: true
+11-03 15:55:23.342 I/flutter ( 3219): extra: {}
+11-03 15:55:23.342 I/flutter ( 3219): headers:
+11-03 15:55:23.342 I/flutter ( 3219):  content-type: application/json
+11-03 15:55:23.342 I/flutter ( 3219):  Authorization: Bearer <redacted-jwt>
+11-03 15:55:23.342 I/flutter ( 3219): data:
+11-03 15:55:23.342 I/flutter ( 3219): {fcm_token: <redacted-fcm-token>, platform: android}
+11-03 15:55:23.342 I/flutter ( 3219): 
+11-03 15:55:23.535 I/flutter ( 3219): *** Response ***
+11-03 15:55:23.539 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/categories
+11-03 15:55:23.540 I/flutter ( 3219): statusCode: 200
+11-03 15:55:23.540 I/flutter ( 3219): statusMessage: OK
+11-03 15:55:23.540 I/flutter ( 3219): headers:
+11-03 15:55:23.542 I/flutter ( 3219):  connection: keep-alive
+11-03 15:55:23.542 I/flutter ( 3219):  x-render-origin-server: gunicorn
+11-03 15:55:23.542 I/flutter ( 3219):  access-control-allow-origin: *
+11-03 15:55:23.542 I/flutter ( 3219):  transfer-encoding: chunked
+11-03 15:55:23.542 I/flutter ( 3219):  date: Tue, 03 Nov 2026 12:55:24 GMT
+11-03 15:55:23.542 I/flutter ( 3219):  vary: Accept-Encoding
+11-03 15:55:23.542 I/flutter ( 3219):  content-encoding: gzip
+11-03 15:55:23.543 I/flutter ( 3219):  cf-cache-status: DYNAMIC
+11-03 15:55:23.543 I/flutter ( 3219):  content-type: application/json
+11-03 15:55:23.543 I/flutter ( 3219):  rndr-id: f89c5749-7386-45a9
+11-03 15:55:23.543 I/flutter ( 3219):  server: cloudflare
+11-03 15:55:23.543 I/flutter ( 3219):  alt-svc: h3=":443"; ma=86400
+11-03 15:55:23.543 I/flutter ( 3219):  cf-ray: a54b8878987ae162-MRS
+11-03 15:55:23.543 I/flutter ( 3219): Response Text:
+11-03 15:55:23.544 I/flutter ( 3219): [{category_id: 82cad0a0-dd5b-4abb-aa0d-eb47e14aa9e5, name: Fresh Produce, image_url: null, sort_order: 1}, {category_id: 07e7968d-a8cd-4e34-a14f-f5c4bf981a6a, name: Meat & Seafood, image_url: null, sort_order: 2}, {category_id: 0335162d-66c1-499a-a9b9-86e7ec0cc8a9, name: Dairy & Eggs, image_url: null, sort_order: 3}, {category_id: e36c45a2-a40f-44f4-81af-754c3d61afbc, name: Bakery, image_url: null, sort_order: 4}, {category_id: 595dbc15-e8b5-4b94-a6ee-4238b155fea5, name: Pantry, image_url: null, sort_order: 5}, {category_id: 988bdd2b-ea53-442b-a3e3-18b9b85ae9f9, name: Cooking Essentials, image_url: null, sort_order: 6}, {category_id: 8e514448-27d0-4c20-b424-2d6b745144ff, name: Breakfast, image_url: null, sort_order: 7}, {category_id: 80029737-bebc-491a-b987-fa7e483caefc, name: Snacks, image_url: null, sort_order: 8}, {category_id: 5566b910-8444-4d76-bcba-4eb8be67693b, name: Beverages, image_url: null, sort_order: 9}, {category_id: 3cf61147-a968-495e-b40e-2a58c26c1328, name: Frozen, image_url: null, sort_orde
+11-03 15:55:23.545 I/flutter ( 3219): 
+11-03 15:55:24.122 I/flutter ( 3219): *** Response ***
+11-03 15:55:24.123 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups
+11-03 15:55:24.123 I/flutter ( 3219): statusCode: 200
+11-03 15:55:24.123 I/flutter ( 3219): statusMessage: OK
+11-03 15:55:24.123 I/flutter ( 3219): headers:
+11-03 15:55:24.123 I/flutter ( 3219):  connection: keep-alive
+11-03 15:55:24.123 I/flutter ( 3219):  x-render-origin-server: gunicorn
+11-03 15:55:24.123 I/flutter ( 3219):  access-control-allow-origin: *
+11-03 15:55:24.123 I/flutter ( 3219):  transfer-encoding: chunked
+11-03 15:55:24.123 I/flutter ( 3219):  date: Tue, 03 Nov 2026 12:55:25 GMT
+11-03 15:55:24.123 I/flutter ( 3219):  vary: Accept-Encoding
+11-03 15:55:24.123 I/flutter ( 3219):  content-encoding: gzip
+11-03 15:55:24.123 I/flutter ( 3219):  cf-cache-status: DYNAMIC
+11-03 15:55:24.123 I/flutter ( 3219):  content-type: application/json
+11-03 15:55:24.123 I/flutter ( 3219):  rndr-id: 7ab93cff-6f5b-4c9e
+11-03 15:55:24.123 I/flutter ( 3219):  server: cloudflare
+11-03 15:55:24.123 I/flutter ( 3219):  alt-svc: h3=":443"; ma=86400
+11-03 15:55:24.123 I/flutter ( 3219):  cf-ray: a54b887d8ceae1b0-MRS
+11-03 15:55:24.123 I/flutter ( 3219): Response Text:
+11-03 15:55:24.123 I/flutter ( 3219): [{group_id: 20ff36d4-fe4f-44dd-b580-52ca5d6d8684, created_by: a2155266-4d31-463d-a4ae-c52d1f2c1d96, created_by_name: Test 45, name: Test 45, image_url: null, icon: null, type: individual, invite_code: null, created_at: 2026-08-23T19:17:24.187966+00:00, updated_at: 2026-08-23T19:17:24.187969+00:00, member_count: 1, role: admin}, {group_id: fd6b2c18-833d-487b-ab0a-f658e2222f26, created_by: a2155266-4d31-463d-a4ae-c52d1f2c1d96, created_by_name: Test 45, name: socket, image_url: null, icon: home, type: household, invite_code: 6ESO38, created_at: 2026-08-23T20:20:27.108284+00:00, updated_at: 2026-08-23T20:20:27.108287+00:00, member_count: 1, role: admin}, {group_id: 5b946a99-86c5-4149-923e-ad42f17329b4, created_by: a2155266-4d31-463d-a4ae-c52d1f2c1d96, created_by_name: Test 45, name: s1, image_url: null, icon: home, type: household, invite_code: HUTD47, created_at: 2026-08-23T20:20:41.215692+00:00, updated_at: 2026-08-23T20:20:41.215698+00:00, member_count: 1, role: admin}, {group_id: 0a82f1c1-1b38-4194-a34d-15f5
+11-03 15:55:24.123 I/flutter ( 3219): 
+11-03 15:55:24.355 I/flutter ( 3219): *** Response ***
+11-03 15:55:24.355 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/devices
+11-03 15:55:24.355 I/flutter ( 3219): statusCode: 200
+11-03 15:55:24.355 I/flutter ( 3219): statusMessage: OK
+11-03 15:55:24.355 I/flutter ( 3219): headers:
+11-03 15:55:24.355 I/flutter ( 3219):  connection: keep-alive
+11-03 15:55:24.355 I/flutter ( 3219):  x-render-origin-server: gunicorn
+11-03 15:55:24.355 I/flutter ( 3219):  access-control-allow-origin: *
+11-03 15:55:24.355 I/flutter ( 3219):  transfer-encoding: chunked
+11-03 15:55:24.355 I/flutter ( 3219):  date: Tue, 03 Nov 2026 12:55:25 GMT
+11-03 15:55:24.355 I/flutter ( 3219):  vary: Accept-Encoding
+11-03 15:55:24.355 I/flutter ( 3219):  content-encoding: gzip
+11-03 15:55:24.355 I/flutter ( 3219):  cf-cache-status: DYNAMIC
+11-03 15:55:24.355 I/flutter ( 3219):  content-type: application/json
+11-03 15:55:24.355 I/flutter ( 3219):  rndr-id: 88b290a5-3252-4b07
+11-03 15:55:24.355 I/flutter ( 3219):  server: cloudflare
+11-03 15:55:24.355 I/flutter ( 3219):  alt-svc: h3=":443"; ma=86400
+11-03 15:55:24.355 I/flutter ( 3219):  cf-ray: a54b887efac55ee7-MRS
+11-03 15:55:24.355 I/flutter ( 3219): Response Text:
+11-03 15:55:24.355 I/flutter ( 3219): {"device_id":"26c11d08-9b6f-43f6-ad4c-b71a1fe14ae4","user_id":"a2155266-4d31-463d-a4ae-c52d1f2c1d96","fcm_token":"<redacted-fcm-token>","platform":"android","updated_at":"2026-11-03T12:50:52.287326+00:00"}
+11-03 15:55:24.355 I/flutter ( 3219): 
+11-03 15:55:25.679 I/flutter ( 3219): *** Request ***
+11-03 15:55:25.679 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/20ff36d4-fe4f-44dd-b580-52ca5d6d8684
+11-03 15:55:25.679 I/flutter ( 3219): method: GET
+11-03 15:55:25.679 I/flutter ( 3219): responseType: ResponseType.json
+11-03 15:55:25.679 I/flutter ( 3219): followRedirects: true
+11-03 15:55:25.679 I/flutter ( 3219): persistentConnection: true
+11-03 15:55:25.679 I/flutter ( 3219): connectTimeout: 0:00:30.000000
+11-03 15:55:25.679 I/flutter ( 3219): sendTimeout: null
+11-03 15:55:25.679 I/flutter ( 3219): receiveTimeout: 0:00:30.000000
+11-03 15:55:25.679 I/flutter ( 3219): transformTimeout: null
+11-03 15:55:25.679 I/flutter ( 3219): receiveDataWhenStatusError: true
+11-03 15:55:25.680 I/flutter ( 3219): extra: {}
+11-03 15:55:25.680 I/flutter ( 3219): headers:
+11-03 15:55:25.680 I/flutter ( 3219):  Authorization: Bearer <redacted-jwt>
+11-03 15:55:25.680 I/flutter ( 3219): data:
+11-03 15:55:25.680 I/flutter ( 3219): null
+11-03 15:55:25.680 I/flutter ( 3219): 
+11-03 15:55:25.865 I/flutter ( 3219): *** Response ***
+11-03 15:55:25.866 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/20ff36d4-fe4f-44dd-b580-52ca5d6d8684
+11-03 15:55:25.866 I/flutter ( 3219): statusCode: 200
+11-03 15:55:25.866 I/flutter ( 3219): statusMessage: OK
+11-03 15:55:25.866 I/flutter ( 3219): headers:
+11-03 15:55:25.866 I/flutter ( 3219):  connection: keep-alive
+11-03 15:55:25.866 I/flutter ( 3219):  x-render-origin-server: gunicorn
+11-03 15:55:25.866 I/flutter ( 3219):  access-control-allow-origin: *
+11-03 15:55:25.866 I/flutter ( 3219):  transfer-encoding: chunked
+11-03 15:55:25.866 I/flutter ( 3219):  date: Tue, 03 Nov 2026 12:55:26 GMT
+11-03 15:55:25.866 I/flutter ( 3219):  vary: Accept-Encoding
+11-03 15:55:25.866 I/flutter ( 3219):  content-encoding: gzip
+11-03 15:55:25.866 I/flutter ( 3219):  cf-cache-status: DYNAMIC
+11-03 15:55:25.866 I/flutter ( 3219):  content-type: application/json
+11-03 15:55:25.866 I/flutter ( 3219):  rndr-id: e6120d77-2bb2-442e
+11-03 15:55:25.866 I/flutter ( 3219):  server: cloudflare
+11-03 15:55:25.866 I/flutter ( 3219):  alt-svc: h3=":443"; ma=86400
+11-03 15:55:25.866 I/flutter ( 3219):  cf-ray: a54b88890ae5e162-MRS
+11-03 15:55:25.866 I/flutter ( 3219): Response Text:
+11-03 15:55:25.866 I/flutter ( 3219): {"group_id":"20ff36d4-fe4f-44dd-b580-52ca5d6d8684","created_by":"a2155266-4d31-463d-a4ae-c52d1f2c1d96","created_by_name":"Test 45","name":"Test 45","image_url":null,"icon":null,"type":"individual","invite_code":null,"created_at":"2026-08-23T19:17:24.187966+00:00","updated_at":"2026-08-23T19:17:24.187969+00:00","role":"admin","members":[{"member_id":"2f7ec4c0-e0a3-498b-80c7-d7cf581cf719","group_id":"20ff36d4-fe4f-44dd-b580-52ca5d6d8684","user_id":"a2155266-4d31-463d-a4ae-c52d1f2c1d96","first_name":"Test","last_name":"45","avatar_url":null,"role":"admin","joined_at":"2026-08-23T19:17:24.472070+00:00"}]}
+11-03 15:55:25.866 I/flutter ( 3219): 
+11-03 15:55:26.367 I/flutter ( 3219): *** Request ***
+11-03 15:55:26.367 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/20ff36d4-fe4f-44dd-b580-52ca5d6d8684/lists
+11-03 15:55:26.367 I/flutter ( 3219): method: GET
+11-03 15:55:26.367 I/flutter ( 3219): responseType: ResponseType.json
+11-03 15:55:26.367 I/flutter ( 3219): followRedirects: true
+11-03 15:55:26.367 I/flutter ( 3219): persistentConnection: true
+11-03 15:55:26.367 I/flutter ( 3219): connectTimeout: 0:00:30.000000
+11-03 15:55:26.367 I/flutter ( 3219): sendTimeout: null
+11-03 15:55:26.367 I/flutter ( 3219): receiveTimeout: 0:00:30.000000
+11-03 15:55:26.367 I/flutter ( 3219): transformTimeout: null
+11-03 15:55:26.367 I/flutter ( 3219): receiveDataWhenStatusError: true
+11-03 15:55:26.367 I/flutter ( 3219): extra: {}
+11-03 15:55:26.367 I/flutter ( 3219): headers:
+11-03 15:55:26.367 I/flutter ( 3219):  Authorization: Bearer <redacted-jwt>
+11-03 15:55:26.367 I/flutter ( 3219): data:
+11-03 15:55:26.367 I/flutter ( 3219): null
+11-03 15:55:26.367 I/flutter ( 3219): 
+11-03 15:55:26.560 I/flutter ( 3219): *** Response ***
+11-03 15:55:26.560 I/flutter ( 3219): uri: https://zaytona-app.onrender.com/api/v1/groups/20ff36d4-fe4f-44dd-b580-52ca5d6d8684/lists
+11-03 15:55:26.560 I/flutter ( 3219): statusCode: 200
+11-03 15:55:26.560 I/flutter ( 3219): statusMessage: OK
+11-03 15:55:26.560 I/flutter ( 3219): headers:
+11-03 15:55:26.560 I/flutter ( 3219):  connection: keep-alive
+11-03 15:55:26.560 I/flutter ( 3219):  alt-svc: h3=":443"; ma=86400
+11-03 15:55:26.560 I/flutter ( 3219):  x-render-origin-server: gunicorn
+11-03 15:55:26.560 I/flutter ( 3219):  date: Tue, 03 Nov 2026 12:55:27 GMT
+11-03 15:55:26.560 I/flutter ( 3219):  transfer-encoding: chunked
+11-03 15:55:26.561 I/flutter ( 3219):  access-control-allow-origin: *
+11-03 15:55:26.561 I/flutter ( 3219):  vary: Accept-Encoding
+11-03 15:55:26.561 I/flutter ( 3219):  cf-ray: a54b888d4f8be162-MRS
+11-03 15:55:26.561 I/flutter ( 3219):  cf-cache-status: DYNAMIC
+11-03 15:55:26.561 I/flutter ( 3219):  content-type: application/json
+11-03 15:55:26.561 I/flutter ( 3219):  rndr-id: 758c4586-abc4-4264
+11-03 15:55:26.561 I/flutter ( 3219):  server: cloudflare
+11-03 15:55:26.561 I/flutter ( 3219): Response Text:
+11-03 15:55:26.561 I/flutter ( 3219): []
+11-03 15:55:26.561 I/flutter ( 3219): 
