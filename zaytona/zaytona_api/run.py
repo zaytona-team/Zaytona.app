@@ -6,6 +6,8 @@ or:        flask --app run run --debug
 
 .env is loaded by app.config on import, so no explicit load here.
 """
+import sys
+
 import eventlet
 
 # Must happen before any other import that touches sockets/threading
@@ -17,7 +19,12 @@ import eventlet
 # event loop entirely — every connection hangs, not just that request.
 # `gunicorn --worker-class eventlet` (Procfile) patches this itself, but
 # `python run.py` -> socketio.run() does not, so it has to happen here.
-eventlet.monkey_patch()
+# Skipped under the `flask` CLI (`flask seed-categories`, ...): it has
+# already imported Flask by now, so patching this late crashes on
+# werkzeug's current_app proxy — and one-shot CLI commands don't serve
+# concurrent clients anyway.
+if "flask" not in sys.modules:
+    eventlet.monkey_patch()
 
 import logging
 
@@ -34,9 +41,11 @@ app = create_app()
 # ── Register custom CLI commands ───────────────────────────
 # Each command is defined in scripts/ and registered here so it's
 # available via `flask <command>` from the project root.
+from scripts.bootstrap import bootstrap_supabase
 from scripts.seed import seed_categories
 
 app.cli.add_command(seed_categories)
+app.cli.add_command(bootstrap_supabase)
 
 if __name__ == "__main__":
     # host=0.0.0.0 so an emulator / physical phone on the LAN can reach it.
